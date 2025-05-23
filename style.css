@@ -5,11 +5,14 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #111;
   background-color: #fff;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navigation */
@@ -83,8 +86,8 @@ body {
   background: url('images/hero.jpg') no-repeat center center/cover;
   height: 85vh;
   position: relative;
-  margin-top: 60px; /* offset for fixed nav */
   overflow: hidden;
+  padding-top: 60px; /* pushes content below fixed navbar */
 }
 
 .overlay {
