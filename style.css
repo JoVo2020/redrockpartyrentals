@@ -71,30 +71,31 @@ body {
 
 /* Hero */
 .hero {
-  background: url('images/hero.jpeg') no-repeat center center/cover;
-  height: 80vh;
+  background: url('images/hero.jpg') no-repeat center center/cover;
+  height: 85vh;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero .overlay {
-  background: rgba(0, 0, 0, 0.4);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
   text-align: center;
-  color: white;
-  padding: 0 1rem;
+  padding: 6rem 1rem 3rem;
 }
 
 .hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  color: #fff;
 }
 
 .hero-text p {
   font-size: 1.25rem;
+  color: #eee;
 }
 
 /* Rentals Section */
