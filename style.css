@@ -1,0 +1,200 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #111;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #111;
+  list-style: none;
+  top: 100%;
+  left: 0;
+  padding: 0.5rem;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  margin: 0.3rem 0;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  background: url('images/hero.jpg') no-repeat center center/cover;
+  height: 80vh;
+  position: relative;
+}
+
+.hero .overlay {
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+}
+
+/* Rentals Section */
+.rentals {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.rentals h2 {
+  font-size: 2rem;
+  color: #8b0000;
+  margin-bottom: 2rem;
+}
+
+.rental-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.rental-items .item {
+  max-width: 250px;
+}
+
+.rental-items img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  margin-bottom: 0.5rem;
+}
+
+.rental-items p {
+  font-weight: bold;
+  color: #8b0000;
+}
+
+/* Button */
+.cta-button a {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background: #8b0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Description */
+.description {
+  padding: 2rem 1rem;
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  color: #8b0000;
+  font-size: 1.1rem;
+}
+
+/* Booking Section */
+.booking {
+  text-align: center;
+  padding: 2rem 1rem 4rem;
+  font-size: 1.1rem;
+}
+
+.booking h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #8b0000;
+}
+
+.booking a {
+  color: #8b0000;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .rental-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.75rem;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    padding: 1rem;
+  }
+}
