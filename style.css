@@ -1,4 +1,4 @@
-/* Base Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.9);
   position: fixed;
   width: 100%;
   top: 0;
@@ -82,23 +82,28 @@ body {
 .hero {
   background: url('images/hero.jpg') no-repeat center center/cover;
   height: 85vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  text-align: center;
-  padding-bottom: 4rem;
-  margin-top: 60px; /* offset for fixed navbar */
+  position: relative;
+  margin-top: 60px; /* offset for fixed nav */
+  overflow: hidden;
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 2rem 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Full image overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 .hero-text h1 {
   font-size: 3rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
   line-height: 1.2;
   color: #fff;
   font-weight: 600;
@@ -125,4 +130,90 @@ body {
 
 .rental-items {
   display: flex;
-  justify-content: c
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.rental-items .item {
+  max-width: 250px;
+}
+
+.rental-items img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  margin-bottom: 0.5rem;
+}
+
+.rental-items p {
+  font-weight: bold;
+  color: #8b0000;
+}
+
+/* Button */
+.cta-button a {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background: #8b0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Description */
+.description {
+  padding: 2rem 1rem;
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  color: #8b0000;
+  font-size: 1.1rem;
+}
+
+/* Booking Section */
+.booking {
+  text-align: center;
+  padding: 2rem 1rem 4rem;
+  font-size: 1.1rem;
+}
+
+.booking h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #8b0000;
+}
+
+.booking a {
+  color: #8b0000;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .rental-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.75rem;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    padding: 1rem;
+  }
+}
