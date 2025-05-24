@@ -68,7 +68,7 @@ html, body {
 
 /* Rentals Section */
 .rentals { padding: 3rem 1rem 2rem 1rem; text-align: center; }
-.rentals h2 { font-size: 2.4rem; color: #8b0000; margin-bottom: 2rem; font-weight: 400; }
+.rentals h2 { font-size: 3rem; color: #8b0000; margin-bottom: 2rem; font-weight: 400; }
 .rental-items { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.8rem; }
 .rental-items .item { max-width: 250px; }
 .rental-items img { width: 100%; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.18); margin-bottom: 0.5rem; }
@@ -88,8 +88,8 @@ html, body {
 }
 
 /* Booking Section */
-.booking { text-align: center; padding: 2rem 1rem 3rem; font-size: 1.3rem; font-weight: 400; }
-.booking h3 { font-size: 2rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; }
+.booking { text-align: center; padding: 2rem 1rem 3rem; font-size: 1.65rem; font-weight: 400; }
+.booking h3 { font-size: 3rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; }
 .booking a { color: #8b0000; text-decoration: underline; }
 section { margin-bottom: 1rem; }
 
