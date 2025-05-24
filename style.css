@@ -90,10 +90,11 @@ header,
 /* Hero Section */
 .hero {
   background: url('images/hero.jpg') no-repeat center center/cover;
+  background-attachment: fixed;  /* Anchors hero image */
   height: 85vh;
   position: relative;
   overflow: hidden;
-  padding-top: 60px; /* pushes content below fixed navbar */
+  padding-top: 60px;
 }
 
 .overlay {
