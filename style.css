@@ -1,17 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap');
 
 /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
   height: 100%;
   font-family: 'Lora', serif;
   color: #111;
-  background-color: #fff;
+  background: #fff;
   line-height: 1.6;
 }
 
@@ -21,321 +17,129 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background: rgba(0, 0, 0, 0.0); /* Transparent by default */
+  background: rgba(0,0,0,0.0); /* transparent initially */
   position: fixed;
   width: 100%;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   z-index: 1000;
   transition: background 0.3s;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 }
-
-.navbar.scrolled {
-  background: rgba(0, 0, 0, 0.93);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: white;
-  font-size: 1.25rem;
-  font-family: 'Lora', serif;
-}
-
-.logo img {
-  height: 32px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 1em;
-}
-
-.dropdown {
-  position: relative;
-}
-
+.navbar.scrolled { background: rgba(0,0,0,0.93); }
+.logo { display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 1.25rem; }
+.logo img { height: 32px; }
+.nav-links { list-style: none; display: flex; gap: 1.5rem; }
+.nav-links a { color: white; text-decoration: none; font-weight: 400; font-size: 1em; }
+.dropdown { position: relative; }
 .dropdown-menu {
-  display: none;
-  position: absolute;
-  background: #111;
-  list-style: none;
-  top: 100%;
-  left: 0;
-  padding: 0.5rem;
+  display: none; position: absolute; background: #111; list-style: none;
+  top: 100%; left: 0; padding: 0.5rem;
 }
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-menu li {
-  margin: 0.3rem 0;
-}
-
-.dropdown-menu a {
-  color: white;
-  text-decoration: none;
-}
-
-/* Hamburger for mobile (add this to your HTML for hamburger support) */
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu li { margin: 0.3rem 0; }
+.dropdown-menu a { color: white; text-decoration: none; }
 .menu-toggle {
-  display: none;
+  display: none; background: none; border: none; color: white;
+  font-size: 2.3rem; margin-left: 1rem; cursor: pointer; z-index: 1100;
 }
 
 /* Hero Section */
 .hero {
   background: url('images/hero.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 80vh;
-  position: relative;
-  padding-top: 64px;
-  min-height: 540px;
+  height: 80vh; min-height: 480px;
+  position: relative; padding-top: 64px;
 }
-
 .overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.35);
+  display: flex; justify-content: center; align-items: center;
+  text-align: center; padding: 1rem;
 }
-
 .hero-text h1 {
-  font-size: 3.5rem;
-  color: #fff;
-  font-weight: 400;
-  line-height: 1.1;
-  margin-bottom: 0.6rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  font-size: 3.5rem; color: #fff; font-weight: 400;
+  line-height: 1.1; margin-bottom: 0.6rem; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
   letter-spacing: -1px;
 }
-
 .hero-text p {
-  font-size: 1.7rem;
-  color: #f0f0f0;
-  font-weight: 400;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  margin-top: 0.3rem;
+  font-size: 1.7rem; color: #f0f0f0; font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3); margin-top: 0.3rem;
 }
 
 /* Rentals Section */
-.rentals {
-  padding: 3rem 1rem 2.5rem 1rem;
-  text-align: center;
-}
-
-.rentals h2 {
-  font-size: 2.4rem;
-  color: #8b0000;
-  margin-bottom: 2rem;
-  font-weight: 400;
-}
-
-.rental-items {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 1.8rem;
-}
-
-.rental-items .item {
-  max-width: 250px;
-}
-
-.rental-items img {
-  width: 100%;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
-  margin-bottom: 0.5rem;
-}
-
-.rental-items p {
-  color: #8b0000;
-  font-size: 1.5rem;
-  font-weight: 400;
-}
+.rentals { padding: 3rem 1rem 2rem 1rem; text-align: center; }
+.rentals h2 { font-size: 2.4rem; color: #8b0000; margin-bottom: 2rem; font-weight: 400; }
+.rental-items { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.8rem; }
+.rental-items .item { max-width: 250px; }
+.rental-items img { width: 100%; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.18); margin-bottom: 0.5rem; }
+.rental-items p { color: #8b0000; font-size: 1.5rem; font-weight: 400; }
 
 /* Button */
 .cta-button a {
-  display: inline-block;
-  margin-top: 1.2rem;
-  padding: 0.75rem 2rem;
-  background: #8b0000;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  font-size: 1.5rem;
+  display: inline-block; margin-top: 1.2rem; padding: 0.75rem 2rem;
+  background: #8b0000; color: white; text-decoration: none; border-radius: 4px;
+  font-weight: 400; letter-spacing: 0.5px; font-size: 1.5rem;
 }
 
 /* Description */
 .description {
-  padding: 1.8rem 1rem;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 1.5rem auto;
-  color: #8b0000;
-  font-size: 1.65rem;
-  font-weight: 400;
+  padding: 1.8rem 1rem; text-align: center; max-width: 800px; margin: 0 auto 1.5rem auto;
+  color: #8b0000; font-size: 1.65rem; font-weight: 400;
 }
 
 /* Booking Section */
-.booking {
-  text-align: center;
-  padding: 2rem 1rem 3rem;
-  font-size: 1.3rem;
-  font-weight: 400;
-}
+.booking { text-align: center; padding: 2rem 1rem 3rem; font-size: 1.3rem; font-weight: 400; }
+.booking h3 { font-size: 2rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; }
+.booking a { color: #8b0000; text-decoration: underline; }
+section { margin-bottom: 1rem; }
 
-.booking h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #8b0000;
-  font-weight: 400;
-}
-
-.booking a {
-  color: #8b0000;
-  text-decoration: underline;
-}
-
-/* General spacing for all sections */
-section {
-  margin-bottom: 1rem;
-}
-
-/* Responsive */
+/* ----------- Responsive Styles ----------- */
 @media (max-width: 1000px) {
-  .hero-text h1 {
-    font-size: 2.2rem;
-  }
-  .hero-text p {
-    font-size: 1.18rem;
-  }
-  .rentals h2 {
-    font-size: 1.8rem;
-  }
-  .description {
-    font-size: 1.18rem;
-  }
-  .cta-button a {
-    font-size: 1.12rem;
-  }
-  .rental-items p {
-    font-size: 1.1rem;
-  }
-  .booking {
-    font-size: 1rem;
-  }
-  .booking h3 {
-    font-size: 1.15rem;
-  }
+  .hero-text h1 { font-size: 2.8rem; }
+  .hero-text p { font-size: 1.23rem; }
+  .rentals h2 { font-size: 1.8rem; }
+  .description { font-size: 1.18rem; }
+  .cta-button a { font-size: 1.12rem; }
+  .rental-items p { font-size: 1.1rem; }
+  .booking { font-size: 1rem; }
+  .booking h3 { font-size: 1.15rem; }
 }
 
 @media (max-width: 800px) {
-  .rental-items {
-    flex-direction: column;
-    align-items: center;
-  }
+  .rental-items { flex-direction: column; align-items: center; }
 }
 
+/* --- Mobile Styles --- */
 @media (max-width: 600px) {
-  html, body {
-    font-size: 100%;
-  }
+  html, body { font-size: 110%; }
 
   .navbar,
-  .navbar.scrolled {
-    font-size: 1.05rem;
-    padding: 0.55rem 1rem;
-  }
+  .navbar.scrolled { font-size: 1.1rem; padding: 0.45rem 0.7rem; }
+  .logo { font-size: 1rem; }
+  .menu-toggle { display: block; }
 
-  .logo {
-    font-size: 1.05rem;
-  }
-
-  .hero {
-    height: 56vh;
-    min-height: 320px;
-    padding-top: 52px;
-  }
-
-  .hero-text h1 {
-    font-size: 2.1rem;
-  }
-  .hero-text p {
-    font-size: 1.3rem;
-  }
-  .rentals h2 {
-    font-size: 1.35rem;
-  }
-  .description {
-    font-size: 1.07rem;
-    padding: 1rem;
-  }
-  .cta-button a {
-    font-size: 1.07rem;
-    padding: 0.5rem 1.3rem;
-  }
-  .rental-items p {
-    font-size: 1rem;
-  }
-  .booking {
-    font-size: 0.99rem;
-  }
-  .booking h3 {
-    font-size: 1.13rem;
-  }
-}
-
-/* Mobile nav styles for hamburger - example only */
-@media (max-width: 600px) {
   .nav-links {
-    flex-direction: column;
-    background: rgba(0,0,0,0.96);
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100vw;
-    display: none;
-    z-index: 2000;
-    padding: 1.5rem 0;
-    font-size: 1.15rem;
+    flex-direction: column; background: rgba(0,0,0,0.96);
+    position: absolute; top: 60px; left: 0; width: 100vw;
+    display: none; z-index: 2000; padding: 1.2rem 0; font-size: 1.3rem;
   }
-  .nav-links.open {
-    display: flex;
-  }
-  .navbar {
-    flex-direction: row;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2.3rem;
-    margin-left: auto;
-    cursor: pointer;
-    z-index: 3000;
-  }
+  .nav-links.open { display: flex; }
+  .navbar { flex-direction: row; align-items: center; position: fixed; top: 0; left: 0; }
+
+  .hero { height: 60vh; min-height: 320px; padding-top: 54px; }
+  .hero-text h1 { font-size: 2.35rem; }
+  .hero-text p { font-size: 1.42rem; }
+
+  .rentals h2 { font-size: 1.65rem; }
+  .description { font-size: 1.18rem; padding: 0.6rem; }
+  .cta-button a { font-size: 1.18rem; padding: 0.5rem 1.3rem; }
+  .rental-items p { font-size: 1.12rem; }
+  .booking { font-size: 1.13rem; }
+  .booking h3 { font-size: 1.27rem; }
 }
+@media (max-width: 400px) {
+  .hero-text h1 { font-size: 1.5rem; }
+  .hero-text p { font-size: 1rem; }
+}
+
+/* ----------- End Responsive ----------- */
