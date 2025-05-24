@@ -13,7 +13,11 @@ html, body {
   color: #111;
   background-color: #fff;
   line-height: 1.4;
-  font-size: 1rem; /* Reduced base size by 20% (was 1.25rem) */
+  font-size: 1.25rem; /* Properly 25% larger than browser default */
+}
+
+body {
+  font-weight: 400;
 }
 
 /* Navigation */
@@ -28,7 +32,7 @@ html, body {
   top: 0;
   left: 0;
   z-index: 1000;
-  font-size: 1.05rem; /* 20% smaller */
+  font-size: 1.05rem; /* Slightly smaller for nav only */
   transition: background 0.3s;
 }
 
@@ -56,7 +60,7 @@ html, body {
   text-decoration: none;
   font-weight: 400;
   letter-spacing: 0.02em;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .dropdown {
@@ -90,11 +94,11 @@ html, body {
 .hero {
   background: url('images/hero.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 70vh; /* slightly smaller */
+  height: 70vh;
   min-height: 420px;
   position: relative;
   overflow: hidden;
-  padding-top: 48px; /* pushes content below fixed navbar */
+  padding-top: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +110,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.38); /* 38% for subtler overlay */
+  background: rgba(0, 0, 0, 0.38);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,7 +119,7 @@ html, body {
 }
 
 .hero-text h1 {
-  font-size: 2.15rem; /* 20% smaller */
+  font-size: 2.7rem;
   margin-bottom: 0.4rem;
   line-height: 1.13;
   color: #fff;
@@ -125,7 +129,7 @@ html, body {
 }
 
 .hero-text p {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   color: #f0f0f0;
   text-shadow: 0 1px 2px rgba(0,0,0,0.22);
   margin-top: 0.4rem;
@@ -166,7 +170,7 @@ html, body {
 .rental-items p {
   font-weight: 600;
   color: #8b0000;
-  font-size: 1.1rem;
+  font-size: 1.23rem;
   margin-top: 0.15rem;
 }
 
@@ -181,7 +185,7 @@ html, body {
   border-radius: 4px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  font-size: 1.13rem;
+  font-size: 1.23rem;
   transition: background 0.2s;
 }
 
@@ -196,7 +200,7 @@ html, body {
   max-width: 700px;
   margin: 0.5rem auto 0.5rem auto;
   color: #8b0000;
-  font-size: 1.09rem;
+  font-size: 1.19rem;
   font-weight: 400;
   letter-spacing: 0.02em;
 }
@@ -205,7 +209,7 @@ html, body {
 .booking {
   text-align: center;
   padding: 1.3rem 1rem 2rem;
-  font-size: 1.09rem;
+  font-size: 1.13rem;
   font-weight: 400;
 }
 
@@ -225,10 +229,10 @@ html, body {
 /* Responsive */
 @media (max-width: 900px) {
   html {
-    font-size: 0.95rem; /* Slightly smaller on smaller desktops */
+    font-size: 1.09rem;
   }
   .hero-text h1 {
-    font-size: 1.8rem;
+    font-size: 2.15rem;
   }
   .rentals h2 {
     font-size: 1.6rem;
@@ -237,13 +241,14 @@ html, body {
 
 @media (max-width: 768px) {
   html {
-    font-size: 1.3rem; /* Increase all font sizes by 30% on mobile */
+    font-size: 1.6rem; /* About 30% larger than 1.25rem */
   }
 
   .hero {
-    height: 50vh;
-    min-height: 300px;
+    height: 55vh;
+    min-height: 260px;
     padding-top: 44px;
+    background-attachment: scroll;
   }
 
   .overlay {
@@ -251,12 +256,12 @@ html, body {
   }
 
   .hero-text h1 {
-    font-size: 2.6rem; /* 30% bigger for mobile */
+    font-size: 2.1rem;
     margin-bottom: 0.2rem;
   }
 
   .hero-text p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-top: 0.2rem;
   }
 
@@ -271,7 +276,7 @@ html, body {
   }
 
   .navbar {
-    font-size: 1rem;
+    font-size: 1.05rem;
     flex-direction: column;
     align-items: flex-start;
     padding: 0.7rem 0.9rem;
@@ -287,7 +292,7 @@ html, body {
   }
 
   .logo {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
 
   .rental-items .item {
@@ -295,17 +300,17 @@ html, body {
   }
 
   .cta-button a {
-    font-size: 1.2rem;
+    font-size: 1.18rem;
     padding: 0.9rem 2.1rem;
   }
 
   .description, .booking {
-    font-size: 1.19rem;
+    font-size: 1.13rem;
     padding: 0.6rem 0.5rem;
   }
 }
 
 /* Remove extra margin between sections */
 section {
-  margin-bottom: 0.2rem !important;
+  margin-bottom: 0.18rem !important;
 }
