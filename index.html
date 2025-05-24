@@ -73,5 +73,17 @@
     <p>Text us at 702-706-2455</p>
     <p>Or book with our <a href="#">virtual assistant</a>.</p>
   </section>
+
+  <script>
+    // Transparent navbar effect on scroll
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.navbar');
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>
