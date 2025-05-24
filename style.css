@@ -1,21 +1,22 @@
-/* Import Lora font */
-@import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
-
-html, body {
-  height: 100%;
-  font-family: 'Lora', serif;
-  color: #111;
-  background-color: #fff;
-  line-height: 1.6;
-  font-size: 1.35rem; /* slightly smaller than before */
-  font-weight: 400;    /* UNBOLD everywhere by default */
-}
+/* Import Lora from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap');
 
 /* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Lora', serif;
+  color: #111;
+  background-color: #fff;
+  line-height: 1.45;
+  margin: 0;
+  padding: 0;
+  font-size: 18px; /* 10% smaller than before if you were at 20px */
 }
 
 /* Navigation */
@@ -25,17 +26,16 @@ html, body {
   align-items: center;
   padding: 0.75rem 1.5rem;
   background: transparent;
-  transition: background 0.3s;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
-  font-size: 1rem;
+  transition: background 0.4s;
 }
 
 .navbar.scrolled {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0,0,0,0.92);
 }
 
 .logo {
@@ -43,8 +43,8 @@ html, body {
   align-items: center;
   gap: 0.5rem;
   color: white;
-  font-size: 1.1rem;
-  font-weight: 400; /* UNBOLD logo text */
+  font-size: 1.05rem;
+  font-weight: 400;
 }
 
 .logo img {
@@ -55,14 +55,13 @@ html, body {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  font-size: 1rem;
-  font-weight: 400;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 400;
+  font-size: 1.05rem;
 }
 
 .dropdown {
@@ -90,17 +89,15 @@ html, body {
 .dropdown-menu a {
   color: white;
   text-decoration: none;
-  font-weight: 400;
 }
 
 /* Hero Section */
 .hero {
   background: url('images/hero.jpg') no-repeat center center/cover;
-  background-attachment: fixed;
   height: 85vh;
   position: relative;
   overflow: hidden;
-  padding-top: 60px;
+  padding-top: 60px; /* pushes content below fixed navbar */
 }
 
 .overlay {
@@ -109,7 +106,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0,0,0,0.40); /* Full image overlay */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,136 +115,143 @@ html, body {
 }
 
 .hero-text h1 {
-  font-size: 4.05rem;
-  margin-bottom: 0.68rem;
-  line-height: 1.2;
+  font-size: 3.2rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.18;
   color: #fff;
-  font-weight: 400; /* UNBOLD */
+  font-weight: 400;
   text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  letter-spacing: 0.01em;
 }
 
 .hero-text p {
-  font-size: 1.8rem;
+  font-size: 1.25rem;
   color: #f0f0f0;
-  font-weight: 400; /* UNBOLD */
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  font-weight: 400;
 }
 
 /* Rentals Section */
 .rentals {
-  padding: 5.4rem 1.35rem;
+  padding: 2.5rem 1rem 2rem 1rem;
   text-align: center;
 }
 
 .rentals h2 {
-  font-size: 2.7rem;
+  font-size: 2.2rem;
   color: #8b0000;
-  margin-bottom: 2.7rem;
-  font-weight: 400; /* UNBOLD */
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+  font-weight: 400;
 }
 
 .rental-items {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2.7rem;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .rental-items .item {
-  max-width: 338px;
+  max-width: 250px;
 }
 
 .rental-items img {
   width: 100%;
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  margin-bottom: 0.68rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.19);
+  margin-bottom: 0.4rem;
 }
 
 .rental-items p {
   color: #8b0000;
-  font-size: 1.58rem;
-  font-weight: 400; /* UNBOLD */
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 0.7rem 0 0 0;
 }
 
 /* Button */
+.cta-button {
+  margin-bottom: 1.2rem;
+}
+
 .cta-button a {
   display: inline-block;
-  margin-top: 2.7rem;
-  padding: 1rem 2.7rem;
+  margin-top: 0.5rem;
+  padding: 0.65rem 1.8rem;
   background: #8b0000;
   color: white;
   text-decoration: none;
   border-radius: 4px;
-  font-weight: 400; /* UNBOLD */
+  font-weight: 400;
   letter-spacing: 0.5px;
-  font-size: 1.44rem;
+  font-size: 1.15rem;
 }
 
 /* Description */
 .description {
-  padding: 2.7rem 1.35rem;
+  padding: 1.7rem 1rem 1.3rem 1rem;
   text-align: center;
-  max-width: 945px;
-  margin: auto;
+  max-width: 720px;
+  margin: 0 auto 0.8rem auto;
   color: #8b0000;
-  font-size: 1.48rem;
+  font-size: 1.15rem;
   font-weight: 400;
 }
 
 /* Booking Section */
 .booking {
   text-align: center;
-  padding: 2.7rem 1.35rem 5.4rem;
-  font-size: 1.48rem;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 1.07rem;
   font-weight: 400;
 }
 
 .booking h3 {
-  font-size: 2.03rem;
-  margin-bottom: 1.35rem;
+  font-size: 1.6rem;
+  margin-bottom: 1.1rem;
   color: #8b0000;
-  font-weight: 400; /* UNBOLD */
+  font-weight: 400;
 }
 
 .booking a {
   color: #8b0000;
   font-weight: 400;
   text-decoration: underline;
-  font-size: 1.48rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-text h1 {
-    font-size: 2.7rem;
+  html, body {
+    font-size: 16px;
   }
 
-  .hero-text p {
-    font-size: 1.17rem;
+  .hero-text h1 {
+    font-size: 1.7rem;
+  }
+
+  .rentals h2 {
+    font-size: 1.35rem;
   }
 
   .rental-items {
     flex-direction: column;
     align-items: center;
-  }
-
-  .rental-items .item {
-    max-width: 100%;
+    gap: 1.1rem;
   }
 
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
   }
 
   .nav-links {
     flex-direction: column;
-    gap: 0.75rem;
-    background: rgba(0, 0, 0, 0.9);
+    gap: 0.6rem;
+    background: rgba(0, 0, 0, 0.88);
     width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
+    padding: 0.7rem;
   }
 }
