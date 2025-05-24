@@ -11,28 +11,25 @@ html, body {
   color: #111;
   background-color: #fff;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
 }
 
 /* Navigation */
-header,
-.navbar {
-  border-bottom: none !important;
-  box-shadow: none !important;
-  background: rgba(0, 0, 0, 0.9);
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.5rem;
+  background: transparent;
+  transition: background 0.3s;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .logo {
@@ -90,11 +87,11 @@ header,
 /* Hero Section */
 .hero {
   background: url('images/hero.jpg') no-repeat center center/cover;
-  background-attachment: fixed;  /* Anchors hero image */
+  background-attachment: fixed; /* Anchored hero image */
   height: 85vh;
   position: relative;
   overflow: hidden;
-  padding-top: 60px;
+  padding-top: 60px; /* pushes content below fixed navbar */
 }
 
 .overlay {
