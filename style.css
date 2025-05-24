@@ -11,6 +11,7 @@ html, body {
   color: #111;
   background-color: #fff;
   line-height: 1.6;
+  font-size: 1.5rem; /* 50% larger than typical 1rem */
 }
 
 /* Navigation */
@@ -26,6 +27,7 @@ html, body {
   top: 0;
   left: 0;
   z-index: 1000;
+  font-size: 1rem; /* KEEP NAVBAR FONT NORMAL SIZE */
 }
 
 .navbar.scrolled {
@@ -38,7 +40,7 @@ html, body {
   gap: 0.5rem;
   color: white;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* KEEP LOGO FONT NORMAL SIZE */
 }
 
 .logo img {
@@ -49,6 +51,7 @@ html, body {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  font-size: 1rem; /* KEEP NAV-LINKS FONT NORMAL SIZE */
 }
 
 .nav-links a {
@@ -87,11 +90,11 @@ html, body {
 /* Hero Section */
 .hero {
   background: url('images/hero.jpg') no-repeat center center/cover;
-  background-attachment: fixed; /* Anchored hero image */
+  background-attachment: fixed;
   height: 85vh;
   position: relative;
   overflow: hidden;
-  padding-top: 60px; /* pushes content below fixed navbar */
+  padding-top: 60px;
 }
 
 .overlay {
@@ -100,7 +103,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Full image overlay */
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,8 +112,8 @@ html, body {
 }
 
 .hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: 4.5rem; /* Was 3rem, now 50% bigger */
+  margin-bottom: 0.75rem;
   line-height: 1.2;
   color: #fff;
   font-weight: 600;
@@ -118,79 +121,81 @@ html, body {
 }
 
 .hero-text p {
-  font-size: 1.3rem;
+  font-size: 2rem; /* Was 1.3rem, now 50% bigger */
   color: #f0f0f0;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 /* Rentals Section */
 .rentals {
-  padding: 4rem 1rem;
+  padding: 6rem 1.5rem;
   text-align: center;
 }
 
 .rentals h2 {
-  font-size: 2rem;
+  font-size: 3rem; /* Was 2rem, now 50% bigger */
   color: #8b0000;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .rental-items {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .rental-items .item {
-  max-width: 250px;
+  max-width: 375px; /* Was 250px, now 50% bigger */
 }
 
 .rental-items img {
   width: 100%;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .rental-items p {
   font-weight: bold;
   color: #8b0000;
+  font-size: 1.75rem; /* Was default, now bigger */
 }
 
 /* Button */
 .cta-button a {
   display: inline-block;
-  margin-top: 2rem;
-  padding: 0.75rem 2rem;
+  margin-top: 3rem;
+  padding: 1.125rem 3rem;
   background: #8b0000;
   color: white;
   text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
   letter-spacing: 0.5px;
+  font-size: 1.6rem;
 }
 
 /* Description */
 .description {
-  padding: 2rem 1rem;
+  padding: 3rem 1.5rem;
   text-align: center;
-  max-width: 700px;
+  max-width: 1050px; /* Was 700px */
   margin: auto;
   color: #8b0000;
-  font-size: 1.1rem;
+  font-size: 1.65rem; /* Was 1.1rem, now 50% bigger */
 }
 
 /* Booking Section */
 .booking {
   text-align: center;
-  padding: 2rem 1rem 4rem;
-  font-size: 1.1rem;
+  padding: 3rem 1.5rem 6rem;
+  font-size: 1.65rem; /* Was 1.1rem */
 }
 
 .booking h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.25rem; /* Was 1.5rem */
+  margin-bottom: 1.5rem;
   color: #8b0000;
 }
 
@@ -198,12 +203,17 @@ html, body {
   color: #8b0000;
   font-weight: bold;
   text-decoration: underline;
+  font-size: 1.65rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .hero-text h1 {
-    font-size: 2rem;
+    font-size: 3rem; /* Scale down for mobile */
+  }
+
+  .hero-text p {
+    font-size: 1.3rem;
   }
 
   .rental-items {
@@ -211,9 +221,14 @@ html, body {
     align-items: center;
   }
 
+  .rental-items .item {
+    max-width: 100%;
+  }
+
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    font-size: 1rem;
   }
 
   .nav-links {
@@ -222,5 +237,6 @@ html, body {
     background: rgba(0, 0, 0, 0.9);
     width: 100%;
     padding: 1rem;
+    font-size: 1rem;
   }
 }
