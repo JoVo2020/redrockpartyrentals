@@ -4,53 +4,338 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Red Rock Party Rentals</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #111;
+      background-color: #fff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      background: rgba(0, 0, 0, 0.9);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      height: 60px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .logo img {
+      height: 32px;
+      width: 32px;
+      border-radius: 4px;
+      display: block;
+    }
+    
+    .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #ccc;
+    }
+    
+    .dropdown {
+      position: relative;
+    }
+    .dropdown > a::after {
+      content: ' ▼';
+      font-size: 0.7em;
+      margin-left: 0.3rem;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.95);
+      list-style: none;
+      top: 100%;
+      left: 0;
+      padding: 0.5rem 0;
+      min-width: 180px;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu li {
+      margin: 0;
+    }
+    .dropdown-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      display: block;
+      font-size: 0.9rem;
+    }
+    .dropdown-menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .search-icon {
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/hero.jpg') no-repeat center center/cover;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: 400;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero-text p {
+      font-size: 1.4rem;
+      color: #f0f0f0;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      font-weight: 300;
+    }
+    
+    /* Rentals Section */
+    .rentals {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: #fff;
+    }
+    .rentals h2 {
+      font-size: 2.5rem;
+      color: #c41e3a;
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+    .rental-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .rental-items .item {
+      max-width: 280px;
+      text-align: center;
+    }
+    .rental-items img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
+    }
+    .rental-items p {
+      font-weight: 500;
+      color: #c41e3a;
+      font-size: 1.1rem;
+    }
+    
+    /* Button */
+    .cta-button a {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: #c41e3a;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .cta-button a:hover {
+      background: #a01729;
+    }
+    
+    /* Description */
+    .description {
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      color: #c41e3a;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+    
+    /* Booking Section */
+    .booking {
+      text-align: center;
+      padding: 3rem 2rem 5rem;
+      font-size: 1.1rem;
+      background: #f9f9f9;
+    }
+    .booking h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #c41e3a;
+      font-weight: 400;
+    }
+    .booking p {
+      margin: 0.8rem 0;
+    }
+    .booking a {
+      color: #c41e3a;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+    .booking a:hover {
+      text-decoration: none;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0.75rem 1rem;
+      }
+      .nav-container {
+        gap: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      .hero-text p {
+        font-size: 1.2rem;
+      }
+      .rental-items {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+      .rentals {
+        padding: 3rem 1rem;
+      }
+      .description {
+        padding: 2rem 1rem;
+        font-size: 1.1rem;
+      }
+      .booking {
+        padding: 2rem 1rem 3rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+      }
+      .nav-container {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .nav-links {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+      }
+      .hero {
+        height: 90vh;
+        padding-top: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="images/logo.png" alt="Red Rock Logo" />
+        <img src="images/logo.jpg" alt="Red Rock Logo" />
         <span>Red Rock Party Rentals</span>
       </div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Rentals</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Tables</a></li>
-            <li><a href="#">Chairs</a></li>
-            <li><a href="#">Other Party Supplies</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Book</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Rentals</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Tables</a></li>
+              <li><a href="#">Chairs</a></li>
+              <li><a href="#">Other Party Supplies</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Book</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="search-icon">🔍</div>
+      </div>
     </nav>
   </header>
-
+  
   <section class="hero">
-    <div class="overlay">
-      <div class="hero-text">
-        <h1>Sit, Serve, Celebrate —<br>Rentals Made Easy!</h1>
-        <p>Tables, chairs, & more</p>
-      </div>
+    <div class="hero-text">
+      <h1>Sit, Serve, Celebrate —<br>Rentals Made Easy!</h1>
+      <p>Tables, chairs, & more</p>
     </div>
   </section>
-
+  
   <section class="rentals">
     <h2>Our Rentals</h2>
     <div class="rental-items">
       <div class="item">
-        <img src="images/table.jpg" alt="Table" />
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80" alt="Table" />
         <p>Tables</p>
       </div>
       <div class="item">
-        <img src="images/chair.jpg" alt="Chair" />
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80" alt="Chair" />
         <p>Chairs</p>
       </div>
       <div class="item">
-        <img src="images/other.jpg" alt="Decor" />
+        <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&q=80" alt="Decor" />
         <p>& More</p>
       </div>
     </div>
@@ -58,15 +343,15 @@
       <a href="#">See All of Our Rentals</a>
     </div>
   </section>
-
+  
   <section class="description">
     <p>
-      Tables, chairs, and so much more—whatever the occasion, we’ve got you covered.
-      From birthdays to baby showers and everything in between, we’ll help make your celebration unforgettable.
-      It’s rentals made easy! Book now!
+      Tables, chairs, and so much more—whatever the occasion, we've got you covered.
+      From birthdays to baby showers and everything in between, we'll help make your celebration unforgettable.
+      It's rentals made easy! Book now!
     </p>
   </section>
-
+  
   <section class="booking">
     <h3>Ways to Book:</h3>
     <p>Email us at redrockpartysupplies@gmail.com</p>
