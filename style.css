@@ -11,25 +11,28 @@ html, body {
   color: #111;
   background-color: #fff;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navigation */
+header,
+.navbar {
+  border-bottom: none !important;
+  box-shadow: none !important;
+  background: rgba(0, 0, 0, 0.9);
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background: rgba(0, 0, 0, 0.15); /* TRANSPARENT at the top */
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
-  transition: background 0.3s;
-}
-
-.navbar.scrolled {
-  background: rgba(0, 0, 0, 0.95); /* Dark after scroll */
 }
 
 .logo {
@@ -38,29 +41,23 @@ html, body {
   gap: 0.5rem;
   color: white;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .logo img {
-  height: 36px;
+  height: 32px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.15rem;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: #f66d36;
 }
 
 .dropdown {
@@ -70,14 +67,11 @@ html, body {
 .dropdown-menu {
   display: none;
   position: absolute;
-  background: #222;
+  background: #111;
   list-style: none;
   top: 100%;
   left: 0;
-  min-width: 180px;
-  padding: 0.5rem 0;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 0.5rem;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -85,7 +79,7 @@ html, body {
 }
 
 .dropdown-menu li {
-  margin: 0.3rem 1rem;
+  margin: 0.3rem 0;
 }
 
 .dropdown-menu a {
@@ -96,20 +90,19 @@ html, body {
 /* Hero Section */
 .hero {
   background: url('images/hero.jpg') no-repeat center center/cover;
-  height: 90vh;
-  min-height: 500px;
+  height: 85vh;
   position: relative;
-  padding-top: 0;
-  display: flex;
-  align-items: stretch;
+  overflow: hidden;
+  padding-top: 60px; /* pushes content below fixed navbar */
 }
 
 .overlay {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.36);
+  background: rgba(0, 0, 0, 0.4); /* Full image overlay */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,41 +110,31 @@ html, body {
   padding: 2rem 1rem;
 }
 
-.hero-text {
-  width: 100%;
-}
-
 .hero-text h1 {
-  font-size: 4vw;
-  max-font-size: 4.5rem;
-  min-font-size: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.12;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
   color: #fff;
-  font-weight: 700;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.32);
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 .hero-text p {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   color: #f0f0f0;
-  font-weight: 400;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.22);
-  margin-top: 1rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 /* Rentals Section */
 .rentals {
   padding: 4rem 1rem;
   text-align: center;
-  background: #fff;
 }
 
 .rentals h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #8b0000;
   margin-bottom: 2rem;
-  font-family: serif;
 }
 
 .rental-items {
@@ -175,7 +158,6 @@ html, body {
 .rental-items p {
   font-weight: bold;
   color: #8b0000;
-  font-size: 1.18rem;
 }
 
 /* Button */
@@ -189,7 +171,6 @@ html, body {
   border-radius: 4px;
   font-weight: bold;
   letter-spacing: 0.5px;
-  font-size: 1.1rem;
 }
 
 /* Description */
@@ -222,25 +203,25 @@ html, body {
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .hero-text h1 {
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
-  .hero-text p {
-    font-size: 1.1rem;
-  }
+
   .rental-items {
     flex-direction: column;
     align-items: center;
   }
+
   .navbar {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .nav-links {
     flex-direction: column;
     gap: 0.75rem;
-    background: rgba(0, 0, 0, 0.92);
+    background: rgba(0, 0, 0, 0.9);
     width: 100%;
     padding: 1rem;
   }
