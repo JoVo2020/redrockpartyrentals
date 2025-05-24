@@ -12,7 +12,7 @@ html, body {
   color: #111;
   background-color: #fff;
   line-height: 1.45;
-  font-size: 18px;
+  font-size: 23.4px; /* 18px * 1.3 ≈ 23.4px */
 }
 
 /* Navigation */
@@ -57,7 +57,7 @@ html, body {
   color: white;
   text-decoration: none;
   font-weight: 400;
-  font-size: 1.05rem;
+  font-size: 1.05rem; /* NAVBAR FONT SIZE: stays the same */
 }
 
 .dropdown {
@@ -161,10 +161,16 @@ html, body {
 /* Hero Section */
 .hero {
   background: url('images/hero.jpg') no-repeat center center/cover;
+  background-attachment: fixed; /* Anchored effect */
   height: 85vh;
   position: relative;
   overflow: hidden;
   padding-top: 60px;
+}
+@media (max-width: 900px) {
+  .hero {
+    background-attachment: scroll; /* Prevent mobile issues */
+  }
 }
 
 .overlay {
@@ -182,7 +188,7 @@ html, body {
 }
 
 .hero-text h1 {
-  font-size: 3.2rem;
+  font-size: 4.16rem; /* 3.2rem * 1.3 */
   margin-bottom: 0.55rem;
   line-height: 1.18;
   color: #fff;
@@ -192,7 +198,7 @@ html, body {
 }
 
 .hero-text p {
-  font-size: 1.25rem;
+  font-size: 1.625rem; /* 1.25rem * 1.3 */
   color: #f0f0f0;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   font-weight: 400;
@@ -200,14 +206,14 @@ html, body {
 
 /* Rentals Section */
 .rentals {
-  padding: 2.5rem 1rem 2rem 1rem;
+  padding: 3.25rem 1rem 2.6rem 1rem; /* 2.5rem * 1.3, 2rem * 1.3 */
   text-align: center;
 }
 
 .rentals h2 {
-  font-size: 2.2rem;
+  font-size: 2.86rem; /* 2.2rem * 1.3 */
   color: #8b0000;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.6rem;
   margin-top: 0;
   font-weight: 400;
 }
@@ -216,68 +222,68 @@ html, body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 1.25rem;
+  gap: 2.6rem;
+  margin-bottom: 1.6rem;
 }
 
 .rental-items .item {
-  max-width: 250px;
+  max-width: 325px; /* 250px * 1.3 */
 }
 
 .rental-items img {
   width: 100%;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.19);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.52rem;
 }
 
 .rental-items p {
   color: #8b0000;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1.56rem; /* 1.2rem * 1.3 */
   margin: 0.7rem 0 0 0;
 }
 
 /* Button */
 .cta-button {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.56rem;
 }
 
 .cta-button a {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.65rem 1.8rem;
+  margin-top: 0.65rem;
+  padding: 0.85rem 2.34rem; /* 0.65 * 1.3, 1.8 * 1.3 */
   background: #8b0000;
   color: white;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 400;
   letter-spacing: 0.5px;
-  font-size: 1.15rem;
+  font-size: 1.495rem; /* 1.15rem * 1.3 */
 }
 
 /* Description */
 .description {
-  padding: 1.7rem 1rem 1.3rem 1rem;
+  padding: 2.21rem 1rem 1.69rem 1rem; /* 1.7 * 1.3, 1.3 * 1.3 */
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto 0.8rem auto;
+  max-width: 936px; /* 720 * 1.3 */
+  margin: 0 auto 1.04rem auto;
   color: #8b0000;
-  font-size: 1.15rem;
+  font-size: 1.495rem; /* 1.15rem * 1.3 */
   font-weight: 400;
 }
 
 /* Booking Section */
 .booking {
   text-align: center;
-  padding: 1.6rem 1rem 2rem;
-  font-size: 1.07rem;
+  padding: 2.08rem 1rem 2.6rem; /* 1.6*1.3, 2*1.3 */
+  font-size: 1.391rem; /* 1.07*1.3 */
   font-weight: 400;
 }
 
 .booking h3 {
-  font-size: 1.6rem;
-  margin-bottom: 1.1rem;
+  font-size: 2.08rem; /* 1.6*1.3 */
+  margin-bottom: 1.43rem;
   color: #8b0000;
   font-weight: 400;
 }
@@ -291,17 +297,17 @@ html, body {
 /* Responsive Hero/Font */
 @media (max-width: 768px) {
   html, body {
-    font-size: 16px;
+    font-size: 17px;
   }
   .hero-text h1 {
-    font-size: 1.7rem;
+    font-size: 2.21rem;
   }
   .rentals h2 {
-    font-size: 1.35rem;
+    font-size: 1.75rem;
   }
   .rental-items {
     flex-direction: column;
     align-items: center;
-    gap: 1.1rem;
+    gap: 1.43rem;
   }
 }
