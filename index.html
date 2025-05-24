@@ -2,63 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Red Rock Party Rentals</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    window.addEventListener('scroll', function () {
-      const navbar = document.querySelector('header');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
 </head>
 <body>
   <header>
-    <div class="navbar-container">
+    <nav class="navbar">
       <div class="logo">
-        <img src="logo.png" alt="Red Rock Party Rentals Logo" />
+        <img src="images/logo.png" alt="Red Rock Logo" />
         <span>Red Rock Party Rentals</span>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Rentals</a></li>
-          <li><a href="#">Book</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Rentals</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Tables</a></li>
+            <li><a href="#">Chairs</a></li>
+            <li><a href="#">Other Party Supplies</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Book</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-overlay">
-      <h1>Sit, Serve, Celebrate —<br />Rentals Made Easy!</h1>
-      <p>Tables, chairs, & more</p>
+    <div class="overlay">
+      <div class="hero-text">
+        <h1>Sit, Serve, Celebrate —<br>Rentals Made Easy!</h1>
+        <p>Tables, chairs, & more</p>
+      </div>
     </div>
   </section>
 
-  <main>
-    <section class="rentals">
-      <h2>Our Rentals</h2>
-      <div class="rental-grid">
-        <div class="rental-item">
-          <img src="table.jpg" alt="Tables" />
-          <p>Tables</p>
-        </div>
-        <div class="rental-item">
-          <img src="chair.jpg" alt="Chairs" />
-          <p>Chairs</p>
-        </div>
-        <div class="rental-item">
-          <img src="decor.jpg" alt="Other Party Supplies" />
-          <p>& More</p>
-        </div>
+  <section class="rentals">
+    <h2>Our Rentals</h2>
+    <div class="rental-items">
+      <div class="item">
+        <img src="images/table.jpg" alt="Table" />
+        <p>Tables</p>
       </div>
-    </section>
-  </main>
+      <div class="item">
+        <img src="images/chair.jpg" alt="Chair" />
+        <p>Chairs</p>
+      </div>
+      <div class="item">
+        <img src="images/other.jpg" alt="Decor" />
+        <p>& More</p>
+      </div>
+    </div>
+    <div class="cta-button">
+      <a href="#">See All of Our Rentals</a>
+    </div>
+  </section>
+
+  <section class="description">
+    <p>
+      Tables, chairs, and so much more—whatever the occasion, we’ve got you covered.
+      From birthdays to baby showers and everything in between, we’ll help make your celebration unforgettable.
+      It’s rentals made easy! Book now!
+    </p>
+  </section>
+
+  <section class="booking">
+    <h3>Ways to Book:</h3>
+    <p>Email us at redrockpartysupplies@gmail.com</p>
+    <p>Text us at 702-706-2455</p>
+    <p>Or book with our <a href="#">virtual assistant</a>.</p>
+  </section>
 </body>
 </html>
