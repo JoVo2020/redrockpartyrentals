@@ -101,8 +101,8 @@ section { margin-bottom: 1rem; }
   .description { font-size: 1.18rem; }
   .cta-button a { font-size: 1.12rem; }
   .rental-items p { font-size: 1.1rem; }
-  .booking { font-size: 1rem; }
-  .booking h3 { font-size: 1.15rem; }
+  .booking { font-size: 1.18rem; }
+  .booking h3 { font-size: 1.8rem; }
 }
 
 @media (max-width: 800px) {
@@ -134,8 +134,8 @@ section { margin-bottom: 1rem; }
   .description { font-size: 1.18rem; padding: 0.6rem; }
   .cta-button a { font-size: 1.18rem; padding: 0.5rem 1.3rem; }
   .rental-items p { font-size: 1.8rem; }
-  .booking { font-size: 1.13rem; }
-  .booking h3 { font-size: 1.27rem; }
+  .booking { font-size: 1.18rem; }
+  .booking h3 { font-size: 2.5rem; }
 }
 @media (max-width: 400px) {
   .hero-text h1 { font-size: 1.5rem; }
