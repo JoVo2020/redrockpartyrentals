@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Red Rock Party Rentals</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-
+  <!-- Lora font for all text -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -15,7 +15,12 @@
         <img src="images/logo.png" alt="Red Rock Logo" />
         <span>Red Rock Party Rentals</span>
       </div>
-      <ul class="nav-links">
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#">Home</a></li>
         <li class="dropdown">
           <a href="#">Rentals</a>
@@ -77,13 +82,18 @@
   </section>
 
   <script>
-    // Transparent navbar effect on scroll
-    window.addEventListener('scroll', function() {
-      const nav = document.querySelector('.navbar');
-      if (window.scrollY > 80) {
-        nav.classList.add('scrolled');
+    // Hamburger menu toggle
+    document.getElementById('hamburger').onclick = function() {
+      document.getElementById('navLinks').classList.toggle('active');
+      this.classList.toggle('active');
+    };
+    // Navbar scroll background
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
       } else {
-        nav.classList.remove('scrolled');
+        navbar.classList.remove('scrolled');
       }
     });
   </script>
