@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap');
 
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -11,8 +12,8 @@ html, body {
   font-family: 'Lora', serif;
   color: #111;
   background-color: #fff;
-  line-height: 1.45;
-  font-size: 23.4px; /* 18px * 1.3 ≈ 23.4px */
+  line-height: 1.4;
+  font-size: 1rem; /* Reduced base size by 20% (was 1.25rem) */
 }
 
 /* Navigation */
@@ -20,17 +21,15 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  background: transparent;
+  padding: 0.5rem 1.2rem;
+  background: rgba(0, 0, 0, 0.9);
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
-  transition: background 0.4s;
-}
-.navbar.scrolled {
-  background: rgba(0,0,0,0.92);
+  font-size: 1.05rem; /* 20% smaller */
+  transition: background 0.3s;
 }
 
 .logo {
@@ -38,26 +37,26 @@ html, body {
   align-items: center;
   gap: 0.5rem;
   color: white;
-  font-size: 1.05rem;
   font-weight: 400;
+  font-size: 1.2rem;
 }
 
 .logo img {
-  height: 32px;
+  height: 28px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  gap: 1.1rem;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 400;
-  font-size: 1.05rem; /* NAVBAR FONT SIZE: stays the same */
+  letter-spacing: 0.02em;
+  font-size: 1rem;
 }
 
 .dropdown {
@@ -71,106 +70,34 @@ html, body {
   list-style: none;
   top: 100%;
   left: 0;
-  padding: 0.5rem;
-  min-width: 170px;
+  padding: 0.4rem;
 }
 
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 
 .dropdown-menu li {
-  margin: 0.3rem 0;
+  margin: 0.15rem 0;
 }
+
 .dropdown-menu a {
   color: white;
   text-decoration: none;
 }
 
-/* Hamburger menu (hidden on desktop) */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  justify-content: center;
-  align-items: center;
-}
-.hamburger span {
-  height: 3px;
-  width: 26px;
-  background: #fff;
-  margin: 4px 0;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
-/* Hamburger animation when active */
-.hamburger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Mobile Styles */
-@media (max-width: 900px) {
-  .nav-links {
-    position: absolute;
-    top: 64px;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 1rem 0;
-    display: none;
-    transition: all 0.3s;
-  }
-  .nav-links.active {
-    display: flex;
-  }
-  .nav-links li {
-    width: 100%;
-    padding: 0.5rem 1.5rem;
-  }
-  .dropdown-menu {
-    position: static;
-    background: transparent;
-    padding-left: 1.5rem;
-    min-width: unset;
-  }
-  .dropdown:hover .dropdown-menu,
-  .dropdown:focus-within .dropdown-menu {
-    display: block;
-  }
-  .dropdown-menu li {
-    margin: 0.15rem 0;
-  }
-  .hamburger {
-    display: flex;
-  }
-}
-
 /* Hero Section */
 .hero {
-  background: url('images/hero.jpg') no-repeat center center/cover;
-  background-attachment: fixed; /* Anchored effect */
-  height: 85vh;
+  background: url('images/hero.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 70vh; /* slightly smaller */
+  min-height: 420px;
   position: relative;
   overflow: hidden;
-  padding-top: 60px;
-}
-@media (max-width: 900px) {
-  .hero {
-    background-attachment: scroll; /* Prevent mobile issues */
-  }
+  padding-top: 48px; /* pushes content below fixed navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .overlay {
@@ -179,135 +106,206 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.40);
+  background: rgba(0, 0, 0, 0.38); /* 38% for subtler overlay */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem 1rem 1rem;
 }
 
 .hero-text h1 {
-  font-size: 4.16rem; /* 3.2rem * 1.3 */
-  margin-bottom: 0.55rem;
-  line-height: 1.18;
+  font-size: 2.15rem; /* 20% smaller */
+  margin-bottom: 0.4rem;
+  line-height: 1.13;
   color: #fff;
   font-weight: 400;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   letter-spacing: 0.01em;
 }
 
 .hero-text p {
-  font-size: 1.625rem; /* 1.25rem * 1.3 */
+  font-size: 1.05rem;
   color: #f0f0f0;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.22);
+  margin-top: 0.4rem;
 }
 
 /* Rentals Section */
 .rentals {
-  padding: 3.25rem 1rem 2.6rem 1rem; /* 2.5rem * 1.3, 2rem * 1.3 */
+  padding: 2.5rem 1rem 1.7rem 1rem;
   text-align: center;
 }
 
 .rentals h2 {
-  font-size: 2.86rem; /* 2.2rem * 1.3 */
+  font-size: 2.1rem;
   color: #8b0000;
-  margin-bottom: 1.6rem;
-  margin-top: 0;
+  margin-bottom: 1.5rem;
   font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .rental-items {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2.6rem;
-  margin-bottom: 1.6rem;
+  gap: 1.4rem;
 }
 
 .rental-items .item {
-  max-width: 325px; /* 250px * 1.3 */
+  max-width: 210px;
 }
 
 .rental-items img {
   width: 100%;
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.19);
-  margin-bottom: 0.52rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.13);
+  margin-bottom: 0.28rem;
 }
 
 .rental-items p {
+  font-weight: 600;
   color: #8b0000;
-  font-weight: 400;
-  font-size: 1.56rem; /* 1.2rem * 1.3 */
-  margin: 0.7rem 0 0 0;
+  font-size: 1.1rem;
+  margin-top: 0.15rem;
 }
 
 /* Button */
-.cta-button {
-  margin-bottom: 1.56rem;
-}
-
 .cta-button a {
   display: inline-block;
-  margin-top: 0.65rem;
-  padding: 0.85rem 2.34rem; /* 0.65 * 1.3, 1.8 * 1.3 */
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.4rem;
   background: #8b0000;
   color: white;
   text-decoration: none;
   border-radius: 4px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  font-size: 1.495rem; /* 1.15rem * 1.3 */
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 1.13rem;
+  transition: background 0.2s;
+}
+
+.cta-button a:hover {
+  background: #a92d2d;
 }
 
 /* Description */
 .description {
-  padding: 2.21rem 1rem 1.69rem 1rem; /* 1.7 * 1.3, 1.3 * 1.3 */
+  padding: 1.4rem 1rem;
   text-align: center;
-  max-width: 936px; /* 720 * 1.3 */
-  margin: 0 auto 1.04rem auto;
+  max-width: 700px;
+  margin: 0.5rem auto 0.5rem auto;
   color: #8b0000;
-  font-size: 1.495rem; /* 1.15rem * 1.3 */
+  font-size: 1.09rem;
   font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 /* Booking Section */
 .booking {
   text-align: center;
-  padding: 2.08rem 1rem 2.6rem; /* 1.6*1.3, 2*1.3 */
-  font-size: 1.391rem; /* 1.07*1.3 */
+  padding: 1.3rem 1rem 2rem;
+  font-size: 1.09rem;
   font-weight: 400;
 }
 
 .booking h3 {
-  font-size: 2.08rem; /* 1.6*1.3 */
-  margin-bottom: 1.43rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
   color: #8b0000;
   font-weight: 400;
 }
 
 .booking a {
   color: #8b0000;
-  font-weight: 400;
+  font-weight: 600;
   text-decoration: underline;
 }
 
-/* Responsive Hero/Font */
-@media (max-width: 768px) {
-  html, body {
-    font-size: 17px;
+/* Responsive */
+@media (max-width: 900px) {
+  html {
+    font-size: 0.95rem; /* Slightly smaller on smaller desktops */
   }
   .hero-text h1 {
-    font-size: 2.21rem;
+    font-size: 1.8rem;
   }
   .rentals h2 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 1.3rem; /* Increase all font sizes by 30% on mobile */
+  }
+
+  .hero {
+    height: 50vh;
+    min-height: 300px;
+    padding-top: 44px;
+  }
+
+  .overlay {
+    padding: 0.9rem 0.3rem 0.6rem 0.3rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.6rem; /* 30% bigger for mobile */
+    margin-bottom: 0.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1.3rem;
+    margin-top: 0.2rem;
+  }
+
+  .rentals {
+    padding: 2rem 0.6rem 1.1rem 0.6rem;
+  }
+
   .rental-items {
     flex-direction: column;
     align-items: center;
-    gap: 1.43rem;
+    gap: 0.9rem;
   }
+
+  .navbar {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.92);
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.04rem;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+  }
+
+  .rental-items .item {
+    max-width: 95vw;
+  }
+
+  .cta-button a {
+    font-size: 1.2rem;
+    padding: 0.9rem 2.1rem;
+  }
+
+  .description, .booking {
+    font-size: 1.19rem;
+    padding: 0.6rem 0.5rem;
+  }
+}
+
+/* Remove extra margin between sections */
+section {
+  margin-bottom: 0.2rem !important;
 }
