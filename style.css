@@ -95,6 +95,10 @@ a {text-decoration: none;}
 .booking a { color: #8b0000; text-decoration: underline; }
 section { margin-bottom: 1rem; }
 
+hr.solid {
+  border-top: 1px solid #bbb;
+}
+
 /* ----------- Responsive Styles ----------- */
 @media (max-width: 1000px) {
   .hero-text h1 { font-size: 4rem; }
