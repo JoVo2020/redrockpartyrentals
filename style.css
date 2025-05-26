@@ -96,7 +96,9 @@ a {text-decoration: none;}
 section { margin-bottom: 1rem; }
 
 hr.solid {
-  border-top: 1px solid #bbb;
+  border-top: 1px solid #d3d3d3;
+  width: 70%;
+  margin: auto;
 }
 
 /* ----------- Responsive Styles ----------- */
