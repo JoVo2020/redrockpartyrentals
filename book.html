@@ -41,29 +41,27 @@
   <section class="booking-agent">
     <!-- <h2>Tables</h2> -->
 
+	<div id="chat-container">
+	  <div id="chat-wrapper" style="display: flex; flex-direction: column; flex-grow: 1; overflow: hidden;">
+		<!-- Avatar and intro -->
+		<div id="chat-header">
+		  <img src="images/Avatar.png" alt="Liz">
+		  <h2>Liz</h2>
+		  <p>Hi! I'm Liz, your personal Red Rock Party Rentals assistant. How can I help today?</p>
+		</div>
 
+		<!-- Chat messages -->
+		<div id="chat-box"></div>
 
-<div id="chat-container">
-  <div id="chat-wrapper" style="display: flex; flex-direction: column; flex-grow: 1; overflow: hidden;">
-    <!-- Avatar and intro -->
-    <div id="chat-header">
-      <img src="images/Avatar.png" alt="Liz">
-      <h2>Liz</h2>
-      <p>Hi! I'm Liz, your personal Red Rock Party Rentals assistant. How can I help today?</p>
-    </div>
+		<!-- Input -->
+		<div id="chat-input">
+		  <input id="user-input" type="text" placeholder="Type your message..." />
+		  <button onclick="sendMessage()">➤</button>
+		</div>
+	  </div>
+	</div>
 
-    <!-- Chat messages -->
-    <div id="chat-box"></div>
-
-    <!-- Input -->
-    <div id="chat-input">
-      <input id="user-input" type="text" placeholder="Type your message..." />
-      <button onclick="sendMessage()">➤</button>
-    </div>
-  </div>
-</div>
-
-<script src="booking-agent.js"></script>
+	<script src="booking-agent.js"></script>
 	
 	
   </section>
