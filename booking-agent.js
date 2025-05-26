@@ -38,11 +38,12 @@
       typingIndicator.remove();
       chatBox.innerHTML += `<div class="chat-message bot">${reply}</div>`;
 
+/* 
       if (!hasExpanded) {
         document.getElementById("chat-container").style.height = "96vh";
         hasExpanded = true;
       }
-
+*/
     } catch (err) {
       typingIndicator.remove();
       chatBox.innerHTML += `<div class="chat-message bot">Error contacting server.</div>`;
