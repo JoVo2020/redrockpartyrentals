@@ -13,6 +13,10 @@ html, body {
 
 a {text-decoration: none;}
 
+h1 { font-size: 5rem; color: #fff; font-weight: 400; line-height: 1.1; margin-bottom: 0.6rem; text-shadow: 0 2px 4px rgba(0,0,0,0.6); letter-spacing: -1px;}
+h2 { font-size: 3rem; color: #8b0000; margin-bottom: 2rem; font-weight: 400; }
+h3 { font-size: 3rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; }
+
 /* Navigation */
 .navbar {
   display: flex;
@@ -58,11 +62,7 @@ a {text-decoration: none;}
   display: flex; justify-content: center; align-items: center;
   text-align: center; padding: 1rem;
 }
-.hero-text h1 {
-  font-size: 5rem; color: #fff; font-weight: 400;
-  line-height: 1.1; margin-bottom: 0.6rem; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  letter-spacing: -1px;
-}
+
 .hero-text p {
   font-size: 2rem; color: #f0f0f0; font-weight: 400;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3); margin-top: 0.3rem;
@@ -70,7 +70,6 @@ a {text-decoration: none;}
 
 /* Rentals Section */
 .rentals { padding: 3rem 1rem 2rem 1rem; text-align: center; }
-.rentals h2 { font-size: 3rem; color: #8b0000; margin-bottom: 2rem; font-weight: 400; }
 .rental-items { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.8rem; }
 .rental-items .item { max-width: 330px; }
 .rental-items img { width: 100%; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.18); margin-bottom: 0.5rem; }
@@ -91,7 +90,6 @@ a {text-decoration: none;}
 
 /* Booking Section */
 .booking { text-align: center; padding: 2rem 1rem 3rem; font-size: 1.65rem; font-weight: 400; }
-.booking h3 { font-size: 3rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; }
 .booking a { color: #8b0000; text-decoration: underline; }
 section { margin-bottom: 1rem; }
 
@@ -103,14 +101,14 @@ hr.solid {
 
 /* ----------- Responsive Styles ----------- */
 @media (max-width: 1000px) {
-  .hero-text h1 { font-size: 4rem; }
+  h1 { font-size: 4rem; }
   .hero-text p { font-size: 2rem; }
-  .rentals h2 { font-size: 2.5rem; }
+  h2 { font-size: 2.5rem; }
   .description { font-size: 1.18rem; }
   .cta-button a { font-size: 1rem; }
   .rental-items p { font-size: 1.1rem; }
   .booking { font-size: 1.18rem; }
-  .booking h3 { font-size: 2.5rem; }
+  h3 { font-size: 2.5rem; }
   
 }
 
@@ -136,19 +134,19 @@ hr.solid {
   .navbar { flex-direction: row; align-items: center; position: fixed; top: 0; left: 0; }
 
   .hero { height: 60vh; min-height: 320px; padding-top: 54px; }
-  .hero-text h1 { font-size: 3rem; }
+  h1 { font-size: 3rem; }
   .hero-text p { font-size: 2rem; }
 
-  .rentals h2 { font-size: 2.5rem; }
+  h2 { font-size: 2.5rem; }
   .description { font-size: 1.18rem; padding: 0.6rem; }
   .cta-button a { font-size: 1.18rem; padding: 0.5rem 1.3rem; }
   .rental-items p { font-size: 1.8rem; }
   .booking { font-size: 1.18rem; }
-  .booking h3 { font-size: 2.5rem; }
+  h3 { font-size: 2.5rem; }
 
 }
 @media (max-width: 400px) {
-  .hero-text h1 { font-size: 1.5rem; }
+  h1 { font-size: 1.5rem; }
   .hero-text p { font-size: 1rem; }
 }
 
