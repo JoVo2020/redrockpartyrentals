@@ -7,14 +7,16 @@
     height: 100%;
   }
 
+/*
   @media (min-width: 768px) {
     #chat-container {
       height: 25vh !important;
     }
   }
+*/
 
   #chat-container {
-    height: 96vh;
+    height: 70vh;
     max-width: 500px;
     margin: auto;
     display: flex;
