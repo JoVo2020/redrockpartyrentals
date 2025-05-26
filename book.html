@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Red Rock Party Rentals</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Lora font for all text -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+		<a href="index.html" >
+			<img src="images/logo.png" alt="Red Rock Logo" />
+			<span style="Color:white;">Red Rock Party Rentals</span>
+		</a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rentals.html">Rentals</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-text">
+        <h1>Book</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking-agent">
+    <!-- <h2>Tables</h2> -->
+    <div >
+	
+	<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  @media (min-width: 768px) {
+    #chat-container {
+      height: 25vh !important;
+    }
+  }
+
+  #chat-container {
+    height: 96vh;
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: sans-serif;
+  }
+
+  #chat-header {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #chat-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  #chat-header h2 {
+    margin: 8px 0 4px;
+    font-size: 20px;
+  }
+
+  #chat-header p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+
+  #chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .chat-message {
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .chat-message.user {
+    background: #eee;
+    align-self: flex-end;
+    border-radius: 16px;
+    padding: 10px 14px;
+    max-width: 80%;
+    margin-left: auto;
+  }
+
+  .chat-message.bot {
+    background: #ddeaf6;
+    color: #222;
+    align-self: flex-start;
+    border-radius: 16px;
+    padding: 10px 14px;
+    max-width: 80%;
+    margin-right: auto;
+  }
+
+  #chat-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+  }
+
+  #user-input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    background: #f3f3f3;
+  }
+
+  #chat-input button {
+    background: #c25656;
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  #chat-input button:hover {
+    background: #a60909;
+  }
+
+  /* Typing animation */
+  @keyframes dots {
+    0%   { content: "•"; }
+    50%  { content: "••"; }
+    100% { content: "•••"; }
+  }
+
+  .typing::after {
+    content: "";
+    display: inline-block;
+    animation: dots 1.2s steps(3) infinite;
+  }
+</style>
+
+<div id="chat-container">
+  <div id="chat-wrapper" style="display: flex; flex-direction: column; flex-grow: 1; overflow: hidden;">
+    <!-- Avatar and intro -->
+    <div id="chat-header">
+      <img src="https://stories.telesky.co.ke/wp-content/uploads/2024/07/Avatar.png" alt="Liz">
+      <h2>Liz</h2>
+      <p>Hi! I'm Liz, your personal Red Rock Party Rentals assistant. How can I help today?</p>
+    </div>
+
+    <!-- Chat messages -->
+    <div id="chat-box"></div>
+
+    <!-- Input -->
+    <div id="chat-input">
+      <input id="user-input" type="text" placeholder="Type your message..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const sessionId = sessionStorage.getItem("sessionId") || (() => {
+    const id = "session-" + Date.now();
+    sessionStorage.setItem("sessionId", id);
+    return id;
+  })();
+
+  let hasExpanded = false;
+
+  async function sendMessage() {
+    const input = document.getElementById("user-input");
+    const text = input.value.trim();
+    if (!text) return;
+
+    const chatBox = document.getElementById("chat-box");
+    chatBox.innerHTML += `<div class="chat-message user">${text}</div>`;
+    input.value = "";
+
+    // Show typing indicator
+    const typingIndicator = document.createElement("div");
+    typingIndicator.className = "chat-message bot typing";
+    typingIndicator.innerText = " ";
+    typingIndicator.id = "typing-indicator";
+    chatBox.appendChild(typingIndicator);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    try {
+      const res = await fetch("https://joelvoss.app.n8n.cloud/webhook/61e62a9a-5371-40e7-b511-707b619607aa/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chatInput: text, sessionId })
+      });
+
+      const data = await res.json();
+      const reply = data.output || "No response from bot.";
+
+      typingIndicator.remove();
+      chatBox.innerHTML += `<div class="chat-message bot">${reply}</div>`;
+
+      if (!hasExpanded) {
+        document.getElementById("chat-container").style.height = "96vh";
+        hasExpanded = true;
+      }
+
+    } catch (err) {
+      typingIndicator.remove();
+      chatBox.innerHTML += `<div class="chat-message bot">Error contacting server.</div>`;
+    }
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector("#user-input");
+    const sendButton = document.querySelector("#chat-input button");
+
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        sendButton.click();
+      }
+    });
+  });
+
+  document.getElementById("user-input").addEventListener("focus", () => {
+    const onResize = () => {
+      const yOffset = window.visualViewport.offsetTop || 0;
+      window.scrollTo({ top: yOffset, behavior: "smooth" });
+    };
+
+    window.visualViewport?.addEventListener("resize", onResize);
+
+    document.getElementById("user-input").addEventListener("blur", () => {
+      window.visualViewport?.removeEventListener("resize", onResize);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    }, { once: true });
+  });
+</script>
+
+	
+	</div>
+	
+  </section>
+
+  <hr class="solid">
+
+  <section class="booking">
+    <h3>Ways to Book:</h3>
+    <p>Email us at redrockpartysupplies@gmail.com</p>
+    <p>Text us at 702-706-2455</p>
+    <p>Or book with our <a href="book.html">virtual assistant</a>.</p>
+  </section>
+
+<script>
+  // Navbar background on scroll
+  window.addEventListener('scroll', function () {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Hamburger toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // Optional: Close nav when link is clicked (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
