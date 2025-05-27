@@ -41,6 +41,7 @@
       outline: none;
       transition: border 0.2s;
       background: #f8f8f8;
+	  box-sizing: border-box;
     }
     .form-section input:focus {
       border: 1.5px solid #e76a5c;
