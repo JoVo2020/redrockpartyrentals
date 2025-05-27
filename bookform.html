@@ -5,115 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Red Rock Party Rentals</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bookform.csc" />
   <!-- Lora font for all text -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Lora', serif;
-      background: #f9f9f9;
-    }
-    .booking-form-container {
-      max-width: 420px;
-      background: #fff;
-      margin: 48px auto;
-      border-radius: 14px;
-      box-shadow: 0 8px 32px rgba(40,40,60,0.13);
-      overflow: hidden;
-      position: relative;
-      padding: 0;
-    }
-    .booking-slider {
-      display: flex;
-      width: 300%;
-      transition: transform 0.5s cubic-bezier(.5,1.5,.3,1);
-    }
-    .form-section {
-      flex: 0 0 100%;
-      padding: 32px 28px 24px 28px;
-      box-sizing: border-box;
-    }
-    .form-section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 18px;
-      text-align: center;
-      font-weight: 500;
-    }
-    .form-section input[type="text"], .form-section input[type="email"], .form-section input[type="date"], .form-section input[type="number"] {
-      width: 100%;
-      padding: 12px 10px;
-      margin: 10px 0 22px 0;
-      font-size: 1.05rem;
-      border: 1.5px solid #bdbdbd;
-      border-radius: 7px;
-      outline: none;
-      transition: border 0.2s;
-      background: #f8f8f8;
-    }
-    .form-section input:focus {
-      border: 1.5px solid #e76a5c;
-      background: #fff;
-    }
-    .item-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 14px 0;
-    }
-    .item-row label {
-      font-size: 1rem;
-      flex: 1 1 auto;
-    }
-    .item-row input {
-      width: 75px;
-      margin-left: 20px;
-    }
-    .form-footer {
-      display: flex;
-      justify-content: flex-end;
-      background: #e76a5c;
-      padding: 20px 28px;
-      align-items: center;
-      min-height: 60px;
-      gap: 12px;
-    }
-    .form-footer button {
-      background: #fff;
-      color: #e76a5c;
-      font-weight: 600;
-      border: none;
-      font-size: 1.1rem;
-      cursor: pointer;
-      border-radius: 6px;
-      padding: 10px 18px;
-      letter-spacing: 1px;
-      transition: background 0.18s, color 0.18s, opacity 0.13s;
-      outline: none;
-    }
-    .form-footer button:active {
-      opacity: 0.82;
-    }
-    .form-footer button[disabled] {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-    @media (max-width: 600px) {
-      .booking-form-container {
-        margin: 12px 0;
-        width: 98%;
-        border-radius: 0;
-      }
-      .form-section, .form-footer {
-        padding: 16px 7vw;
-      }
-    }
-    .slide-in {
-      animation: slideIn .5s;
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(60px);}
-      to { opacity: 1; transform: translateX(0);}
-    }
-  </style>
+ 
 </head>
 <body>
 <header>
@@ -177,74 +72,8 @@
       <button type="button" id="submitBtn" style="display:none;">Submit</button>
     </div>
   </div>
-  <script>
-    // --- State ---
-    const slider = document.getElementById("bookingSlider");
-    const backBtn = document.getElementById("backBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const submitBtn = document.getElementById("submitBtn");
-
-    let step = 0; // 0 = Contact, 1 = Items, 2 = Address
-
-    function updateSlider() {
-      slider.style.transform = `translateX(-${step * 100}%)`;
-      // Animate the current section
-      [...slider.children].forEach((section, idx) => {
-        if (idx === step) {
-          section.classList.add('slide-in');
-        } else {
-          section.classList.remove('slide-in');
-        }
-      });
-      backBtn.disabled = step === 0;
-      nextBtn.style.display = step === 2 ? "none" : "";
-      submitBtn.style.display = step === 2 ? "" : "none";
-    }
-
-    nextBtn.onclick = function() {
-      // Optional: Validate current section before moving on
-      if (step === 0) {
-        // Check required contact fields
-        const form = document.getElementById('section-1');
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-      }
-      if (step < 2) {
-        step++;
-        updateSlider();
-      }
-    };
-
-    backBtn.onclick = function() {
-      if (step > 0) {
-        step--;
-        updateSlider();
-      }
-    };
-
-    submitBtn.onclick = function() {
-      // Gather all values
-      const form1 = document.getElementById('section-1');
-      const data = {
-        name: form1.name.value,
-        phone: form1.phone.value,
-        email: form1.email.value,
-        eventDate: form1.eventDate.value,
-        table6: document.getElementById('table6').value,
-        table8: document.getElementById('table8').value,
-        chair: document.getElementById('chair').value,
-        canopy: document.getElementById('canopy').value,
-        address: document.querySelector('[name="address"]').value
-      };
-      // For now, just show data in an alert
-      alert("Booking submitted!\n" + JSON.stringify(data, null, 2));
-      // TODO: Send to your backend or email here!
-    };
-
-    // Initial display
-    updateSlider();
-  </script>
+  
+  <script src="bookform.js"></script>
+  <script src="navbar-scroll.js"></script>
 </body>
 </html>
