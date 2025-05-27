@@ -1,50 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Red Rock Party Rentals</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Lora font for all text -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Booking Form - Red Rock Party Rentals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Lora', serif;
+      background: #f9f9f9;
+    }
+    .booking-form-container {
+      max-width: 420px;
+      background: #fff;
+      margin: 48px auto;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(40,40,60,0.13);
+      overflow: hidden;
+      position: relative;
+      padding: 0;
+    }
+    .booking-slider {
+      display: flex;
+      width: 300%;
+      transition: transform 0.5s cubic-bezier(.5,1.5,.3,1);
+    }
+    .form-section {
+      flex: 0 0 100%;
+      padding: 32px 28px 24px 28px;
+      box-sizing: border-box;
+    }
+    .form-section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .form-section input[type="text"], .form-section input[type="email"], .form-section input[type="date"], .form-section input[type="number"] {
+      width: 100%;
+      padding: 12px 10px;
+      margin: 10px 0 22px 0;
+      font-size: 1.05rem;
+      border: 1.5px solid #bdbdbd;
+      border-radius: 7px;
+      outline: none;
+      transition: border 0.2s;
+      background: #f8f8f8;
+    }
+    .form-section input:focus {
+      border: 1.5px solid #e76a5c;
+      background: #fff;
+    }
+    .item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 14px 0;
+    }
+    .item-row label {
+      font-size: 1rem;
+      flex: 1 1 auto;
+    }
+    .item-row input {
+      width: 75px;
+      margin-left: 20px;
+    }
+    .form-footer {
+      display: flex;
+      justify-content: flex-end;
+      background: #e76a5c;
+      padding: 20px 28px;
+      align-items: center;
+      min-height: 60px;
+      gap: 12px;
+    }
+    .form-footer button {
+      background: #fff;
+      color: #e76a5c;
+      font-weight: 600;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 10px 18px;
+      letter-spacing: 1px;
+      transition: background 0.18s, color 0.18s, opacity 0.13s;
+      outline: none;
+    }
+    .form-footer button:active {
+      opacity: 0.82;
+    }
+    .form-footer button[disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    @media (max-width: 600px) {
+      .booking-form-container {
+        margin: 12px 0;
+        width: 98%;
+        border-radius: 0;
+      }
+      .form-section, .form-footer {
+        padding: 16px 7vw;
+      }
+    }
+    .slide-in {
+      animation: slideIn .5s;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(60px);}
+      to { opacity: 1; transform: translateX(0);}
+    }
+  </style>
 </head>
 <body>
-<header>
-  <nav class="navbar" id="navbar">
-    <div class="logo">
-		<a href="index.html" >
-			<img src="images/logo.png" alt="Red Rock Logo" />
-			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
-		</a>
+  <div class="booking-form-container">
+    <div class="booking-slider" id="bookingSlider">
+      <!-- Step 1: Contact Info -->
+      <form class="form-section" id="section-1" autocomplete="off">
+        <h2>Contact Info</h2>
+        <input name="name" type="text" placeholder="Full Name" required>
+        <input name="phone" type="text" placeholder="Cell Phone" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="eventDate" type="date" placeholder="Event Date" required>
+      </form>
+      <!-- Step 2: Items -->
+      <div class="form-section" id="section-2">
+        <h2>What Do You Need?</h2>
+        <div class="item-row">
+          <label for="table6">6' Table</label>
+          <input id="table6" name="table6" type="number" min="0" max="50" value="0">
+        </div>
+        <div class="item-row">
+          <label for="table8">8' Table</label>
+          <input id="table8" name="table8" type="number" min="0" max="50" value="0">
+        </div>
+        <div class="item-row">
+          <label for="chair">Folding Chair</label>
+          <input id="chair" name="chair" type="number" min="0" max="200" value="0">
+        </div>
+        <div class="item-row">
+          <label for="canopy">Canopy</label>
+          <input id="canopy" name="canopy" type="number" min="0" max="10" value="0">
+        </div>
+        <!-- Add more items as needed -->
+      </div>
+      <!-- Step 3: Delivery Address -->
+      <div class="form-section" id="section-3">
+        <h2>Delivery Address</h2>
+        <input name="address" type="text" placeholder="Address" required>
+      </div>
     </div>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
-      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
-      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
-      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <div class="form-footer">
+      <button type="button" id="backBtn" disabled>&larr; Back</button>
+      <button type="button" id="nextBtn">Next &rarr;</button>
+      <button type="button" id="submitBtn" style="display:none;">Submit</button>
+    </div>
+  </div>
+  <script>
+    // --- State ---
+    const slider = document.getElementById("bookingSlider");
+    const backBtn = document.getElementById("backBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
 
+    let step = 0; // 0 = Contact, 1 = Items, 2 = Address
 
-  <section class="booking-form" style="padding-top: 4rem;">
-    <h2>Booking Form</h2>
+    function updateSlider() {
+      slider.style.transform = `translateX(-${step * 100}%)`;
+      // Animate the current section
+      [...slider.children].forEach((section, idx) => {
+        if (idx === step) {
+          section.classList.add('slide-in');
+        } else {
+          section.classList.remove('slide-in');
+        }
+      });
+      backBtn.disabled = step === 0;
+      nextBtn.style.display = step === 2 ? "none" : "";
+      submitBtn.style.display = step === 2 ? "" : "none";
+    }
 
-	<div id="booking-form-container">
+    nextBtn.onclick = function() {
+      // Optional: Validate current section before moving on
+      if (step === 0) {
+        // Check required contact fields
+        const form = document.getElementById('section-1');
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+      }
+      if (step < 2) {
+        step++;
+        updateSlider();
+      }
+    };
 
-	</div>
-  </section>
+    backBtn.onclick = function() {
+      if (step > 0) {
+        step--;
+        updateSlider();
+      }
+    };
 
-  <hr class="solid">
+    submitBtn.onclick = function() {
+      // Gather all values
+      const form1 = document.getElementById('section-1');
+      const data = {
+        name: form1.name.value,
+        phone: form1.phone.value,
+        email: form1.email.value,
+        eventDate: form1.eventDate.value,
+        table6: document.getElementById('table6').value,
+        table8: document.getElementById('table8').value,
+        chair: document.getElementById('chair').value,
+        canopy: document.getElementById('canopy').value,
+        address: document.querySelector('[name="address"]').value
+      };
+      // For now, just show data in an alert
+      alert("Booking submitted!\n" + JSON.stringify(data, null, 2));
+      // TODO: Send to your backend or email here!
+    };
 
-  <section class="booking">
-    <h3>Other Ways to Book:</h3>
-    <p>Email us at redrockpartysupplies@gmail.com</p>
-    <p>Text us at 702-706-2455</p>
-  </section>
-
-<script src="navbar-scroll.js"></script>
-
+    // Initial display
+    updateSlider();
+  </script>
 </body>
 </html>
