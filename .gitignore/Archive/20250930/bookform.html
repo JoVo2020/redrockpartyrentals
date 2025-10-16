@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Red Rock Party Rentals</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bookform.css" />
+  <!-- Lora font for all text -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+		<a href="index.html" >
+			<img src="images/logo.png" alt="Red Rock Logo" />
+			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+		</a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <div class="booking-form-container">
+    <div class="booking-slider" id="bookingSlider">
+      <!-- Step 1: Contact Info -->
+      <form class="form-section" id="section-1" autocomplete="off">
+        <h2>Contact Info</h2>
+        <input name="name" type="text" placeholder="Full Name" required>
+        <input name="phone" type="text" placeholder="Cell Phone" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="eventDate" type="date" placeholder="Event Date" required>
+      </form>
+      <!-- Step 2: Items -->
+      <div class="form-section" id="section-2">
+        <h2>What Do You Need?</h2>
+        <div class="item-row">
+          <label for="table6">6' Table</label>
+          <input id="table6" name="table6" type="number" min="0" max="50" value="0">
+        </div>
+        <div class="item-row">
+          <label for="table8">8' Table</label>
+          <input id="table8" name="table8" type="number" min="0" max="50" value="0">
+        </div>
+        <div class="item-row">
+          <label for="chair">Folding Chair</label>
+          <input id="chair" name="chair" type="number" min="0" max="200" value="0">
+        </div>
+        <div class="item-row">
+          <label for="canopy">Canopy</label>
+          <input id="canopy" name="canopy" type="number" min="0" max="10" value="0">
+        </div>
+        <!-- Add more items as needed -->
+      </div>
+      <!-- Step 3: Delivery Address -->
+      <div class="form-section" id="section-3">
+        <h2>Delivery Address</h2>
+        <input name="address" type="text" placeholder="Address" required>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button type="button" id="backBtn" disabled>&larr; Back</button>
+      <button type="button" id="nextBtn">Next &rarr;</button>
+      <button type="button" id="submitBtn" style="display:none;">Submit</button>
+    </div>
+  </div>
+  
+  <script src="bookform.js"></script>
+  <script src="navbar-scroll.js"></script>
+</body>
+</html>
