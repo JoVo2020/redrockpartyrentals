@@ -26,7 +26,7 @@
     chatBox.scrollTop = chatBox.scrollHeight;
 
     try {
-      const res = await fetch("https://joelvoss.app.n8n.cloud/webhook/b54205c4-c8a8-4f8e-93db-d6e885f6138e/chat", {
+      const res = await fetch("https://joelvoss.app.n8n.cloud/webhook/61e62a9a-5371-40e7-b511-707b619607aa/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chatInput: text, sessionId })

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+	<!-- End Google Tag Manager -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Red Rock Party Rentals</title>
+	<link rel="stylesheet" href="style.css" />
+	<!-- <link rel="stylesheet" href="booking-agent.css" /> -->
+	<!-- Lora font for all text -->
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+	
+	  <style>
+		body {
+		  font-family: 'Poppins', Arial, sans-serif;
+		  background-color: #fff;
+		  margin: 0;
+		  padding: 0;
+		  <!-- display: flex; -->
+		  justify-content: center;
+		  align-items: center;
+		  min-height: 100vh;
+		}
+
+		.form-section {
+		  background-color: #8b0000;
+		  padding: 30px 25px;
+		  border-radius: 8px;
+		  width: 90%;
+		  max-width: 420px;
+		  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+		  text-align: center;
+		  margin:auto;
+		}
+
+		.form-section h2 {
+		  color: #fff;
+		  font-size: 20px;
+		  margin-bottom: 20px;
+		  font-weight: 600;
+		  letter-spacing: 0.5px;
+		}
+
+		.form-group {
+		  margin-bottom: 15px;
+		  text-align: left;
+		}
+
+		label {
+		  font-size: 13px;
+		  color: #fff;
+		  display: block;
+		  margin-bottom: 6px;
+		  font-weight: 500;
+		}
+
+		select, input[type="date"] {
+		  width: 100%;
+		  padding: 10px 12px;
+		  border-radius: 5px;
+		  border: none;
+		  font-size: 14px;
+		}
+
+		.pickup-options {
+		  display: flex;
+		  justify-content: space-around;
+		  margin: 20px 0;
+		  color: #fff;
+		  font-size: 14px;
+		}
+
+		.pickup-options label {
+		  display: flex;
+		  align-items: center;
+		  gap: 5px;
+		}
+
+		button {
+		  background-color: #fff;
+		  color: #8b0000;
+		  border: none;
+		  width: 100%;
+		  padding: 14px;
+		  font-size: 16px;
+		  font-weight: 750;
+		  border-radius: 5px;
+		  cursor: pointer;
+		  transition: background 0.3s ease;
+		}
+
+		button:hover {
+		  background-color: #333;
+		}
+
+		/* Optional decorative accents */
+		.divider {
+		  height: 3px;
+		  width: 60px;
+		  background-color: #fff;
+		  margin: 10px auto 20px;
+		}
+		
+		.dropdown-icon-category {
+		width: 20px;
+		height: 20px;
+		background: url("images/icons/category.svg") no-repeat center;
+		background-size: contain;
+		flex-shrink: 0;
+	  }
+	  .dropdown-icon-location {
+		width: 20px;
+		height: 20px;
+		background: url("images/icons/location.svg") no-repeat center;
+		background-size: contain;
+		flex-shrink: 0;
+	  }
+	  .dropdown-icon-calendar {
+		width: 20px;
+		height: 20px;
+		background: url("images/icons/calendar.svg") no-repeat center;
+		background-size: contain;
+		flex-shrink: 0;
+	  }
+
+	  .dropdown-divider {
+		width: 1px;
+		height: 20px;
+		background: #ccc;
+		margin: 0 10px;
+	  }
+  
+	  .dropdown-wrapper {
+		position: relative;
+		width: 100%;
+		background: #fff;
+		border: 1px solid #ccc;
+		margin: 15px 0;
+		display: flex;
+		align-items: center;
+		padding: 10px 12px;
+		cursor: pointer;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+	  }
+	  </style>	
+	
+	
+	
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+		<a href="index.html" >
+			<img src="images/logo.png" alt="Red Rock Logo" />
+			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+		</a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!--
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-text">
+        <h1>Book</h1>
+      </div>
+    </div>
+  </section>
+-->
+
+	<section class="booking-form" style="padding-top: 4rem;margin:auto;">
+
+		<div class="form-section">
+			<h2>Book Now</h2>
+			<form>
+			
+			
+			
+			
+			  <div class="dropdown-wrapper">
+				<div class="dropdown-icon-category"></div>
+				<div class="dropdown-divider"></div>
+			  
+			  
+				<select id="category" required>
+				  <option value="">Choose Category</option>
+				  <option value="chairs">Chairs</option>
+				  <option value="tables">Tables</option>
+				  <option value="tents">Tents</option>
+				  <option value="linens">Linens</option>
+				</select>
+			  </div>
+
+			  <div class="dropdown-wrapper">
+				<div class="dropdown-icon-location"></div>
+				<div class="dropdown-divider"></div>
+				
+				<select id="location" required>
+				  <option value="">Choose Location</option>
+				  <option value="lasvegas">Las Vegas</option>
+				  <option value="henderson">Henderson</option>
+				  <option value="summerlin">Summerlin</option>
+				</select>
+			  </div>
+
+			  <div class="dropdown-wrapper">
+				<div class="dropdown-icon-calendar"></div>
+				<div class="dropdown-divider"></div>
+				<input type="date" id="dateStart" required>
+			  </div>
+
+
+			  <button type="submit">FIND MY RENTALS →</button>
+			</form>
+		  </div>
+
+	
+  </section>
+	<br>
+  <hr class="solid">
+
+  <section class="booking">
+    <h3>Other Ways to Book:</h3>
+    <p>Email us at booking@redrockpartyrentals.com</p>
+    <p>Text us at 702-706-2455</p>
+  </section>
+
+<script src="navbar-scroll.js"></script>
+
+</body>
+</html>
