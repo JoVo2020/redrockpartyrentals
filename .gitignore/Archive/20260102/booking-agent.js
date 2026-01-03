@@ -33,21 +33,7 @@
       });
 
       const data = await res.json();
-      const reply = data.output || "No response... please resend message";
-
-	  const replyLower = String(reply).toLowerCase();
-
-	  // ✅ WORKS NOW: basic phrase match (edit phrase to match your exact success wording)
-	  const looksLikeBookingSuccess =
-		  replyLower.includes("you're all set") ||
-		  replyLower.includes("youre all set") ||
-		  replyLower.includes("confirmation email") ||
-		  replyLower.includes("booked") ||
-		  replyLower.includes("appointment confirmed");
-
-	  if (looksLikeBookingSuccess) {
-		  trackBookingConversionOnce();
-	  }
+      const reply = data.output || "No response from bot.";
 
       typingIndicator.remove();
       chatBox.innerHTML += `<div class="chat-message bot">${reply}</div>`;
@@ -65,16 +51,6 @@
 
     chatBox.scrollTop = chatBox.scrollHeight;
   }
-  
-	function trackBookingConversionOnce() {
-	  if (window.__rr_booking_conversion_fired) return;
-	  window.__rr_booking_conversion_fired = true;
-
-	  window.dataLayer = window.dataLayer || [];
-	  window.dataLayer.push({ event: "rr_booking_confirmed" });
-
-	  console.log("✅ Pushed rr_booking_confirmed to dataLayer");
-	}
 
   document.addEventListener("DOMContentLoaded", function () {
     const input = document.querySelector("#user-input");
