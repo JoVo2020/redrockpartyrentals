@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+	<!-- End Google Tag Manager -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Red Rock Party Rentals</title>
+	<link rel="stylesheet" href="style.css" />
+	<!-- <link rel="stylesheet" href="booking-agent.css" /> -->
+	<!-- Lora font for all text -->
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+	<!-- datepicker -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+	
+	  <style>
+	  
+	  .page-wrapper {
+		padding: 30px;
+		margin-top: 4rem;
+	  }
+	  
+	  
+	  
+	  	/* BOOKING FORM CSS */
+		/* Change the greyed-out/unavailable date color */
+		.flatpickr-day.flatpickr-disabled {
+		  color: #D3D3D3  !important;
+		  opacity: 0.75 !important;       /* stop Flatpickr from dimming it */
+		}
+		/* Next month’s days (visible in current view) */
+		.flatpickr-day.nextMonthDay {
+		  color: #A9A9A9  !important;
+		  opacity: 1 !important;       /* remove fading */
+		}
+		body {
+		  font-family: 'Poppins', Arial, sans-serif;
+		  background-color: #fff;
+		  margin: 0;
+		  padding: 0;
+		  <!-- display: flex; -->
+		  justify-content: center;
+		  align-items: center;
+		  min-height: 100vh;
+		}
+
+		.form-section {
+		  background-color: #8b0000;
+		  border-radius: 8px;
+		  <!-- max-width: 420px; -->
+		  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+		  text-align: center;
+		  margin:auto;
+		  padding:20px;
+		}
+
+		.form-section h2 {
+		  color: #fff;
+		  font-size: 2em;
+		  font-weight: 600;
+		  letter-spacing: 0.5px;
+		  margin-bottom:0px
+		}
+
+		.form-group {
+		  margin-bottom: 15px;
+		  text-align: left;
+		}
+
+		label {
+		  font-size: 13px;
+		  color: #fff;
+		  display: block;
+		  margin-bottom: 6px;
+		  font-weight: 500;
+		}
+
+		select, input[type="text"] {
+		  width: 100%;
+		  padding: 10px 12px;
+		  border-radius: 5px;
+		  border: none;
+		  font-size: 14px;
+		}
+
+		.pickup-options {
+		  display: flex;
+		  justify-content: space-around;
+		  margin: 20px 0;
+		  color: #fff;
+		  font-size: 14px;
+		}
+
+		.pickup-options label {
+		  display: flex;
+		  align-items: center;
+		  gap: 5px;
+		}
+
+		.find-rentals-btn {
+		  background-color: #fff;
+		  color: #8b0000;
+		  border: none;
+		  padding: 10px 12px;
+		  font-size: 16px;
+		  font-weight: 750;
+		  border-radius: 5px;
+		  cursor: pointer;
+		  transition: background 0.3s ease;
+		  width: 100%;
+		  height:55px;
+		}
+
+		button:hover {
+		  background-color: #f1d1d6;
+		}
+
+		/* Optional decorative accents */
+		.divider {
+		  height: 3px;
+		  width: 60px;
+		  background-color: #fff;
+		  margin: 10px auto 20px;
+		}
+		
+		.dropdown-icon-category {
+		width: 20px;
+		height: 20px;
+		background: url("images/icons/category.svg") no-repeat center;
+		background-size: contain;
+		flex-shrink: 0;
+	  }
+	  .dropdown-icon-location {
+		width: 20px;
+		height: 20px;
+		background: url("images/icons/location.svg") no-repeat center;
+		background-size: contain;
+		flex-shrink: 0;
+	  }
+	  .dropdown-icon-calendar {
+		width: 20px;
+		height: 20px;
+		background: url("images/icons/calendar.svg") no-repeat center;
+		background-size: contain;
+		flex-shrink: 0;
+	  }
+
+	  .dropdown-divider {
+		width: 1px;
+		height: 20px;
+		background: #ccc;
+		margin: 0 10px;
+	  }
+  
+	  .dropdown-wrapper {
+		position: relative;
+		background: #fff;
+		border: 1px solid #ccc;
+		display: flex;
+		align-items: center;
+		padding: 10px 12px;
+		cursor: pointer;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+		width: 100%;
+	  }
+	  #dateStart::placeholder {
+		color: black;
+		opacity: 1; /* prevent browsers from dimming it */
+	  }
+	  
+	  		/* Mobile Screens */
+		@media (min-width: 600px) {
+			.form-container {
+				justify-content: center;
+				align-items: center;
+				
+
+			}
+			.form-section{
+				/* max-width:600px; */
+				padding: 20px;
+			}
+			.dropdown-wrapper {
+				flex: 1 1 calc(50% - 16px);
+				max-width: calc(50% - 16px);
+			}
+			.find-rentals-btn {
+				flex: 1 1 calc(50% - 16px);
+				max-width: calc(75% - 16px); 
+			}			
+		}
+		/* Larger Screens */
+		@media (min-width: 900px) {
+			.form-container {
+				flex-direction: row;
+				justify-content: space-evenly;
+
+			}
+			.dropdown-wrapper {
+				flex: 1 1 calc(33.33% - 16px);
+				max-width: calc(33.33% - 16px);
+			}
+			.find-rentals-btn {
+				flex: 1 1 calc(33.33% - 16px);
+				max-width: calc(33.33% - 16px);
+			}
+			.form-section{
+				/* max-width:1100px; */
+			}
+		}
+	  
+	  /* BOOKING FORM CSS */
+	  
+	  
+	  
+	  
+	/* INVENTORY GRID CSS */
+  .rr-inventory-section { padding: 18px 0; }
+  .rr-inventory-header { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+  .rr-inventory-title { margin:0; font-size: 22px; }
+  .rr-inventory-status { font-size: 14px; opacity: 0.8; }
+
+  .rr-inventory-grid{
+    margin-top: 14px;
+    display: flex;
+	flex-wrap:wrap;
+	justify-content:space-evenly;
+    gap: 18px;
+  }
+
+
+  .rr-card{
+    background:#fff;
+    border-radius: 0;
+    overflow:hidden;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	flex: 1 1 100%;
+  }
+
+  .rr-card__img-wrap{
+    padding:8px;
+    background:#fff;
+  }
+
+  .rr-card__img{
+    width:100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display:block;
+  }
+
+  .rr-card__body{
+    text-align:center;
+    padding:5px 5px 10px 5px;
+  }
+
+  .rr-card__name{
+    font-size: 22px;
+    color:#505050;
+    line-height:1.1;
+    margin-bottom:4px;
+  }
+
+  .rr-card__price{
+    font-size: 20px;
+    color:#505050;
+    line-height:1.1;
+  }
+  
+  .rr-btn-addToCart{
+	background-color: white;
+	color:black;
+    padding: 10px;
+    border-color: gray;
+    border-width: 1px;
+    font-size: 1em;
+    margin-top: 5px;
+  }
+
+	.rr-btn-addToCart:Hover{
+		background-color: #8b0000;
+		color: white;
+	}
+
+
+	@media (min-width: 600px) {
+	  .rr-card{
+		/* On screens 600px and wider, items can take up about a third of the width */
+		/* flex-basis is calculated to fit multiple items with gaps */
+		flex: 1 1 calc(50% - 16px);
+		max-width: calc(50% - 16px);
+	  }
+	}
+
+	@media (min-width: 900px) {
+	  .rr-card{
+		 /* On screens 900px and wider, items can take up about a quarter of the width */
+		flex: 1 1 calc(33.33% - 16px);
+		max-width: calc(33.33% - 16px);
+	  }
+	}
+	/* END INVENTORY GRID CSS */
+	  
+	  
+	  
+	  
+	  
+	/* CART OVERLAY */
+	.cart-overlay {
+	  position: fixed;
+	  inset: 0;
+	  background: rgba(0,0,0,0.4);
+	  z-index: 9999;
+	  display: none;
+	}
+
+	/* Panel */
+	.cart-panel {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  width: 100%;
+	  max-width: 420px;
+	  height: 100%;
+	  background: #fff;
+	  display: flex;
+	  flex-direction: column;
+	  transform: translateX(100%);
+	  transition: transform 0.3s ease;
+	}
+
+	/* Open state */
+	.cart-overlay.open {
+	  display: block;
+	}
+	.cart-overlay.open .cart-panel {
+	  transform: translateX(0);
+	}
+
+	/* Header */
+	.cart-header {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  padding: 16px;
+	  border-bottom: 1px solid #eee;
+	}
+
+	.cart-close {
+	  background: none;
+	  border: none;
+	  font-size: 22px;
+	  cursor: pointer;
+	}
+
+	/* Items */
+	.cart-items {
+	  flex: 1;
+	  overflow-y: auto;
+	  padding: 16px;
+	}
+
+	.cart-item {
+	  display: flex;
+	  gap: 12px;
+	  margin-bottom: 16px;
+	}
+
+	.cart-item img {
+	  width: 64px;
+	  height: 64px;
+	  object-fit: cover;
+	  border-radius: 6px;
+	}
+
+	.cart-item-info {
+	  flex: 1;
+	}
+
+	.cart-item-actions {
+	  display: flex;
+	  align-items: center;
+	  gap: 8px;
+	}
+
+	/* Footer */
+	.cart-footer {
+	  padding: 16px;
+	  border-top: 1px solid #eee;
+	}
+
+	.cart-summary {
+	  display: flex;
+	  justify-content: space-between;
+	  margin-bottom: 12px;
+	}
+
+	.checkout-btn {
+	  width: 100%;
+	  padding: 14px;
+	  font-size: 16px;
+	  background: #e5533d;
+	  color: white;
+	  border: none;
+	  border-radius: 6px;
+	  cursor: pointer;
+	}
+	/* END CART OVERLAY */
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  </style>	
+	
+	
+	
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+		<a href="index.html" >
+			<img src="images/logo.png" alt="Red Rock Logo" />
+			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+		</a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!--
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-text">
+        <h1>Book</h1>
+      </div>
+    </div>
+  </section>
+-->
+	<div class="page-wrapper">
+
+		<section class="booking-form" style="padding-top: margin:auto;">
+
+			<div class="form-section">
+				<h2>Book Now</h2>
+				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;">
+				
+				
+				
+				
+				  <div class="dropdown-wrapper">
+					<div class="dropdown-icon-category"></div>
+					<div class="dropdown-divider"></div>
+				  
+				  
+					<select id="category" required>
+					  <option value="">Choose Category</option>
+					  <option value="chairs">Tables & Chairs</option>
+					  <option value="tables">Games</option>
+					  <option value="tents">Marquee Letters</option>
+					  <option value="linens">Everything</option>
+					</select>
+				  </div>
+
+				<!-- 
+				  <div class="dropdown-wrapper">
+					<div class="dropdown-icon-location"></div>
+					<div class="dropdown-divider"></div>
+					
+					<select id="location" required>
+					  <option value="">Choose Location</option>
+					  <option value="summerlin">Southwest Las Vegas</option>
+					  <option value="lasvegas">Summerlin Area</option>
+					  <option value="henderson">Centennial Area</option>
+					  <option value="summerlin">North Las Vegas</option>
+					  <option value="summerlin">East Las Vegas</option>
+					  <option value="summerlin">Henderson</option>
+					  <option value="summerlin">Other</option>
+					</select>
+				  </div>
+				-->
+
+				  <div class="dropdown-wrapper">
+					<div class="dropdown-icon-calendar"></div>
+					<div class="dropdown-divider"></div>
+					<input type="text" id="dateStart" placeholder="Event Date" required>
+				  </div>
+
+
+				  <button type="submit" class="find-rentals-btn">FIND MY RENTALS →</button>
+				</form>
+			  </div>
+
+		
+	  </section>
+	  
+
+		<!-- Inventory Grid -->
+		<section class="rr-inventory-section">
+
+		  <div id="rrInventoryGrid" class="rr-inventory-grid"></div>
+		</section>
+
+		<!-- Card Template (hidden) -->
+		<template id="rrItemTemplate">
+		  <div class="rr-card">
+			<div class="rr-card__img-wrap">
+			  <img class="rr-card__img" alt="" loading="lazy" />
+			</div>
+
+			<div class="rr-card__body">
+			  <div class="rr-card__name"></div>
+			  <div class="rr-card__addToCart"></div>
+			</div>
+		  </div>
+		</template>
+	  
+	  
+		
+		<br>
+	  <hr class="solid">
+
+	  <section class="booking">
+		<h3>Other Ways to Book:</h3>
+		<p>Email us at booking@redrockpartyrentals.com</p>
+		<p>Text us at 702-706-2455</p>
+	  </section>
+	
+	</div>
+	
+	
+	<!-- CART OVERLAY -->
+	<div id="cartOverlay" class="cart-overlay">
+	  <div class="cart-panel">
+		<div class="cart-header">
+		  <h2>Cart</h2>
+		  <button class="cart-close" onclick="closeCart()">✕</button>
+		</div>
+
+		<div id="cartItems" class="cart-items"></div>
+
+		<div class="cart-footer">
+		  <div class="cart-summary">
+			<span>Subtotal</span>
+			<strong id="cartSubtotal">$0.00</strong>
+		  </div>
+
+		  <button class="checkout-btn">
+			Checkout →
+		  </button>
+		</div>
+	  </div>
+	</div>
+
+	
+	
+	
+	
+<script src="navbar-scroll.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  flatpickr("#dateStart", {
+    dateFormat: "m/d/Y",
+    minDate: tomorrow
+  });
+</script>
+
+
+
+<!-- INVENTORY GRID JS -->
+<script>
+  (function () {
+    const ENDPOINT =
+      "https://script.google.com/macros/s/AKfycbwiQbTdtwT0VtIIxGVDnu1IP9q6JXnL6zIhWe7wsnM2O9laf4OProuyfzi9PafriDEoUw/exec?action=inventory";
+
+    const grid = document.getElementById("rrInventoryGrid");
+    const tpl = document.getElementById("rrItemTemplate");
+
+    const money = (value) => {
+      const n = Number(value);
+      if (!Number.isFinite(n)) return "";
+      // If you want always "$X" (no decimals):
+      return "$" + (Number.isInteger(n) ? n : n.toFixed(2));
+    };
+
+    const safeText = (v) => (v == null ? "" : String(v));
+
+    async function loadInventory() {
+
+      try {
+        const res = await fetch(ENDPOINT, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+
+        const data = await res.json();
+        if (!data || !Array.isArray(data.inventory)) {
+          throw new Error("Unexpected response shape (no inventory array)");
+        }
+
+        renderInventory(data.inventory);
+      } catch (err) {
+        console.error(err);
+        grid.innerHTML = `
+          <div style="padding:14px;border:1px solid #ddd;">
+            <strong>Inventory load failed.</strong><br/>
+            Please try again or check the Apps Script deployment / CORS.
+          </div>
+        `;
+      }
+    }
+
+    function renderInventory(items) {
+      grid.innerHTML = "";
+
+      items.forEach((item) => {
+        // Your JSON keys (with spaces) based on the screenshot:
+        const name = safeText(item["Item Name"]);
+		const item_id = safeText(item["Item_ID"]);
+        const product_id = safeText(item["Product_ID"]);
+
+        const priceRaw = item["Rental Price"];
+		const priceText = money(priceRaw);
+        const qty = Number(item["Quantity Available"]);
+        const imgUrl = safeText(item["Image"]);
+		const lblNamePrice = name + " - " + priceText;
+        const node = tpl.content.firstElementChild.cloneNode(true);
+
+        // Image
+        const img = node.querySelector(".rr-card__img");
+        img.src = imgUrl || "https://redrockpartyrentals.com/images/placeholder.jpg";
+        img.alt = name || "Inventory Item";
+
+        // Name
+        node.querySelector(".rr-card__name").textContent = lblNamePrice || "Unnamed Item";
+
+        // Price (format like "$3 each")
+        const AddToCartEl = node.querySelector(".rr-card__addToCart");
+
+        AddToCartEl.innerHTML = `<button class="rr-btn-addToCart">Add To Cart</button>`;
+
+		const btn = AddToCartEl.querySelector(".rr-btn-addToCart");
+
+		btn.addEventListener("click", () => {
+			addToCart({
+				id: product_id || item_id,
+				name: name,
+				price: Number(priceRaw),
+				image: imgUrl
+			});
+		});
+
+        // Optional: mark unavailable
+        if (Number.isFinite(qty) && qty <= 0) node.classList.add("is-unavailable");
+
+        grid.appendChild(node);
+      });
+    }
+
+    // Kick off
+    loadInventory();
+  })();
+</script>
+
+
+<!-- CART JS -->
+<script>
+const CART_KEY = 'rrpr_cart';
+
+/* --------------------
+   Core helpers
+-------------------- */
+function getCart() {
+  return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
+/* --------------------
+   Cart actions
+-------------------- */
+function addToCart(item) {
+  const cart = getCart();
+  const existing = cart.find(i => i.id === item.id);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ ...item, qty: 1 });
+  }
+
+  saveCart(cart);
+  openCart();
+  renderCart();
+}
+
+function removeFromCart(id) {
+  const cart = getCart().filter(i => i.id !== id);
+  saveCart(cart);
+  renderCart();
+}
+
+function updateQty(id, delta) {
+  const cart = getCart();
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+
+  item.qty += delta;
+  if (item.qty <= 0) {
+    removeFromCart(id);
+  } else {
+    saveCart(cart);
+    renderCart();
+  }
+}
+
+/* --------------------
+   Render
+-------------------- */
+function renderCart() {
+  const cart = getCart();
+  const container = document.getElementById('cartItems');
+  const subtotalEl = document.getElementById('cartSubtotal');
+
+  container.innerHTML = '';
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
+
+    container.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}" alt="">
+        <div class="cart-item-info">
+          <strong>${item.name}</strong>
+          <div>$${item.price.toFixed(2)}</div>
+        </div>
+        <div class="cart-item-actions">
+          <button onclick="updateQty('${item.id}', -1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="updateQty('${item.id}', 1)">+</button>
+        </div>
+      </div>
+    `;
+  });
+
+  subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+}
+
+/* --------------------
+   Open / Close
+-------------------- */
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* Close when clicking backdrop */
+document.getElementById('cartOverlay').addEventListener('click', e => {
+  if (e.target.id === 'cartOverlay') closeCart();
+});
+
+/* Init */
+renderCart();
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
