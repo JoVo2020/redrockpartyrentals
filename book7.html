@@ -436,6 +436,10 @@
 	  object-fit: cover;
 	  border-radius: 6px;
 	}
+	
+	.cart-price {
+		font-size:16px;
+	}
 
 	.cart-qty {
 	  display: flex;
@@ -453,6 +457,8 @@
 		text-align:center;
 		outline: none;
 		box-shadow: none;
+		font-size:18px;
+		width:50%
 	}
 	
 	/* Remove focus ring */
@@ -552,8 +558,8 @@
 	  border-radius: 6px;
 	  cursor: pointer;
 	}
-	
-	@media (min-width: 900px) {
+
+	@media (min-width: 600px) {
 	  .cart-qty {
 		width: auto;
 		margin-right: 30px;
@@ -711,8 +717,8 @@
 	  <div class="cart-panel cart-panel--fullscreen">
 
 		<header class="cart-header">
-		  <button class="cart-back" onclick="closeCart()">← Continue shopping</button>
-		  <h2>Cart</h2>
+		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+		  <h2 style="margin-bottom:0;font-size:2em;">Cart</h2>
 		  <button class="cart-close" onclick="closeCart()">✕</button>
 		</header>
 
