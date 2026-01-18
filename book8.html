@@ -653,7 +653,7 @@
 					  <option value="Tables and Chairs">Tables & Chairs</option>
 					  <option value="Games">Games</option>
 					  <option value="Marquee Letters">Marquee Letters</option>
-					  <option value="All Categories">Everything</option>
+					  <option value="All Categories">All Categories</option>
 					</select>
 				  </div>
 
@@ -759,15 +759,15 @@
   (function () {
   
 	const params = new URLSearchParams(window.location.search);
-	const categoryParam = params.get('category'); // "tents"
-	const dateParamRaw = params.get('date');         // "01/22/2026" (decoded automatically)
-	const dateParam = formatDateToISO(dateParamRaw);
-	console.log('Category:', categoryParam);
-	console.log('Date:', dateParam);  
+	window.categoryParam = params.get('category'); // "tents"
+	window.dateParamRaw = params.get('date');         // "01/22/2026" (decoded automatically)
+	window.dateParam = formatDateToISO(dateParamRaw);
+	console.log('Category:', window.categoryParam);
+	console.log('Date:', window.dateParam);  
   
   
     const ENDPOINT =
-	  "https://script.google.com/macros/s/AKfycbwiQbTdtwT0VtIIxGVDnu1IP9q6JXnL6zIhWe7wsnM2O9laf4OProuyfzi9PafriDEoUw/exec?action=availability&date="+dateParam;
+	  "https://script.google.com/macros/s/AKfycbwiQbTdtwT0VtIIxGVDnu1IP9q6JXnL6zIhWe7wsnM2O9laf4OProuyfzi9PafriDEoUw/exec?action=availability&date="+window.dateParam;
 	
     const grid = document.getElementById("rrInventoryGrid");
     const tpl = document.getElementById("rrItemTemplate");
@@ -1035,34 +1035,34 @@ renderCart();
 <!--Auto Populate Form Values from URL Params -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-
-    const categoryParam = params.get('category'); // e.g. "tablesandchairs"
-    const dateParam = params.get('date');         // e.g. "01/22/2026"
-
+	
     /* ---------- Category ---------- */
-    if (categoryParam) {
+    if (window.categoryParam) {
       const categorySelect = document.getElementById('category');
 
       if (categorySelect) {
         // Only set if option exists
         const optionExists = Array.from(categorySelect.options)
-          .some(opt => opt.value === categoryParam);
+          .some(opt => opt.value === window.categoryParam);
 
         if (optionExists) {
-          categorySelect.value = categoryParam;
+          categorySelect.value = window.categoryParam;
         }
       }
     }
 
     /* ---------- Date ---------- */
-    if (dateParam) {
-      const dateInput = document.getElementById('dateStart');
+    if (window.dateParam) {
+	  const desktopInput = document.getElementById('dateStart');
+	  if (desktopInput) {
+		desktopInput.value = window.dateParamRaw;
+	  }
 
-      if (dateInput) {
-        // Your date picker expects MM/DD/YYYY
-        dateInput.value = decodeURIComponent(dateParam);
-      }
+	  // Mobile (native date input)
+	  const mobileInput = document.querySelector('.flatpickr-mobile');
+	  if (mobileInput) {
+		mobileInput.value = window.dateParam;
+	  }
     }
   });
 </script>
