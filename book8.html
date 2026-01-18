@@ -682,7 +682,7 @@
 				  </div>
 
 
-				  <button id="findRentalsBtn" type="button" class="find-rentals-btn">FIND MY RENTALS →</button>
+				  <button type="submit" class="find-rentals-btn">FIND MY RENTALS →</button>
 				</form>
 			  </div>
 
@@ -1036,28 +1036,6 @@ renderCart();
 </script>
 
 
-<!-- When user clicks Find My Rentals button -->
-<script>
-  document.getElementById('findRentalsBtn').addEventListener('click', function () {
-    const category = document.getElementById('category').value;
-    const date = document.getElementById('dateStart').value;
-
-	if (!category) {
-		category = 'Everything';
-	}
-    if (!date) {
-      alert('Please select event date.');
-      return;
-    }
-
-    const params = new URLSearchParams({
-      category: category,
-      date: date
-    });
-
-    window.location.href = `/book8.html?${params.toString()}`;
-  });
-</script>
 
 
 
