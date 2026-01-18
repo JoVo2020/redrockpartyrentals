@@ -831,8 +831,6 @@
         // Price (format like "$3 each")
         const AddToCartEl = node.querySelector(".rr-card__addToCart");
 
-        //AddToCartEl.innerHTML = `<button class="rr-btn-addToCart">Add To Cart</button>`;
-		
 		if (availableQty <= 0) {
 		  AddToCartEl.innerHTML = `
 			<button class="rr-btn-unavailable" disabled>
@@ -846,19 +844,19 @@
 			</button>
 		  `;
 
+		  const btn = AddToCartEl.querySelector(".rr-btn-addToCart");
 
-		const btn = AddToCartEl.querySelector(".rr-btn-addToCart");
-
-		btn.addEventListener("click", () => {
+		  btn.addEventListener("click", () => {
 			addToCart({
-				id: product_id || item_id,
-				name: name,
-				price: Number(priceRaw),
-				image: imgUrl,
-				availableQty: availableQty
-				
+			  id: product_id || item_id,
+			  name: name,
+			  price: Number(priceRaw),
+			  image: imgUrl,
+			  availableQty: availableQty
 			});
-		});
+		  });
+		}
+
 
         // Optional: mark unavailable
         if (Number.isFinite(availableQty) && availableQty <= 0) node.classList.add("is-unavailable");
