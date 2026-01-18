@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap');
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  font-family: 'Lora', serif;
+  color: #8b0000;
+  background: #fff;
+  line-height: 1.6;
+}
+
+a {text-decoration: none;}
+
+h1 { font-size: 5rem; color: #fff; font-weight: 400; line-height: 1.1; margin-bottom: 0.6rem; text-shadow: 0 2px 4px rgba(0,0,0,0.6); letter-spacing: -1px;}
+h2 { font-size: 3rem; color: #8b0000; margin-bottom: 2rem; font-weight: 400; text-align:center }
+h3 { font-size: 3rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; }
+h4 { font-size: 1.5rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; font-style:italic; text-align:center }
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0,0,0,0.0); /* transparent initially */
+  position: fixed;
+  width: 100%;
+  top: 0; left: 0;
+  z-index: 1000;
+  transition: background 0.3s;
+  font-size: 1.2rem;
+}
+.navbar.scrolled { background: rgba(0,0,0,0.93); }
+.logo { display: flex; align-items: center; gap: 0.5rem; color: white; font-size: 1.25rem; }
+.logo img { height: 32px; vertical-align:bottom;}
+.nav-links { list-style: none; display: flex; gap: 1.5rem; }
+.nav-links a { color: white; text-decoration: none; font-weight: 400; font-size: 1em; }
+.dropdown { position: relative; }
+.dropdown-menu {
+  display: none; position: absolute; background: #111; list-style: none;
+  top: 100%; left: 0; padding: 0.5rem;
+}
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu li { margin: 0.3rem 0; }
+.dropdown-menu a { color: white; text-decoration: none; }
+.menu-toggle {
+  display: none; background: none; border: none; color: white;
+  font-size: 2.3rem; margin-left: 1rem; cursor: pointer; z-index: 1100;
+}
+
+/* Hero Section */
+.hero {
+  background: url('images/hero.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 80vh; min-height: 480px;
+  position: relative; padding-top: 64px;
+}
+.overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.35);
+  display: flex; justify-content: center; align-items: center;
+  text-align: center; padding: 1rem;
+}
+
+.hero-text p {
+  font-size: 2rem; color: #f0f0f0; font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3); margin-top: 0.3rem;
+}
+
+/* Rentals Section */
+.rentals { padding: 3rem 1rem 2rem 1rem; text-align: center; }
+.rental-items { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.8rem; }
+.rental-items .item { max-width: 330px; }
+.rental-items img { width: 100%; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.18); margin-bottom: 0.5rem; }
+.rental-items p { color: #8b0000; font-size: 1.5rem; font-weight: 400; }
+
+/* Button */
+.cta-button a {
+  display: inline-block; margin-top: 1.2rem; padding: 0.75rem 2rem;
+  background: #8b0000; color: white; text-decoration: none; border-radius: 4px;
+  font-weight: 400; letter-spacing: 0.5px; font-size: 1.25rem;
+}
+
+/* Description */
+.description {
+  padding: 1rem; text-align: center; max-width: 800px; margin: 0 auto;
+  color: #8b0000; font-size: 1.65rem; font-weight: 400;
+}
+
+/* Booking Section */
+.booking { text-align: center; padding: 2rem 1rem 3rem; font-size: 1.65rem; font-weight: 400; }
+.booking a { color: #8b0000; text-decoration: underline; }
+section { margin-bottom: 1rem; }
+
+hr.solid {
+  border-top: 1px solid #d3d3d3;
+  width: 70%;
+  margin: auto;
+}
+
+
+/* ----------- Contact Us Photos ----------- */
+.photo-section {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.photo-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.photo-img, .photo-combined {
+  width: 48%;
+  max-width: 600px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+}
+
+@media (max-width: 900px) {
+  .photo-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .photo-img, .photo-combined {
+    width: 98%;
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+
+/* ----------- Responsive Styles ----------- */
+@media (max-width: 1000px) {
+  h1 { font-size: 4rem; }
+  .hero-text p { font-size: 2rem; }
+  h2 { font-size: 2.5rem; }
+  .description { font-size: 1.18rem; }
+  .cta-button a { font-size: 1rem; }
+  .rental-items p { font-size: 1.1rem; }
+  .booking { font-size: 1.18rem; }
+  h3 { font-size: 2.5rem; }
+  
+}
+
+@media (max-width: 800px) {
+  .rental-items { flex-direction: column; align-items: center; }
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 600px) {
+  html, body { font-size: 110%; }
+
+  .navbar,
+  .navbar.scrolled { font-size: 1.1rem; padding: 0.45rem 0.7rem; }
+  .logo { font-size: 1rem; }
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    flex-direction: column; background: rgba(0,0,0,0.96);
+    position: absolute; top: 60px; left: 0; width: 100vw;
+    display: none; z-index: 2000; padding: 1.2rem; font-size: 1.3rem;
+  }
+  .nav-links.open { display: flex; }
+  .navbar { flex-direction: row; align-items: center; position: fixed; top: 0; left: 0; }
+
+  .hero { height: 60vh; min-height: 320px; padding-top: 54px; }
+  h1 { font-size: 3rem; }
+  .hero-text p { font-size: 2rem; }
+
+  h2 { font-size: 2.5rem; }
+  .description { font-size: 1.18rem; padding: 0.6rem; }
+  .cta-button a { font-size: 1.18rem; padding: 0.5rem 1.3rem; }
+  .rental-items p { font-size: 1.8rem; }
+  .booking { font-size: 1.18rem; }
+  h3 { font-size: 2.5rem; }
+
+}
+@media (max-width: 400px) {
+  h1 { font-size: 1.5rem; }
+  .hero-text p { font-size: 1rem; }
+}
+
+/* ----------- End Responsive ----------- */
