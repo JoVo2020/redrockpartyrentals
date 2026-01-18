@@ -650,30 +650,12 @@
 				  
 					<select class="category-select" id="category" required>
 					  <option value="">Choose Category</option>
-					  <option value="chairs">Tables & Chairs</option>
-					  <option value="tables">Games</option>
-					  <option value="tents">Marquee Letters</option>
-					  <option value="linens">Everything</option>
+					  <option value="Tables and Chairs">Tables & Chairs</option>
+					  <option value="Games">Games</option>
+					  <option value="Marquee Letters">Marquee Letters</option>
+					  <option value="All Categories">Everything</option>
 					</select>
 				  </div>
-
-				<!-- 
-				  <div class="dropdown-wrapper">
-					<div class="dropdown-icon-location"></div>
-					<div class="dropdown-divider"></div>
-					
-					<select id="location" required>
-					  <option value="">Choose Location</option>
-					  <option value="summerlin">Southwest Las Vegas</option>
-					  <option value="lasvegas">Summerlin Area</option>
-					  <option value="henderson">Centennial Area</option>
-					  <option value="summerlin">North Las Vegas</option>
-					  <option value="summerlin">East Las Vegas</option>
-					  <option value="summerlin">Henderson</option>
-					  <option value="summerlin">Other</option>
-					</select>
-				  </div>
-				-->
 
 				  <div class="dropdown-wrapper">
 					<div class="dropdown-icon-calendar"></div>
@@ -775,9 +757,18 @@
 <!-- INVENTORY GRID JS -->
 <script>
   (function () {
+  
+	const params = new URLSearchParams(window.location.search);
+	const categoryParam = params.get('category'); // "tents"
+	const dateParamRaw = params.get('date');         // "01/22/2026" (decoded automatically)
+	const dateParam = formatDateToISO(dateParamRaw);
+	console.log('Category:', categoryParam);
+	console.log('Date:', dateParam);  
+  
+  
     const ENDPOINT =
-      "https://script.google.com/macros/s/AKfycbwiQbTdtwT0VtIIxGVDnu1IP9q6JXnL6zIhWe7wsnM2O9laf4OProuyfzi9PafriDEoUw/exec?action=inventory";
-
+	  "https://script.google.com/macros/s/AKfycbwiQbTdtwT0VtIIxGVDnu1IP9q6JXnL6zIhWe7wsnM2O9laf4OProuyfzi9PafriDEoUw/exec?action=availability&date="+dateParam;
+	
     const grid = document.getElementById("rrInventoryGrid");
     const tpl = document.getElementById("rrItemTemplate");
 
@@ -797,11 +788,11 @@
         if (!res.ok) throw new Error("HTTP " + res.status);
 
         const data = await res.json();
-        if (!data || !Array.isArray(data.inventory)) {
+        if (!data || !Array.isArray(data.items)) {
           throw new Error("Unexpected response shape (no inventory array)");
         }
 
-        renderInventory(data.inventory);
+        renderInventory(data.items);
       } catch (err) {
         console.error(err);
         grid.innerHTML = `
@@ -818,14 +809,14 @@
 
       items.forEach((item) => {
         // Your JSON keys (with spaces) based on the screenshot:
-        const name = safeText(item["Item Name"]);
-		const item_id = safeText(item["Item_ID"]);
-        const product_id = safeText(item["Product_ID"]);
+        const name = safeText(item["item_name"]);
+		const item_id = safeText(item["item_id"]);
+        const product_id = safeText(item["product_id"]);
 
-        const priceRaw = item["Rental Price"];
+        const priceRaw = item["rental_price"];
 		const priceText = money(priceRaw);
-        const qty = Number(item["Quantity Available"]);
-        const imgUrl = safeText(item["Image"]);
+        const qty = Number(item["available_qty"]);
+        const imgUrl = safeText(item["image"]);
 		const lblNamePrice = name + " - " + priceText;
         const node = tpl.content.firstElementChild.cloneNode(true);
 
@@ -859,6 +850,12 @@
         grid.appendChild(node);
       });
     }
+	
+	function formatDateToISO(dateStr) {
+	  // expects MM/DD/YYYY
+	  const [month, day, year] = dateStr.split('/');
+	  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+	}
 
     // Kick off
     loadInventory();
@@ -1035,10 +1032,40 @@ document.getElementById('cartOverlay').addEventListener('click', e => {
 renderCart();
 </script>
 
+<!--Auto Populate Form Values from URL Params -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
 
+    const categoryParam = params.get('category'); // e.g. "tablesandchairs"
+    const dateParam = params.get('date');         // e.g. "01/22/2026"
 
+    /* ---------- Category ---------- */
+    if (categoryParam) {
+      const categorySelect = document.getElementById('category');
 
+      if (categorySelect) {
+        // Only set if option exists
+        const optionExists = Array.from(categorySelect.options)
+          .some(opt => opt.value === categoryParam);
 
+        if (optionExists) {
+          categorySelect.value = categoryParam;
+        }
+      }
+    }
+
+    /* ---------- Date ---------- */
+    if (dateParam) {
+      const dateInput = document.getElementById('dateStart');
+
+      if (dateInput) {
+        // Your date picker expects MM/DD/YYYY
+        dateInput.value = decodeURIComponent(dateParam);
+      }
+    }
+  });
+</script>
 
 
 </body>
