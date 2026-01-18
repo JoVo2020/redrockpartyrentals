@@ -831,7 +831,21 @@
         // Price (format like "$3 each")
         const AddToCartEl = node.querySelector(".rr-card__addToCart");
 
-        AddToCartEl.innerHTML = `<button class="rr-btn-addToCart">Add To Cart</button>`;
+        //AddToCartEl.innerHTML = `<button class="rr-btn-addToCart">Add To Cart</button>`;
+		
+		if (availableQty <= 0) {
+		  AddToCartEl.innerHTML = `
+			<button class="rr-btn-unavailable" disabled>
+			  Unavailable
+			</button>
+		  `;
+		} else {
+		  AddToCartEl.innerHTML = `
+			<button class="rr-btn-addToCart">
+			  Add To Cart
+			</button>
+		  `;
+
 
 		const btn = AddToCartEl.querySelector(".rr-btn-addToCart");
 
@@ -887,11 +901,16 @@ function addToCart(item) {
   const cart = getCart();
   const existing = cart.find(i => i.id === item.id);
 
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ ...item, qty: 1 });
-  }
+	if (existing) {
+	  if (existing.qty < existing.availableQty) {
+		existing.qty += 1;
+	  } else {
+		alert(`Only ${existing.availableQty} available for this item.`);
+		return;
+	  }
+	} else {
+	  cart.push({ ...item, qty: 1 });
+	}
 
   saveCart(cart);
   openCart();
@@ -904,19 +923,33 @@ function removeFromCart(id) {
   renderCart();
 }
 
+
+
 function updateQty(id, delta) {
   const cart = getCart();
   const item = cart.find(i => i.id === id);
   if (!item) return;
 
-  item.qty += delta;
-  if (item.qty <= 0) {
+  const nextQty = item.qty + delta;
+
+  if (nextQty < 1) {
     removeFromCart(id);
-  } else {
-    saveCart(cart);
-    renderCart();
+    return;
   }
+
+  if (nextQty > item.availableQty) {
+    alert(`Only ${item.availableQty} available for this item.`);
+    return;
+  }
+
+  item.qty = nextQty;
+  saveCart(cart);
+  renderCart();
 }
+
+
+
+
 
 function commitQty(id, value) {
   let qty = parseInt(value, 10);
@@ -929,13 +962,19 @@ function commitQty(id, value) {
   const item = cart.find(i => i.id === id);
   if (!item) return;
 
-  // No-op if unchanged (prevents extra re-renders)
+  if (qty > item.availableQty) {
+    alert(`Only ${item.availableQty} available for this item.`);
+    qty = item.availableQty;
+  }
+
+  // No-op if unchanged
   if (item.qty === qty) return;
 
   item.qty = qty;
   saveCart(cart);
   renderCart();
 }
+
 
 
 
