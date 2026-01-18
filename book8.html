@@ -434,8 +434,8 @@
 	}
 
 	.cart-item img {
-	  width: 64px;
-	  height: 64px;
+	  width: 80px;
+	  height: 80px;
 	  object-fit: cover;
 	  border-radius: 6px;
 	}
@@ -815,7 +815,7 @@
 
         const priceRaw = item["rental_price"];
 		const priceText = money(priceRaw);
-        const qty = Number(item["available_qty"]);
+        const availableQty = Number(item["available_qty"]);
         const imgUrl = safeText(item["image"]);
 		const lblNamePrice = name + " - " + priceText;
         const node = tpl.content.firstElementChild.cloneNode(true);
@@ -840,12 +840,14 @@
 				id: product_id || item_id,
 				name: name,
 				price: Number(priceRaw),
-				image: imgUrl
+				image: imgUrl,
+				availableQty: availableQty
+				
 			});
 		});
 
         // Optional: mark unavailable
-        if (Number.isFinite(qty) && qty <= 0) node.classList.add("is-unavailable");
+        if (Number.isFinite(availableQty) && availableQty <= 0) node.classList.add("is-unavailable");
 
         grid.appendChild(node);
       });
@@ -962,6 +964,7 @@ function renderCart() {
 		  <div class="cart-item-info">
 			<div class="cart-item-info-name">${item.name}</div>
 			<div class="cart-price">$${item.price.toFixed(2)}</div>
+			<div style="font-size:16px;">${item.availableQty} available </div>
 		  </div>
 		  <button class="cart-delete" onclick="removeFromCart('${item.id}')">
 			🗑
