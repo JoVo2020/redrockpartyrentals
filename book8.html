@@ -103,7 +103,7 @@
 		  padding: 10px 12px;
 		  border-radius: 5px;
 		  border: none;
-		  font-size: 18px;
+		  font-size: 14px;
 		}
 		
 		.category-select {
@@ -135,7 +135,7 @@
 		  color: #8b0000;
 		  border: none;
 		  padding: 10px 12px;
-		  font-size: 18px;
+		  font-size: 16px;
 		  font-weight: 750;
 		  border-radius: 5px;
 		  cursor: pointer;
@@ -664,7 +664,7 @@
 				  </div>
 
 
-				  <button id="findRentalsBtn" type="button" class="find-rentals-btn">FIND MY RENTALS →</button>
+				  <button type="submit" class="find-rentals-btn">FIND MY RENTALS →</button>
 				</form>
 			  </div>
 
@@ -1107,29 +1107,6 @@ renderCart();
   });
 </script>
 
-
-<!-- When user clicks Find My Rentals button -->
-<script>
-  document.getElementById('findRentalsBtn').addEventListener('click', function () {
-    const category = document.getElementById('category').value;
-    const date = document.getElementById('dateStart').value;
-
-	if (!category) {
-		category = 'Everything';
-	}
-    if (!date) {
-      alert('Please select event date.');
-      return;
-    }
-
-    const params = new URLSearchParams({
-      category: category,
-      date: date
-    });
-
-    window.location.href = `/book8.html?${params.toString()}`;
-  });
-</script>
 
 </body>
 </html>
