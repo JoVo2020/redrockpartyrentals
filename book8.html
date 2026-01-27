@@ -751,6 +751,7 @@
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   flatpickr("#dateStart", {
+	disableMobile: true,
     dateFormat: "m/d/Y",
     minDate: tomorrow
   });
