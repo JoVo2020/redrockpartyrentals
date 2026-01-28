@@ -98,7 +98,7 @@
 				  <img src="images/table.jpg" alt="Table" />
 				  <p>Tables - $8 each</p>
 				  <div class="rr-card__addToCart">
-				  	<button class="rr-btn-addToCart">
+				  	<button class="rr-btn-addToCart" onclick="addToCartBtnClick('7069036000000622084', 'Table', 8, 'images/table.jpg', 12)"   >
 						Add To Cart
 					</button>
 				  </div>
@@ -312,6 +312,20 @@ function saveCart(cart) {
 /* --------------------
    Cart actions
 -------------------- */
+
+function addToCartBtnClick(product_id, name, priceRaw, imgUrl, availableQty) {
+
+	const item = {
+
+			  id: product_id,
+			  name: name,
+			  price: Number(priceRaw),
+			  image: imgUrl,
+			  availableQty: availableQty
+	};
+	addToCart(item);
+}
+
 function addToCart(item) {
   const cart = getCart();
   const existing = cart.find(i => i.id === item.id);
