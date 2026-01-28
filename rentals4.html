@@ -216,6 +216,40 @@
 
 	</div>
 
+
+
+	
+	<!-- CART OVERLAY -->
+	<div id="cartOverlay" class="cart-overlay">
+	  <div class="cart-panel cart-panel--fullscreen">
+
+		<header class="cart-header">
+		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+		  <h2 style="margin-bottom:0;font-size:2em;">Cart</h2>
+		  <button class="cart-close" onclick="closeCart()">✕</button>
+		</header>
+
+		<div id="cartItems" class="cart-items"></div>
+
+		<footer class="cart-footer">
+		  <div class="cart-summary">
+			<div class="cart-line">
+			  <span>Subtotal</span>
+			  <strong id="cartSubtotal">$0.00</strong>
+			</div>
+			<div class="cart-line total">
+			  <span>Total</span>
+			  <strong id="cartTotal">$0.00</strong>
+			</div>
+		  </div>
+
+		  <button class="checkout-btn">Checkout →</button>
+		</footer>
+
+	  </div>
+	</div>
+
+
  	
 	<div class="cta-button">
       <a href="book.html">BOOK NOW</a>
