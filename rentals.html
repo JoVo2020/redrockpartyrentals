@@ -24,12 +24,87 @@
 		.hero {
 			background: url(images/fancy-table.png) center center / cover no-repeat;
 		}
+		
+	@media (max-width: 600px) {
+		.hero {
+			height: 50vh;
+			min-height: 320px;
+			padding-top: 54px;
+		}
+	}
+
 	@media (min-width: 900px) {
 		.hero {
 			background: url(images/fancy-backyard-dinner.png) center center / cover no-repeat;
 		}
 	}
+	
 	</style>
+	
+	<!-- accordion styling -->
+	<style>
+	
+.inventory-item p {
+	color: #505050;
+	font-size: 22px;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 16px;
+  font-size: 22px;
+  background: #fff;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+.accordion-icon {
+  font-size: 24px;
+  transition: transform 0.25s ease;
+}
+
+.accordion-item.open .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+}
+
+.accordion-item.open .accordion-content {
+  max-height: 2000px; /* large enough for inventory */
+}
+
+/* Optional spacing for items inside */
+.accordion-content .inventory-item {
+  margin-top: 12px;
+}
+
+	@media (min-width: 900px) {
+		.accordion-header:hover {
+		  background: #f7f7f7;
+		}
+		.accordion {
+			padding-left:10%;
+			padding-right:10%;
+		}
+	}
+	</style>
+	
+	
 	
 	
 </head>
@@ -65,76 +140,139 @@
       </div>
     </div>
   </section>
+  
 
-  <section class="rentals">
-    <!-- <h2>Tables</h2> -->
-    <div class="rental-items">
-      <div class="item">
-          <img src="images/table.jpg" alt="Table" />
-          <p>Tables - $8 each</p>
-      </div>
-      <div class="item">
-          <img src="images/chair3.jpg" alt="Chair" />
-          <p>Chairs - $1 each</p>
-      </div>
-      <div class="item">
-          <img src="images/tablecloth-regular.jpg" alt="Table" />
-          <p>Table Covers (Regular) - $5 each</p>
-      </div>
-      <div class="item">
-          <img src="images/tablecloth-fitted.jpg" alt="Table" />
-          <p>Table Covers (Fitted) - $5 each</p>
-      </div>
-      <div class="item">
-          <img src="images/tablerunner-lightpink.jpg" alt="Table" />
-          <p>Table Runners (Light Pink) - $2 each</p>
-      </div>
-      <div class="item">
-          <img src="images/tablerunner-dustyblue.jpg" alt="Table" />
-          <p>Table Runners (Dusty Blue) - $2 each</p>
-      </div>
-      <div class="item">
-          <img src="images/tablerunner-beige.jpg" alt="Table" />
-          <p>Table Runners (Beige) - $2 each</p>
-      </div>
-      <div class="item">
-          <img src="images/tablerunner-dustyorange.jpg" alt="Table" />
-          <p>Table Runners (Dusty Orange) - $2 each</p>
-      </div>
-      <div class="item">
-          <img src="images/tablerunner-sagegreen.jpg" alt="Table" />
-          <p>Table Runners (Sage Green) - $2 each</p>
-      </div>
-      <div class="item">
-          <img src="images/cocktail-table.jpg" alt="Table" />
-          <p>Cocktail Tables - $13 each</p>
-      </div>
-      <div class="item">
-          <img src="images/cocktail-tablecover-black.jpg" alt="Table" />
-          <p>Cocktail Table Covers (Black Fitted) - $5 each</p>
-      </div>
-      <div class="item">
-          <img src="images/cocktail-tablecover-white.jpg" alt="Table" />
-          <p>Cocktail Table Covers (White Fitted) - $5 each</p>
-      </div>
-      <div class="item">
-          <img src="images/StandingCooler.jpg" alt="Standing Cooler" />
-          <p>Standing Cooler - $30 each</p>
-      </div>
-      <div class="item">
-          <img src="images/GiantConnect4.jpg" alt="Giant Connect 4" />
-          <p>Giant Connect 4 - $25 each</p>
-      </div>
-      <div class="item">
-          <img src="images/Cornhole.jpg" alt="Cornhole" />
-          <p>Cornhole - $25 each</p>
-      </div>
-      <div class="item">
-          <img src="https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF" alt="Giant Jenga" />
-          <p>Giant Jenga - $25 each</p>
-      </div>
+  
+  <section class="rentals" style="padding:6px;" >
+	  
+	<div class="accordion" id="inventoryAccordion">
+
+	  <div class="accordion-item" data-category="tablesandchairs">
+		<button class="accordion-header">
+		  Tables & Chairs
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+
+			  <div class="item inventory-item" data-category="tablesandchairs">
+				  <img src="images/table.jpg" alt="Table" />
+				  <p>Tables - $8 each</p>
+			  </div>
+			  <div class="item inventory-item" data-category="tablesandchairs">
+				  <img src="images/chair3.jpg" alt="Chair" />
+				  <p>Chairs - $1 each</p>
+			  </div>
+			  <div class="item inventory-item" data-category="tablesandchairs">
+				  <img src="images/cocktail-table.jpg" alt="Table" />
+				  <p>Cocktail Tables - $13 each</p>
+			  </div>		  
+			</div>
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="tablecovers">
+		<button class="accordion-header">
+		  Table Covers
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+			  <div class="item inventory-item" data-category="tablecovers">
+				  <img src="images/tablecloth-regular.jpg" alt="Table" />
+				  <p>Table Covers (Regular) - $5 each</p>
+			  </div>
+			  <div class="item inventory-item" data-category="tablecovers">
+				  <img src="images/tablecloth-fitted.jpg" alt="Table" />
+				  <p>Table Covers (Fitted) - $5 each</p>
+			  </div>
+			  <div class="item inventory-item" data-category="tablecovers">
+				  <img src="images/cocktail-tablecover-black.jpg" alt="Table" />
+				  <p>Cocktail Table Covers (Black Fitted) - $5 each</p>
+			  </div>
+			  <div class="item inventory-item" data-category="tablecovers">
+				  <img src="images/cocktail-tablecover-white.jpg" alt="Table" />
+				  <p>Cocktail Table Covers (White Fitted) - $5 each</p>
+			  </div>
+		
+			</div>
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="tablerunners">
+		<button class="accordion-header">
+		  Table Runners
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+
+				  <div class="item inventory-item" data-category="tablerunners">
+					  <img src="images/tablerunner-lightpink.jpg" alt="Table" />
+					  <p>Table Runners (Light Pink) - $2 each</p>
+				  </div>
+				  <div class="item inventory-item" data-category="tablerunners">
+					  <img src="images/tablerunner-dustyblue.jpg" alt="Table" />
+					  <p>Table Runners (Dusty Blue) - $2 each</p>
+				  </div>
+				  <div class="item inventory-item" data-category="tablerunners">
+					  <img src="images/tablerunner-beige.jpg" alt="Table" />
+					  <p>Table Runners (Beige) - $2 each</p>
+				  </div>
+				  <div class="item inventory-item" data-category="tablerunners">
+					  <img src="images/tablerunner-dustyorange.jpg" alt="Table" />
+					  <p>Table Runners (Dusty Orange) - $2 each</p>
+				  </div>
+				  <div class="item inventory-item" data-category="tablerunners">
+					  <img src="images/tablerunner-sagegreen.jpg" alt="Table" />
+					  <p>Table Runners (Sage Green) - $2 each</p>
+				  </div>   
+			</div>
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="games">
+		<button class="accordion-header">
+		  Games
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+			  <div class="item inventory-item" data-category="games">
+				  <img src="images/GiantConnect4.jpg" alt="Giant Connect 4" />
+				  <p>Giant Connect 4 - $25 each</p>
+			  </div>
+			  <div class="item inventory-item" data-category="games">
+				  <img src="images/Cornhole.jpg" alt="Cornhole" />
+				  <p>Cornhole - $25 each</p>
+			  </div>
+			  <div class="item inventory-item" data-category="games">
+				  <img src="https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF" alt="Giant Jenga" />
+				  <p>Giant Jenga - $25 each</p>
+			  </div>
+
+			</div>	
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="addons">
+		<button class="accordion-header">
+		  Add-ons
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+			  <div class="item inventory-item" data-category="addons">
+				  <img src="images/StandingCooler.jpg" alt="Standing Cooler" />
+				  <p>Standing Cooler - $30 each</p>
+			  </div>	
+			</div>	
+		</div>
+	  </div>
+
 	</div>
-	
+
+ 	
 	<div class="cta-button">
       <a href="book.html">BOOK NOW</a>
     </div>
@@ -151,6 +289,33 @@
   </section>
 
 <script src="navbar-scroll.js"></script>
+
+<!-- according js -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordionItems = document.querySelectorAll('.accordion-item');
+
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+
+    header.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  // Default open sections
+  //document
+  //  .querySelector('.accordion-item[data-category="tablesandchairs"]')
+  //  ?.classList.add('open');
+
+  //document
+  //  .querySelector('.accordion-item[data-category="tablecovers"]')
+  //  ?.classList.add('open');
+});
+</script>
+
+
+
 
 </body>
 </html>
