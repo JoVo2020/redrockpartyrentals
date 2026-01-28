@@ -12,6 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Red Rock Party Rentals</title>
 	<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="accordion.css" />
 	<!-- Lora font for all text -->
 	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
 	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
@@ -40,70 +41,6 @@
 	}
 	
 	</style>
-	
-	<!-- accordion styling -->
-	<style>
-	
-.inventory-item p {
-	color: #505050;
-	font-size: 22px;
-}
-
-.accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.accordion-header {
-  width: 100%;
-  padding: 16px;
-  font-size: 22px;
-  background: #fff;
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-
-
-
-.accordion-icon {
-  font-size: 24px;
-  transition: transform 0.25s ease;
-}
-
-.accordion-item.open .accordion-icon {
-  transform: rotate(45deg);
-}
-
-.accordion-content {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.35s ease;
-}
-
-.accordion-item.open .accordion-content {
-  max-height: 2000px; /* large enough for inventory */
-}
-
-/* Optional spacing for items inside */
-.accordion-content .inventory-item {
-  margin-top: 12px;
-}
-
-	@media (min-width: 900px) {
-		.accordion-header:hover {
-		  background: #f7f7f7;
-		}
-		.accordion {
-			padding-left:10%;
-			padding-right:10%;
-		}
-	}
-	</style>
-	
 	
 	
 	
