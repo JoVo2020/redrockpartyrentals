@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Red Rock Party Rentals</title>
+
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/accordion.css" />
+
+  <style>
+    .checkout-container {
+      max-width: 800px;
+      margin: 24px auto;
+      padding: 16px;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    .summary {
+      border-top: 1px solid #ddd;
+      padding-top: 16px;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .summary-line.total {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .continue-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 18px;
+      background: #8b0000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 16px;
+    }
+
+    .cart-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="checkout-container">
+
+  <!-- CART ACCORDION -->
+  <div class="section accordion open">
+    <div class="accordion-item open">
+      <button class="accordion-header">
+        Your Items
+        <span class="accordion-icon">−</span>
+      </button>
+      <div class="accordion-content" id="checkoutCartItems"></div>
+    </div>
+  </div>
+
+  <!-- CONTACT INFO -->
+  <div class="section">
+    <h3>Contact Information</h3>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" id="name" required />
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" id="phone" required />
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="email" required />
+    </div>
+
+    <button class="continue-btn" onclick="continueToDelivery()">
+      Continue →
+    </button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section summary">
+    <div class="summary-line">
+      <span>Subtotal</span>
+      <span id="subtotal">$0.00</span>
+    </div>
+    <div class="summary-line">
+      <span>Delivery</span>
+      <span>$10.00</span>
+    </div>
+    <div class="summary-line total">
+      <span>Total</span>
+      <span id="total">$0.00</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const CART_KEY = 'rrpr_cart';
+
+function getCart() {
+  return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+}
+
+function renderCheckoutCart() {
+  const cart = getCart();
+  const container = document.getElementById('checkoutCartItems');
+
+  let subtotal = 0;
+  container.innerHTML = '';
+
+  cart.forEach(item => {
+    const lineTotal = item.price * item.qty;
+    subtotal += lineTotal;
+
+    const row = document.createElement('div');
+    row.className = 'cart-row';
+    row.innerHTML = `
+      <span>${item.name} × ${item.qty}</span>
+      <strong>$${lineTotal.toFixed(2)}</strong>
+    `;
+    container.appendChild(row);
+  });
+
+  document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+  document.getElementById('total').textContent = `$${(subtotal + 10).toFixed(2)}`;
+}
+
+function continueToDelivery() {
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  if (!name || !phone || !email) {
+    alert('Please fill out all contact fields.');
+    return;
+  }
+
+  localStorage.setItem('rrpr_contact', JSON.stringify({
+    name, phone, email
+  }));
+
+  window.location.href = '/checkout/delivery';
+}
+
+renderCheckoutCart();
+</script>
+
+</body>
+</html>
