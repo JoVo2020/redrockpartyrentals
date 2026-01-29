@@ -129,6 +129,23 @@
 
 </div>
 
+<!-- according js -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordionItems = document.querySelectorAll('.accordion-item');
+
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+
+    header.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+});
+</script>
+
+
 <script>
 const CART_KEY = 'rrpr_cart';
 
