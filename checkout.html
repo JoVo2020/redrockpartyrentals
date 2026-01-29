@@ -76,13 +76,14 @@
 <div class="checkout-container">
 
   <!-- CART ACCORDION -->
-  <div class="section accordion open">
-    <div class="accordion-item open">
+  <div class="accordion">
+    <div class="accordion-item">
       <button class="accordion-header">
         Your Items
-        <span class="accordion-icon">−</span>
+        <span class="accordion-icon">+</span>
       </button>
-      <div class="accordion-content" id="checkoutCartItems"></div>
+      <div class="accordion-content" id="checkoutCartItems">
+	  </div>
     </div>
   </div>
 
@@ -173,7 +174,7 @@ function continueToDelivery() {
     name, phone, email
   }));
 
-  window.location.href = '/checkout/delivery';
+  window.location.href = '/delivery';
 }
 
 renderCheckoutCart();
