@@ -470,7 +470,7 @@
 		<!-- Inventory Grid -->
 		<section class="rr-inventory-section">
 
-			<div class="accordion" id="inventoryAccordion">
+			<div class="accordion" id="inventoryAccordion" data-loading="true">
 
 			  <div id="inventoryLoading" class="checking-availability-message">
 				To get started, please enter your event date
@@ -681,6 +681,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		loadingEl.style.display = 'none'; // 👈 hide loading
+		accordion.removeAttribute('data-loading');
 		renderInventory(data.items);
 
 	  } catch (err) {
