@@ -573,6 +573,17 @@
     const safeText = (v) => (v == null ? "" : String(v));
 
     async function loadInventory() {
+	
+	  grid.innerHTML = `
+		<div style="
+		  padding: 24px;
+		  text-align: center;
+		  font-size: 18px;
+		  color: #555;
+		">
+		  Checking availability…
+		</div>
+	  `;
 
       try {
         const res = await fetch(ENDPOINT, { cache: "no-store" });
