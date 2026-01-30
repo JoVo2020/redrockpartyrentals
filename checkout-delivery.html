@@ -102,7 +102,7 @@
 
   <!-- ADDRESS INFO -->
   <div class="section">
-    <h3>Contact Information</h3>
+    <h3>Delivery Address</h3>
 
     <div class="form-group">
       <label>Street</label>
@@ -165,9 +165,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 const CART_KEY = 'rrpr_cart';
+const CONTACT = 'rrpr_contact';
 
 function getCart() {
   return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+}
+
+function getContactInfo() {
+  return JSON.parse(localStorage.getItem(CONTACT)) || [];
 }
 
 function renderCheckoutCart() {
@@ -194,6 +199,21 @@ function renderCheckoutCart() {
   document.getElementById('total').textContent = `$${(subtotal + 10).toFixed(2)}`;
 }
 
+function renderContactInfo() {
+  const contactInfo = getContactInfo();
+  const container = document.getElementById('contactInfo');
+
+  contactInfo.forEach(item => {
+
+    const row = document.createElement('div');
+    row.className = 'cart-row';
+    row.innerHTML = `
+      <strong>${item}</strong>
+    `;
+    container.appendChild(row);
+  });
+}
+
 function continueToPlaceOrder() {
   const street = document.getElementById('street').value.trim();
   const city = document.getElementById('city').value.trim();
@@ -213,6 +233,7 @@ function continueToPlaceOrder() {
 }
 
 renderCheckoutCart();
+renderContactInfo();
 </script>
 
 </body>
