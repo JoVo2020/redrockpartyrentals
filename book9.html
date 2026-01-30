@@ -390,8 +390,12 @@
 	/* END CART OVERLAY */
 	  
 	  
-	  
-	  
+	.checking-availability-message {
+	  padding: 24px;
+	  text-align: center;
+	  font-size: 18px;
+	  color: #555;
+	} 
 	  
 	  
 	  
@@ -465,7 +469,7 @@
 		<!-- Inventory Grid -->
 		<section class="rr-inventory-section">
 
-		  <div id="rrInventoryGrid" class="rr-inventory-grid">To get started, please enter your event date</div>
+		  <div id="rrInventoryGrid" class="rr-inventory-grid"><div class="checking-availability-message"> To get started, please enter your event date</div></div>
 		</section>
 
 		<!-- Card Template (hidden) -->
@@ -575,12 +579,7 @@
     async function loadInventory() {
 	
 	  grid.innerHTML = `
-		<div style="
-		  padding: 24px;
-		  text-align: center;
-		  font-size: 18px;
-		  color: #555;
-		">
+		<div class="checking-availability-message">
 		  Checking availability…
 		</div>
 	  `;
