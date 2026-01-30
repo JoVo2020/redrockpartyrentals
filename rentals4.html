@@ -318,7 +318,7 @@
 			</div>
 		  </div>
 
-		  <button class="checkout-btn">Checkout →</button>
+		  <button class="checkout-btn" onclick="goToCheckout()" >Checkout →</button>
 		</footer>
 
 	  </div>
@@ -578,6 +578,15 @@ document.getElementById('cartOverlay').addEventListener('click', e => {
 /* Init */
 renderCart();
 </script>
+
+
+<script>
+function goToCheckout() {
+  closeCart();
+  window.location.href = "/checkout/index.html";
+}
+</script>
+
 
 
 </body>
