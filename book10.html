@@ -469,7 +469,41 @@
 		<!-- Inventory Grid -->
 		<section class="rr-inventory-section">
 
-		  <div id="rrInventoryGrid" class="rr-inventory-grid"><div class="checking-availability-message"> To get started, please enter your event date</div></div>
+			<div class="accordion" id="inventoryAccordion">
+
+			  <div class="accordion-item" data-category="Table">
+				<button class="accordion-header">
+				  Tables
+				  <span class="accordion-icon">+</span>
+				</button>
+				<div class="accordion-content">
+				  <div class="rr-inventory-grid"></div>
+				</div>
+			  </div>
+
+			  <div class="accordion-item" data-category="Chair">
+				<button class="accordion-header">
+				  Chairs
+				  <span class="accordion-icon">+</span>
+				</button>
+				<div class="accordion-content">
+				  <div class="rr-inventory-grid"></div>
+				</div>
+			  </div>
+
+			  <div class="accordion-item" data-category="Table Cover">
+				<button class="accordion-header">
+				  Table Covers
+				  <span class="accordion-icon">+</span>
+				</button>
+				<div class="accordion-content">
+				  <div class="rr-inventory-grid"></div>
+				</div>
+			  </div>
+
+			</div>
+					  
+		  
 		</section>
 
 		<!-- Card Template (hidden) -->
@@ -537,6 +571,25 @@
 	
 <script src="navbar-scroll.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- according js -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordionItems = document.querySelectorAll('.accordion-item');
+
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+
+    header.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+});
+</script>
+
+
+
+
 <script>
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -578,11 +631,11 @@
 
     async function loadInventory() {
 	
-	  grid.innerHTML = `
-		<div class="checking-availability-message">
-		  Checking availability…
-		</div>
-	  `;
+		document.getElementById('inventoryAccordion').innerHTML = `
+		  <div class="checking-availability-message">
+			Checking availability…
+		  </div>
+		`;
 
       try {
         const res = await fetch(ENDPOINT, { cache: "no-store" });
@@ -605,66 +658,54 @@
       }
     }
 
-    function renderInventory(items) {
-      grid.innerHTML = "";
+	function renderInventory(items) {
 
-      items.forEach((item) => {
-        // Your JSON keys (with spaces) based on the screenshot:
-        const name = safeText(item["item_name"]);
-		const item_id = safeText(item["item_id"]);
-        const product_id = safeText(item["product_id"]);
-		const product_category = safeText(item["category"]);
-        const priceRaw = item["rental_price"];
-		const priceText = money(priceRaw);
-        const availableQty = Number(item["available_qty"]);
-        const imgUrl = safeText(item["image"]);
-		const lblNamePrice = name + " - " + priceText;
-        const node = tpl.content.firstElementChild.cloneNode(true);
+	  // Clear all accordion grids
+	  document.querySelectorAll('.accordion-item .rr-inventory-grid')
+		.forEach(grid => grid.innerHTML = '');
 
-        // Image
-        const img = node.querySelector(".rr-card__img");
-        img.src = imgUrl || "https://redrockpartyrentals.com/images/placeholder.jpg";
-        img.alt = name || "Inventory Item";
+	  items.forEach(item => {
+		const category = item.category;
 
-        // Name
-        node.querySelector(".rr-card__name").textContent = lblNamePrice || "Unnamed Item";
+		const accordionItem = document.querySelector(
+		  `.accordion-item[data-category="${category}"]`
+		);
 
-        // Price (format like "$3 each")
-        const AddToCartEl = node.querySelector(".rr-card__addToCart");
+		// Skip items with no matching accordion
+		if (!accordionItem) return;
 
-		if (availableQty <= 0) {
-		  AddToCartEl.innerHTML = `
-			<button class="rr-btn-unavailable" disabled>
-			  Unavailable
-			</button>
-		  `;
+		const grid = accordionItem.querySelector('.rr-inventory-grid');
+		const node = tpl.content.firstElementChild.cloneNode(true);
+
+		const name = safeText(item.item_name);
+		const price = money(item.rental_price);
+		const qty = Number(item.available_qty);
+		const imgUrl = safeText(item.image);
+
+		node.querySelector('.rr-card__img').src = imgUrl;
+		node.querySelector('.rr-card__img').alt = name;
+		node.querySelector('.rr-card__name').textContent = `${name} - ${price}`;
+
+		const addToCartEl = node.querySelector('.rr-card__addToCart');
+
+		if (qty <= 0) {
+		  addToCartEl.innerHTML = `<button disabled>Unavailable</button>`;
 		} else {
-		  AddToCartEl.innerHTML = `
-			<button class="rr-btn-addToCart">
-			  Add To Cart
-			</button>
-		  `;
-
-		  const btn = AddToCartEl.querySelector(".rr-btn-addToCart");
-
-		  btn.addEventListener("click", () => {
+		  addToCartEl.innerHTML = `<button class="rr-btn-addToCart">Add To Cart</button>`;
+		  addToCartEl.querySelector('button').onclick = () =>
 			addToCart({
-			  id: product_id || item_id,
-			  name: name,
-			  price: Number(priceRaw),
+			  id: item.product_id || item.item_id,
+			  name,
+			  price: Number(item.rental_price),
 			  image: imgUrl,
-			  availableQty: availableQty
+			  availableQty: qty
 			});
-		  });
 		}
 
+		grid.appendChild(node);
+	  });
+	}
 
-        // Optional: mark unavailable
-        if (Number.isFinite(availableQty) && availableQty <= 0) node.classList.add("is-unavailable");
-
-        grid.appendChild(node);
-      });
-    }
 	
 	function formatDateToISO(dateStr) {
 	  // expects MM/DD/YYYY
