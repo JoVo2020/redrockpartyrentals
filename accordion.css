@@ -21,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  -webkit-text-fill-color: #000;
 }
 
 
