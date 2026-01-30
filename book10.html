@@ -476,7 +476,7 @@
 				To get started, please enter your event date
 			  </div>
 			  
-			  <div id="selectYourRentalsHeader" style="display:none">
+			  <div id="selectYourRentalsHeader" style="display:none;font-size: 30px;text-align: center;">
 				Select your rentals
 			  </div>
 
@@ -703,6 +703,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		loadingEl.style.display = 'none'; // 👈 hide loading
+		const selectYourRentalsHeaderEl = document.getElementById('selectYourRentalsHeader');
+		selectYourRentalsHeaderEl.style.display = 'block';
 		const accordionEl = document.getElementById('inventoryAccordion');
 		accordionEl.removeAttribute('data-loading');
 		renderInventory(data.items);
