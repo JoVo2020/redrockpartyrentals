@@ -172,7 +172,7 @@ function getCart() {
 }
 
 function getContactInfo() {
-  return JSON.parse(localStorage.getItem(CONTACT)) || [];
+  return JSON.parse(localStorage.getItem(CONTACT)) || null;
 }
 
 function renderCheckoutCart() {
@@ -200,18 +200,19 @@ function renderCheckoutCart() {
 }
 
 function renderContactInfo() {
-  const contactInfo = getContactInfo();
+  const contact = getContactInfo();
   const container = document.getElementById('contactInfo');
 
-  contactInfo.forEach(item => {
+  if (!contact) {
+    container.innerHTML = '<em>No contact info found.</em>';
+    return;
+  }
 
-    const row = document.createElement('div');
-    row.className = 'cart-row';
-    row.innerHTML = `
-      <strong>${item}</strong>
-    `;
-    container.appendChild(row);
-  });
+  container.innerHTML = `
+    <div class="cart-row"><strong>Name:</strong> ${contact.name}</div>
+    <div class="cart-row"><strong>Phone:</strong> ${contact.phone}</div>
+    <div class="cart-row"><strong>Email:</strong> ${contact.email}</div>
+  `;
 }
 
 function continueToPlaceOrder() {
