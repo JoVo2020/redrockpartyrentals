@@ -681,7 +681,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		loadingEl.style.display = 'none'; // 👈 hide loading
-		accordion.removeAttribute('data-loading');
+		const accordionEl = document.getElementById('inventoryAccordion');
+		accordionEl.removeAttribute('data-loading');
 		renderInventory(data.items);
 
 	  } catch (err) {
