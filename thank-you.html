@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Checkout | Red Rock Party Rentals</title>
+  <title>Thank You | Red Rock Party Rentals</title>
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="accordion.css" />
@@ -114,19 +114,13 @@
 	  <!-- SCHEDULE INFO -->
 	<div id="scheduleInfo"></div>
 
-	<div class="checking-availability-message" style="padding:15px;">If you need a different dropoff/pickup schedule or you have special delivery instructions please let us know below. </div>
-
     <div class="form-group">
       <label>Notes:</label>
-      <textarea id="notes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></textarea>
+      <div id="divnotes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></div>
     </div>
 
 	<div class="checking-availability-message" style="padding:15px;">Payment via cash or Zelle due at time of drop off.</div>
 
-
-    <button class="continue-btn" onclick="placeOrderToN8N()">
-      Place Order →
-    </button>
 </div>
 
   <!-- SUMMARY -->
@@ -144,6 +138,12 @@
       <span id="total">$0.00</span>
     </div>
   </div>
+  
+	<div class="checking-availability-message" style="padding:15px;">Please contact us if you have any questions or updates to your order.</div>
+ 
+    <button class="continue-btn" onclick="goToContactPage()">
+      Contact Us
+    </button>
 
 </div>
 
