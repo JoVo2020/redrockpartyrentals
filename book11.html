@@ -226,7 +226,7 @@
   const navLinks = document.getElementById('nav-links');
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
-	//document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+	document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
   });
 
   // Optional: Close nav when link is clicked (mobile)
@@ -299,6 +299,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function smoothScrollToSelectHeader() {
 	  const header = document.getElementById('selectYourRentalsHeader');
+	  
+	  if (navLinks && navLinks.classList.contains('open')) {
+		return;
+	  }
+	  
 	  if (!header) return;
 
 	  // Small delay so layout + accordion DOM settles
