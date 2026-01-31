@@ -187,6 +187,8 @@
 	  border: none;
 	  font-size: 22px;
 	  cursor: pointer;
+	  -webkit-text-fill-color: #000;
+
 	}
 
 
@@ -270,6 +272,7 @@
 	  background-color: transparent;
 	  border: none;
 	  font-size: 18px;
+	  -webkit-text-fill-color: #000;
 	}
 
 	.cart-item-total {
