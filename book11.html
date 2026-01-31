@@ -279,34 +279,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const safeText = (v) => (v == null ? "" : String(v));
 
-    async function loadInventoryOLD() {
-	
-		document.getElementById('inventoryAccordion').innerHTML = `
-		  <div class="checking-availability-message">
-			Checking availability…
-		  </div>
-		`;
 
-      try {
-        const res = await fetch(ENDPOINT, { cache: "no-store" });
-        if (!res.ok) throw new Error("HTTP " + res.status);
+	function smoothScrollToSelectHeader() {
+	  const header = document.getElementById('selectYourRentalsHeader');
+	  if (!header) return;
 
-        const data = await res.json();
-        if (!data || !Array.isArray(data.items)) {
-          throw new Error("Unexpected response shape (no inventory array)");
-        }
+	  // Small delay so layout + accordion DOM settles
+	  setTimeout(() => {
+		header.scrollIntoView({
+		  behavior: 'smooth',
+		  block: 'start'
+		});
+	  }, 200);
+	}
 
-        renderInventory(data.items);
-      } catch (err) {
-        console.error(err);
-        grid.innerHTML = `
-          <div style="padding:14px;border:1px solid #ddd;">
-            <strong>Inventory load failed.</strong><br/>
-            Please try again or check the Apps Script deployment / CORS.
-          </div>
-        `;
-      }
-    }
 	
 	async function loadInventory() {
 
@@ -329,6 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const accordionEl = document.getElementById('inventoryAccordion');
 		accordionEl.removeAttribute('data-loading');
 		renderInventory(data.items);
+		smoothScrollToSelectHeader();
 
 	  } catch (err) {
 		console.error(err);
