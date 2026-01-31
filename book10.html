@@ -1025,6 +1025,10 @@ renderCart();
       category: category,
       date: date
     });
+	
+	localStorage.setItem('rrpr_event_date', JSON.stringify({
+		date
+	}));
 
     window.location.href = `/book10.html?${params.toString()}`;
   });
