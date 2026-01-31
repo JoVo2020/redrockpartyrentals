@@ -238,7 +238,7 @@ function renderAddressInfo() {
     container.innerHTML = '<em>No address info found.</em>';
     return;
   }
-	const city_state_zip = ${address.city} + ', ' + ${address.state} + ' ' + ${address.zip};
+	const city_state_zip = `${address.city}, ${address.state} ${address.zip}`;
   container.innerHTML = `
     <div class="cart-row">${address.street}</div>
 	<div class="cart-row">${city_state_zip}</div>
