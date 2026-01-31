@@ -334,6 +334,20 @@ function renderAddressInfo() {
   `;
 }
 
+function renderNotes() {
+  const notes = JSON.parse(localStorage.getItem('rrpr_notes')) || null;
+  const container = document.getElementById('divnotes');
+
+  if (!notes) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="cart-row">${notes}</div>
+  `;
+}
+
 function continueToPlaceOrder() {
   const street = document.getElementById('street').value.trim();
   const city = document.getElementById('city').value.trim();
@@ -350,6 +364,10 @@ function continueToPlaceOrder() {
   }));
 
   window.location.href = '/checkout-place-order';
+}
+
+function goToContactPage() {
+  window.location.href = '/contact';
 }
 
 renderCheckoutCart();
