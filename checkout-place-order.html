@@ -252,16 +252,16 @@ function render_schedule() {
     });
 
   scheduleContainer.innerHTML = `
-    <div class="cart-row">
+    <div class="cart-row" style="padding-left:15px; display:block;">
       <div><strong>Dropoff</strong></div>
       <div>${formatDate(dropoff.dropoffDate)}</div>
       <div>${dropoff.dropoffWindow}</div>
     </div>
 
-    <div class="cart-row">
-      <strong>Pickup</strong><br>
-      ${formatDate(pickup.pickupDate)}<br>
-      ${pickup.pickupWindow}
+    <div class="cart-row" style="padding-left:15px; display:block;">
+      <div><strong>Pickup</strong></div>
+      <div>${formatDate(pickup.pickupDate)}</div>
+      <div>${pickup.pickupWindow}</div>
     </div>
   `;
 }
