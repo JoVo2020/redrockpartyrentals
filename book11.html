@@ -49,7 +49,7 @@
 			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
 		</a>
     </div>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
       <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
@@ -220,6 +220,21 @@
 	
 	
 <!-- <script src="navbar-scroll.js"></script> -->
+<script>
+  // Hamburger toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // Optional: Close nav when link is clicked (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <!-- according js -->
