@@ -186,7 +186,7 @@ function getContactInfo() {
 }
 
 function getAddressInfo() {
-  return JSON.parse(localStorage.getItem('rrpr_address)) || null;
+  return JSON.parse(localStorage.getItem('rrpr_address')) || null;
 }
 
 
@@ -234,7 +234,7 @@ function renderAddressInfo() {
   const address = getAddressInfo();
   const container = document.getElementById('addressInfo');
 
-  if (!contact) {
+  if (!address) {
     container.innerHTML = '<em>No address info found.</em>';
     return;
   }
