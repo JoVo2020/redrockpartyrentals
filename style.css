@@ -164,9 +164,17 @@ hr.solid {
   .menu-toggle { display: block; }
 
   .nav-links {
-    flex-direction: column; background: rgba(0,0,0,0.96);
-    position: absolute; top: 60px; left: 0; width: 100vw;
-    display: none; z-index: 2000; padding: 1.2rem; font-size: 1.3rem;
+    flex-direction: column; 
+	background: #fff;
+    position: fixed; 
+	inset:0;
+	top: 60px; 
+	left: 0; 
+	width: 100vw;
+    display: none; 
+	z-index: 2000; 
+	padding: 1.2rem; 
+	font-size: 1.3rem;
   }
   .nav-links.open { display: flex; }
   .navbar { flex-direction: row; align-items: center; position: fixed; top: 0; left: 0; }
