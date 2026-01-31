@@ -402,7 +402,7 @@ async function placeOrderToN8N() {
     phone: contact.phone,
 
     street: address.street,
-    //unit: address.unit || '',
+    unit: address.unit || '',
     city: address.city,
     state: address.state,
     zip: address.zip,
@@ -418,7 +418,7 @@ async function placeOrderToN8N() {
     delivery_fee,
     tax,
     total
-    //notes
+    notes
   };
 
   try {
