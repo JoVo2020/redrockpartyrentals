@@ -578,8 +578,8 @@
 		<footer class="cart-footer">
 		  <div class="cart-summary">
 			<div class="cart-line">
-			  <span>Subtotal</span>
-			  <strong id="cartSubtotal">$0.00</strong>
+			  <span>Delivery</span>
+			  <strong id="cartSubtotal">$10.00</strong>
 			</div>
 			<div class="cart-line total">
 			  <span>Total</span>
@@ -936,8 +936,9 @@ function renderCart() {
     container.appendChild(row);
   });
 
-  subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-  totalEl.textContent = `$${subtotal.toFixed(2)}`;
+  //subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+  const grandtotal = subtotal + 10;
+  totalEl.textContent = `$${grandtotal.toFixed(2)}`;
 }
 
 /* --------------------
