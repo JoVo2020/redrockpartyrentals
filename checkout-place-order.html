@@ -253,9 +253,9 @@ function render_schedule() {
 
   scheduleContainer.innerHTML = `
     <div class="cart-row">
-      <strong>Dropoff</strong><br>
-      ${formatDate(dropoff.dropoffDate)}<br>
-      ${dropoff.dropoffWindow}
+      <div><strong>Dropoff</strong></div>
+      <div>${formatDate(dropoff.dropoffDate)}</div>
+      <div>${dropoff.dropoffWindow}</div>
     </div>
 
     <div class="cart-row">
