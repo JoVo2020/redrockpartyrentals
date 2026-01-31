@@ -752,6 +752,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		  addToCartEl.querySelector('button').onclick = () =>
 			addToCart({
 			  id: item.product_id || item.item_id,
+			  product_id: item.product_id || item.item_id,
 			  name,
 			  price: Number(item.rental_price),
 			  image: imgUrl,
