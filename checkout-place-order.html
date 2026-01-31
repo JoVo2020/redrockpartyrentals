@@ -171,8 +171,11 @@ function getAddressInfo() {
 
 
 function calculateDropoff() {
-  const eventDate = JSON.parse(localStorage.getItem('rrpr_event_date')) || null;
-  eventDate.setHours(0, 0, 0, 0); // normalize
+	const rawdate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+	if (!rawdate) return null;
+
+	const eventDate = new Date(raw);
+	eventDate.setHours(0, 0, 0, 0);
 
   const day = eventDate.getDay(); // 0=Sun, 5=Fri, 6=Sat
 
@@ -197,8 +200,12 @@ function calculateDropoff() {
 }
 
 function calculatePickup() {
-  const eventDate = JSON.parse(localStorage.getItem('rrpr_event_date')) || null;
-  eventDate.setHours(0, 0, 0, 0); // normalize
+  
+	const rawdate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+	if (!rawdate) return null;
+
+	const eventDate = new Date(raw);
+	eventDate.setHours(0, 0, 0, 0);
 
   const day = eventDate.getDay(); // 0=Sun, 5=Fri, 6=Sat
 
@@ -338,6 +345,7 @@ function continueToPlaceOrder() {
 renderCheckoutCart();
 renderContactInfo();
 renderAddressInfo();
+render_schedule();
 </script>
 
 </body>
