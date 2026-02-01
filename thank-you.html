@@ -432,6 +432,61 @@ async function placeOrderToN8N() {
 }
 </script>
 
+<!-- fire purchase event for ga4 -->
+<script>
+(function firePurchaseEvent() {
+  // Prevent double-firing
+  if (localStorage.getItem('rrpr_purchase_tracked') === 'true') {
+    return;
+  }
+
+  const cart = JSON.parse(localStorage.getItem('rrpr_cart')) || [];
+  const contact = JSON.parse(localStorage.getItem('rrpr_contact')) || null;
+
+  if (!cart.length || !contact) {
+    console.warn('Purchase event not fired: missing cart or contact info');
+    return;
+  }
+
+  // Build GA4 items array
+  const items = cart.map(item => ({
+    item_name: item.name,
+    item_id: item.product_id || item.name,
+    price: item.price,
+    quantity: item.qty
+  }));
+
+  const subtotal = cart.reduce(
+    (sum, item) => sum + (item.price * item.qty),
+    0
+  );
+
+  const delivery = 10.00;
+  const total = subtotal + delivery;
+
+  // Generate a simple transaction ID
+  const transactionId =
+    'rrpr_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'purchase',
+    ecommerce: {
+      transaction_id: transactionId,
+      value: total,
+      currency: 'USD',
+      shipping: delivery,
+      items: items
+    }
+  });
+
+  // Mark as fired
+  localStorage.setItem('rrpr_purchase_tracked', 'true');
+
+  console.log('GA4 purchase event fired', transactionId);
+})();
+</script>
+
 
 </body>
 </html>
