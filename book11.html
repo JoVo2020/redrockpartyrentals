@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const safeText = (v) => (v == null ? "" : String(v));
 
 
-	function smoothScrollToSelectHeader() {
+	function smoothScrollToSelectHeaderOLD() {
 	  const header = document.getElementById('selectYourRentalsHeader');
 	  
 	  if (navLinks && navLinks.classList.contains('open')) {
@@ -303,6 +303,30 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	  }, 200);
 	}
+	
+	function smoothScrollToSelectHeader() {
+	  const header = document.getElementById('selectYourRentalsHeader');
+	  const navLinks = document.getElementById('nav-links');
+
+	  // Abort if nav is open
+	  if (navLinks && navLinks.classList.contains('open')) return;
+	  if (!header) return;
+
+	  const OFFSET = 30; // 👈 cushion in px
+
+	  setTimeout(() => {
+		const y =
+		  header.getBoundingClientRect().top +
+		  window.pageYOffset -
+		  OFFSET;
+
+		window.scrollTo({
+		  top: y,
+		  behavior: 'smooth'
+		});
+	  }, 200);
+	}
+
 
 	
 	async function loadInventory() {
