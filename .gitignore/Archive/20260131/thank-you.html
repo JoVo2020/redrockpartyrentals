@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
-	<!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkout | Red Rock Party Rentals</title>
@@ -21,11 +14,15 @@
 
 <body>
 
-<h3 style="text-align: center;margin-top: 30px;">Review</h3>
+<h3 style="text-align: center;margin-top: 30px;">Your order has been placed!</h3>
+
+
 <div class="checkout-container">
 
+	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">You will receive a confirmation email shortly.</div>
+
   <!-- CART ACCORDION -->
-  <div class="accordion">
+  <div class="accordion" style="padding-left:0;">
     <div class="accordion-item open">
       <button class="accordion-header" style="font-size:30px;padding: 16px 16px 16px 0;">
         Your Items
@@ -37,7 +34,7 @@
   </div>
 
   <!-- CONTACT INFO ACCORDION -->
-  <div class="accordion">
+  <div class="accordion" style="padding-left:0;">
     <div class="accordion-item open">
       <button class="accordion-header" style="font-size:30px;padding: 16px 16px 16px 0;margin-top:30px;">
         Contact Info
@@ -49,7 +46,7 @@
   </div>
 
   <!-- ADDRESS INFO ACCORDION -->
-  <div class="accordion">
+  <div class="accordion" style="padding-left:0;">
     <div class="accordion-item open">
       <button class="accordion-header" style="font-size:30px;padding: 16px 16px 16px 0;margin-top:30px;">
         Delivery Address
@@ -65,20 +62,16 @@
 
 	<div id="scheduleInfo"></div>
 
-	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">If you need a different dropoff/pickup schedule or you have special delivery instructions please let us know below. </div>
 
     <div class="form-group">
-		<h3 class="checkout-header">Notes:</h3>
-      <textarea id="notes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></textarea>
+		<h3 id="divnotesheader" class="checkout-header">Notes:</h3>
+      <div id="divnotes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></div>
     </div>
 
 	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Payment via cash or Zelle due at time of drop off.</div>
 
 
-    <button class="continue-btn" onclick="placeOrderToN8N()">
-      Place Order →
-    </button>
-</div>
+
 
   <!-- SUMMARY -->
   <div class="section summary" style="padding:16px;">
@@ -95,9 +88,13 @@
       <span id="total">$0.00</span>
     </div>
   </div>
+  
+	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Please contact us if you have any questions or updates to your order.</div>
 
+    <button class="continue-btn" onclick="goToContactPage()">
+      Contact Us
+    </button>
 </div>
-
 <!-- according js -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -285,6 +282,28 @@ function renderAddressInfo() {
   `;
 }
 
+function renderNotes() {
+  const notes = JSON.parse(localStorage.getItem('rrpr_notes')) || null;
+  const container = document.getElementById('divnotes');
+  
+  try {
+    noteText = JSON.parse(localStorage.getItem('rrpr_notes'))?.notes || '';
+  } catch {
+    noteText = '';
+  }
+  
+  if (!noteText.trim()) {
+    container.innerHTML = '';
+    document.getElementById('divnotesheader').innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="cart-row">${noteText}</div>
+  `;
+}
+
+
 function continueToPlaceOrder() {
   const street = document.getElementById('street').value.trim();
   const city = document.getElementById('city').value.trim();
@@ -303,10 +322,15 @@ function continueToPlaceOrder() {
   window.location.href = '/checkout-place-order';
 }
 
+function goToContactPage() {
+  window.location.href = '/contact';
+}
+
 renderCheckoutCart();
 renderContactInfo();
 renderAddressInfo();
 render_schedule();
+renderNotes();
 </script>
 
 
