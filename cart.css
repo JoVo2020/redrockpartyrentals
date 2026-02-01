@@ -384,9 +384,20 @@
 	
 	/* END CART OVERLAY */
 	  
+	
+	/* CHECKOUT STYLING */
+	.continue-btn {
+		width: 100%;
+		padding: 16px;
+		font-size: 18px;
+		background: #8b0000;
+		color: #fff;
+		border: none;
+		cursor: pointer;
+		margin-top: 16px;
+	}
 	  
 	  
-	  
-	  
+	
 	  
 	  
