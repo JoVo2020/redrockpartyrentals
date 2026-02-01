@@ -42,7 +42,7 @@
 }
 
 .accordion-item.open .accordion-content {
-  max-height: 2000px; /* large enough for inventory */
+  max-height: 4000px; /* large enough for inventory */
 }
 
 /* Optional spacing for items inside */
