@@ -284,15 +284,21 @@ function renderAddressInfo() {
 function renderNotes() {
   const notes = JSON.parse(localStorage.getItem('rrpr_notes')) || null;
   const container = document.getElementById('divnotes');
-
-  if (!notes) {
+  
+  try {
+    noteText = JSON.parse(localStorage.getItem('rrpr_notes'))?.notes || '';
+  } catch {
+    noteText = '';
+  }
+  
+  if (!noteText.trim()) {
     container.innerHTML = '';
-	document.getElementById('divnotesheader').innerHTML = '';
+    document.getElementById('divnotesheader').innerHTML = '';
     return;
   }
 
   container.innerHTML = `
-    <div class="cart-row">${notes.notes}</div>
+    <div class="cart-row">${noteText}</div>
   `;
 }
 
