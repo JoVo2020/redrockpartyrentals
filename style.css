@@ -53,7 +53,9 @@ h4 { font-size: 1.5rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; f
 .cart-toggle-mobile { 
 	display: block;
 	color:rgba(0,0,0,.6);
-	font-size: 1.5rem;
+	font-size: .85rem;
+	background: none; 
+	border: none;
  }
 
 
