@@ -417,6 +417,8 @@
     .summary {
       border-top: 1px solid #ddd;
       padding-top: 16px;
+	  color:rgba(0,0,0,.85);
+
     }
 
     .summary-line {
