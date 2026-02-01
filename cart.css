@@ -405,7 +405,7 @@
     .form-group label {
       margin-bottom: 6px;
       font-weight: 600;
-		color: #aaa;
+		color: rgba(0,0,0,.6);
 		font-size: 18px;
     }
 
