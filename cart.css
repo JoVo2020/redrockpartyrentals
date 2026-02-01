@@ -405,6 +405,8 @@
     .form-group label {
       margin-bottom: 6px;
       font-weight: 600;
+		color: #aaa;
+		font-size: 18px;
     }
 
     .form-group input {
