@@ -312,13 +312,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	  if (navLinks && navLinks.classList.contains('open')) return;
 	  if (!header) return;
 
-	  const OFFSET = 60; // 👈 cushion in px
+	  const OFFSET = 500; // 👈 cushion in px
 
 	  setTimeout(() => {
 		const y =
 		  header.getBoundingClientRect().top +
-		  window.pageYOffset -
-		  OFFSET;
+		  window.pageYOffset - OFFSET;
 
 		window.scrollTo({
 		  top: y,
