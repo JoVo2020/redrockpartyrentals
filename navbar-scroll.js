@@ -1,18 +1,10 @@
-  // Navbar background on scroll
-  window.addEventListener('scroll', function () {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
+<script>
   // Hamburger toggle
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
+	document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
   });
 
   // Optional: Close nav when link is clicked (mobile)
@@ -21,3 +13,5 @@
       navLinks.classList.remove('open');
     });
   });
+  
+</script>
