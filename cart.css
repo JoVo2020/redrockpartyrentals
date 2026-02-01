@@ -447,6 +447,11 @@
       justify-content: space-between;
       margin-bottom: 8px;
     }
+	
+	.checkout-header{
+		font-size:30px;
+		color:#000;
+	}
 	  
 	  
 	
