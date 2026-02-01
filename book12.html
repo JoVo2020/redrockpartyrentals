@@ -201,27 +201,20 @@
 
 		<div id="cartItems" class="cart-items"></div>
 
+		<footer class="cart-footer">
+		  <div class="cart-summary">
+			<div class="cart-line">
+			  <span>Delivery</span>
+			  <strong id="cartSubtotal">$10.00</strong>
+			</div>
+			<div class="cart-line total">
+			  <span>Total</span>
+			  <strong id="cartTotal">$0.00</strong>
+			</div>
+		  </div>
 
-		
-		<button class="continue-btn" onclick="goToCheckout()">
-		  Checkout →
-		</button>
-
-		<!-- SUMMARY -->
-		<div class="section summary">
-		<div class="summary-line">
-		  <span>Subtotal</span>
-		  <span id="subtotal">$0.00</span>
-		</div>
-		<div class="summary-line">
-		  <span>Delivery</span>
-		  <span>$10.00</span>
-		</div>
-		<div class="summary-line total">
-		  <span>Total</span>
-		  <span id="total">$0.00</span>
-		</div>
-		</div>
+		  <button class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+		</footer>
 
 	  </div>
 	</div>
