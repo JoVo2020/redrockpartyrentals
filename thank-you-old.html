@@ -3,24 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Checkout | Red Rock Party Rentals</title>
+  <title>Thank You | Red Rock Party Rentals</title>
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="accordion.css" />
-  <link rel="stylesheet" href="cart.css" />
 
+  <style>
+    .checkout-container {
+      max-width: 800px;
+      margin: 24px auto;
+      padding: 16px;
+    }
 
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    .summary {
+      border-top: 1px solid #ddd;
+      padding-top: 16px;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .summary-line.total {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .continue-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 18px;
+      background: #8b0000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 16px;
+    }
+
+    .cart-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 
 <body>
 
-<h3 style="text-align: center;margin-top: 30px;">Your order has been placed!</h3>
 <div class="checkout-container">
 
   <!-- CART ACCORDION -->
   <div class="accordion">
     <div class="accordion-item open">
-      <button class="accordion-header" style="font-size:30px;padding: 16px 16px 16px 0;">
+      <button class="accordion-header">
         Your Items
         <span class="accordion-icon">+</span>
       </button>
@@ -32,7 +90,7 @@
   <!-- CONTACT INFO ACCORDION -->
   <div class="accordion">
     <div class="accordion-item open">
-      <button class="accordion-header" style="font-size:30px;padding: 16px 16px 16px 0;margin-top:30px;">
+      <button class="accordion-header">
         Contact Info
         <span class="accordion-icon">+</span>
       </button>
@@ -44,7 +102,7 @@
   <!-- ADDRESS INFO ACCORDION -->
   <div class="accordion">
     <div class="accordion-item open">
-      <button class="accordion-header" style="font-size:30px;padding: 16px 16px 16px 0;margin-top:30px;">
+      <button class="accordion-header">
         Delivery Address
         <span class="accordion-icon">+</span>
       </button>
@@ -54,21 +112,16 @@
   </div>
 
 	  <!-- SCHEDULE INFO -->
-    <h3 class="checkout-header" >Dropoff & Pickup Schedule</h3>
-
 	<div id="scheduleInfo"></div>
 
-	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">If you need a different dropoff/pickup schedule or you have special delivery instructions please let us know below. </div>
-
     <div class="form-group">
-		<h3 class="checkout-header">Notes:</h3>
-      <textarea id="notes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></textarea>
+      <label>Notes:</label>
+      <div id="divnotes" style="font-size: 20px;font-family: 'Lora', serif;"></div>
     </div>
 
-	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Payment via cash or Zelle due at time of drop off.</div>
+	<div class="checking-availability-message" style="padding:15px;">Payment via cash or Zelle due at time of drop off.</div>
 
-
-
+</div>
 
   <!-- SUMMARY -->
   <div class="section summary" style="padding:16px;">
@@ -86,12 +139,14 @@
     </div>
   </div>
   
-	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Please contact us if you have any questions or updates to your order.</div>
-
+	<div class="checking-availability-message" style="padding:15px;">Please contact us if you have any questions or updates to your order.</div>
+ 
     <button class="continue-btn" onclick="goToContactPage()">
       Contact Us
     </button>
+
 </div>
+
 <!-- according js -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -279,6 +334,20 @@ function renderAddressInfo() {
   `;
 }
 
+function renderNotes() {
+  const notes = JSON.parse(localStorage.getItem('rrpr_notes')) || null;
+  const container = document.getElementById('divnotes');
+
+  if (!notes) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="cart-row">${notes}</div>
+  `;
+}
+
 function continueToPlaceOrder() {
   const street = document.getElementById('street').value.trim();
   const city = document.getElementById('city').value.trim();
@@ -295,6 +364,10 @@ function continueToPlaceOrder() {
   }));
 
   window.location.href = '/checkout-place-order';
+}
+
+function goToContactPage() {
+  window.location.href = '/contact';
 }
 
 renderCheckoutCart();
