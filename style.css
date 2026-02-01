@@ -162,6 +162,7 @@ hr.solid {
   .navbar.scrolled { font-size: 1.1rem; padding: 0.45rem 0.7rem; }
   .logo { font-size: 1rem; }
   .menu-toggle { display: block; }
+  .cart-toggle-mobile { display: block; }
 
   .nav-links {
     flex-direction: column; 
