@@ -28,7 +28,7 @@
 	.cart-toggle {
 	  background: none;
 	  border: none;
-	  font-size: 1em;
+	  font-size: .85em;
 	  cursor: pointer;
 	  color: rgba(0, 0, 0, .7);
 	  text-align: left;
