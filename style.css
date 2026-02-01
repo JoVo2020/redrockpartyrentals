@@ -177,7 +177,7 @@ hr.solid {
 	font-size: 1.3rem;
   }
   .nav-links.open { display: flex; }
-  .navbar { flex-direction: row; align-items: center; position: fixed; top: 0; left: 0; }
+  .navbar { flex-direction: row; align-items: center; top: 0; left: 0; }
 
   .hero { height: 60vh; min-height: 320px; padding-top: 54px; }
   h1 { font-size: 3rem; }
