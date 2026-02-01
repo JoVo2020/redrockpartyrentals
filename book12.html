@@ -288,18 +288,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function smoothScrollToSelectHeader() {
 	  const header = document.getElementById('selectYourRentalsHeader');
-	  
-	  if (navLinks && navLinks.classList.contains('open')) {
-		return;
-	  }
-	  
+	  const navLinks = document.getElementById('nav-links');
+
+	  // Abort if nav is open
+	  if (navLinks && navLinks.classList.contains('open')) return;
 	  if (!header) return;
 
-	  // Small delay so layout + accordion DOM settles
+	  const OFFSET = 50; // 👈 cushion in px
+
 	  setTimeout(() => {
-		header.scrollIntoView({
-		  behavior: 'smooth',
-		  block: 'start'
+		const y =
+		  header.getBoundingClientRect().top +
+		  window.pageYOffset - OFFSET;
+
+		window.scrollTo({
+		  top: y,
+		  behavior: 'smooth'
 		});
 	  }, 200);
 	}
