@@ -28,9 +28,10 @@
 	.cart-toggle {
 	  background: none;
 	  border: none;
-	  font-size: 20px;
+	  font-size: 1em;
 	  cursor: pointer;
-	  color: #ccc;
+	  color: rgba(0, 0, 0, .8);
+	  text-align: left;
 	}
 	
 	@media (min-width: 600px) {
