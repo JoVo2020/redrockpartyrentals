@@ -62,7 +62,7 @@
 
     <div class="form-group">
 		<h3 class="checkout-header">Notes:</h3>
-      <textarea id="notes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></textarea>
+      <div id="divnotes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></div>
     </div>
 
 	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Payment via cash or Zelle due at time of drop off.</div>
@@ -279,6 +279,21 @@ function renderAddressInfo() {
   `;
 }
 
+function renderNotes() {
+  const notes = JSON.parse(localStorage.getItem('rrpr_notes')) || null;
+  const container = document.getElementById('divnotes');
+
+  if (!notes) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="cart-row">${notes}</div>
+  `;
+}
+
+
 function continueToPlaceOrder() {
   const street = document.getElementById('street').value.trim();
   const city = document.getElementById('city').value.trim();
@@ -297,10 +312,15 @@ function continueToPlaceOrder() {
   window.location.href = '/checkout-place-order';
 }
 
+function goToContactPage() {
+  window.location.href = '/contact';
+}
+
 renderCheckoutCart();
 renderContactInfo();
 renderAddressInfo();
 render_schedule();
+renderNotes();
 </script>
 
 
