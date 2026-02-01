@@ -25,7 +25,20 @@
 		}
 	  
 	  
-	  
+	.cart-toggle {
+	  background: none;
+	  border: none;
+	  font-size: 20px;
+	  cursor: pointer;
+	  color: #8b0000;
+	}
+	
+	@media (min-width: 600px) {
+	  .cart-toggle {
+		margin-left: 1rem;
+	  }
+	}	
+	
 	/* INVENTORY GRID CSS */
   .rr-inventory-section { padding: 18px 0; }
   .rr-inventory-header { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
