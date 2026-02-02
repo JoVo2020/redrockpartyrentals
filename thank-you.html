@@ -373,8 +373,8 @@ async function placeOrderToN8N() {
     0
   );
 
-  const delivery_fee = 25.00; // keep aligned with Zoho Books
-  const tax = +(subtotal * 0.08).toFixed(2); // adjust if needed
+  const delivery_fee = 10; // keep aligned with Zoho Books
+  const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
   const total = +(subtotal + delivery_fee + tax).toFixed(2);
 
   const payload = {
