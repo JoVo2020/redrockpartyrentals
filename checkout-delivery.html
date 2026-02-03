@@ -71,9 +71,10 @@
       <input type="number" id="zip" required />
     </div>
 
-    <button class="continue-btn" onclick="continueToPlaceOrder()">
-      Continue →
-    </button>
+	<div class="button-row" style="display:flex;gap:10px;">
+		<button class="back-btn" onclick="goBackToCheckoutPage()">Back</button>
+		<button class="continue-btn" onclick="continueToPlaceOrder()">Continue →</button>
+	</div>
   </div>
 
   <!-- SUMMARY -->
@@ -179,6 +180,23 @@ function continueToPlaceOrder() {
   }));
 
   window.location.href = '/checkout-place-order';
+}
+
+function goBackToCheckoutPage(){
+  const street = document.getElementById('street').value.trim();
+  const city = document.getElementById('city').value.trim();
+  const state = document.getElementById('state').value.trim();
+  const zip = document.getElementById('zip').value.trim();
+
+  if (!street || !city || !state || !zip) {
+    return;
+  }
+
+  localStorage.setItem('rrpr_address', JSON.stringify({
+    street, city, state, zip
+  }));
+
+  window.location.href = '/checkout';
 }
 
 renderCheckoutCart();
