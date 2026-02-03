@@ -189,7 +189,8 @@ function goBackToCheckoutPage(){
   const zip = document.getElementById('zip').value.trim();
 
   if (!street || !city || !state || !zip) {
-    return;
+	window.location.href = '/checkout';
+	return;
   }
 
   localStorage.setItem('rrpr_address', JSON.stringify({

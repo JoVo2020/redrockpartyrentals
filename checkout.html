@@ -150,6 +150,7 @@ function goToBookPage() {
 	const email = document.getElementById('email').value.trim();
 
 	if (!name || !phone || !email) {
+		window.location.href = '/book';
 		return;
 	}
 
