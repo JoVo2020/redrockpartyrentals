@@ -380,6 +380,10 @@
 	
 	.back-btn:hover {
 		background-color: #62C5C5;
+		
+	}
+	.wtf{
+		border:none;
 	}
 	
 	@media (min-width: 600px) {
