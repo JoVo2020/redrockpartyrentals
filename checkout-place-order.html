@@ -74,10 +74,10 @@
 
 	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Payment via cash or Zelle due at time of drop off.</div>
 
-
-    <button class="continue-btn" onclick="placeOrderToN8N()">
-      Place Order →
-    </button>
+	<div class="button-row" style="display:flex;gap:10px;">
+		<button class="back-btn" onclick="goBackToCheckoutDeliveryPage()">Back</button>
+		<button class="continue-btn" onclick="placeOrderToN8N()">Place Order →</button>
+	</div>
 </div>
 
   <!-- SUMMARY -->
@@ -398,6 +398,10 @@ async function placeOrderToN8N() {
     console.error(err);
     alert('There was a problem placing your order. Please try again.');
   }
+}
+
+function goBackToCheckoutDeliveryPage() {
+	window.location.href = '/checkout-delivery';
 }
 </script>
 
