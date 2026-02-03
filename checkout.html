@@ -54,9 +54,10 @@
       <input type="email" id="email" required />
     </div>
 
-    <button class="continue-btn" onclick="continueToDelivery()">
-      Continue →
-    </button>
+	<div class="button-row" style="display:flex;gap:10px;">
+		<button class="back-btn" onclick="goToBookPage()">Back</button>
+		<button class="continue-btn" onclick="continueToDelivery()">Continue →</button>
+	</div>
   </div>
 
   <!-- SUMMARY -->
@@ -140,6 +141,24 @@ function continueToDelivery() {
   }));
 
   window.location.href = '/checkout-delivery';
+}
+
+function goToBookPage() {
+
+	const name = document.getElementById('name').value.trim();
+	const phone = document.getElementById('phone').value.trim();
+	const email = document.getElementById('email').value.trim();
+
+	if (!name || !phone || !email) {
+		return;
+	}
+
+	localStorage.setItem('rrpr_contact', JSON.stringify({
+		name, phone, email
+	}));
+
+	window.location.href = '/book';
+	//need to come back and add the date to the url and also come up with some "?cart=open" feature
 }
 
 renderCheckoutCart();
