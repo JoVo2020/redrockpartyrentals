@@ -382,13 +382,15 @@ async function placeOrderToN8N() {
   const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
   const total = +(subtotal + delivery_fee + tax).toFixed(2);
 
+  const street_unit = `${address.street} ${address.unit}`;
+
   const payload = {
     order_date: formatISO(new Date()),
     name: contact.name,
     email: contact.email,
     phone: contact.phone,
 
-    street: address.street,
+    street: street_unit,
     unit: address.unit || '',
     city: address.city,
     state: address.state,
