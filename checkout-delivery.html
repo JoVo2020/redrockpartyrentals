@@ -58,6 +58,11 @@
     </div>
 
     <div class="form-group">
+      <label>Unit</label>
+      <input type="text" id="unit"/>
+    </div>
+
+    <div class="form-group">
       <label>City</label>
       <input type="text" id="city" required />
     </div>
@@ -166,6 +171,7 @@ function renderContactInfo() {
 
 function continueToPlaceOrder() {
   const street = document.getElementById('street').value.trim();
+  const unit = document.getElementById('unit').value.trim();
   const city = document.getElementById('city').value.trim();
   const state = document.getElementById('state').value.trim();
   const zip = document.getElementById('zip').value.trim();
@@ -176,7 +182,7 @@ function continueToPlaceOrder() {
   }
 
   localStorage.setItem('rrpr_address', JSON.stringify({
-    street, city, state, zip
+    street, unit, city, state, zip
   }));
 
   window.location.href = '/checkout-place-order';
@@ -184,6 +190,7 @@ function continueToPlaceOrder() {
 
 function goBackToCheckoutPage(){
   const street = document.getElementById('street').value.trim();
+  const unit = document.getElementById('unit').value.trim();  
   const city = document.getElementById('city').value.trim();
   const state = document.getElementById('state').value.trim();
   const zip = document.getElementById('zip').value.trim();
@@ -194,7 +201,7 @@ function goBackToCheckoutPage(){
   }
 
   localStorage.setItem('rrpr_address', JSON.stringify({
-    street, city, state, zip
+    street, unit, city, state, zip
   }));
 
   window.location.href = '/checkout';
@@ -206,6 +213,10 @@ function autopopulateAddressInfo() {
 
   if (saved.street) {
     document.getElementById('street').value = saved.street;
+  }
+
+  if (saved.unit) {
+    document.getElementById('unit').value = saved.unit;
   }
 
   if (saved.city) {
