@@ -303,6 +303,18 @@ function continueToPlaceOrder() {
   window.location.href = '/checkout-place-order';
 }
 
+function autopopulateNotes() {
+  const saved = JSON.parse(localStorage.getItem('rrpr_notes'));
+
+  if (!saved) return;
+
+  if (saved.notes) {
+    document.getElementById('notes').value = saved.notes;
+  }
+}
+
+
+autopopulateNotes();
 renderCheckoutCart();
 renderContactInfo();
 renderAddressInfo();
@@ -403,6 +415,8 @@ async function placeOrderToN8N() {
 function goBackToCheckoutDeliveryPage() {
 	window.location.href = '/checkout-delivery';
 }
+
+
 </script>
 
 
