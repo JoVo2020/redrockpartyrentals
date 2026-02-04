@@ -413,9 +413,23 @@ async function placeOrderToN8N() {
 }
 
 function goBackToCheckoutDeliveryPage() {
-	window.location.href = '/checkout-delivery';
+	
 }
 
+function goBackToCheckoutDeliveryPage(){
+  const notes = document.getElementById('notes').value.trim();
+
+  if (!notes) {
+	window.location.href = '/checkout-delivery';
+	return;
+  }
+
+  localStorage.setItem('rrpr_notes', JSON.stringify({
+    notes
+  }));
+
+	window.location.href = '/checkout-delivery';
+}
 
 </script>
 
