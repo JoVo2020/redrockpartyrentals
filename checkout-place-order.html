@@ -279,10 +279,11 @@ function renderAddressInfo() {
     return;
   }
 	const city_state_zip = `${address.city}, ${address.state} ${address.zip}`;
-  container.innerHTML = `
-    <div class="cart-row">${address.street}</div>
-	<div class="cart-row">${city_state_zip}</div>
-  `;
+	const street_unit = `${address.street} ${address.unit}`;
+	container.innerHTML = `
+		<div class="cart-row">${street_unit}</div>
+		<div class="cart-row">${city_state_zip}</div>
+	`;
 }
 
 function continueToPlaceOrder() {
