@@ -162,6 +162,26 @@ function goToBookPage() {
 	//need to come back and add the date to the url and also come up with some "?cart=open" feature
 }
 
+function autopopulateContactInfo() {
+  const saved = JSON.parse(localStorage.getItem('rrpr_contact'));
+
+  if (!saved) return;
+
+  if (saved.name) {
+    document.getElementById('name').value = saved.name;
+  }
+
+  if (saved.phone) {
+    document.getElementById('phone').value = saved.phone;
+  }
+
+  if (saved.email) {
+    document.getElementById('email').value = saved.email;
+  }
+}
+
+
+autopopulateContactInfo();
 renderCheckoutCart();
 </script>
 
