@@ -199,7 +199,30 @@ function goBackToCheckoutPage(){
 
   window.location.href = '/checkout';
 }
+function autopopulateAddressInfo() {
+  const saved = JSON.parse(localStorage.getItem('rrpr_address'));
 
+  if (!saved) return;
+
+  if (saved.street) {
+    document.getElementById('street').value = saved.street;
+  }
+
+  if (saved.city) {
+    document.getElementById('city').value = saved.city;
+  }
+
+  if (saved.state) {
+    document.getElementById('state').value = saved.state;
+  }
+
+  if (saved.zip) {
+    document.getElementById('zip').value = saved.zip;
+  }
+}
+
+
+autopopulateAddressInfo();
 renderCheckoutCart();
 renderContactInfo();
 </script>
