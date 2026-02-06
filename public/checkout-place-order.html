@@ -469,10 +469,10 @@ async function payNow() {
   try {
     // You should already be calculating this earlier
     // Stripe expects cents
-    const total = getOrderTotal();
+    const totalInCents = Math.round(getOrderTotal() * 100);
 
     const payload = {
-      amount: total,
+      amount: totalInCents,
       order_id: `rrpr_${Date.now()}`, // simple unique ID for now
       origin: window.location.origin
     };
