@@ -24,8 +24,8 @@ exports.handler = async (event) => {
       metadata: {
         order_id: body.order_id,
       },
-      success_url: `${body.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${body.origin}/checkout`,
+		success_url: `${body.origin}/thank-you2.html?session_id={CHECKOUT_SESSION_ID}`,
+		cancel_url: `${body.origin}/checkout-place-order.html`,
     });
 
     return {
