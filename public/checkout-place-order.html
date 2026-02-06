@@ -76,11 +76,11 @@
       <textarea id="notes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></textarea>
     </div>
 
-	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Payment via cash or Zelle due at time of drop off.</div>
+	<!-- <div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Payment via cash or Zelle due at time of drop off.</div> -->
 
 	<div class="button-row" style="display:flex;gap:10px;">
 		<button class="back-btn2" onclick="goBackToCheckoutDeliveryPage()">Back</button>
-		<button class="continue-btn" onclick="placeOrderToN8N()">Place Order →</button>
+		<button class="continue-btn" onclick="payNow()" >Confirm & Pay</button>
 	</div>
 </div>
 
@@ -437,6 +437,79 @@ function goBackToCheckoutDeliveryPage(){
 
 	window.location.href = '/checkout-delivery';
 }
+
+function getOrderTotal() {
+  const cart = getCart();
+
+  if (!cart.length) {
+    alert('Missing order information. Please refresh and try again.');
+    return;
+  }
+
+  const items = cart.map(item => ({
+    item_name: item.name,
+    product_id: item.product_id,   // must already exist on cart items
+    quantity: item.qty,
+    unit_price: item.price
+  }));
+
+  const subtotal = items.reduce(
+    (sum, i) => sum + (i.quantity * i.unit_price),
+    0
+  );
+
+  const delivery_fee = 10.00; // keep aligned with Zoho Books
+  const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
+  const total = +(subtotal + delivery_fee + tax).toFixed(2);
+
+  return total;
+}
+
+async function payNow() {
+  try {
+    // You should already be calculating this earlier
+    // Stripe expects cents
+    const total = getOrderTotal();
+
+    const payload = {
+      amount: total,
+      order_id: `rrpr_${Date.now()}`, // simple unique ID for now
+      origin: window.location.origin
+    };
+
+    const response = await fetch(
+      "/.netlify/functions/create-checkout-session",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Checkout session failed: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.url) {
+      throw new Error("Stripe checkout URL missing");
+    }
+
+    // Redirect customer to Stripe Checkout
+    window.location.href = data.url;
+
+  } catch (err) {
+    console.error("payNow error:", err);
+    alert(
+      "We couldn’t start payment. Please refresh the page and try again."
+    );
+  }
+}
+
+
 
 </script>
 

@@ -428,7 +428,7 @@ async function placeOrderToN8N() {
     const data = await res.json();
     console.log('Order sent to n8n:', data);
 
-    alert('Order placed successfully!');
+    //alert('Order placed successfully!');
     // optional redirect
 	window.location.href = '/thank-you';
 
@@ -441,7 +441,7 @@ async function placeOrderToN8N() {
 
 <!-- fire purchase event for ga4 -->
 <script>
-(function firePurchaseEvent() {
+function firePurchaseEvent() {
   // Prevent double-firing
   if (localStorage.getItem('rrpr_purchase_tracked') === 'true') {
     return;
@@ -491,7 +491,49 @@ async function placeOrderToN8N() {
   localStorage.setItem('rrpr_purchase_tracked', 'true');
 
   console.log('GA4 purchase event fired', transactionId);
-})();
+}
+
+
+async function verifyAndPlaceOrder() {
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id");
+
+  if (!sessionId) {
+    console.error("Missing Stripe session_id");
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      "/.netlify/functions/verify-stripe-payment",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId })
+      }
+    );
+
+    const data = await res.json();
+
+	if (data.paid) {
+	  const processedKey = `rrpr_order_sent_${sessionId}`;
+
+	  if (!localStorage.getItem(processedKey)) {
+		localStorage.setItem(processedKey, "true");
+		firePurchaseEvent();
+		await placeOrderToN8N();
+	  }
+	} else {
+      console.error("Payment not verified", data);
+    }
+
+  } catch (err) {
+    console.error("Verification failed", err);
+  }
+}
+
+verifyAndPlaceOrder();
+
 </script>
 
 
