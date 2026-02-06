@@ -76,11 +76,11 @@
       <textarea id="notes" rows="3" cols="30" style="font-size: 20px;font-family: 'Lora', serif;"></textarea>
     </div>
 
-	<div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Payment via cash or Zelle due at time of drop off.</div>
+	<!-- <div class="checking-availability-message" style="padding:15px;color:rgba(0,0,0,.8);">Payment via cash or Zelle due at time of drop off.</div> -->
 
 	<div class="button-row" style="display:flex;gap:10px;">
 		<button class="back-btn2" onclick="goBackToCheckoutDeliveryPage()">Back</button>
-		<button class="continue-btn" onclick="payNow()" >Pay Now →</button>
+		<button class="continue-btn" onclick="payNow()" >Confirm & Pay</button>
 	</div>
 </div>
 
@@ -461,19 +461,18 @@ function getOrderTotal() {
   const delivery_fee = 10.00; // keep aligned with Zoho Books
   const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
   const total = +(subtotal + delivery_fee + tax).toFixed(2);
-  const testamount = 1.00
-  return testamount;
-  //return total;
+
+  return total;
 }
 
 async function payNow() {
   try {
     // You should already be calculating this earlier
     // Stripe expects cents
-    const totalInCents = Math.round(getOrderTotal() * 100);
+    const total = getOrderTotal();
 
     const payload = {
-      amount: totalInCents,
+      amount: total,
       order_id: `rrpr_${Date.now()}`, // simple unique ID for now
       origin: window.location.origin
     };
