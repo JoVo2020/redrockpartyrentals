@@ -1,9 +1,6 @@
 [build]
   command = ""
-  publish = "."
-
-[build.processing]
-  skip_processing = true
+  publish = "public"
 
 [functions]
   directory = "netlify/functions"
