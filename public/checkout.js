@@ -1,6 +1,6 @@
 
 function getCart() {
-  return JSON.parse(localStorage.getItem(rrpr_cart)) || [];
+  return JSON.parse(localStorage.getItem('rrpr_cart')) || [];
 }
 
 function getContactInfo() {
