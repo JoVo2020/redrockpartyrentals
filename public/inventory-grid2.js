@@ -50,24 +50,42 @@ async function loadInventory() {
   const loadingEl = document.getElementById('inventoryLoading');
   const accordionEl = document.getElementById('inventoryAccordion');
 
+  const dates = AvailabilityService.getRentalDates();
+
+  // 🟢 If no date selected
+  if (!dates) {
+    loadingEl.style.display = 'block';
+    loadingEl.textContent = 'Select a date to see available rentals.';
+    return;
+  }
+
+  loadingEl.style.display = 'block';
+  loadingEl.textContent = 'Checking availability…';
+
   try {
     const availability = await AvailabilityService.ensureAvailability();
 
-    if (!availability) return;
+    if (!availability) {
+      loadingEl.textContent = 'No availability found.';
+      return;
+    }
 
     // Remove loading state
     if (accordionEl) {
       accordionEl.removeAttribute('data-loading');
     }
 
+    loadingEl.style.display = 'none';
+
     renderInventory(Object.values(availability));
 
   } catch (err) {
-    loadingEl.style.display = 'block';
+    console.error(err);
     loadingEl.textContent =
       'Availability is taking longer than expected. Please refresh.';
   }
 }
+
 
 
 
