@@ -302,18 +302,17 @@ function render_schedule() {
 }
 
 function renderNotes() {
-  const notes = JSON.parse(localStorage.getItem('rrpr_notes')) || null;
+  const noteText = getNoteText();
   const container = document.getElementById('divnotes');
-  
-  try {
-    noteText = JSON.parse(localStorage.getItem('rrpr_notes'))?.notes || '';
-  } catch {
-    noteText = '';
-  }
-  
-  if (!noteText.trim()) {
+  const header = document.getElementById('divnotesheader');
+
+  // Guard against missing DOM elements
+  if (!container || !header) return;
+
+  // If no note or only whitespace
+  if (!noteText || !noteText.trim()) {
     container.innerHTML = '';
-    document.getElementById('divnotesheader').innerHTML = '';
+    header.innerHTML = '';
     return;
   }
 
