@@ -195,12 +195,14 @@ function autopopulateAddressInfo() {
 
 
 function autopopulateNotes() {
-  const saved = JSON.parse(localStorage.getItem('rrpr_notes'));
+  const noteText = getNoteText();
+  const notesInput = document.getElementById('notes');
 
-  if (!saved) return;
+  // Guard against missing element (since checkout.js is shared)
+  if (!notesInput) return;
 
-  if (saved.notes) {
-    document.getElementById('notes').value = saved.notes;
+  if (noteText) {
+    notesInput.value = noteText;
   }
 }
 
