@@ -47,6 +47,7 @@ function smoothScrollToSelectHeader() {
 
 async function loadInventory() {
   const loadingEl = document.getElementById('inventoryLoading');
+  const accordionEl = document.getElementById('inventoryAccordion');
 
   loadingEl.style.display = 'block';
   loadingEl.textContent = 'Checking availability…';
@@ -55,11 +56,15 @@ async function loadInventory() {
     const availability = await AvailabilityService.ensureAvailability();
 
     if (!availability) {
-      loadingEl.textContent = 'To get started, please enter your event date.';
+      loadingEl.textContent = 'Please select event date.';
       return;
     }
 
-    // 👇 CRITICAL LINE
+    // Remove loading state so accordion items show
+    if (accordionEl) {
+      accordionEl.removeAttribute('data-loading');
+    }
+
     loadingEl.style.display = 'none';
 
     renderInventory(Object.values(availability));
@@ -70,6 +75,7 @@ async function loadInventory() {
       'Availability is taking longer than expected. Please refresh.';
   }
 }
+
 
 
 
