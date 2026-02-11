@@ -12,7 +12,8 @@ window.AvailabilityService = (function () {
   const CACHE_TTL_MINUTES = 20;
 
   const AVAILABILITY_ENDPOINT =
-    'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLieyUGwKYK8Rh7jK_sNdwV1vyUauxGZKnzmBAxYi1Y_LnF7wSs';
+	'https://script.google.com/macros/s/AKfycbwiQbTdtwT0VtIIxGVDnu1IP9q6JXnL6zIhWe7wsnM2O9laf4OProuyfzi9PafriDEoUw/exec?action=availability';
+
 
   let inflightPromise = null;
 
