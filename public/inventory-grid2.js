@@ -48,37 +48,29 @@ function smoothScrollToSelectHeader() {
 async function loadInventory() {
   const loadingEl = document.getElementById('inventoryLoading');
 
-  try {
+  loadingEl.style.display = 'block';
+  loadingEl.textContent = 'Checking availability…';
 
-    // FIRST: attempt to get availability (may return cached instantly)
+  try {
     const availability = await AvailabilityService.ensureAvailability();
 
     if (!availability) {
-      loadingEl.textContent = 'To get started, please enter your event date';
+      loadingEl.textContent = 'To get started, please enter your event date.';
       return;
     }
 
-    // Only show loading text if data was NOT cached
-    const state = JSON.parse(localStorage.getItem('rrpr_availability_state'));
-    const wasFreshlyFetched = state?.checkedAt &&
-      (Date.now() - new Date(state.checkedAt).getTime()) < 1000;
-
-    if (wasFreshlyFetched) {
-      loadingEl.style.display = 'block';
-      loadingEl.textContent = 'Checking availability…';
-    } else {
-      loadingEl.style.display = 'none';
-    }
+    // 👇 CRITICAL LINE
+    loadingEl.style.display = 'none';
 
     renderInventory(Object.values(availability));
-    smoothScrollToSelectHeader();
 
   } catch (err) {
     console.error(err);
-    loadingEl.style.display = 'block';
-    loadingEl.textContent = 'Unable to load availability.';
+    loadingEl.textContent =
+      'Availability is taking longer than expected. Please refresh.';
   }
 }
+
 
 
 
