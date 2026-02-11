@@ -11,6 +11,10 @@ function getAddressInfo() {
   return JSON.parse(localStorage.getItem('rrpr_address')) || null;
 }
 
+function getNoteText() {
+  return localStorage.getItem('rrpr_notes') || null;
+}
+
 function renderCheckoutCart() {
   const cart = getCart();
   const container = document.getElementById('checkoutCartItems');
@@ -365,10 +369,22 @@ function getOrderTotal() {
 }
 
 async function payNow() {
+	
+	const notesInput = document.getElementById('notes');
+
+	if (notesInput) {
+	  const notes = notesInput.value.trim();
+
+	  if (notes) {
+		localStorage.setItem('rrpr_notes', notes);
+	  }
+	}
+	
   try {
     // You should already be calculating this earlier
     // Stripe expects cents
-    const totalInCents = Math.round(getOrderTotal() * 100);
+    //const totalInCents = Math.round(getOrderTotal() * 100);
+    const totalInCents = Math.round(1 * 100);
 
     const payload = {
       amount: totalInCents,
@@ -415,7 +431,7 @@ async function placeOrderToN8N() {
   const cart = getCart();
   const contact = getContactInfo();
   const address = getAddressInfo();
-  const notes = document.getElementById('notes')?.value || '';
+  const notes = getNoteText();
 
   const dropoff = JSON.parse(localStorage.getItem('rrpr_dropoff'));
   const pickup = JSON.parse(localStorage.getItem('rrpr_pickup'));
@@ -470,8 +486,6 @@ async function placeOrderToN8N() {
     total,
     notes
   };
-
-  localStorage.setItem('rrpr_notes', JSON.stringify({notes}));
   
   try {
     const res = await fetch(webhookUrl, {
