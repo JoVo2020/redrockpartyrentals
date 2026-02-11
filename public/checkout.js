@@ -335,9 +335,7 @@ function goBackToCheckoutDeliveryPage(){
 	return;
   }
 
-  localStorage.setItem('rrpr_notes', JSON.stringify({
-    notes
-  }));
+  localStorage.setItem('rrpr_notes', notes);
 
 	window.location.href = '/checkout-delivery';
 }
