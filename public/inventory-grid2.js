@@ -47,27 +47,27 @@ function smoothScrollToSelectHeader() {
 
 async function loadInventory() {
   const loadingEl = document.getElementById('inventoryLoading');
-  loadingEl.style.display = 'block';
-  loadingEl.textContent = 'Checking availability…';
 
   try {
+
+    // FIRST: attempt to get availability (may return cached instantly)
     const availability = await AvailabilityService.ensureAvailability();
 
     if (!availability) {
-      loadingEl.textContent = 'Please select rental dates first.';
+      loadingEl.textContent = 'To get started, please enter your event date';
       return;
     }
 
-    loadingEl.style.display = 'none';
+    // Only show loading text if data was NOT cached
+    const state = JSON.parse(localStorage.getItem('rrpr_availability_state'));
+    const wasFreshlyFetched = state?.checkedAt &&
+      (Date.now() - new Date(state.checkedAt).getTime()) < 1000;
 
-    const selectHeader = document.getElementById('selectYourRentalsHeader');
-    if (selectHeader) {
-      selectHeader.style.display = 'block';
-    }
-
-    const accordionEl = document.getElementById('inventoryAccordion');
-    if (accordionEl) {
-      accordionEl.removeAttribute('data-loading');
+    if (wasFreshlyFetched) {
+      loadingEl.style.display = 'block';
+      loadingEl.textContent = 'Checking availability…';
+    } else {
+      loadingEl.style.display = 'none';
     }
 
     renderInventory(Object.values(availability));
@@ -75,9 +75,12 @@ async function loadInventory() {
 
   } catch (err) {
     console.error(err);
+    loadingEl.style.display = 'block';
     loadingEl.textContent = 'Unable to load availability.';
   }
 }
+
+
 
 /* -------------------------
    Render Inventory
