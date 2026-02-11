@@ -382,8 +382,8 @@ async function payNow() {
   try {
     // You should already be calculating this earlier
     // Stripe expects cents
-    //const totalInCents = Math.round(getOrderTotal() * 100);
-    const totalInCents = Math.round(1 * 100);
+    const totalInCents = Math.round(getOrderTotal() * 100);
+    //const totalInCents = Math.round(1 * 100);
 
     const payload = {
       amount: totalInCents,
