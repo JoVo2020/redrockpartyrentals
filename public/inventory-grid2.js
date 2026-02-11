@@ -80,11 +80,15 @@ async function loadInventory() {
 
 function renderInventory(items) {
 
+	console.log("Items received:", items);
+
   // Clear all grids first
   document.querySelectorAll('.accordion-item .rr-inventory-grid')
     .forEach(grid => grid.innerHTML = '');
 
   items.forEach(item => {
+
+	console.log("Looking for category:", item.category);
 
     // If category filter exists, enforce it
     if (window.categoryParam &&
