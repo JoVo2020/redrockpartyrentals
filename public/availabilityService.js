@@ -45,36 +45,43 @@ window.AvailabilityService = (function () {
      Rental Date
   ------------------------- */
 
-  function getRentalDates() {
-    const params = new URLSearchParams(window.location.search);
-    const start = params.get('start');
-    const end = params.get('end');
+	function getRentalDates() {
+	  const params = new URLSearchParams(window.location.search);
 
-    if (start && end) return { start, end };
+	  const singleDate = params.get('date');
+	  if (singleDate) {
+		return { start: singleDate, end: singleDate };
+	  }
 
-    const state = readState();
+	  const state = readState();
 
-    return state?.start_date && state?.end_date
-      ? { start: state.start_date, end: state.end_date }
-      : null;
-  }
+	  if (state?.event_date) {
+		return { start: state.event_date, end: state.event_date };
+	  }
 
-  function setRentalDates(start, end) {
-    const state = readState() || {};
+	  return null;
+	}
 
-    state.start_date = start;
-    state.end_date = end;
-    state.checkedAt = null;
-    state.availability = null;
 
-    writeState(state);
+	function setRentalDates(date) {
+	  const state = readState() || {};
 
-    const params = new URLSearchParams(window.location.search);
-    params.set('start', start);
-    params.set('end', end);
+	  state.event_date = date;
+	  state.checkedAt = null;
+	  state.availability = null;
 
-    history.replaceState({}, '', `${location.pathname}?${params}`);
-  }
+	  writeState(state);
+
+	  const params = new URLSearchParams(window.location.search);
+	  params.set('date', date);
+
+	  // remove old params if present
+	  params.delete('start');
+	  params.delete('end');
+
+	  history.replaceState({}, '', `${location.pathname}?${params}`);
+	}
+
 
   /* -------------------------
      Cache Validation

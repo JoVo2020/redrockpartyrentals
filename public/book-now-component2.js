@@ -15,16 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	  const [month, day, year] = dateRaw.split('/');
 	  const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
-	  AvailabilityService.setRentalDates(iso, iso);
+	  AvailabilityService.setRentalDates(iso);
 
 	  const params = new URLSearchParams({
-		category,
-		start: iso,
-		end: iso
+		date: iso
 	  });
 
 	  window.location.href = `/book2.html?${params.toString()}`;
 	});
+
 });
 
 
@@ -37,33 +36,24 @@ const tomorrow = new Date();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-	
-    /* ---------- Category ---------- */
-    if (window.categoryParam) {
-      const categorySelect = document.getElementById('category');
 
-      if (categorySelect) {
-        // Only set if option exists
-        const optionExists = Array.from(categorySelect.options)
-          .some(opt => opt.value === window.categoryParam);
+  const params = new URLSearchParams(window.location.search);
+  const urlDate = params.get('date');
 
-        if (optionExists) {
-          categorySelect.value = window.categoryParam;
-        }
-      }
+  if (urlDate) {
+    const [year, month, day] = urlDate.split('-');
+    const formatted = `${month}/${day}/${year}`;
+
+    const desktopInput = document.getElementById('dateStart');
+    if (desktopInput) {
+      desktopInput.value = formatted;
     }
 
-    /* ---------- Date ---------- */
-    if (window.dateParam) {
-	  const desktopInput = document.getElementById('dateStart');
-	  if (desktopInput) {
-		desktopInput.value = window.dateParamRaw;
-	  }
-
-	  // Mobile (native date input)
-	  const mobileInput = document.querySelector('.flatpickr-mobile');
-	  if (mobileInput) {
-		mobileInput.value = window.dateParam;
-	  }
+    const mobileInput = document.querySelector('.flatpickr-mobile');
+    if (mobileInput) {
+      mobileInput.value = urlDate;
     }
+  }
+
 });
+
