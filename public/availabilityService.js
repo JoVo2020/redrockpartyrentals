@@ -49,18 +49,23 @@ window.AvailabilityService = (function () {
 	  const params = new URLSearchParams(window.location.search);
 
 	  const singleDate = params.get('date');
-	  if (singleDate) {
-		return { start: singleDate, end: singleDate };
-	  }
+	  if (!singleDate) return null;
 
-	  const state = readState();
+	  // Convert to real Date object
+	  const startDateObj = new Date(singleDate);
+	  const endDateObj = new Date(startDateObj);
 
-	  if (state?.event_date) {
-		return { start: state.event_date, end: state.event_date };
-	  }
+	  // Add 1 day automatically
+	  endDateObj.setDate(endDateObj.getDate() + 1);
 
-	  return null;
+	  const endISO = endDateObj.toISOString().split('T')[0];
+
+	  return {
+		start: singleDate,
+		end: endISO
+	  };
 	}
+
 
 
 	function setRentalDates(date) {
