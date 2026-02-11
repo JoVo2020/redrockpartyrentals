@@ -227,30 +227,8 @@
   </section>
 
 <script src="navbar-scroll.js"></script>
+<script src="accordion.js"></script>
 
-<!-- according js -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const accordionItems = document.querySelectorAll('.accordion-item');
-
-  accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-
-    header.addEventListener('click', () => {
-      item.classList.toggle('open');
-    });
-  });
-
-  // Default open sections
-  //document
-  //  .querySelector('.accordion-item[data-category="tablesandchairs"]')
-  //  ?.classList.add('open');
-
-  //document
-  //  .querySelector('.accordion-item[data-category="tablecovers"]')
-  //  ?.classList.add('open');
-});
-</script>
 
 
 
