@@ -297,97 +297,29 @@ function render_schedule() {
   `;
 }
 
-
-
-
-async function placeOrderToN8N() {
-  const webhookUrl = "https://joelvoss.app.n8n.cloud/webhook/rrpr-place-order";
-
-  const cart = getCart();
-  const contact = getContactInfo();
-  const address = getAddressInfo();
-  const notes = document.getElementById('notes')?.value || '';
-
-  const dropoff = JSON.parse(localStorage.getItem('rrpr_dropoff'));
-  const pickup = JSON.parse(localStorage.getItem('rrpr_pickup'));
-
-  if (!cart.length || !contact || !address || !dropoff || !pickup) {
-    alert('Missing order information. Please refresh and try again.');
+function renderNotes() {
+  const notes = JSON.parse(localStorage.getItem('rrpr_notes')) || null;
+  const container = document.getElementById('divnotes');
+  
+  try {
+    noteText = JSON.parse(localStorage.getItem('rrpr_notes'))?.notes || '';
+  } catch {
+    noteText = '';
+  }
+  
+  if (!noteText.trim()) {
+    container.innerHTML = '';
+    document.getElementById('divnotesheader').innerHTML = '';
     return;
   }
 
-  const formatISO = (d) => new Date(d).toISOString().split('T')[0];
+  container.innerHTML = `
+    <div class="cart-row">${noteText}</div>
+  `;
+}
 
-  const items = cart.map(item => ({
-    item_name: item.name,
-    product_id: item.product_id,   // must already exist on cart items
-    quantity: item.qty,
-    unit_price: item.price
-  }));
-
-  const subtotal = items.reduce(
-    (sum, i) => sum + (i.quantity * i.unit_price),
-    0
-  );
-
-  const delivery_fee = 25.00; // keep aligned with Zoho Books
-  const tax = +(subtotal * 0.08).toFixed(2); // adjust if needed
-  const total = +(subtotal + delivery_fee + tax).toFixed(2);
-
-  const street_unit = `${address.street} ${address.unit}`;
-
-  const payload = {
-    order_date: formatISO(new Date()),
-    name: contact.name,
-    email: contact.email,
-    phone: contact.phone,
-
-    street: street_unit,
-    unit: address.unit || '',
-    city: address.city,
-    state: address.state,
-    zip: address.zip,
-
-    drop_off_label: `${new Date(dropoff.dropoffDate).toLocaleDateString()} ${dropoff.dropoffWindow}`,
-    pickup_label: `${new Date(pickup.pickupDate).toLocaleDateString()} ${pickup.pickupWindow}`,
-
-    dropoff_date: formatISO(dropoff.dropoffDate),
-    pickup_date: formatISO(pickup.pickupDate),
-
-    items,
-    subtotal,
-    delivery_fee,
-    tax,
-    total,
-    notes
-  };
-
-  localStorage.setItem('rrpr_notes', JSON.stringify({notes}));
-  
-  try {
-    const res = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    });
-
-    if (!res.ok) {
-      throw new Error(`Webhook failed: ${res.status}`);
-    }
-
-    const data = await res.json();
-    console.log('Order sent to n8n:', data);
-
-    //alert('Order placed successfully!');
-    // optional redirect
-	window.location.href = '/thank-you';
-
-  } catch (err) {
-    console.error(err);
-    alert('There was a problem placing your order. Please try again.');
-  }
+function goToContactPage() {
+  window.location.href = '/contact';
 }
 
 function goBackToCheckoutDeliveryPage(){
@@ -477,6 +409,188 @@ async function payNow() {
 }
 
 
+async function placeOrderToN8N() {
+  const webhookUrl = "https://joelvoss.app.n8n.cloud/webhook/rrpr-place-order";
+
+  const cart = getCart();
+  const contact = getContactInfo();
+  const address = getAddressInfo();
+  const notes = document.getElementById('notes')?.value || '';
+
+  const dropoff = JSON.parse(localStorage.getItem('rrpr_dropoff'));
+  const pickup = JSON.parse(localStorage.getItem('rrpr_pickup'));
+
+  if (!cart.length || !contact || !address || !dropoff || !pickup) {
+    alert('Missing order information. Please refresh and try again.');
+    return;
+  }
+
+  const formatISO = (d) => new Date(d).toISOString().split('T')[0];
+
+  const items = cart.map(item => ({
+    item_name: item.name,
+    product_id: item.product_id,   // must already exist on cart items
+    quantity: item.qty,
+    unit_price: item.price
+  }));
+
+  const subtotal = items.reduce(
+    (sum, i) => sum + (i.quantity * i.unit_price),
+    0
+  );
+
+  const delivery_fee = 10; // keep aligned with Zoho Books
+  const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
+  const total = +(subtotal + delivery_fee + tax).toFixed(2);
+
+  const street_unit = `${address.street} ${address.unit}`;
+
+  const payload = {
+    order_date: formatISO(new Date()),
+    name: contact.name,
+    email: contact.email,
+    phone: contact.phone,
+
+    street: street_unit,
+    unit: address.unit || '',
+    city: address.city,
+    state: address.state,
+    zip: address.zip,
+
+    drop_off_label: `${new Date(dropoff.dropoffDate).toLocaleDateString()} ${dropoff.dropoffWindow}`,
+    pickup_label: `${new Date(pickup.pickupDate).toLocaleDateString()} ${pickup.pickupWindow}`,
+
+    dropoff_date: formatISO(dropoff.dropoffDate),
+    pickup_date: formatISO(pickup.pickupDate),
+
+    items,
+    subtotal,
+    delivery_fee,
+    tax,
+    total,
+    notes
+  };
+
+  localStorage.setItem('rrpr_notes', JSON.stringify({notes}));
+  
+  try {
+    const res = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) {
+      throw new Error(`Webhook failed: ${res.status}`);
+    }
+
+    const data = await res.json();
+    console.log('Order sent to n8n:', data);
+
+    //alert('Order placed successfully!');
+    // optional redirect
+	window.location.href = '/thank-you';
+
+  } catch (err) {
+    console.error(err);
+    alert('There was a problem placing your order. Please try again.');
+  }
+}
+
+function firePurchaseEvent() {
+  // Prevent double-firing
+  if (localStorage.getItem('rrpr_purchase_tracked') === 'true') {
+    return;
+  }
+
+  const cart = JSON.parse(localStorage.getItem('rrpr_cart')) || [];
+  const contact = JSON.parse(localStorage.getItem('rrpr_contact')) || null;
+
+  if (!cart.length || !contact) {
+    console.warn('Purchase event not fired: missing cart or contact info');
+    return;
+  }
+
+  // Build GA4 items array
+  const items = cart.map(item => ({
+    item_name: item.name,
+    item_id: item.product_id || item.name,
+    price: item.price,
+    quantity: item.qty
+  }));
+
+  const subtotal = cart.reduce(
+    (sum, item) => sum + (item.price * item.qty),
+    0
+  );
+
+  const delivery = 10.00;
+  const total = subtotal + delivery;
+
+  // Generate a simple transaction ID
+  const transactionId =
+    'rrpr_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'purchase',
+    ecommerce: {
+      transaction_id: transactionId,
+      value: total,
+      currency: 'USD',
+      shipping: delivery,
+      items: items
+    }
+  });
+
+  // Mark as fired
+  localStorage.setItem('rrpr_purchase_tracked', 'true');
+
+  console.log('GA4 purchase event fired', transactionId);
+}
+
+
+async function verifyAndPlaceOrder() {
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id");
+
+  if (!sessionId) {
+    console.error("Missing Stripe session_id");
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      "/.netlify/functions/verify-stripe-payment",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId })
+      }
+    );
+
+    const data = await res.json();
+
+	if (data.paid) {
+	  const processedKey = `rrpr_order_sent_${sessionId}`;
+
+	  if (!localStorage.getItem(processedKey)) {
+		localStorage.setItem(processedKey, "true");
+		firePurchaseEvent();
+		await placeOrderToN8N();
+	  }
+	} else {
+      console.error("Payment not verified", data);
+    }
+
+  } catch (err) {
+    console.error("Verification failed", err);
+  }
+}
+
+
 
 
 
@@ -502,6 +616,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	renderContactInfo();
 	renderAddressInfo();
 	render_schedule();
+  }
+  
+  if (page === 'thank-you') {
+	renderCheckoutCart();
+	renderContactInfo();
+	renderAddressInfo();
+	render_schedule();
+	renderNotes();
+	verifyAndPlaceOrder();
   }
   
 });
