@@ -102,6 +102,8 @@ window.AvailabilityService = (function () {
     return minutesOld(state.checkedAt) <= CACHE_TTL_MINUTES;
   }
 
+
+
   /* -------------------------
      Availability Fetch
   ------------------------- */

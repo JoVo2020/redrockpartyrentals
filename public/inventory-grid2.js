@@ -48,36 +48,55 @@ function smoothScrollToSelectHeader() {
 
 async function loadInventory() {
   const loadingEl = document.getElementById('inventoryLoading');
-  const accordionEl = document.getElementById('inventoryAccordion');
+  const inventorySection = document.getElementById('inventorySection');
+  const otherWays = document.getElementById('otherWaysSection');
 
   const dates = AvailabilityService.getRentalDates();
 
-  // 🟢 If no date selected
+  // ---------------------
+  // Case A — No date
+  // ---------------------
   if (!dates) {
     loadingEl.style.display = 'block';
-    loadingEl.textContent = 'Select a date to see available rentals.';
+    loadingEl.textContent = 'Please select a date to see available rentals.';
+    inventorySection.style.display = 'none';
+    otherWays.style.display = 'block';
     return;
   }
 
+  const { start, end } = dates;
+
+  const isCached = AvailabilityService.isCacheValid(start, end);
+
+  // ---------------------
+  // Case B — Cached
+  // ---------------------
+  if (isCached) {
+    const state = JSON.parse(localStorage.getItem('rrpr_availability_state'));
+
+    renderInventory(Object.values(state.availability));
+
+    loadingEl.style.display = 'none';
+    inventorySection.style.display = 'block';
+    otherWays.style.display = 'block';
+    return;
+  }
+
+  // ---------------------
+  // Case C — Needs fetch
+  // ---------------------
   loadingEl.style.display = 'block';
   loadingEl.textContent = 'Checking availability…';
+  inventorySection.style.display = 'none';
+  otherWays.style.display = 'block';
 
   try {
     const availability = await AvailabilityService.ensureAvailability();
 
-    if (!availability) {
-      loadingEl.textContent = 'No availability found.';
-      return;
-    }
-
-    // Remove loading state
-    if (accordionEl) {
-      accordionEl.removeAttribute('data-loading');
-    }
+    renderInventory(Object.values(availability));
 
     loadingEl.style.display = 'none';
-
-    renderInventory(Object.values(availability));
+    inventorySection.style.display = 'block';
 
   } catch (err) {
     console.error(err);
