@@ -153,6 +153,7 @@ window.AvailabilityService = (function () {
 
     response.items.forEach(item => {
       availabilityByProductId[item.product_id] = {
+        product_id: item.product_id,
         id: item.product_id,
 		item_id: item.item_id,
         name: item.item_name,
@@ -190,6 +191,7 @@ window.AvailabilityService = (function () {
 
     response.items.forEach(item => {
       availabilityByProductId[item.product_id] = {
+        product_id: item.product_id,
         id: item.product_id,
         item_id: item.item_id,
         name: item.item_name,
