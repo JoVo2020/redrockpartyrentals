@@ -153,12 +153,14 @@ window.AvailabilityService = (function () {
 
     response.items.forEach(item => {
       availabilityByProductId[item.product_id] = {
-        item_id: item.item_id,
+        id: item.product_id,
+		item_id: item.item_id,
         name: item.item_name,
         category: item.category,
         price: item.rental_price,
         image: item.image,
         available_qty: item.available_qty,
+        availableQty: item.available_qty,		
         available: item.available_qty > 0
       };
     });
@@ -188,12 +190,14 @@ window.AvailabilityService = (function () {
 
     response.items.forEach(item => {
       availabilityByProductId[item.product_id] = {
+        id: item.product_id,
         item_id: item.item_id,
         name: item.item_name,
         category: item.category,
         price: item.rental_price,
         image: item.image,
         available_qty: item.available_qty,
+        availableQty: item.available_qty,		
         available: item.available_qty > 0
       };
     });
