@@ -45,65 +45,75 @@ function smoothScrollToSelectHeader() {
    Load Inventory
 ------------------------- */
 
-
 async function loadInventory() {
   const loadingEl = document.getElementById('inventoryLoading');
   const inventorySection = document.getElementById('inventorySection');
   const otherWays = document.getElementById('otherWaysSection');
+  const headerEl = document.getElementById('selectYourRentalsHeader');
 
   const dates = AvailabilityService.getRentalDates();
 
-  // ---------------------
-  // Case A — No date
-  // ---------------------
+  // -------------------------
+  // No date set
+  // -------------------------
   if (!dates) {
     loadingEl.style.display = 'block';
-    loadingEl.textContent = 'Please select a date to see available rentals.';
+    loadingEl.textContent =
+      'To get started, please enter your event date.';
     inventorySection.style.display = 'none';
     otherWays.style.display = 'block';
     return;
   }
 
   const { start, end } = dates;
-
   const isCached = AvailabilityService.isCacheValid(start, end);
 
-  // ---------------------
-  // Case B — Cached
-  // ---------------------
-  if (isCached) {
-    const state = JSON.parse(localStorage.getItem('rrpr_availability_state'));
-
-    renderInventory(Object.values(state.availability));
-
-    loadingEl.style.display = 'none';
-    inventorySection.style.display = 'block';
-    otherWays.style.display = 'block';
-    return;
-  }
-
-  // ---------------------
-  // Case C — Needs fetch
-  // ---------------------
+  // -------------------------
+  // 1️⃣ Show loading
+  // -------------------------
   loadingEl.style.display = 'block';
   loadingEl.textContent = 'Checking availability…';
   inventorySection.style.display = 'none';
   otherWays.style.display = 'block';
 
   try {
-    const availability = await AvailabilityService.ensureAvailability();
+    let availability;
 
+    // -------------------------
+    // 2️⃣ Cached vs Fetch
+    // -------------------------
+    if (isCached) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      const state = JSON.parse(
+        localStorage.getItem('rrpr_availability_state')
+      );
+
+      availability = state.availability;
+    } else {
+      availability = await AvailabilityService.ensureAvailability();
+    }
+
+    // -------------------------
+    // 3️⃣ Render inventory
+    // -------------------------
     renderInventory(Object.values(availability));
 
     loadingEl.style.display = 'none';
     inventorySection.style.display = 'block';
 
+    // -------------------------
+    // 4️⃣ Scroll AFTER render
+    // -------------------------
+	smoothScrollToSelectHeader();
+	
   } catch (err) {
     console.error(err);
     loadingEl.textContent =
       'Availability is taking longer than expected. Please refresh.';
   }
 }
+
 
 
 

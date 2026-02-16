@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (!btn) return; // fail quietly if button isn't on this page
 
 	btn.addEventListener('click', () => {
-	  const category = 'Everything';
 	  const dateRaw = document.getElementById('dateStart').value;
 
 	  if (!dateRaw) {
