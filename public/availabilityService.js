@@ -220,6 +220,7 @@ window.AvailabilityService = (function () {
     getRentalDates,
     setRentalDates,
     ensureAvailability,
+	isCacheValid,
     getProductAvailability,
     refreshAvailability,
     clearAvailability
