@@ -107,7 +107,7 @@ function goToBookPage() {
 	}
 
 	if (!name || !phone || !email) {
-		window.location.href = '/book?date=startDate';
+		window.location.href = '/book?date=' + startDate;
 		return;
 	}
 
