@@ -115,7 +115,7 @@ function goToBookPage() {
 		name, phone, email
 	}));
 
-	window.location.href = '/book?date=startDate';
+	window.location.href = '/book?date=' + startDate;
 	//need to come back and add the date to the url and also come up with some "?cart=open" feature
 }
 
