@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	  const [month, day, year] = dateRaw.split('/');
 	  const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
-	  AvailabilityService.setRentalDates(iso);
+	  //AvailabilityService.setRentalDates(iso);
 
 	  const params = new URLSearchParams({
 		date: iso
