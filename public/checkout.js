@@ -98,8 +98,16 @@ function goToBookPage() {
 	const phone = document.getElementById('phone').value.trim();
 	const email = document.getElementById('email').value.trim();
 
-	if (!name || !phone || !email) {
+	const state = JSON.parse(localStorage.getItem('rrpr_availability_state'));
+	const startDate = state?.start_date;
+
+	if (!startDate) {
 		window.location.href = '/book';
+		return;		
+	}
+
+	if (!name || !phone || !email) {
+		window.location.href = '/book?date=startDate';
 		return;
 	}
 
@@ -107,7 +115,7 @@ function goToBookPage() {
 		name, phone, email
 	}));
 
-	window.location.href = '/book';
+	window.location.href = '/book?date=startDate';
 	//need to come back and add the date to the url and also come up with some "?cart=open" feature
 }
 
