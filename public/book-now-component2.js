@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		date: iso
 	  });
 
-	  window.location.href = `/book2.html?${params.toString()}`;
+	  window.location.href = `/book?${params.toString()}`;
 	});
 
 });
