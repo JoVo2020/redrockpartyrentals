@@ -1,14 +1,14 @@
+/**
+ * inventory-grid.js
+ * ----------------------------------------
+ * Uses global AvailabilityService
+ * No direct API calls
+ */
+
 const params = new URLSearchParams(window.location.search);
 window.categoryParam = params.get('category');
-window.dateParamRaw = params.get('date');
-window.dateParam = formatDateToISO(window.dateParamRaw);
 
 console.log('Category:', window.categoryParam);
-console.log('Date:', window.dateParam);
-
-const ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbwiQbTdtwT0VtIIxGVDnu1IP9q6JXnL6zIhWe7wsnM2O9laf4OProuyfzi9PafriDEoUw/exec?action=availability&date=" +
-  window.dateParam;
 
 const tpl = document.getElementById("rrItemTemplate");
 
@@ -41,46 +41,108 @@ function smoothScrollToSelectHeader() {
   }, 200);
 }
 
+/* -------------------------
+   Load Inventory
+------------------------- */
+
 async function loadInventory() {
   const loadingEl = document.getElementById('inventoryLoading');
+  const inventorySection = document.getElementById('inventorySection');
+  const otherWays = document.getElementById('otherWaysSection');
+  const headerEl = document.getElementById('selectYourRentalsHeader');
+
+  const dates = AvailabilityService.getRentalDates();
+
+  // -------------------------
+  // No date set
+  // -------------------------
+  if (!dates) {
+    loadingEl.style.display = 'block';
+    loadingEl.textContent =
+      'To get started, please enter your event date.';
+    inventorySection.style.display = 'none';
+    otherWays.style.display = 'block';
+    return;
+  }
+
+  const { start, end } = dates;
+  const isCached = AvailabilityService.isCacheValid(start, end);
+
+  // -------------------------
+  // 1️⃣ Show loading
+  // -------------------------
   loadingEl.style.display = 'block';
   loadingEl.textContent = 'Checking availability…';
+  inventorySection.style.display = 'none';
+  otherWays.style.display = 'block';
 
   try {
-    const res = await fetch(ENDPOINT, { cache: "no-store" });
-    if (!res.ok) throw new Error("HTTP " + res.status);
+    let availability;
 
-    const data = await res.json();
-    if (!data || !Array.isArray(data.items)) {
-      throw new Error("Unexpected response shape");
+    // -------------------------
+    // 2️⃣ Cached vs Fetch
+    // -------------------------
+    if (isCached) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      const state = JSON.parse(
+        localStorage.getItem('rrpr_availability_state')
+      );
+
+      availability = state.availability;
+    } else {
+      availability = await AvailabilityService.ensureAvailability();
     }
 
+    // -------------------------
+    // 3️⃣ Render inventory
+    // -------------------------
+    renderInventory(Object.values(availability));
+
     loadingEl.style.display = 'none';
+    inventorySection.style.display = 'block';
 
-    const selectHeader = document.getElementById('selectYourRentalsHeader');
-    selectHeader.style.display = 'block';
-
-    const accordionEl = document.getElementById('inventoryAccordion');
-    accordionEl.removeAttribute('data-loading');
-
-    renderInventory(data.items);
-    smoothScrollToSelectHeader();
-
+    // -------------------------
+    // 4️⃣ Scroll AFTER render
+    // -------------------------
+	smoothScrollToSelectHeader();
+	
   } catch (err) {
     console.error(err);
-    loadingEl.textContent = 'Unable to load availability.';
+    loadingEl.textContent =
+      'Availability is taking longer than expected. Please refresh.';
   }
 }
 
+
+
+
+
+/* -------------------------
+   Render Inventory
+------------------------- */
+
 function renderInventory(items) {
+
+	console.log("Items received:", items);
+
+  // Clear all grids first
   document.querySelectorAll('.accordion-item .rr-inventory-grid')
     .forEach(grid => grid.innerHTML = '');
 
   items.forEach(item => {
-    const category = item.category;
+
+	console.log("Looking for category:", item.category);
+
+    // If category filter exists, enforce it
+    if (window.categoryParam &&
+        window.categoryParam !== 'Everything' &&
+        item.category !== window.categoryParam) {
+      return;
+    }
 
     const accordionItem = document.querySelector(
-      `.accordion-item[data-category="${category}"]`
+      `.accordion-item[data-category="${item.category}"]`
     );
 
     if (!accordionItem) return;
@@ -88,9 +150,8 @@ function renderInventory(items) {
     const grid = accordionItem.querySelector('.rr-inventory-grid');
     const node = tpl.content.firstElementChild.cloneNode(true);
 
-    const name = safeText(item.item_name);
-    const price = money(item.rental_price);
-    const qty = Number(item.available_qty);
+    const name = safeText(item.name);
+    const price = money(item.price);
     const imgUrl = safeText(item.image);
 
     node.querySelector('.rr-card__img').src = imgUrl;
@@ -100,7 +161,7 @@ function renderInventory(items) {
 
     const addToCartEl = node.querySelector('.rr-card__addToCart');
 
-    if (qty <= 0) {
+    if (!item.available) {
       addToCartEl.innerHTML = `<button disabled>Unavailable</button>`;
     } else {
       addToCartEl.innerHTML =
@@ -108,12 +169,12 @@ function renderInventory(items) {
 
       addToCartEl.querySelector('button').onclick = () =>
         addToCart({
-          id: item.product_id || item.item_id,
-          product_id: item.product_id || item.item_id,
-          name,
-          price: Number(item.rental_price),
+          id: item.product_id,
+          product_id: item.product_id,
+          name: name,
+          price: Number(item.price),
           image: imgUrl,
-          availableQty: qty
+          availableQty: item.available_qty
         });
     }
 
@@ -121,15 +182,10 @@ function renderInventory(items) {
   });
 }
 
-function formatDateToISO(dateStr) {
-  if (!dateStr) return null;
-  const [month, day, year] = dateStr.split('/');
-  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-}
+/* -------------------------
+   Init
+------------------------- */
 
-/* ---- Run after DOM loads ---- */
 document.addEventListener('DOMContentLoaded', () => {
-  if (window.dateParam) {
-    loadInventory();
-  }
+  loadInventory();
 });

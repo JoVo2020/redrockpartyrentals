@@ -1,25 +1,28 @@
   
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('findRentalsBtn');
-  if (!btn) return; // fail quietly if button isn't on this page
+	const btn = document.getElementById('findRentalsBtn');
+	if (!btn) return; // fail quietly if button isn't on this page
 
-  btn.addEventListener('click', () => {
-    const category = 'Everything';
-    const date = document.getElementById('dateStart').value;
+	btn.addEventListener('click', () => {
+	  const dateRaw = document.getElementById('dateStart').value;
 
-    if (!date) {
-      alert('Please select event date.');
-      return;
-    }
+	  if (!dateRaw) {
+		alert('Please select event date.');
+		return;
+	  }
 
-    const params = new URLSearchParams({
-      category,
-      date
-    });
+	  const [month, day, year] = dateRaw.split('/');
+	  const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
-    localStorage.setItem('rrpr_event_date', JSON.stringify(date));
-    window.location.href = `/book.html?${params.toString()}`;
-  });
+	  //AvailabilityService.setRentalDates(iso);
+
+	  const params = new URLSearchParams({
+		date: iso
+	  });
+
+	  window.location.href = `/book?${params.toString()}`;
+	});
+
 });
 
 
@@ -32,33 +35,24 @@ const tomorrow = new Date();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-	
-    /* ---------- Category ---------- */
-    if (window.categoryParam) {
-      const categorySelect = document.getElementById('category');
 
-      if (categorySelect) {
-        // Only set if option exists
-        const optionExists = Array.from(categorySelect.options)
-          .some(opt => opt.value === window.categoryParam);
+  const params = new URLSearchParams(window.location.search);
+  const urlDate = params.get('date');
 
-        if (optionExists) {
-          categorySelect.value = window.categoryParam;
-        }
-      }
+  if (urlDate) {
+    const [year, month, day] = urlDate.split('-');
+    const formatted = `${month}/${day}/${year}`;
+
+    const desktopInput = document.getElementById('dateStart');
+    if (desktopInput) {
+      desktopInput.value = formatted;
     }
 
-    /* ---------- Date ---------- */
-    if (window.dateParam) {
-	  const desktopInput = document.getElementById('dateStart');
-	  if (desktopInput) {
-		desktopInput.value = window.dateParamRaw;
-	  }
-
-	  // Mobile (native date input)
-	  const mobileInput = document.querySelector('.flatpickr-mobile');
-	  if (mobileInput) {
-		mobileInput.value = window.dateParam;
-	  }
+    const mobileInput = document.querySelector('.flatpickr-mobile');
+    if (mobileInput) {
+      mobileInput.value = urlDate;
     }
+  }
+
 });
+
