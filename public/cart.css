@@ -367,6 +367,14 @@
 	.checkout-btn:hover {
 		background-color: #ac4848;
 	}
+	
+	
+	.checkout-btn:disabled,
+	.checkout-btn.disabled {
+	  opacity: 0.5;
+	  cursor: not-allowed;
+	}
+
 	.back-btn {
 	    width: 100%;
 		padding: 14px;

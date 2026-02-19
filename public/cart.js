@@ -156,9 +156,24 @@ function renderCart() {
     container.appendChild(row);
   });
 
+
   //subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
   const grandtotal = subtotal + 10;
   totalEl.textContent = `$${grandtotal.toFixed(2)}`;
+  
+  
+  //disable checkout button if cart is empty
+	const checkoutBtn = document.getElementById("checkoutBtn");
+
+	if (checkoutBtn) {
+	  const isEmpty = cart.length === 0;
+
+	  checkoutBtn.disabled = isEmpty;
+	  checkoutBtn.classList.toggle("disabled", isEmpty);
+	}
+  
+  
+  
 }
 
 /* --------------------
