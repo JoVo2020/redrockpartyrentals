@@ -212,3 +212,31 @@ function goToCheckout() {
 document.addEventListener('DOMContentLoaded', () => {
   renderCart();
 });
+
+
+function refreshCartAvailability() {
+  const cart = getCart();
+  let changed = false;
+
+  cart.forEach(item => {
+    const availability = AvailabilityService.getProductAvailability(item.id);
+
+    const newAvailableQty = availability?.availableQty ?? 0;
+
+    // Update availableQty if different
+    if (item.availableQty !== newAvailableQty) {
+      item.availableQty = newAvailableQty;
+      changed = true;
+    }
+
+    // Clamp qty if it exceeds new availability
+    if (item.qty > newAvailableQty) {
+      item.qty = newAvailableQty > 0 ? newAvailableQty : 1;
+      changed = true;
+    }
+  });
+
+  if (changed) {
+    saveCart(cart);
+  }
+}
