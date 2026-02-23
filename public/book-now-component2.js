@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const btn = document.getElementById('findRentalsBtn2');
 	if (!btn) return; // fail quietly if button isn't on this page
 
-	btn.addEventListener('click', () => {
+	btn.addEventListener('click', async () => {
 	  const dateRaw = document.getElementById('dateStart2').value;
 
 	  if (!dateRaw) {
