@@ -94,20 +94,29 @@ flatpickr("#dateStart2", {
   minDate: tomorrow,
   position: "below left",
   
-  onChange: async function(selectedDates, dateStr) {
-    if (!dateStr) return;
+	onChange: async function(selectedDates, dateStr) {
+	  if (!dateStr) return;
 
-    const [month, day, year] = dateStr.split('/');
-    const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+	  const note = document.getElementById("CheckingAvailabilityNote");
+	  if (note) note.style.display = "block";
 
-    AvailabilityService.setRentalDates(iso);
-    await AvailabilityService.ensureAvailability();
+	  try {
+		const [month, day, year] = dateStr.split('/');
+		const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
-    if (typeof renderCart === "function") {
-      refreshCartAvailability();
-      renderCart();
-    }
-  }  
+		AvailabilityService.setRentalDates(iso);
+		await AvailabilityService.ensureAvailability();
+
+		if (typeof renderCart === "function") {
+		  refreshCartAvailability();
+		  renderCart();
+		}
+
+	  } finally {
+		// Always hide, even if something errors
+		if (note) note.style.display = "none";
+	  }
+	} 
   
 });
 
