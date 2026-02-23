@@ -74,13 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	  const [month, day, year] = dateRaw.split('/');
 	  const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 
-	  //AvailabilityService.setRentalDates(iso);
-
-	  const params = new URLSearchParams({
-		date: iso
-	  });
-
-	  //window.location.href = `/book?${params.toString()}`;
+	  AvailabilityService.setRentalDates(iso);
+	  let availability;
+	  availability = await AvailabilityService.ensureAvailability();
+	  
+	  
 	});
 
 });
