@@ -87,11 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-
 flatpickr("#dateStart2", {
-	disableMobile: true,
-    dateFormat: "m/d/Y",
-    minDate: tomorrow
+  appendTo: document.querySelector(".cart-panel"),
+  disableMobile: true,
+  dateFormat: "m/d/Y",
+  minDate: tomorrow
 });
 
 document.addEventListener('DOMContentLoaded', () => {
