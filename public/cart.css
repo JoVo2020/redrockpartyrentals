@@ -178,7 +178,19 @@
 	.cart-overlay.open .cart-panel--fullscreen {
 	  right: 0;
 	}
+	
+	
+	@media (min-width: 600px) {
+	  .cart-overlay {
+		padding:0px 60px;
+	  }
+	}	
 
+	@media (min-width: 900px) {
+	  .cart-overlay {
+		padding:0px 100px;
+	  }
+	}	
 
 	/* Header */
 	.cart-header {
