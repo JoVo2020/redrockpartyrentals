@@ -92,7 +92,7 @@ flatpickr("#dateStart2", {
   disableMobile: true,
   dateFormat: "m/d/Y",
   minDate: tomorrow,
-  position: "below left"
+  position: "below left",
   
   onChange: async function(selectedDates, dateStr) {
     if (!dateStr) return;
