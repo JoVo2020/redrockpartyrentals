@@ -93,6 +93,22 @@ flatpickr("#dateStart2", {
   dateFormat: "m/d/Y",
   minDate: tomorrow,
   position: "below left"
+  
+  onChange: async function(selectedDates, dateStr) {
+    if (!dateStr) return;
+
+    const [month, day, year] = dateStr.split('/');
+    const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+
+    AvailabilityService.setRentalDates(iso);
+    await AvailabilityService.ensureAvailability();
+
+    if (typeof renderCart === "function") {
+      refreshCartAvailability();
+      renderCart();
+    }
+  }  
+  
 });
 
 document.addEventListener('DOMContentLoaded', () => {
