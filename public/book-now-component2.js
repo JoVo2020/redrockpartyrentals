@@ -86,9 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  flatpickr("#dateStart2", {
+flatpickr("#dateStart2", {
 	disableMobile: true,
     dateFormat: "m/d/Y",
     minDate: tomorrow
@@ -106,6 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const desktopInput = document.getElementById('dateStart2');
     if (desktopInput) {
       desktopInput.value = formatted;
+    }
+
+    const mobileInput = document.querySelectorAll('.flatpickr-mobile');
+    if (mobileInput) {
+      mobileInput.value = urlDate;
     }
   }
 
