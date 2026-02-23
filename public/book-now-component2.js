@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	  availability = await AvailabilityService.ensureAvailability();
 	  
 	    if (typeof renderCart === "function") {
+			refreshCartAvailability();
 			renderCart();
 		}
 	  
