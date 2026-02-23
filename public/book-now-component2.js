@@ -107,11 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (desktopInput) {
       desktopInput.value = formatted;
     }
-
-    const mobileInput = document.querySelector('.flatpickr-mobile');
-    if (mobileInput) {
-      mobileInput.value = urlDate;
-    }
   }
 
 });
