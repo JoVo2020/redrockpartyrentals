@@ -182,13 +182,13 @@
 	
 	@media (min-width: 600px) {
 	  .cart-overlay {
-		padding:0px 60px;
+		padding: 0px 60px;
 	  }
 	}	
 
 	@media (min-width: 900px) {
 	  .cart-overlay {
-		padding:0px 100px;
+		padding: 0px 100px;
 	  }
 	}	
 
