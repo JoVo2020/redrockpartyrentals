@@ -179,9 +179,18 @@ function renderCart() {
 /* --------------------
    Open / Close
 -------------------- */
+let savedScrollY = 0;
+
 function openCart() {
+  savedScrollY = window.scrollY;
+
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${savedScrollY}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
+
   document.getElementById("cartOverlay").classList.add("open");
-  document.body.style.overflow = "hidden";
 }
 
 function closeCart() {
@@ -190,12 +199,17 @@ function closeCart() {
   overlay.classList.remove("open");
   overlay.classList.add("closing");
 
-  document.body.style.overflow = "";
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
 
-  // Wait for the slide animation to finish
+  window.scrollTo(0, savedScrollY);
+
   setTimeout(() => {
     overlay.classList.remove("closing");
-  }, 400); // match CSS transition duration
+  }, 400);
 }
 
 /* Close when clicking backdrop */
