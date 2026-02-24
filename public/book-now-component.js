@@ -98,6 +98,11 @@ flatpickr("#dateStart2", {
 	onChange: async function(selectedDates, dateStr) {
 	  if (!dateStr) return;
 
+		const mainCalendarInput = document.getElementById("dateStart");
+		if (mainCalendarInput) {
+		  mainCalendarInput.value = dateStr;
+		}
+
 	  const note = document.getElementById("CheckingAvailabilityNote");
 	  if (note) note.style.display = "block";
 
