@@ -205,6 +205,25 @@
 		  <button class="cart-close" onclick="closeCart()">✕</button>
 		</header>
 
+
+		<section class="booking-form" style="margin-bottom:0px;padding:0px;">
+			<div id="cart-panel-booking-form" class="form-section" style="background-color:transparent; padding:0px;max-width:100%;">
+				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;background-color: #eee;padding: 15px;">
+				  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+					<div class="dropdown-icon-calendar"></div>
+					<div class="dropdown-divider"></div>
+					<input type="text" id="dateStart2" placeholder="Select Event Date" required>
+				  </div>
+				</form>
+			</div>
+		</section>
+		
+		<div style="background-color:#eee;">
+			<div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none;">
+				Checking availability…
+			</div>		
+		</div>
+		
 		<div id="cartItems" class="cart-items"></div>
 
 		<footer class="cart-footer">
@@ -239,8 +258,8 @@
 
 <script src="accordion.js"></script>
 <script src="availabilityService.js"></script>
-<script src="book-now-component.js"></script>
 <script src="cart.js"></script>
+<script src="book-now-component.js"></script>
 <script src="checkout.js"></script>
 <script src="inventory-grid.js"></script>
 
