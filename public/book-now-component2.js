@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 flatpickr("#dateStart2", {
   //appendTo: document.querySelector(".cart-panel"),
-  appendTo: document.querySelector("#cart-panel-booking-form"),
-  disableMobile: true,
-  dateFormat: "m/d/Y",
-  minDate: tomorrow,
-  position: "top left",
+	appendTo: document.getElementById("cartOverlay"),
+	disableMobile: true,
+	dateFormat: "m/d/Y",
+	minDate: tomorrow,
+	position: "top left",
   
 	onChange: async function(selectedDates, dateStr) {
 	  if (!dateStr) return;
