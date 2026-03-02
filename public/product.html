@@ -124,7 +124,7 @@
 <body>
 
 <header>
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <div class="logo">
       <a href="index.html">
         <img src="images/logo.png"/>
@@ -382,9 +382,6 @@ plusBtn.addEventListener("click", () => {
   qtyInput.value = current + 1;
 });
 
-
-const tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
 
 flatpickr("#dateStartProduct", {
   disableMobile: true,
