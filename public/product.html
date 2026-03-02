@@ -156,6 +156,23 @@
       <label>Qty:</label>
       <input type="number" id="qtyInput" min="1" value="1"/>
     </div>
+	
+	
+	  <div class="cart-qty">
+		<button onclick="">−</button>
+			<input
+			  type="number"
+			  min="1"
+			  step="1"
+			  value="1"
+			  class="cart-qty-input"
+			  onblur=""
+			  onkeydown="if (event.key === 'Enter') this.blur()"
+			/>
+		<button onclick="">+</button>
+	  </div>	
+	
+	
 
     <button class="btn-primary" id="addBtn">
       Add to Cart
