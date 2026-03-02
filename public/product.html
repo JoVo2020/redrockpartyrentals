@@ -270,10 +270,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       parseInt(qtyInput.value) || 1;
 
     addToCart({
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      image: item.image,
+      id: item["Product_ID"],
+      name: item["Item Name"],
+      price: item["Rental Price"],
+      image: item["Image"],
       availableQty: 9999, // unrestricted until availability checked
       qty: qty
     });
