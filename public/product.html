@@ -151,29 +151,29 @@
     <div id="availabilityBadge" class="availability-badge badge-neutral"></div>
 
 	
+	<div style="display:flex;">	
+		<div class="cart-qty">
+		  <button id="qtyMinus">−</button>
+
+		  <input
+			id="qtyInput"
+			type="number"
+			min="1"
+			step="1"
+			value="1"
+			class="cart-qty-input"
+			onkeydown="if (event.key === 'Enter') this.blur()"
+		  />
+
+		  <button id="qtyPlus">+</button>
+		</div>
+			
 		
-	<div class="cart-qty">
-	  <button id="qtyMinus">−</button>
 
-	  <input
-		id="qtyInput"
-		type="number"
-		min="1"
-		step="1"
-		value="1"
-		class="cart-qty-input"
-		onkeydown="if (event.key === 'Enter') this.blur()"
-	  />
-
-	  <button id="qtyPlus">+</button>
+		<button class="btn-primary" id="addBtn">
+		  Add to Cart
+		</button>
 	</div>
-		
-	
-
-    <button class="btn-primary" id="addBtn">
-      Add to Cart
-    </button>
-
 
   </div>
 </div>
