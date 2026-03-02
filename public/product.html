@@ -178,6 +178,62 @@
   </div>
 </div>
 
+
+	
+	<!-- CART OVERLAY -->
+	<div id="cartOverlay" class="cart-overlay">
+	  <div class="cart-panel cart-panel--fullscreen">
+
+		<header class="cart-header">
+		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+		  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+		  <button class="cart-close" onclick="closeCart()">✕</button>
+		</header>
+
+
+		<section class="booking-form" style="margin-bottom:0px;padding:0px;">
+			<div id="cart-panel-booking-form" class="form-section" style="background-color:transparent; padding:0px;max-width:100%;">
+				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;background-color: #eee;padding: 15px;">
+				  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+					<div class="dropdown-icon-calendar"></div>
+					<div class="dropdown-divider"></div>
+					<input type="text" id="dateStart2" placeholder="Select Event Date" required>
+				  </div>
+				</form>
+			</div>
+		</section>
+		
+		<div style="background-color:#eee;">
+			<div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none;">
+				Checking availability…
+			</div>		
+		</div>
+		
+		<div id="cartItems" class="cart-items"></div>
+
+		<footer class="cart-footer">
+		  <div class="cart-summary">
+			<div class="cart-line">
+			  <span>Delivery</span>
+			  <strong id="cartSubtotal">$10.00</strong>
+			</div>
+			<div class="cart-line total">
+			  <span>Total</span>
+			  <strong id="cartTotal">$0.00</strong>
+			</div>
+		  </div>
+
+			<div class="button-row" style="display:flex;gap:10px;">
+			  <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+			  <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+			</div>		
+		</footer>
+
+	  </div>
+	</div>
+
+
+
 <script src="product_data.js"></script>
 <script src="availabilityService.js"></script>
 <script src="cart.js"></script>
