@@ -134,7 +134,18 @@
   </nav>
 </header>
 
-<div class="event-date-bar" id="eventDateBar"></div>
+<section class="booking-form" style="margin:0 auto 20px auto;max-width:850px;">
+  <div class="form-section" style="background-color:#eee;padding:15px;">
+    <div class="form-container" style="display:flex;flex-wrap:wrap;gap:1rem;">
+      <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+        <div class="dropdown-icon-calendar"></div>
+        <div class="dropdown-divider"></div>
+        <input type="text" id="dateStartProduct" placeholder="Select Event Date">
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <div class="product-wrapper">
   <div class="product-image">
@@ -378,6 +389,60 @@ plusBtn.addEventListener("click", () => {
   qtyInput.value = current + 1;
 });
 
+
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+flatpickr("#dateStartProduct", {
+  disableMobile: true,
+  dateFormat: "m/d/Y",
+  minDate: tomorrow,
+
+  onChange: async function(selectedDates, dateStr) {
+
+    if (!dateStr) return;
+
+    const [month, day, year] = dateStr.split('/');
+    const iso = `${year}-${month.padStart(2,'0')}-${day.padStart(2,'0')}`;
+
+    // Set globally
+    AvailabilityService.setRentalDates(iso);
+
+    // Sync cart date input if open
+    const cartInput = document.getElementById("dateStart2");
+    if (cartInput) {
+      cartInput.value = dateStr;
+    }
+
+    // Check availability
+    await AvailabilityService.ensureAvailability();
+
+    if (typeof refreshCartAvailability === "function") {
+      refreshCartAvailability();
+      renderCart();
+    }
+
+    // Optional: refresh product availability badge
+    location.reload();
+  }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const params = new URLSearchParams(window.location.search);
+  const urlDate = params.get("date");
+
+  if (!urlDate) return;
+
+  const [year, month, day] = urlDate.split("-");
+  const formatted = `${month}/${day}/${year}`;
+
+  const input = document.getElementById("dateStartProduct");
+  if (input) input.value = formatted;
+
+});
 
 </script>
 
