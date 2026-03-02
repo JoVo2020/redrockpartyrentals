@@ -297,12 +297,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   // CHECK IF DATE EXISTS
   // ----------------------------
   const dates = AvailabilityService.getRentalDates();
-  const eventBar = document.getElementById('eventDateBar');
 
   if (!dates) {
-
-    eventBar.innerHTML =
-      "No event date selected. Availability will be confirmed at checkout.";
 
     badge.textContent =
       "Event date not selected";
@@ -310,9 +306,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       "availability-badge badge-neutral";
 
   } else {
-
-    eventBar.textContent =
-      "Event Date: " + dates.start;
 
     // ONLY NOW call availability
     try {
@@ -405,25 +398,25 @@ flatpickr("#dateStartProduct", {
     const [month, day, year] = dateStr.split('/');
     const iso = `${year}-${month.padStart(2,'0')}-${day.padStart(2,'0')}`;
 
-    // Set globally
     AvailabilityService.setRentalDates(iso);
 
-    // Sync cart date input if open
+    // Sync cart calendar
     const cartInput = document.getElementById("dateStart2");
-    if (cartInput) {
-      cartInput.value = dateStr;
+    if (cartInput) cartInput.value = dateStr;
+
+    // Get fresh availability
+    const availability = await AvailabilityService.ensureAvailability();
+    const liveItem = availability?.[productId];
+
+    if (liveItem) {
+      badge.textContent = liveItem.availableQty + " available";
+      badge.className = "availability-badge badge-success";
+      badge.style.display = "inline-block";
+      qtyInput.max = liveItem.availableQty;
     }
 
-    // Check availability
-    await AvailabilityService.ensureAvailability();
-
-    if (typeof refreshCartAvailability === "function") {
-      refreshCartAvailability();
-      renderCart();
-    }
-
-    // Optional: refresh product availability badge
-    location.reload();
+    refreshCartAvailability();
+    renderCart();
   }
 });
 
