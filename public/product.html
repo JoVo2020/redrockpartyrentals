@@ -150,28 +150,24 @@
 	
     <div id="availabilityBadge" class="availability-badge badge-neutral"></div>
 
+	
+		
+	<div class="cart-qty">
+	  <button id="qtyMinus">−</button>
 
-	
-    <div class="qty-row">
-      <label>Qty:</label>
-      <input type="number" id="qtyInput" min="1" value="1"/>
-    </div>
-	
-	
-	  <div class="cart-qty">
-		<button onclick="">−</button>
-			<input
-			  type="number"
-			  min="1"
-			  step="1"
-			  value="1"
-			  class="cart-qty-input"
-			  onblur=""
-			  onkeydown="if (event.key === 'Enter') this.blur()"
-			/>
-		<button onclick="">+</button>
-	  </div>	
-	
+	  <input
+		id="qtyInput"
+		type="number"
+		min="1"
+		step="1"
+		value="1"
+		class="cart-qty-input"
+		onkeydown="if (event.key === 'Enter') this.blur()"
+	  />
+
+	  <button id="qtyPlus">+</button>
+	</div>
+		
 	
 
     <button class="btn-primary" id="addBtn">
@@ -303,6 +299,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
 });
+
+const qtyInput = document.getElementById("qtyInput");
+const minusBtn = document.getElementById("qtyMinus");
+const plusBtn = document.getElementById("qtyPlus");
+
+minusBtn.addEventListener("click", () => {
+  let current = parseInt(qtyInput.value) || 1;
+  if (current > 1) {
+    qtyInput.value = current - 1;
+  }
+});
+
+plusBtn.addEventListener("click", () => {
+  let current = parseInt(qtyInput.value) || 1;
+  qtyInput.value = current + 1;
+});
+
+
 </script>
 
 </body>
