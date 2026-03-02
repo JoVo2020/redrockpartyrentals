@@ -14,7 +14,7 @@ function saveCart(cart) {
 /* --------------------
    Cart actions
 -------------------- */
-function addToCart(item) {
+function addToCartOLD(item) {
   const cart = getCart();
   const existing = cart.find(i => i.id === item.id);
 
@@ -33,6 +33,45 @@ function addToCart(item) {
   openCart();
   renderCart();
 }
+
+function addToCart(item) {
+  const cart = getCart();
+
+  // Default qty to 1 if not provided (grid compatibility)
+  const qtyToAdd = Number(item.qty) || 1;
+
+  const existing = cart.find(i => i.id === item.id);
+
+  if (existing) {
+
+    const newQty = existing.qty + qtyToAdd;
+
+    if (newQty > existing.availableQty) {
+      alert(`Only ${existing.availableQty} available for this item.`);
+      return;
+    }
+
+    existing.qty = newQty;
+
+  } else {
+
+    cart.push({
+      ...item,
+      qty: qtyToAdd
+    });
+
+  }
+
+  saveCart(cart);
+
+  // Safe open (works on product page too)
+  const overlay = document.getElementById("cartOverlay");
+  if (overlay) {
+    openCart();
+    renderCart();
+  }
+}
+
 
 function removeFromCart(id) {
   const cart = getCart().filter(i => i.id !== id);
