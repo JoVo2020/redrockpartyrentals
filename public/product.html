@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+	<!-- End Google Tag Manager -->
+	
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Red Rock Party Rentals</title>
+	
+	<!-- style sheets -->
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="book-now-component.css" />
+	<link rel="stylesheet" href="accordion.css" />
+	<link rel="stylesheet" href="cart.css" />
+	
+	<!-- Lora font for all text -->
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+	
+	<!-- datepicker -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+	<!-- web icons -->
+	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
+	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+	
+
+  <style>
+    .product-wrapper {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+      display: grid;
+      gap: 40px;
+    }
+
+    @media (min-width: 900px) {
+      .product-wrapper {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .product-image img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .product-title {
+      font-size: 40px;
+      color: #8b0000;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-size: 26px;
+      color: #505050;
+      margin-bottom: 20px;
+    }
+
+    .availability-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .badge-neutral {
+      background: #f3f3f3;
+      color: #555;
+    }
+
+    .badge-success {
+      background: #e6f5ea;
+      color: #2c7a3f;
+    }
+
+    .badge-warning {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .qty-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .qty-row input {
+      width: 60px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .btn-primary {
+      background: #8b0000;
+      color: #fff;
+      padding: 14px 22px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .event-date-bar {
+      background: #f5f5f5;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo.png"/>
+        <span style="color:#000;">Red Rock Party Rentals</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<div class="event-date-bar" id="eventDateBar"></div>
+
+<div class="product-wrapper">
+  <div class="product-image">
+    <img id="productImage"/>
+  </div>
+
+  <div>
+    <div class="product-title" id="productName"></div>
+    <div class="product-price" id="productPrice"></div>
+    <div id="availabilityBadge" class="availability-badge badge-neutral"></div>
+
+    <div class="qty-row">
+      <label>Qty:</label>
+      <input type="number" id="qtyInput" min="1" value="1"/>
+    </div>
+
+    <button class="btn-primary" id="addBtn">
+      Add to Cart
+    </button>
+
+    <div style="margin-top:30px; font-size:18px; color:#505050;">
+      <div id="productDescription"></div>
+    </div>
+  </div>
+</div>
+
+<script src="product_data.js"></script>
+<script src="availabilityService.js"></script>
+<script src="cart.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+
+  // ----------------------------
+  // STATIC PRODUCT DATA
+  // ----------------------------
+	const item = window.PRODUCT_DATA.find(
+	  p => p.Product_ID === productId
+	);
+	
+  if (!item) {
+    document.body.innerHTML = "<h2>Product not found</h2>";
+    return;
+  }
+
+  // ----------------------------
+  // RENDER STATIC DATA INSTANTLY
+  // ----------------------------
+  // Render instantly (no API calls)
+  document.getElementById('productName').textContent =
+    item["Item Name"];
+
+  document.getElementById('productPrice').textContent =
+    "$" + item["Rental Price"].toFixed(2) + " each";
+
+  document.getElementById('productImage').src =
+    item["Image"];
+
+  document.getElementById('productDescription').textContent =
+    item["Item Description"];
+
+  const badge = document.getElementById('availabilityBadge');
+  const addBtn = document.getElementById('addBtn');
+  const qtyInput = document.getElementById('qtyInput');
+
+  // ----------------------------
+  // CHECK IF DATE EXISTS
+  // ----------------------------
+  const dates = AvailabilityService.getRentalDates();
+  const eventBar = document.getElementById('eventDateBar');
+
+  if (!dates) {
+
+    eventBar.innerHTML =
+      "No event date selected. Availability will be confirmed at checkout.";
+
+    badge.textContent =
+      "Event date not selected";
+    badge.className =
+      "availability-badge badge-neutral";
+
+  } else {
+
+    eventBar.textContent =
+      "Event Date: " + dates.start;
+
+    // ONLY NOW call availability
+    try {
+
+      const availability =
+        await AvailabilityService.ensureAvailability();
+
+      const liveItem =
+        availability ? availability[item.id] : null;
+
+      if (liveItem) {
+
+        badge.textContent =
+          liveItem.availableQty + " available";
+        badge.className =
+          "availability-badge badge-success";
+
+        qtyInput.max =
+          liveItem.availableQty;
+
+      } else {
+
+        badge.textContent =
+          "Availability unavailable";
+        badge.className =
+          "availability-badge badge-warning";
+
+      }
+
+    } catch (err) {
+
+      badge.textContent =
+        "Availability unavailable";
+      badge.className =
+        "availability-badge badge-warning";
+
+    }
+  }
+
+  // ----------------------------
+  // ADD TO CART (ALWAYS ALLOWED)
+  // ----------------------------
+  addBtn.addEventListener('click', () => {
+
+    const qty =
+      parseInt(qtyInput.value) || 1;
+
+    addToCart({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      image: item.image,
+      availableQty: 9999, // unrestricted until availability checked
+      qty: qty
+    });
+
+  });
+
+});
+</script>
+
+</body>
+</html>
