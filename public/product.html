@@ -278,6 +278,10 @@
 <script>
 const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
+const badge = document.getElementById('availabilityBadge');
+const addBtn = document.getElementById('addBtn');
+const qtyInput = document.getElementById('qtyInput');
+  
   
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -310,9 +314,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('productDescription').textContent =
     item["Item Description"];
 
-  const badge = document.getElementById('availabilityBadge');
-  const addBtn = document.getElementById('addBtn');
-  const qtyInput = document.getElementById('qtyInput');
+
 
   // ----------------------------
   // CHECK IF DATE EXISTS
