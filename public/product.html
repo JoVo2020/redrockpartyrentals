@@ -369,21 +369,38 @@ document.addEventListener('DOMContentLoaded', async () => {
   // ----------------------------
   // ADD TO CART (ALWAYS ALLOWED)
   // ----------------------------
-  addBtn.addEventListener('click', () => {
+	addBtn.addEventListener('click', async () => {
 
-    const qty =
-      parseInt(qtyInput.value) || 1;
+	  let maxAvailable = 999;
 
-    addToCart({
-      id: item["Product_ID"],
-      name: item["Item Name"],
-      price: item["Rental Price"],
-      image: item["Image"],
-      availableQty: 9999, // unrestricted until availability checked
-      qty: qty
-    });
+	  const dates = AvailabilityService.getRentalDates();
 
-  });
+	  if (dates) {
+		try {
+		  const availability = await AvailabilityService.ensureAvailability();
+		  const liveItem = availability?.[productId];
+
+		  if (liveItem && typeof liveItem.availableQty === "number") {
+			maxAvailable = liveItem.availableQty;
+		  }
+		} catch (err) {
+		  console.warn("Availability check failed, defaulting to 999");
+		}
+	  }
+
+	  const requestedQty = parseInt(qtyInput.value) || 1;
+	  const finalQty = Math.min(requestedQty, maxAvailable);
+
+	  addToCart({
+		id: item["Product_ID"],
+		name: item["Item Name"],
+		price: item["Rental Price"],
+		image: item["Image"],
+		availableQty: maxAvailable,
+		qty: finalQty
+	  });
+
+	});
 
 });
 
