@@ -276,10 +276,11 @@
 <script src="checkout.js"></script>
 
 <script>
+const params = new URLSearchParams(window.location.search);
+const productId = params.get('id');
+  
 document.addEventListener('DOMContentLoaded', async () => {
 
-  const params = new URLSearchParams(window.location.search);
-  const productId = params.get('id');
 
   // ----------------------------
   // STATIC PRODUCT DATA
