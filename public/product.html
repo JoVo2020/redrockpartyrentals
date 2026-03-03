@@ -89,6 +89,11 @@
       background: #fff3cd;
       color: #856404;
     }
+	
+	.badge-danger {
+	  background: #f8d7da;
+	  color: #842029;
+	}
 
     .qty-row {
       display: flex;
@@ -412,13 +417,79 @@ minusBtn.addEventListener("click", () => {
   let current = parseInt(qtyInput.value) || 1;
   if (current > 1) {
     qtyInput.value = current - 1;
+	await updateBadge();
   }
 });
 
 plusBtn.addEventListener("click", () => {
   let current = parseInt(qtyInput.value) || 1;
   qtyInput.value = current + 1;
+  await updateBadge();
 });
+
+
+
+async function updateBadge() {
+
+  const badge = document.getElementById("availabilityBadge");
+  const qtyInput = document.getElementById("qtyInput");
+
+  if (!badge || !qtyInput) return;
+
+  const dates = AvailabilityService.getRentalDates();
+
+  // -----------------------------------
+  // 1️⃣ No date selected
+  // -----------------------------------
+  if (!dates) {
+    badge.style.display = "none";
+    return;
+  }
+
+  try {
+
+    const availability = await AvailabilityService.ensureAvailability();
+    const liveItem = availability?.[productId];
+
+    if (!liveItem) {
+      badge.style.display = "none";
+      return;
+    }
+
+    const availableQty = liveItem.availableQty;
+    const requestedQty = parseInt(qtyInput.value) || 1;
+
+    badge.style.display = "inline-block";
+
+    // -----------------------------------
+    // 2️⃣ Unavailable
+    // -----------------------------------
+    if (availableQty === 0) {
+      badge.textContent = "Unavailable for selected date";
+      badge.className = "availability-badge badge-danger";
+      return;
+    }
+
+    // -----------------------------------
+    // 3️⃣ Less than requested
+    // -----------------------------------
+    if (availableQty < requestedQty) {
+      badge.textContent = `Only ${availableQty} available for selected date`;
+      badge.className = "availability-badge badge-warning";
+      return;
+    }
+
+    // -----------------------------------
+    // 4️⃣ Available
+    // -----------------------------------
+    badge.textContent = `${availableQty} available`;
+    badge.className = "availability-badge badge-success";
+
+  } catch (err) {
+    console.warn("Availability check failed", err);
+    badge.style.display = "none";
+  }
+}
 
 
 flatpickr("#dateStartProduct", {
@@ -450,10 +521,8 @@ flatpickr("#dateStartProduct", {
     const liveItem = availability?.[productId];
 
     if (liveItem) {
-      badge.textContent = liveItem.availableQty + " available";
-      badge.className = "availability-badge badge-success";
-      badge.style.display = "inline-block";
-      qtyInput.max = liveItem.availableQty;
+		await updateBadge();
+		qtyInput.max = liveItem.availableQty;
     }
 	
 	if (note) note.style.display = "none";
