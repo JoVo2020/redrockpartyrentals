@@ -124,15 +124,31 @@
 <body>
 
 <header>
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" style="position:static;">
     <div class="logo">
-      <a href="index.html">
-        <img src="images/logo.png"/>
-        <span style="color:#000;">Red Rock Party Rentals</span>
-      </a>
+		<a href="index.html" >
+			<img src="images/logo.png" alt="Red Rock Logo" />
+			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+		</a>
     </div>
+	<div style="display:flex;">
+		<button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+		</button>
+		<button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
+	</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+	  <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+	  </button>
+    </ul>
   </nav>
 </header>
+
 
 <section class="booking-form" style="margin:0 auto 20px auto;max-width:850px;">
   <div class="form-section" style="background-color:#eee;padding:15px;">
