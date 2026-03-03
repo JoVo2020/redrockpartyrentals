@@ -278,10 +278,6 @@
 <script>
 const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
-const badge = document.getElementById('availabilityBadge');
-const addBtn = document.getElementById('addBtn');
-const qtyInput = document.getElementById('qtyInput');
-  
   
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -314,7 +310,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('productDescription').textContent =
     item["Item Description"];
 
-
+  const badge = document.getElementById('availabilityBadge');
+  const addBtn = document.getElementById('addBtn');
+  const qtyInput = document.getElementById('qtyInput');
 
   // ----------------------------
   // CHECK IF DATE EXISTS
@@ -412,11 +410,14 @@ flatpickr("#dateStartProduct", {
   minDate: tomorrow,
 
   onChange: async function(selectedDates, dateStr) {
-
+	
     if (!dateStr) return;
 
 	const note = document.getElementById("inventoryLoadingProductPage");
 	if (note) note.style.display = "block";
+		
+	const badge = document.getElementById('availabilityBadge');
+	const qtyInput = document.getElementById('qtyInput');
 	  
     const [month, day, year] = dateStr.split('/');
     const iso = `${year}-${month.padStart(2,'0')}-${day.padStart(2,'0')}`;
