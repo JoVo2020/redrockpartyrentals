@@ -326,10 +326,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (!dates) {
 
-    badge.textContent =
-      "Event date not selected";
-    badge.className =
-      "availability-badge badge-neutral";
+    updateBadge();
 
   } else {
 
@@ -344,29 +341,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       if (liveItem) {
 
-        badge.textContent =
-          liveItem.availableQty + " available";
-        badge.className =
-          "availability-badge badge-success";
+        updateBadge();
 
         qtyInput.max =
           liveItem.availableQty;
 
       } else {
 
-        badge.textContent =
-          "Availability unavailable";
-        badge.className =
-          "availability-badge badge-warning";
+        updateBadge();
 
       }
 
     } catch (err) {
 
-      badge.textContent =
-        "Availability unavailable";
-      badge.className =
-        "availability-badge badge-warning";
+      updateBadge();
 
     }
   }
