@@ -145,6 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileInput.value = urlDate;
     }
   }
-
+	console.log("rental date should be set");
 });
 
