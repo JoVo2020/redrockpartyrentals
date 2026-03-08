@@ -45,7 +45,7 @@ window.AvailabilityService = (function () {
      Rental Date
   ------------------------- */
 
-	function getRentalDates() {
+	function OLDgetRentalDates() {
 	  const params = new URLSearchParams(window.location.search);
 
 	  const singleDate = params.get('date');
@@ -65,10 +65,44 @@ window.AvailabilityService = (function () {
 		end: endISO
 	  };
 	}
+	
+
+	function getRentalDates() {
+
+	  // 1️⃣ First check URL parameter
+	  const params = new URLSearchParams(window.location.search);
+	  const urlDate = params.get('date');
+
+	  let startDate = null;
+
+	  if (urlDate) {
+		startDate = urlDate;
+	  }
+
+	  // 2️⃣ If URL does not contain date, check localStorage
+	  if (!startDate) {
+		const state = readState();
+		if (state && state.start_date) {
+		  startDate = state.start_date;
+		}
+	  }
+
+	  // 3️⃣ If still no date, return null
+	  if (!startDate) {
+		return null;
+	  }
+
+	  endDate = calc_end_date(startDate);
+
+	  return {
+		start: startDate,
+		end: endDate
+	  };
+	}
 
 
 
-	function setRentalDates(date) {
+	function OLDsetRentalDates(date) {
 	  const state = readState() || {};
 
 	  state.event_date = date;
@@ -85,6 +119,38 @@ window.AvailabilityService = (function () {
 	  params.delete('end');
 
 	  history.replaceState({}, '', `${location.pathname}?${params}`);
+	}
+
+	function setRentalDates(date) {
+	  const state = readState() || {};
+
+	  state.start_date = date;
+	  state.end_date = calc_end_date(date);
+	  state.event_date = date;
+	  state.checkedAt = null;
+	  state.availability = null;
+
+	  writeState(state);
+
+	  // ⭐ store event date for checkout pages
+	  localStorage.setItem('rrpr_event_date', JSON.stringify(date));
+
+	  const params = new URLSearchParams(window.location.search);
+	  params.set('date', date);
+
+	  params.delete('start');
+	  params.delete('end');
+
+	  history.replaceState({}, '', `${location.pathname}?${params}`);
+	}
+
+
+	function calc_end_date(start_date) {
+	  const startDateObj = new Date(start_date);
+	  const endDateObj = new Date(startDateObj);
+	  endDateObj.setDate(endDateObj.getDate() + 1);
+
+	  return endDateObj.toISOString().split('T')[0];
 	}
 
 
