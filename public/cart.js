@@ -205,10 +205,33 @@ function renderCart() {
 	const checkoutBtn = document.getElementById("checkoutBtn");
 
 	if (checkoutBtn) {
-	  const isEmpty = cart.length === 0;
 
-	  checkoutBtn.disabled = isEmpty;
-	  checkoutBtn.classList.toggle("disabled", isEmpty);
+	  const rentalDates = AvailabilityService.getRentalDates();
+
+	  // IF cart is empty → disable checkout
+	  if (cart.length === 0) {
+
+		checkoutBtn.disabled = true;
+		checkoutBtn.classList.add("disabled");
+
+	  }
+
+	  // ELSE IF no rental date selected → disable checkout
+	  else if (!rentalDates) {
+
+		checkoutBtn.disabled = true;
+		checkoutBtn.classList.add("disabled");
+
+	  }
+
+	  // ELSE everything is valid → enable checkout
+	  else {
+
+		checkoutBtn.disabled = false;
+		checkoutBtn.classList.remove("disabled");
+
+	  }
+
 	}
   
   
