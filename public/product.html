@@ -517,20 +517,35 @@ flatpickr("#dateStartProduct", {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const params = new URLSearchParams(window.location.search);
-  const urlDate = params.get("date");
+  const rentalDates = AvailabilityService.getRentalDates();
 
-  if (!urlDate) return;
+  if (!rentalDates) return;
+
+  const urlDate = rentalDates.start;
+
+  console.log("product page rental date:", urlDate);
 
   const [year, month, day] = urlDate.split("-");
   const formatted = `${month}/${day}/${year}`;
 
-  const input = document.getElementById("dateStartProduct");
-  if (input) input.value = formatted;
+  const productInput = document.getElementById("dateStartProduct");
+  if (productInput) {
+    productInput.value = formatted;
+  }
 
-	updateBadge();
+  const cartInput = document.getElementById("dateStart2");
+  if (cartInput) {
+    cartInput.value = formatted;
+  }
+
+  const mobileInputs = document.querySelectorAll(".flatpickr-mobile");
+  mobileInputs.forEach(input => {
+    input.value = urlDate;
+  });
+
+  updateBadge();
+  console.log("dates should be set");
 });
-
 
 
 </script>
