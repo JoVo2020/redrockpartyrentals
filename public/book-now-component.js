@@ -133,10 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("rental date: " + rentalDates.start);
 
   if (rentalDates) {
-	urlDate = rentalDates.start
+	const urlDate = rentalDates.start
     const [year, month, day] = urlDate.split('-');
     const formatted = `${month}/${day}/${year}`;
 
+	console.log("formatted rental date: " + formatted);
+	
     const desktopInput = document.getElementById('dateStart2');
     if (desktopInput) {
       desktopInput.value = formatted;
