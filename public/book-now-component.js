@@ -131,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const rentalDates = AvailabilityService.getRentalDates();
 
   if (rentalDates) {
-	urlDate = rentalDates.start
+
+    const urlDate = rentalDates.start;
+
     const [year, month, day] = urlDate.split('-');
     const formatted = `${month}/${day}/${year}`;
 
@@ -140,11 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
       desktopInput.value = formatted;
     }
 
-    const mobileInput = document.querySelectorAll('.flatpickr-mobile');
-    if (mobileInput) {
-      mobileInput.value = urlDate;
-    }
+    const mobileInputs = document.querySelectorAll('.flatpickr-mobile');
+    mobileInputs.forEach(input => {
+      input.value = urlDate;
+    });
+
   }
-	console.log("rental date should be set");
+
+  console.log("rental date should be set for real");
+
 });
 
