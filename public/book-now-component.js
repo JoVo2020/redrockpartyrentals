@@ -128,10 +128,10 @@ flatpickr("#dateStart2", {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const params = new URLSearchParams(window.location.search);
-  const urlDate = params.get('date');
+  const rentalDates = AvailabilityService.getRentalDates();
 
-  if (urlDate) {
+  if (rentalDates) {
+	urlDate = rentalDates.start
     const [year, month, day] = urlDate.split('-');
     const formatted = `${month}/${day}/${year}`;
 
