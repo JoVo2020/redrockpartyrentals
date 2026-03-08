@@ -139,16 +139,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	console.log("formatted rental date: " + formatted);
 	
-    const desktopInput = document.getElementById('dateStart2');
+    const desktopInput = document.getElementById('dateStart');
     if (desktopInput) {
       desktopInput.value = formatted;
     }
 
+    const desktopInput2 = document.getElementById('dateStart2');
+    if (desktopInput2) {
+      desktopInput2.value = formatted;
+    }
+	
     const mobileInput = document.querySelectorAll('.flatpickr-mobile');
     if (mobileInput) {
       mobileInput.value = urlDate;
     }
   }
-	console.log("rental date should be set");
+	console.log("rental date should be set for reals");
 });
 
