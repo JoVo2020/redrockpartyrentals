@@ -452,7 +452,7 @@ async function placeOrderToN8N() {
 
   const items = cart.map(item => ({
     item_name: item.name,
-    product_id: item.product_id,   // must already exist on cart items
+	product_id: item.product_id || item.id || item.item_id,
     quantity: item.qty,
     unit_price: item.price
   }));
