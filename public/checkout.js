@@ -143,7 +143,8 @@ function continueToPlaceOrder() {
   const unit = document.getElementById('unit').value.trim();
   const city = document.getElementById('city').value.trim();
   const state = document.getElementById('state').value.trim();
-  const zip = document.getElementById('zip').value.trim();
+  let zip = document.getElementById('zip').value.trim();
+  zip = zip.substring(0,5);
 
   if (!street || !city || !state || !zip) {
     alert('Please fill out all address fields.');
