@@ -521,10 +521,6 @@ async function placeOrderToN8N() {
 }
 
 function firePurchaseEvent() {
-  // Prevent double-firing
-  if (localStorage.getItem('rrpr_purchase_tracked') === 'true') {
-    return;
-  }
 
   const cart = JSON.parse(localStorage.getItem('rrpr_cart')) || [];
   const contact = JSON.parse(localStorage.getItem('rrpr_contact')) || null;
@@ -565,9 +561,6 @@ function firePurchaseEvent() {
       items: items
     }
   });
-
-  // Mark as fired
-  localStorage.setItem('rrpr_purchase_tracked', 'true');
 
   console.log('GA4 purchase event fired', transactionId);
 }
