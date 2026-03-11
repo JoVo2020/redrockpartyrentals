@@ -494,6 +494,8 @@ async function placeOrderToN8N() {
     notes
   };
   
+  console.log("N8N payload:", payload);
+  
   try {
     const res = await fetch(webhookUrl, {
       method: 'POST',
@@ -502,6 +504,8 @@ async function placeOrderToN8N() {
       },
       body: JSON.stringify(payload)
     });
+
+	console.log("N8N response status:", res.status);
 
     if (!res.ok) {
       throw new Error(`Webhook failed: ${res.status}`);
@@ -567,6 +571,9 @@ function firePurchaseEvent() {
 
 
 async function verifyAndPlaceOrder() {
+
+  console.log("Starting payment verification");
+
   const params = new URLSearchParams(window.location.search);
   const sessionId = params.get("session_id");
 
@@ -587,13 +594,17 @@ async function verifyAndPlaceOrder() {
 
     const data = await res.json();
 
+	console.log("Stripe verification response:", data);
+
 	if (data.paid) {
 	  const processedKey = `rrpr_order_sent_${sessionId}`;
 
 	  if (!localStorage.getItem(processedKey)) {
 		localStorage.setItem(processedKey, "true");
 		firePurchaseEvent();
+		console.log("Sending order to n8n...");
 		await placeOrderToN8N();
+		console.log("Order successfully sent");
 	  }
 	} else {
       console.error("Payment not verified", data);
