@@ -1,4 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+//const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")("sk_test_51SxGnqC4nd0QlOD8cGRk9RmmQnu76lcgkVs8pYnV4JKPQIuHuhEZWqzKmfgqZuH8UwUr9HvNABMRiEKsMIKWtgd500oKG4CGjn");
+
 
 exports.handler = async (event) => {
   try {
@@ -16,6 +18,9 @@ exports.handler = async (event) => {
     }
 
     const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+	console.log("Stripe mode session:", session.livemode);
+	console.log("Stripe payment status:", session.payment_status);
 
     if (session.payment_status === "paid") {
       return {
