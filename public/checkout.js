@@ -516,7 +516,7 @@ async function placeOrderToN8N() {
 
     //alert('Order placed successfully!');
     // optional redirect
-	//window.location.href = '/thank-you';
+	window.location.href = '/thank-you';
 
   } catch (err) {
     console.error(err);
