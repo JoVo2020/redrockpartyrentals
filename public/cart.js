@@ -159,7 +159,7 @@ function renderCart() {
 		  <div class="cart-item-info">
 			<div class="cart-item-info-name">${item.name}</div>
 			<div class="cart-price">$${item.price.toFixed(2)}</div>
-			<div style="font-size:16px;">${item.availableQty} available </div>
+			<div style="font-size:16px;">${getAvailabilityText(item)} </div>
 		  </div>
 		  <button class="cart-delete" onclick="removeFromCart('${item.id}')">
 			🗑
@@ -315,4 +315,36 @@ function refreshCartAvailability() {
   if (changed) {
     saveCart(cart);
   }
+}
+
+
+
+function getAvailabilityText(item) {
+
+  const dates = AvailabilityService.getRentalDates();
+
+  // No event date selected
+  if (!dates) {
+    return "Select date for availability";
+  }
+
+  // Get LIVE availability from cache
+  const liveItem = AvailabilityService.getProductAvailability(item.id);
+
+  if (!liveItem) {
+    return "Checking availability...";
+  }
+
+  const availableQty = liveItem.availableQty;
+  const requestedQty = item.qty;
+
+  if (availableQty === 0) {
+    return "Unavailable for selected date";
+  }
+
+  if (requestedQty > availableQty) {
+    return `Only ${availableQty} available for selected date`;
+  }
+
+  return "Available";
 }
