@@ -78,10 +78,11 @@ function updateQty(id, delta) {
   }
 
   if (nextQty > item.availableQty) {
-		console.log("testing 3-4");
-		item.originalRequestedQty = nextQty;
+		item.adjustedForAvailability = true;
+		item.adjustedAt = Date.now();
 		saveCart(cart);
 		alert(`Only ${item.availableQty} available for this item.`);
+		setTimeout(renderCart, 3000);
 		return;
   }
 
@@ -89,7 +90,7 @@ function updateQty(id, delta) {
   item.qty = nextQty;
   saveCart(cart);
   renderCart();
-  setTimeout(renderCart, 3000);
+
 }
 
 
