@@ -339,5 +339,29 @@
 <script src="book-now-component.js"></script>
 <script src="checkout.js"></script>
 
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const rentalDates = AvailabilityService.getRentalDates();
+
+  if (!rentalDates) return;
+
+  const urlDate = rentalDates.start;
+  const [year, month, day] = urlDate.split("-");
+  const formatted = `${month}/${day}/${year}`;
+
+  const cartInput = document.getElementById("dateStart2");
+  if (cartInput) {
+    cartInput.value = formatted;
+  }
+
+  const mobileInputs = document.querySelectorAll(".flatpickr-mobile");
+  mobileInputs.forEach(input => {
+    input.value = urlDate;
+  });
+
+});
+</script>
 </body>
 </html>
