@@ -28,11 +28,10 @@ function addToCart(item) {
     const newQty = existing.qty + qtyToAdd;
 
     if (newQty > existing.availableQty) {
-		console.log("testing 1-2");
-		existing.originalRequestedQty = newQty;
+		item.adjustedForAvailability = true;
+		item.adjustedAt = Date.now();
 		saveCart(cart);
 		alert(`Only ${existing.availableQty} available for this item.`);
-		renderCart();
 		return;
     }
 
@@ -86,9 +85,11 @@ function updateQty(id, delta) {
 		return;
   }
 
+  item.adjustedForAvailability = false;
   item.qty = nextQty;
   saveCart(cart);
   renderCart();
+  setTimeout(renderCart, 3000);
 }
 
 
@@ -296,7 +297,8 @@ function refreshCartAvailability() {
     // Clamp qty if it exceeds new availability
 	if (item.qty > newAvailableQty) {
 
-	  item.originalRequestedQty = item.qty;   // remember what they asked for
+	  item.adjustedForAvailability = true;
+	  item.adjustedAt = Date.now();
 	  item.qty = newAvailableQty > 0 ? newAvailableQty : 1;
 
 	  changed = true;
@@ -333,7 +335,16 @@ function getAvailabilityText(item) {
     return "Unavailable for selected date";
   }
 
-  if (requestedQty > availableQty) {
+  // Show adjustment message for 3 seconds
+  if (item.adjustedForAvailability) {
+
+    const secondsSinceAdjustment =
+      (Date.now() - (item.adjustedAt || 0)) / 1000;
+
+    if (secondsSinceAdjustment < 3) {
+      return `Adjusted to available quantity (${availableQty})`;
+    }
+
     return `Only ${availableQty} available for selected date`;
   }
   
