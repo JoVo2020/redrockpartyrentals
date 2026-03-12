@@ -14,26 +14,6 @@ function saveCart(cart) {
 /* --------------------
    Cart actions
 -------------------- */
-function addToCartOLD(item) {
-  const cart = getCart();
-  const existing = cart.find(i => i.id === item.id);
-
-	if (existing) {
-	  if (existing.qty < existing.availableQty) {
-		existing.qty += 1;
-	  } else {
-		alert(`Only ${existing.availableQty} available for this item.`);
-		item.originalRequestedQty = existing.availableQty + 1;
-		return;
-	  }
-	} else {
-	  cart.push({ ...item, qty: 1 });
-	}
-
-  saveCart(cart);
-  openCart();
-  renderCart();
-}
 
 function addToCart(item) {
   const cart = getCart();
@@ -49,6 +29,7 @@ function addToCart(item) {
 
     if (newQty > existing.availableQty) {
       alert(`Only ${existing.availableQty} available for this item.`);
+	  item.originalRequestedQty = existing.availableQty + 1;
       return;
     }
 
