@@ -23,6 +23,7 @@ function addToCartOLD(item) {
 		existing.qty += 1;
 	  } else {
 		alert(`Only ${existing.availableQty} available for this item.`);
+		item.originalRequestedQty = existing.availableQty + 1;
 		return;
 	  }
 	} else {
