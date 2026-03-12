@@ -30,6 +30,7 @@ function addToCart(item) {
     if (newQty > existing.availableQty) {
 		console.log("testing 1-2");
 		existing.originalRequestedQty = newQty;
+		saveCart(cart);
 		alert(`Only ${existing.availableQty} available for this item.`);
 		return;
     }
@@ -79,6 +80,7 @@ function updateQty(id, delta) {
   if (nextQty > item.availableQty) {
 		console.log("testing 3-4");
 		item.originalRequestedQty = nextQty;
+		saveCart(cart);
 		alert(`Only ${item.availableQty} available for this item.`);
 		return;
   }
