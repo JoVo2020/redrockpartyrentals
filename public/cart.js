@@ -306,10 +306,13 @@ function refreshCartAvailability() {
     }
 
     // Clamp qty if it exceeds new availability
-    if (item.qty > newAvailableQty) {
-      item.qty = newAvailableQty > 0 ? newAvailableQty : 1;
-      changed = true;
-    }
+	if (item.qty > newAvailableQty) {
+
+	  item.originalRequestedQty = item.qty;   // remember what they asked for
+	  item.qty = newAvailableQty > 0 ? newAvailableQty : 1;
+
+	  changed = true;
+	}
   });
 
   if (changed) {
@@ -343,6 +346,11 @@ function getAvailabilityText(item) {
   }
 
   if (requestedQty > availableQty) {
+    return `Only ${availableQty} available for selected date`;
+  }
+  
+  // If we had to clamp the quantity earlier
+  if (item.originalRequestedQty && item.originalRequestedQty > availableQty) {
     return `Only ${availableQty} available for selected date`;
   }
 
