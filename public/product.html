@@ -352,6 +352,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('productDescription').textContent =
     item["Item Description"];
 
+  renderBreadcrumb(item);
+
   const badge = document.getElementById('availabilityBadge');
   const addBtn = document.getElementById('addBtn');
   const qtyInput = document.getElementById('qtyInput');
@@ -590,7 +592,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateBadge();
-  renderBreadcrumb(item);
   console.log("dates should be set");
 });
 
