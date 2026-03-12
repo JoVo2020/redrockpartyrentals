@@ -16,6 +16,7 @@ function saveCart(cart) {
 -------------------- */
 
 function addToCart(item) {
+  const overlay = document.getElementById("cartOverlay");
   const cart = getCart();
 
   // Default qty to 1 if not provided (grid compatibility)
@@ -31,7 +32,10 @@ function addToCart(item) {
 		item.adjustedForAvailability = true;
 		item.adjustedAt = Date.now();
 		saveCart(cart);
-		alert(`Only ${existing.availableQty} available for this item.`);
+		if (overlay) {
+			openCart();
+			renderCart();
+		}
 		return;
     }
 
@@ -49,7 +53,6 @@ function addToCart(item) {
   saveCart(cart);
 
   // Safe open (works on product page too)
-  const overlay = document.getElementById("cartOverlay");
   if (overlay) {
     openCart();
     renderCart();
