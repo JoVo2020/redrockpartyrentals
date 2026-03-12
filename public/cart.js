@@ -77,8 +77,10 @@ function updateQty(id, delta) {
   }
 
   if (nextQty > item.availableQty) {
-    alert(`Only ${item.availableQty} available for this item.`);
-    return;
+		console.log("testing 3-4");
+		item.originalRequestedQty = nextQty;
+		alert(`Only ${item.availableQty} available for this item.`);
+		return;
   }
 
   item.qty = nextQty;
