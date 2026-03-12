@@ -28,8 +28,8 @@ function addToCart(item) {
     const newQty = existing.qty + qtyToAdd;
 
     if (newQty > existing.availableQty) {
-		alert(`Only ${existing.availableQty} available for this item.`);
 		existing.originalRequestedQty = newQty;
+		alert(`Only ${existing.availableQty} available for this item.`);
 		return;
     }
 
