@@ -349,6 +349,10 @@ function getAvailabilityText(item) {
     return `Only ${availableQty} available for selected date`;
   }
   
+  if (requestedQty < availableQty) {
+    return "Available";
+  }
+  
   // If we had to clamp the quantity earlier
   if (item.originalRequestedQty && item.originalRequestedQty > availableQty) {
     return `Only ${availableQty} available for selected date`;
