@@ -82,6 +82,7 @@ function updateQty(id, delta) {
 		item.adjustedAt = Date.now();
 		saveCart(cart);
 		alert(`Only ${item.availableQty} available for this item.`);
+		renderCart();
 		setTimeout(renderCart, 3000);
 		return;
   }
