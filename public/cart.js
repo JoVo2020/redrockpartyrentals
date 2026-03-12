@@ -32,6 +32,7 @@ function addToCart(item) {
 		existing.originalRequestedQty = newQty;
 		saveCart(cart);
 		alert(`Only ${existing.availableQty} available for this item.`);
+		renderCart();
 		return;
     }
 
