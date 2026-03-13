@@ -154,6 +154,7 @@ function renderInventory(items) {
     const price = money(item.price);
     const imgUrl = safeText(item.image);
 
+	node.querySelector('.rr-card__imglink').href = `product?id=${item.product_id}`;
     node.querySelector('.rr-card__img').src = imgUrl;
     node.querySelector('.rr-card__img').alt = name;
     node.querySelector('.rr-card__name').textContent =
