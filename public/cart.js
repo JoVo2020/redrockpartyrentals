@@ -350,16 +350,15 @@ function getAvailabilityText(item) {
       return `Adjusted to available quantity (${availableQty})`;
     }
 
-    return `Only ${availableQty} available for selected date`;
+    if (secondsSinceAdjustment < 60) {
+      return `Only ${availableQty} available for selected date`;
+    }
+
+    return "Available";
   }
   
   if (requestedQty < availableQty) {
     return "Available";
-  }
-  
-  // If we had to clamp the quantity earlier
-  if (item.originalRequestedQty && item.originalRequestedQty > availableQty) {
-    return `Only ${availableQty} available for selected date`;
   }
 
   return "Available";
