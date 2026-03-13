@@ -135,7 +135,7 @@ window.PRODUCT_DATA = [
       "Item_ID": "Popcorn_Machine",
       "Product_ID": "7069036000001340001",
       "Item Name": "Popcorn Machine",
-      "Item Description": "Standing Popcorn Machine",
+      "Item Description": "Standing Popcorn Machine with supplies included. We’ll follow up after your booking to ask about your expected guest count so we can include the right amount of supplies and serving cups for your event.",
       "Quantity Available": 1,
       "Rental Price": 75,
       "Category": "Other",
