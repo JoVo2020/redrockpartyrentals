@@ -2,9 +2,9 @@
 window.PRODUCT_DATA = [
 
 	{
-      "Item_ID": "6ft Table",
+      "Item_ID": "Table",
       "Product_ID": "7069036000000622084",
-      "Item Name": "Table",
+      "Item Name": "6ft Table",
       "Item Description": "White plastic 6ft table. Seats up to 8 people (3 on each side, 1 one on each end)",
       "Quantity Available": 12,
       "Rental Price": 8,
