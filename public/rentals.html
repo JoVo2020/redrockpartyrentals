@@ -11,10 +11,22 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Red Rock Party Rentals</title>
+	
 	<link rel="stylesheet" href="style.css" />
-		<link rel="stylesheet" href="accordion.css" />
+	<link rel="stylesheet" href="accordion.css" />
+	<link rel="stylesheet" href="cart.css" />
+	<link rel="stylesheet" href="book-now-component.css" />
+
+
 	<!-- Lora font for all text -->
 	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+
+	<!-- datepicker -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	
+	<!-- font awesome cart icon -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
 
 	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
@@ -41,7 +53,14 @@
 		}
 	}
 	
-	</style>
+	.checking-availability-message {
+	  padding: 24px;
+	  text-align: center;
+	  font-size: 18px;
+	  color: #555;
+	} 
+	  
+	  </style>	
 	
 	
 	
@@ -54,19 +73,27 @@
 
 
 <header>
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" style="position:static;">
     <div class="logo">
 		<a href="index.html" >
 			<img src="images/logo.png" alt="Red Rock Logo" />
-			<span style="Color:#000;">Red Rock Party Rentals</span>
+			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
 		</a>
     </div>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+	<div style="display:flex;">
+		<button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+		</button>
+		<button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
+	</div>
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="rentals.html">Rentals</a></li>
-      <li><a href="book.html">Book</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+	  <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+	  </button>
     </ul>
   </nav>
 </header>
@@ -79,6 +106,21 @@
     </div>
   </section>
   
+	<section class="booking-form" style="margin:0 auto 20px auto;max-width:850px;display:none;">
+	  <div class="form-section" style="background-color:#eee;padding:15px;">
+		<div class="form-container" style="display:flex;flex-wrap:wrap;gap:1rem;">
+		  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+			<div class="dropdown-icon-calendar"></div>
+			<div class="dropdown-divider"></div>
+			<input type="text" id="dateStart" placeholder="Select Event Date">
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+	<div id="inventoryLoadingProductPage" class="checking-availability-message" style="display:none;">
+	  Checking availability…
+	</div>
 
   
   <section class="rentals" style="padding:6px;" >
@@ -94,16 +136,22 @@
 			<div class="rental-items inventory-grid">
 
 			  <div class="item inventory-item" data-category="tablesandchairs">
+				<a href="product?id=7069036000000622084">
 				  <img src="images/table.jpg" alt="Table" />
 				  <p>Tables - $8 each</p>
+				</a>
 			  </div>
 			  <div class="item inventory-item" data-category="tablesandchairs">
+				<a href="product?id=7069036000000633191">
 				  <img src="images/chair3.jpg" alt="Chair" />
 				  <p>Chairs - $1 each</p>
+				</a>
 			  </div>
 			  <div class="item inventory-item" data-category="tablesandchairs">
+				<a href="product?id=7069036000001145028">
 				  <img src="images/cocktail-table.jpg" alt="Table" />
 				  <p>Cocktail Tables - $13 each</p>
+				</a>
 			  </div>		  
 			</div>
 		</div>
@@ -117,20 +165,28 @@
 		<div class="accordion-content">
 			<div class="rental-items inventory-grid">
 			  <div class="item inventory-item" data-category="tablecovers">
+				<a href="product?id=7069036000001145033">
 				  <img src="images/tablecloth-regular.jpg" alt="Table" />
 				  <p>Table Covers (Regular) - $5 each</p>
+				</a>
 			  </div>
 			  <div class="item inventory-item" data-category="tablecovers">
+				<a href="product?id=7069036000001145038">
 				  <img src="images/tablecloth-fitted.jpg" alt="Table" />
 				  <p>Table Covers (Fitted) - $5 each</p>
+				</a>
 			  </div>
 			  <div class="item inventory-item" data-category="tablecovers">
+				<a href="product?id=7069036000001467015">
 				  <img src="images/cocktail-tablecover-black.jpg" alt="Table" />
 				  <p>Cocktail Table Covers (Black Fitted) - $5 each</p>
+				</a>
 			  </div>
 			  <div class="item inventory-item" data-category="tablecovers">
+				<a href="product?id=7069036000001145043">
 				  <img src="images/cocktail-tablecover-white.jpg" alt="Table" />
 				  <p>Cocktail Table Covers (White Fitted) - $5 each</p>
+				</a>
 			  </div>
 		
 			</div>
@@ -146,24 +202,34 @@
 			<div class="rental-items inventory-grid">
 
 				  <div class="item inventory-item" data-category="tablerunners">
+					<a href="product?id=7069036000001467020">
 					  <img src="images/tablerunner-lightpink.jpg" alt="Table" />
 					  <p>Table Runners (Light Pink) - $2 each</p>
+					</a>
 				  </div>
 				  <div class="item inventory-item" data-category="tablerunners">
+					<a href="product?id=7069036000001145048">
 					  <img src="images/tablerunner-dustyblue.jpg" alt="Table" />
 					  <p>Table Runners (Dusty Blue) - $2 each</p>
+					</a>
 				  </div>
 				  <div class="item inventory-item" data-category="tablerunners">
+					<a href="product?id=7069036000001467025">
 					  <img src="images/tablerunner-beige.jpg" alt="Table" />
 					  <p>Table Runners (Beige) - $2 each</p>
+					</a>
 				  </div>
 				  <div class="item inventory-item" data-category="tablerunners">
+					<a href="product?id=7069036000001467030">
 					  <img src="images/tablerunner-dustyorange.jpg" alt="Table" />
 					  <p>Table Runners (Dusty Orange) - $2 each</p>
+					</a>
 				  </div>
 				  <div class="item inventory-item" data-category="tablerunners">
+					<a href="product?id=7069036000001145053">
 					  <img src="images/tablerunner-sagegreen.jpg" alt="Table" />
 					  <p>Table Runners (Sage Green) - $2 each</p>
+					</a>
 				  </div>   
 			</div>
 		</div>
@@ -177,16 +243,22 @@
 		<div class="accordion-content">
 			<div class="rental-items inventory-grid">
 			  <div class="item inventory-item" data-category="games">
+				<a href="product?id=7069036000000633662">
 				  <img src="images/GiantConnect4.jpg" alt="Giant Connect 4" />
 				  <p>Giant Connect 4 - $25 each</p>
+				</a>
 			  </div>
 			  <div class="item inventory-item" data-category="games">
+				<a href="product?id=7069036000001145063">
 				  <img src="images/Cornhole.jpg" alt="Cornhole" />
 				  <p>Cornhole - $25 each</p>
+				</a>
 			  </div>
 			  <div class="item inventory-item" data-category="games">
+				<a href="product?id=7069036000001145068">
 				  <img src="https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF" alt="Giant Jenga" />
 				  <p>Giant Jenga - $25 each</p>
+				</a>
 			  </div>
 
 			</div>	
@@ -195,15 +267,23 @@
 
 	  <div class="accordion-item" data-category="addons">
 		<button class="accordion-header">
-		  Add-ons
+		  Party Essentials
 		  <span class="accordion-icon">+</span>
 		</button>
 		<div class="accordion-content">
 			<div class="rental-items inventory-grid">
 			  <div class="item inventory-item" data-category="addons">
+				<a href="product?id=7069036000001145058">
 				  <img src="images/StandingCooler.jpg" alt="Standing Cooler" />
 				  <p>Standing Cooler - $30 each</p>
+				</a>
 			  </div>	
+			  <div class="item inventory-item" data-category="addons">
+				<a href="product?id=7069036000001340001">
+				  <img src="https://assets.wfcdn.com/im/69633876/resize-h600-w600%5Ecompr-r85/2346/234694232/Nostalgia+Vintage+Professional+Popcorn+Cart+-+8-Ounce+Kettle+-+53+Inches+Tall.jpg" alt="Popcorn Machine" />
+				  <p>Popcorn Machine - $75 each</p>
+				</a>
+			  </div>			  
 			</div>	
 		</div>
 	  </div>
@@ -223,15 +303,95 @@
     <h3>Ways to Book:</h3>
     <p>Email us at booking@redrockpartyrentals.com</p>
     <p>Text us at 702-706-2455</p>
-    <p>Or book with our <a href="book.html">virtual assistant</a>.</p>
   </section>
 
+
+
+	
+	<!-- CART OVERLAY -->
+	<div id="cartOverlay" class="cart-overlay">
+	  <div class="cart-panel cart-panel--fullscreen">
+
+		<header class="cart-header">
+		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+		  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+		  <button class="cart-close" onclick="closeCart()">✕</button>
+		</header>
+
+
+		<section class="booking-form" style="margin-bottom:0px;padding:0px;">
+			<div id="cart-panel-booking-form" class="form-section" style="background-color:transparent; padding:0px;max-width:100%;">
+				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;background-color: #eee;padding: 15px;">
+				  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+					<div class="dropdown-icon-calendar"></div>
+					<div class="dropdown-divider"></div>
+					<input type="text" id="dateStart2" placeholder="Select Event Date" required>
+				  </div>
+				</form>
+			</div>
+		</section>
+		
+		<div style="background-color:#eee;">
+			<div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none;">
+				Checking availability…
+			</div>		
+		</div>
+		
+		<div id="cartItems" class="cart-items"></div>
+
+		<footer class="cart-footer">
+		  <div class="cart-summary">
+			<div class="cart-line">
+			  <span>Delivery</span>
+			  <strong id="cartSubtotal">$10.00</strong>
+			</div>
+			<div class="cart-line total">
+			  <span>Total</span>
+			  <strong id="cartTotal">$0.00</strong>
+			</div>
+		  </div>
+
+			<div class="button-row" style="display:flex;gap:10px;">
+			  <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+			  <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+			</div>		
+		</footer>
+
+	  </div>
+	</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="navbar-scroll.js"></script>
 <script src="accordion.js"></script>
+<script src="availabilityService.js"></script>
+<script src="cart.js"></script>
+<script src="book-now-component.js"></script>
+<script src="checkout.js"></script>
 
+<script>
 
+document.addEventListener("DOMContentLoaded", () => {
 
+  const rentalDates = AvailabilityService.getRentalDates();
 
+  if (!rentalDates) return;
 
+  const urlDate = rentalDates.start;
+  const [year, month, day] = urlDate.split("-");
+  const formatted = `${month}/${day}/${year}`;
+
+  const cartInput = document.getElementById("dateStart2");
+  if (cartInput) {
+    cartInput.value = formatted;
+  }
+
+  const mobileInputs = document.querySelectorAll(".flatpickr-mobile");
+  mobileInputs.forEach(input => {
+    input.value = urlDate;
+  });
+
+});
+</script>
 </body>
 </html>
