@@ -190,5 +190,15 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
       "Image": "https://redrockpartyrentals.com/images/table-cloth-cream.png"
+    },
+    {
+      "Item_ID": "Tetris_Game",
+      "Product_ID": "7069036000001905034",
+      "Item Name": "Tetris Tumble Game",
+      "Item Description": "Tetris Tumble game",
+      "Quantity Available": 1,
+      "Rental Price": 25,
+      "Category": "Games",
+      "Image": "https://redrockpartyrentals.com/images/game-tetris.png"
     }
 ];
