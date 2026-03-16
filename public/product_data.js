@@ -204,7 +204,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Marquee_BABY",
       "Product_ID": "7069036000001905029",
-      "Item Name": "Marquee Letters - BABY",
+      "Item Name": "4ft Marquee Letters - BABY",
       "Item Description": "4ft Marquee Light-up Letters BABY",
       "Quantity Available": 1,
       "Rental Price": 150,
@@ -214,7 +214,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Marquee_GIRL",
       "Product_ID": "7069036000001905039",
-      "Item Name": "Marquee Letters - GIRL",
+      "Item Name": "4ft Marquee Letters - GIRL",
       "Item Description": "4ft Marquee Light-up Letters GIRL",
       "Quantity Available": 1,
       "Rental Price": 150,
@@ -224,7 +224,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Marquee_BOY",
       "Product_ID": "7069036000001905044",
-      "Item Name": "Marquee Letters - BOY",
+      "Item Name": "4ft Marquee Letters - BOY",
       "Item Description": "4ft Marquee Light-up Letters BOY",
       "Quantity Available": 1,
       "Rental Price": 125,
@@ -234,7 +234,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Marquee_GRAD",
       "Product_ID": "7069036000001905049",
-      "Item Name": "Marquee Letters - GRAD",
+      "Item Name": "4ft Marquee Letters - GRAD",
       "Item Description": "4ft Marquee Light-up Letters GRAD",
       "Quantity Available": 1,
       "Rental Price": 150,
@@ -244,7 +244,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Marquee_LOVE",
       "Product_ID": "7069036000001905054",
-      "Item Name": "Marquee Letters - LOVE",
+      "Item Name": "4ft Marquee Letters - LOVE",
       "Item Description": "4ft Marquee Light-up Letters LOVE",
       "Quantity Available": 1,
       "Rental Price": 150,
@@ -254,7 +254,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Marquee_XV",
       "Product_ID": "7069036000001905059",
-      "Item Name": "Marquee Letters - XV",
+      "Item Name": "4ft Marquee Letters - XV",
       "Item Description": "4ft Marquee Light-up Letters XV",
       "Quantity Available": 1,
       "Rental Price": 100,
