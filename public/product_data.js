@@ -36,7 +36,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000001145033",
       "Item Name": "White Table Cloth",
       "Item Description": "Regular white rectangular table cloth, 70 inches x 120 inches.",
-      "Quantity Available": 4,
+      "Quantity Available": 8,
       "Rental Price": 5,
       "Category": "Table Covers",
       "Image": "https://redrockpartyrentals.com/images/tablecloth-regular.jpg"
@@ -76,7 +76,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000001145048",
       "Item Name": "Blue Table Runner",
       "Item Description": "Light Blue table runner",
-      "Quantity Available": 4,
+      "Quantity Available": 8,
       "Rental Price": 2,
       "Category": "Table Runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg"
@@ -86,7 +86,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000001145053",
       "Item Name": "Green Table Runner",
       "Item Description": "Sage Green table runner",
-      "Quantity Available": 4,
+      "Quantity Available": 8,
       "Rental Price": 2,
       "Category": "Table Runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.jpg"
@@ -146,7 +146,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000001467020",
       "Item Name": "Pink Table Runner",
       "Item Description": "Light pink table runner",
-      "Quantity Available": 4,
+      "Quantity Available": 8,
       "Rental Price": 2,
       "Category": "Table Runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-lightpink.jpg"
@@ -156,7 +156,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000001467025",
       "Item Name": "Beige Table Runner",
       "Item Description": "Beige table runner",
-      "Quantity Available": 4,
+      "Quantity Available": 8,
       "Rental Price": 2,
       "Category": "Table Runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-beige.jpg"
@@ -166,10 +166,29 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000001467030",
       "Item Name": "Burnt Orange Table Runner",
       "Item Description": "Burnt Orange table runner",
-      "Quantity Available": 4,
+      "Quantity Available": 8,
       "Rental Price": 2,
       "Category": "Table Runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.jpg"
+    },
+    {
+      "Item_ID": "Beige_Table_Cloth",
+      "Product_ID": "7069036000001905019",
+      "Item Name": "Beige Table Cloth",
+      "Item Description": "Regular beige rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 8,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+      "Image": "https://redrockpartyrentals.com/images/table-cloth-beige.png"
+    },	
+    {
+      "Item_ID": "Cream_Table_Cloth",
+      "Product_ID": "7069036000001905024",
+      "Item Name": "Cream Table Cloth",
+      "Item Description": "Regular cream-colored rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 8,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+      "Image": "https://redrockpartyrentals.com/images/table-cloth-cream.png"
     }
-
 ];
