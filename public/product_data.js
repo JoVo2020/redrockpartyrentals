@@ -200,5 +200,65 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Games",
       "Image": "https://redrockpartyrentals.com/images/game-tetris.png"
+    },
+    {
+      "Item_ID": "Marquee_BABY",
+      "Product_ID": "7069036000001905029",
+      "Item Name": "Marquee Letters - BABY",
+      "Item Description": "4ft Marquee Light-up Letters BABY",
+      "Quantity Available": 1,
+      "Rental Price": 150,
+      "Category": "Marquee Letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-BABY.png"
+    },
+    {
+      "Item_ID": "Marquee_GIRL",
+      "Product_ID": "7069036000001905039",
+      "Item Name": "Marquee Letters - GIRL",
+      "Item Description": "4ft Marquee Light-up Letters GIRL",
+      "Quantity Available": 1,
+      "Rental Price": 150,
+      "Category": "Marquee Letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-GIRL.png"
+    },
+    {
+      "Item_ID": "Marquee_BOY",
+      "Product_ID": "7069036000001905044",
+      "Item Name": "Marquee Letters - BOY",
+      "Item Description": "4ft Marquee Light-up Letters BOY",
+      "Quantity Available": 1,
+      "Rental Price": 125,
+      "Category": "Marquee Letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-BOY.png"
+    },
+    {
+      "Item_ID": "Marquee_GRAD",
+      "Product_ID": "7069036000001905049",
+      "Item Name": "Marquee Letters - GRAD",
+      "Item Description": "4ft Marquee Light-up Letters GRAD",
+      "Quantity Available": 1,
+      "Rental Price": 150,
+      "Category": "Marquee Letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-GRAD.png"
+    },
+    {
+      "Item_ID": "Marquee_LOVE",
+      "Product_ID": "7069036000001905054",
+      "Item Name": "Marquee Letters - LOVE",
+      "Item Description": "4ft Marquee Light-up Letters LOVE",
+      "Quantity Available": 1,
+      "Rental Price": 150,
+      "Category": "Marquee Letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-LOVE.png"
+    },
+    {
+      "Item_ID": "Marquee_XV",
+      "Product_ID": "7069036000001905059",
+      "Item Name": "Marquee Letters - XV",
+      "Item Description": "4ft Marquee Light-up Letters XV",
+      "Quantity Available": 1,
+      "Rental Price": 100,
+      "Category": "Marquee Letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-XV.png"
     }
 ];
