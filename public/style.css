@@ -93,7 +93,6 @@ h4 { font-size: 1.5rem; margin-bottom: 1rem; color: #8b0000; font-weight: 400; f
   font-weight: 400; letter-spacing: 0.5px; font-size: 1.25rem;
 }
 
-/* Button */
 .cta-button button {
   display: inline-block; margin-top: 1.2rem; padding: 0.75rem 2rem;
   background: #8b0000; color: white; text-decoration: none; border-radius: 4px;
@@ -161,6 +160,7 @@ hr.solid {
   h2 { font-size: 2.5rem; }
   .description { font-size: 1.18rem; }
   .cta-button a { font-size: 1rem; }
+  .cta-button button { font-size: 1rem; }
   .rental-items p { font-size: 1.1rem; }
   .booking { font-size: 1.18rem; }
   h3 { font-size: 2.5rem; }
@@ -204,6 +204,7 @@ hr.solid {
   h2 { font-size: 2.5rem; }
   .description { font-size: 1.18rem; padding: 0.6rem; }
   .cta-button a { font-size: 1.18rem; padding: 0.5rem 1.3rem; }
+  .cta-button button { font-size: 1.18rem; padding: 0.5rem 1.3rem; }  
   .rental-items p { font-size: 1.8rem; }
   .booking { font-size: 1.18rem; }
   h3 { font-size: 2.5rem; }
