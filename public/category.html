@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Category | Red Rock Party Rentals</title>
+
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="cart.css" />
+<link rel="stylesheet" href="book-now-component.css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+.category-header {
+  text-align: center;
+  font-size: 36px;
+  margin: 30px 0 10px;
+  color: #8b0000;
+}
+
+.category-sub {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.rr-category-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 0 20px 60px;
+}
+
+.rr-card {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.rr-card__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.rr-card__body {
+  padding: 10px;
+}
+
+.rr-card__name {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.rr-btn-addToCart {
+  width: 100%;
+  padding: 10px;
+  background: #8b0000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar" style="position:static;">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo.png" />
+        <span>Red Rock Party Rentals</span>
+      </a>
+    </div>
+    <button onclick="openCart()">
+      <i class="fa-solid fa-cart-shopping"></i>
+    </button>
+  </nav>
+</header>
+
+<div class="category-header" id="categoryTitle"></div>
+<div class="category-sub">Browse available rentals</div>
+
+<div class="rr-category-grid" id="categoryGrid"></div>
+
+<!-- CART -->
+<div id="cartOverlay" class="cart-overlay">
+  <div class="cart-panel cart-panel--fullscreen">
+    <header class="cart-header">
+      <button onclick="closeCart()">←</button>
+      <h2>Cart</h2>
+      <button onclick="closeCart()">✕</button>
+    </header>
+
+    <div id="cartItems"></div>
+
+    <footer class="cart-footer">
+      <button onclick="closeCart()">Continue Shopping</button>
+      <button onclick="goToCheckout()">Checkout →</button>
+    </footer>
+  </div>
+</div>
+
+<script src="product_data.js"></script>
+<script src="cart.js"></script>
+
+<script>
+/* -------------------------
+   Get Category from URL
+------------------------- */
+const parts = window.location.pathname.split("/").filter(Boolean);
+const categorySlug = parts[1]; // /rentals/games
+
+function formatCategory(slug) {
+  return slug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+/* -------------------------
+   Map Slug → Product Category
+------------------------- */
+function mapCategory(slug) {
+  const map = {
+    "games": "Games",
+    "marquee-letters": "Marquee Letters",
+    "tables-chairs": "Tables And Chairs",
+    "table-covers": "Table Covers",
+    "table-runners": "Table Runners",
+    "concessions": "Other"
+  };
+
+  return map[slug] || slug;
+}
+
+const categoryName = mapCategory(categorySlug);
+
+/* -------------------------
+   Set Header
+------------------------- */
+document.getElementById("categoryTitle").textContent =
+  formatCategory(categorySlug);
+
+/* -------------------------
+   Render Products
+------------------------- */
+const grid = document.getElementById("categoryGrid");
+
+const money = (v) => "$" + Number(v).toFixed(0);
+
+window.PRODUCT_DATA
+  .filter(p => p["Category"] === categoryName)
+  .forEach(item => {
+
+    const card = document.createElement("div");
+    card.className = "rr-card";
+
+    card.innerHTML = `
+      <a href="product?id=${item.Product_ID}">
+        <img class="rr-card__img" src="${item.Image}" />
+      </a>
+      <div class="rr-card__body">
+        <div class="rr-card__name">
+          ${item["Item Name"]} - ${money(item["Rental Price"])}
+        </div>
+        <button class="rr-btn-addToCart">Add To Cart</button>
+      </div>
+    `;
+
+    card.querySelector("button").onclick = () => {
+      addToCart({
+        id: item.Product_ID,
+        product_id: item.Product_ID,
+        name: item["Item Name"],
+        price: item["Rental Price"],
+        image: item.Image,
+        availableQty: item["Quantity Available"]
+      });
+    };
+
+    grid.appendChild(card);
+  });
+
+</script>
+
+</body>
+</html>
