@@ -1,5 +1,5 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-
+//const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')('sk_test_51SxGnqC4nd0QlOD8cGRk9RmmQnu76lcgkVs8pYnV4JKPQIuHuhEZWqzKmfgqZuH8UwUr9HvNABMRiEKsMIKWtgd500oKG4CGjn');
 
 exports.handler = async (event) => {
   try {
