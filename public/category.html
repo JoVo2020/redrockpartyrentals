@@ -95,6 +95,7 @@
 	  </nav>
 	</header>
 
+	<div class="breadcrumb" id="breadcrumb"></div>
 
 	<div class="category-header" id="categoryTitle"></div>
 	<div class="category-sub">Browse available rentals</div>
@@ -236,6 +237,25 @@
 
 		grid.appendChild(card);
 	  });
+
+	function renderCategoryBreadcrumb(categoryName) {
+
+	  const breadcrumb = document.getElementById("breadcrumb");
+	  if (!breadcrumb) return;
+
+
+	  breadcrumb.innerHTML = `
+		<a href="index.html">Home</a>
+		<span class="breadcrumb-sep">›</span>
+		<a href="rentals.html">Rentals</a>
+		<span class="breadcrumb-sep">›</span>
+		<span>${categoryName}</span>
+	  `;
+	}
+	
+	document.addEventListener("DOMContentLoaded", () => {
+		renderCategoryBreadcrumb(categoryName);
+	});
 
 	</script>
 
