@@ -197,8 +197,13 @@
 	/* -------------------------
 	   Set Header
 	------------------------- */
-	document.getElementById("categoryTitle").textContent =
-	  formatCategory(categorySlug);
+	
+	let categoryTitle = formatCategory(categorySlug);
+	if (categoryTitle == 'Tables Chairs'{
+		categoryTitle = 'Tables & Chairs';
+	}
+	
+	document.getElementById("categoryTitle").textContent = categoryTitle;
 
 	/* -------------------------
 	   Render Products
