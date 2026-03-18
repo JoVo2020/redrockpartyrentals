@@ -429,12 +429,15 @@ function renderBreadcrumb(item) {
   if (!breadcrumb) return;
 
   const category = item["Category"] || "Rentals";
+  const categoryPath = item["CategoryPath"];
   const productName = item["Item Name"];
 
   breadcrumb.innerHTML = `
     <a href="index.html">Home</a>
     <span class="breadcrumb-sep">›</span>
     <a href="rentals.html">Rentals</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/rentals/${categoryPath}">${category}</a>
     <span class="breadcrumb-sep">›</span>
     <span>${productName}</span>
   `;
