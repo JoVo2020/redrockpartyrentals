@@ -29,7 +29,7 @@ window.PRODUCT_DATA = [
       "Item Name": "Cocktail Table",
       "Item Description": "Black bar height cocktail table",
       "Quantity Available": 2,
-      "Rental Price": 13,
+      "Rental Price": 15,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
       "Image": "https://redrockpartyrentals.com/images/cocktail-table.jpg"
