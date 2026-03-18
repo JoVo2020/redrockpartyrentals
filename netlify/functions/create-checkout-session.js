@@ -1,9 +1,8 @@
-//const Stripe = require('stripe');
-const stripe = require('stripe')('sk_test_51SxGnqC4nd0QlOD8cGRk9RmmQnu76lcgkVs8pYnV4JKPQIuHuhEZWqzKmfgqZuH8UwUr9HvNABMRiEKsMIKWtgd500oKG4CGjn');
+const Stripe = require('stripe');
 
 exports.handler = async (event) => {
   try {
-    //const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+    const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
     const body = JSON.parse(event.body);
 
