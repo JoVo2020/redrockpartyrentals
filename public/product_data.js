@@ -4,7 +4,7 @@ window.PRODUCT_DATA = [
 	{
       "Item_ID": "Table",
       "Product_ID": "7069036000000622084",
-      "Item Name": "6ft Table",
+      "Item Name": "6ft Tables",
       "Item Description": "White plastic 6ft table. Seats up to 8 people (3 on each side, 1 one on each end)",
       "Quantity Available": 12,
       "Rental Price": 8,
@@ -15,7 +15,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Chair",
       "Product_ID": "7069036000000633191",
-      "Item Name": "Chair",
+      "Item Name": "White Folding Chairs",
       "Item Description": "White plastic folding chair",
       "Quantity Available": 120,
       "Rental Price": 1,
@@ -26,7 +26,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Cocktail_Table",
       "Product_ID": "7069036000001145028",
-      "Item Name": "Cocktail Table",
+      "Item Name": "Cocktail Tables",
       "Item Description": "Black bar height cocktail table",
       "Quantity Available": 2,
       "Rental Price": 15,
