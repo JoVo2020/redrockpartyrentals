@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Table & Chair Rentals Las Vegas | Red Rock Party Rentals</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"/>
+
+  <link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+  <link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terra:   #c4633a;
+      --terra-d: #a84f2a;
+      --terra-p: #fdf1ec;
+      --slate:   #2d3540;
+      --slate-s: #4a5568;
+      --mist:    #8a95a3;
+      --sand:    #f5f0e8;
+      --parchment: #faf8f4;
+      --white:   #ffffff;
+      --border:  #e4ddd3;
+      --border-d:#cfc7bb;
+      --green:   #2d7a4f;
+      --green-p: #e9f5ee;
+      --amber:   #b07d1e;
+      --amber-p: #fef9e7;
+      --red-p:   #fce8e8;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Outfit', sans-serif;
+      --nav-h: 64px;
+      --cart-w: 380px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--parchment);
+      color: var(--slate);
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════
+       NAV
+    ═══════════════════════════════════ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      height: var(--nav-h);
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 32px; width: 32px; object-fit: contain; }
+
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--slate);
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+
+    .nav-phone {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--mist);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: color 0.2s;
+    }
+
+    .nav-phone i { color: var(--terra); font-size: 12px; }
+    .nav-phone:hover { color: var(--slate); }
+
+    /* Cart button in nav */
+    .nav-cart {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--slate);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .nav-cart:hover { background: var(--terra); }
+
+    .nav-cart-count {
+      background: var(--terra);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      padding: 0 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+
+    .nav-cart-count.bump { animation: bump 0.3s ease; }
+
+    @keyframes bump {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.4); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      .nav { padding: 0 18px; }
+      .nav-phone { display: none; }
+      .nav-cart span.label { display: none; }
+    }
+
+    /* ═══════════════════════════════════
+       HERO STRIP
+    ═══════════════════════════════════ */
+    .hero-strip {
+      background: var(--sand);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 60px 44px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--terra);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--slate);
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.7;
+      margin-top: 14px;
+      max-width: 480px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .hero-pill {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--slate-s);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-pill i { color: var(--terra); font-size: 11px; }
+
+    /* Hero right: step indicator */
+    .step-indicator {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-width: 200px;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-row:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .step-num.active   { background: var(--terra); color: #fff; }
+    .step-num.done     { background: var(--green); color: #fff; }
+    .step-num.inactive { background: var(--border); color: var(--mist); }
+
+    .step-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--slate-s);
+      line-height: 1.3;
+    }
+
+    .step-label strong {
+      display: block;
+      font-weight: 600;
+      color: var(--slate);
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .hero-strip { grid-template-columns: 1fr; padding: 36px 24px 32px; }
+      .step-indicator { flex-direction: row; flex-wrap: wrap; gap: 12px; min-width: 0; }
+      .step-row { border-bottom: none; padding: 8px 0; }
+    }
+
+    /* ═══════════════════════════════════
+       CATEGORY NAV TABS
+    ═══════════════════════════════════ */
+    .cat-tabs {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .cat-tabs::-webkit-scrollbar { display: none; }
+
+    .cat-tab {
+      padding: 16px 20px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mist);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+      transition: color 0.2s, border-color 0.2s;
+      margin-bottom: -1px;
+    }
+
+    .cat-tab:hover { color: var(--slate); }
+    .cat-tab.active { color: var(--terra); border-bottom-color: var(--terra); font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .cat-tabs { padding: 0 16px; }
+      .cat-tab { padding: 14px 14px; font-size: 12px; }
+    }
+
+    /* ═══════════════════════════════════
+       PAGE BODY
+    ═══════════════════════════════════ */
+    .page-body {
+      display: grid;
+      grid-template-columns: 1fr var(--cart-w);
+      min-height: calc(100vh - var(--nav-h) - 52px);
+    }
+
+    .shop-col {
+      min-width: 0;
+      padding: 0 48px 80px;
+    }
+
+    @media (max-width: 960px) {
+      .page-body { grid-template-columns: 1fr; }
+      .shop-col { padding: 0 20px 120px; }
+    }
+
+    /* ═══════════════════════════════════
+       SHOP SECTIONS
+    ═══════════════════════════════════ */
+    .shop-section { padding-top: 48px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-left {}
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 4px;
+    }
+
+    .section-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.5vw, 34px);
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.1;
+    }
+
+    .section-h2 em { font-style: italic; }
+
+    .section-count {
+      font-size: 13px;
+      color: var(--mist);
+      white-space: nowrap;
+    }
+
+    /* ─ PRIMARY GRID (Tables & Chairs) ─ */
+    .primary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1100px) { .primary-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 580px)  { .primary-grid { grid-template-columns: 1fr; } }
+
+    .p-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .p-card:hover {
+      box-shadow: 0 8px 32px rgba(45,53,64,0.1);
+      transform: translateY(-2px);
+    }
+
+    .p-card:hover .p-img { transform: scale(1.04); }
+
+    .p-img-wrap {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #eee8e0;
+      position: relative;
+    }
+
+    .p-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .p-body { padding: 18px 18px 20px; }
+
+    .p-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .p-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .p-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .p-price {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--terra);
+      line-height: 1;
+    }
+
+    .p-price-unit {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--mist);
+      font-family: var(--font-body);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Qty + add controls */
+    .p-controls { display: flex; align-items: center; gap: 8px; }
+
+    .qty-wrap {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-d);
+    }
+
+    .qty-btn {
+      width: 32px;
+      height: 36px;
+      background: var(--sand);
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: var(--slate);
+      -webkit-text-fill-color: var(--slate);
+      transition: background 0.15s;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-btn:hover { background: var(--border); }
+
+    .qty-input {
+      width: 38px;
+      height: 36px;
+      border: none;
+      border-left: 1px solid var(--border-d);
+      border-right: 1px solid var(--border-d);
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate);
+      -webkit-text-fill-color: var(--slate);
+      background: var(--white);
+      outline: none;
+      -moz-appearance: textfield;
+    }
+
+    .qty-input::-webkit-outer-spin-button,
+    .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    .btn-add-cart {
+      height: 36px;
+      padding: 0 16px;
+      background: var(--terra);
+      color: #fff;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-add-cart:hover { background: var(--terra-d); }
+
+    /* Added state */
+    .btn-add-cart.in-cart {
+      background: var(--green);
+    }
+
+    /* Added toast pulse on card */
+    .p-card.just-added {
+      animation: cardPulse 0.4s ease;
+    }
+
+    @keyframes cardPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(196,99,58,0.4); }
+      70%  { box-shadow: 0 0 0 12px rgba(196,99,58,0); }
+      100% { box-shadow: 0 0 0 0 rgba(196,99,58,0); }
+    }
+
+    /* ─ UPSELL GRID ─ */
+    .upsell-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 480px) { .upsell-grid { grid-template-columns: repeat(2,1fr); } }
+
+    .u-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .u-card:hover { box-shadow: 0 4px 20px rgba(45,53,64,0.1); transform: translateY(-2px); }
+    .u-card:hover .u-img { transform: scale(1.06); }
+
+    .u-img-wrap { overflow: hidden; aspect-ratio: 1/1; background: #eee8e0; }
+
+    .u-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .u-body { padding: 10px 12px 14px; }
+
+    .u-name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--slate);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .u-price {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--terra);
+      margin-bottom: 10px;
+    }
+
+    .btn-u-add {
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border-d);
+      padding: 7px 10px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--slate);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-u-add:hover { background: var(--terra); border-color: var(--terra); color: #fff; }
+    .btn-u-add.in-cart { background: var(--green); border-color: var(--green); color: #fff; }
+
+    /* Divider between sections */
+    .section-divider {
+      margin: 60px 0 0;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ═══════════════════════════════════
+       CART SIDEBAR (desktop)
+    ═══════════════════════════════════ */
+    .cart-sidebar {
+      position: sticky;
+      top: var(--nav-h);
+      height: calc(100vh - var(--nav-h));
+      border-left: 1px solid var(--border);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 960px) { .cart-sidebar { display: none; } }
+
+    .cs-head {
+      padding: 24px 24px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 2px;
+    }
+
+    .cs-sub { font-size: 12px; color: var(--mist); }
+
+    /* Step 2 banner in sidebar */
+    .cs-step-banner {
+      background: var(--terra-p);
+      border-bottom: 1px solid #e8d0c4;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--terra-d);
+      font-weight: 400;
+    }
+
+    .cs-step-banner i { font-size: 14px; flex-shrink: 0; }
+
+    .cs-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 16px;
+    }
+
+    /* Empty cart state */
+    .cs-empty {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .cs-empty-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .cs-empty-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--slate);
+      margin-bottom: 8px;
+    }
+
+    .cs-empty-arrows {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+    }
+
+    .cs-empty-arrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--mist);
+      font-weight: 300;
+    }
+
+    .cs-empty-arrow i { color: var(--terra); font-size: 12px; }
+
+    /* Cart item in sidebar */
+    .ci {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .ci:last-child { border-bottom: none; }
+
+    .ci-img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--sand);
+    }
+
+    .ci-info { flex: 1; min-width: 0; }
+
+    .ci-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--slate);
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ci-price { font-size: 12px; color: var(--mist); margin-bottom: 8px; }
+
+    .ci-bottom { display: flex; align-items: center; gap: 8px; }
+
+    .ci-qty {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-d);
+      height: 28px;
+    }
+
+    .ci-qty-btn {
+      width: 24px;
+      height: 28px;
+      background: var(--sand);
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--slate);
+      -webkit-text-fill-color: var(--slate);
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ci-qty-btn:hover { background: var(--border); }
+
+    .ci-qty-val {
+      width: 30px;
+      height: 28px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      border-left: 1px solid var(--border-d);
+      border-right: 1px solid var(--border-d);
+      background: var(--white);
+      outline: none;
+      color: var(--slate);
+      -webkit-text-fill-color: var(--slate);
+      -moz-appearance: textfield;
+    }
+
+    .ci-qty-val::-webkit-outer-spin-button,
+    .ci-qty-val::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    .ci-total { font-weight: 600; font-size: 13px; color: var(--slate); margin-left: auto; }
+
+    .ci-del {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ccc;
+      font-size: 13px;
+      padding: 2px;
+      transition: color 0.2s;
+    }
+
+    .ci-del:hover { color: var(--terra); }
+
+    /* Sidebar footer */
+    .cs-foot {
+      border-top: 1px solid var(--border);
+      padding: 18px 20px;
+      background: var(--white);
+    }
+
+    .cs-summary { font-size: 13px; color: var(--mist); display: flex; justify-content: space-between; margin-bottom: 6px; }
+
+    .cs-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    .cs-total-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); }
+
+    .cs-total-val {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--slate);
+    }
+
+    .btn-cs-checkout {
+      width: 100%;
+      background: var(--terra);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-cs-checkout:hover { background: var(--terra-d); }
+
+    .btn-cs-checkout:disabled, .btn-cs-checkout.off {
+      background: var(--border-d);
+      color: var(--mist);
+      cursor: not-allowed;
+    }
+
+    .cs-note {
+      text-align: center;
+      font-size: 11px;
+      color: var(--mist);
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .cs-note i { color: var(--terra); font-size: 10px; }
+
+    /* ═══════════════════════════════════
+       MOBILE CART BAR + OVERLAY
+    ═══════════════════════════════════ */
+    .mob-cart-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 250;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+      gap: 14px;
+      align-items: center;
+    }
+
+    .mob-bar-info { flex: 1; }
+    .mob-bar-count { font-size: 12px; color: var(--mist); }
+    .mob-bar-total { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--slate); }
+
+    .btn-mob-checkout {
+      background: var(--terra);
+      color: #fff;
+      border: none;
+      padding: 13px 24px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-mob-checkout:disabled { background: var(--border-d); color: var(--mist); cursor: not-allowed; }
+
+    @media (max-width: 960px) {
+      .mob-cart-bar { display: flex; }
+      body { padding-bottom: 80px; }
+    }
+
+    /* Mobile cart drawer */
+    .mob-cart-overlay {
+      position: fixed; inset: 0;
+      background: rgba(45,53,64,0.5);
+      z-index: 9998;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .mob-cart-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; }
+
+    .mob-cart-drawer {
+      position: fixed;
+      bottom: -100%;
+      left: 0; right: 0;
+      max-height: 80vh;
+      background: var(--white);
+      border-radius: 0;
+      transition: bottom 0.35s cubic-bezier(0.4,0,0.2,1);
+      display: flex;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .mob-cart-overlay.open .mob-cart-drawer { bottom: 0; }
+
+    .mob-drawer-head {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mob-drawer-title { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--slate); }
+
+    .btn-drawer-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--mist); -webkit-text-fill-color: var(--mist); }
+
+    .mob-drawer-items { flex: 1; overflow-y: auto; padding: 12px 20px; background: var(--sand); }
+
+    .mob-drawer-foot { border-top: 1px solid var(--border); padding: 16px 20px; background: var(--white); }
+
+    /* ═══════════════════════════════════
+       DATE & CHECKOUT FULLSCREEN STEP
+    ═══════════════════════════════════ */
+    .checkout-step {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: var(--parchment);
+      transform: translateY(100%);
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .checkout-step.open { transform: translateY(0); }
+
+    .cs2-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .cs2-header-brand {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--slate);
+    }
+
+    .btn-cs2-back {
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--mist);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      -webkit-text-fill-color: var(--mist);
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+
+    .btn-cs2-back:hover { color: var(--slate); -webkit-text-fill-color: var(--slate); }
+
+    .cs2-body {
+      flex: 1;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 40px 60px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 820px) {
+      .cs2-body { grid-template-columns: 1fr; padding: 0 20px 60px; gap: 32px; }
+      .cs2-header { padding: 0 20px; }
+    }
+
+    /* Date picker side */
+    .cs2-left { padding-top: 40px; }
+
+    .cs2-step-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cs2-step-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--terra); }
+
+    .cs2-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .cs2-title em { font-style: italic; color: var(--terra); }
+
+    .cs2-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* Big date input */
+    .big-date-row {
+      border: 2px solid var(--border-d);
+      background: var(--white);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .big-date-row:focus-within { border-color: var(--terra); }
+
+    .big-date-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--terra-p);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+      color: var(--terra);
+    }
+
+    .big-date-inner { flex: 1; }
+
+    .big-date-sublabel {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-bottom: 4px;
+    }
+
+    .big-date-input {
+      border: none;
+      background: transparent;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--slate);
+      outline: none;
+      cursor: pointer;
+      width: 100%;
+      -webkit-text-fill-color: var(--slate);
+    }
+
+    .big-date-input::placeholder {
+      color: #ccc;
+      -webkit-text-fill-color: #ccc;
+    }
+
+    /* Availability check results */
+    .avail-results {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .avail-results.visible { display: flex; }
+
+    .avail-checking {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      background: var(--sand);
+      border: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--mist);
+    }
+
+    .avail-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-size: 14px;
+      color: var(--slate);
+    }
+
+    .avail-item img { width: 36px; height: 36px; object-fit: cover; flex-shrink: 0; }
+
+    .avail-item-name { flex: 1; font-weight: 500; }
+
+    .avail-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+
+    .avail-badge.ok   { background: var(--green-p); color: var(--green); }
+    .avail-badge.warn { background: var(--amber-p); color: var(--amber); }
+    .avail-badge.none { background: var(--red-p); color: #a00; }
+
+    /* Confirm CTA */
+    .btn-confirm-checkout {
+      width: 100%;
+      background: var(--terra);
+      color: #fff;
+      border: none;
+      padding: 19px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .btn-confirm-checkout:hover { background: var(--terra-d); }
+
+    .btn-confirm-checkout:disabled {
+      background: var(--border-d);
+      color: var(--mist);
+      cursor: not-allowed;
+    }
+
+    .confirm-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--mist);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .confirm-note i { color: var(--terra); }
+
+    /* Order summary side */
+    .cs2-right { padding-top: 40px; }
+
+    .order-summary-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+
+    .order-summary-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--slate);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .order-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .order-item img { width: 44px; height: 44px; object-fit: cover; flex-shrink: 0; }
+
+    .order-item-info { flex: 1; }
+
+    .order-item-name { font-size: 14px; font-weight: 500; color: var(--slate); }
+
+    .order-item-qty { font-size: 12px; color: var(--mist); }
+
+    .order-item-price { font-size: 14px; font-weight: 600; color: var(--slate); white-space: nowrap; }
+
+    .order-lines {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 6px;
+    }
+
+    .order-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--mist);
+      margin-bottom: 6px;
+    }
+
+    .order-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+
+    .order-total-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate); }
+
+    .order-total-val { font-family: var(--font-display); font-size: 28px; font-weight: 400; color: var(--slate); }
+
+    /* ═══════════════════════════════════
+       FLATPICKR
+    ═══════════════════════════════════ */
+    .flatpickr-input {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      font-family: var(--font-display) !important;
+      font-size: 22px !important;
+      font-weight: 300 !important;
+      color: var(--slate) !important;
+      -webkit-text-fill-color: var(--slate) !important;
+      cursor: pointer !important;
+      width: 100% !important;
+    }
+
+    .flatpickr-day.selected,
+    .flatpickr-day.selected:hover { background: var(--terra) !important; border-color: var(--terra) !important; }
+    .flatpickr-day:hover { background: var(--terra-p) !important; }
+    .flatpickr-day.flatpickr-disabled { color: #ccc !important; }
+
+    /* ═══════════════════════════════════
+       SPINNER
+    ═══════════════════════════════════ */
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid var(--border);
+      border-top-color: var(--terra);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ═══════════════════════════════════
+       REVEAL
+    ═══════════════════════════════════ */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ═══════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════ */
+    .lp-footer {
+      background: var(--slate);
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .lp-footer-brand { font-family: var(--font-display); font-size: 15px; color: rgba(255,255,255,0.4); }
+
+    .lp-footer-links { display: flex; gap: 24px; }
+
+    .lp-footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: color 0.2s;
+    }
+
+    .lp-footer-links a:hover { color: var(--terra); }
+    .lp-footer-links i { color: var(--terra); }
+  </style>
+</head>
+
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ════════════ NAV ════════════ -->
+  <nav class="nav">
+    <a class="nav-logo" href="/">
+      <img src="https://redrockpartyrentals.com/images/logo.png" alt="Red Rock Logo"/>
+      <span class="nav-logo-text">Red Rock Party Rentals</span>
+    </a>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:7027062455">
+        <i class="fa-solid fa-phone"></i> 702-706-2455
+      </a>
+      <button class="nav-cart" onclick="openMobCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="label">Cart</span>
+        <span class="nav-cart-count" id="navCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════════════ HERO STRIP ════════════ -->
+  <div class="hero-strip">
+    <div>
+      <div class="hero-eyebrow">Las Vegas Party Rentals</div>
+      <h1 class="hero-h1">
+        Tables &amp; Chairs,<br>
+        <em>Delivered</em> to Your Door
+      </h1>
+      <p class="hero-sub">Browse our inventory below, add what you need, then pick your event date at checkout. Real-time availability confirmed before you pay.</p>
+      <div class="hero-pills">
+        <div class="hero-pill"><i class="fa-solid fa-truck"></i> Delivery &amp; Pickup</div>
+        <div class="hero-pill"><i class="fa-solid fa-star"></i> 5-Star Rated</div>
+        <div class="hero-pill"><i class="fa-solid fa-clock"></i> Book in Minutes</div>
+        <div class="hero-pill"><i class="fa-solid fa-shield-halved"></i> No Hidden Fees</div>
+      </div>
+    </div>
+    <div class="step-indicator">
+      <div class="step-row">
+        <div class="step-num active" id="stepNum1">1</div>
+        <div class="step-label"><strong>Browse &amp; Add Items</strong>No date needed yet</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num inactive" id="stepNum2">2</div>
+        <div class="step-label"><strong>Pick Your Date</strong>We check availability</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num inactive" id="stepNum3">3</div>
+        <div class="step-label"><strong>Confirm &amp; Pay</strong>Secure checkout</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════ CATEGORY TABS ════════════ -->
+  <div class="cat-tabs" id="catTabs">
+    <button class="cat-tab active" data-target="sec-tables">Tables &amp; Chairs</button>
+    <button class="cat-tab" data-target="sec-linens">Table Linens</button>
+    <button class="cat-tab" data-target="sec-games">Games</button>
+    <button class="cat-tab" data-target="sec-extras">Party Extras</button>
+  </div>
+
+  <!-- ════════════ PAGE BODY ════════════ -->
+  <div class="page-body">
+
+    <!-- SHOP COLUMN -->
+    <div class="shop-col">
+
+      <!-- ─ TABLES & CHAIRS ─ -->
+      <section class="shop-section reveal" id="sec-tables">
+        <div class="section-header">
+          <div class="section-left">
+            <div class="section-tag">Most Popular</div>
+            <h2 class="section-h2">Tables &amp; <em>Chairs</em></h2>
+          </div>
+          <span class="section-count">3 items</span>
+        </div>
+        <div class="primary-grid" id="grid-tables"></div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ─ LINENS ─ -->
+      <section class="shop-section reveal" id="sec-linens">
+        <div class="section-header">
+          <div class="section-left">
+            <div class="section-tag">Complete the Look</div>
+            <h2 class="section-h2">Table <em>Linens</em></h2>
+          </div>
+          <span class="section-count">9 items</span>
+        </div>
+        <div class="upsell-grid" id="grid-linens"></div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ─ GAMES ─ -->
+      <section class="shop-section reveal" id="sec-games">
+        <div class="section-header">
+          <div class="section-left">
+            <div class="section-tag">Entertainment</div>
+            <h2 class="section-h2">Lawn <em>Games</em></h2>
+          </div>
+          <span class="section-count">4 items</span>
+        </div>
+        <div class="upsell-grid" id="grid-games"></div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ─ EXTRAS ─ -->
+      <section class="shop-section reveal" id="sec-extras">
+        <div class="section-header">
+          <div class="section-left">
+            <div class="section-tag">Make It Special</div>
+            <h2 class="section-h2">Party <em>Extras</em></h2>
+          </div>
+          <span class="section-count">8 items</span>
+        </div>
+        <div class="upsell-grid" id="grid-extras"></div>
+      </section>
+
+    </div><!-- /shop-col -->
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-sidebar">
+      <div class="cs-head">
+        <div class="cs-title">Your Cart</div>
+        <div class="cs-sub" id="csSub">Add items to get started</div>
+      </div>
+      <div class="cs-step-banner">
+        <i class="fa-regular fa-calendar"></i>
+        You'll select your event date at checkout
+      </div>
+      <div class="cs-items" id="csItems">
+        <div class="cs-empty" id="csEmpty">
+          <span class="cs-empty-icon">🛒</span>
+          <div class="cs-empty-title">Your cart is empty</div>
+          <div class="cs-empty-arrows">
+            <div class="cs-empty-arrow"><i class="fa-solid fa-arrow-left"></i> Add tables &amp; chairs to start</div>
+            <div class="cs-empty-arrow"><i class="fa-solid fa-arrow-left"></i> Then add linens or games</div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-foot">
+        <div class="cs-summary"><span>Delivery &amp; Pickup</span><span>$10.00</span></div>
+        <div class="cs-total-row">
+          <span class="cs-total-label">Est. Total</span>
+          <span class="cs-total-val" id="csTotal">$0.00</span>
+        </div>
+        <button class="btn-cs-checkout off" id="btnCsCheckout" disabled onclick="openCheckoutStep()">
+          <i class="fa-regular fa-calendar"></i>
+          Select Date &amp; Checkout
+        </button>
+        <div class="cs-note"><i class="fa-solid fa-circle-check"></i> Date confirmed before any payment</div>
+      </div>
+    </div>
+
+  </div><!-- /page-body -->
+
+  <!-- ════════════ MOBILE CART BAR ════════════ -->
+  <div class="mob-cart-bar" id="mobCartBar">
+    <div class="mob-bar-info">
+      <div class="mob-bar-count" id="mobCount">0 items</div>
+      <div class="mob-bar-total" id="mobTotal">$0.00</div>
+    </div>
+    <button class="btn-mob-checkout" id="btnMobCheckout" disabled onclick="openCheckoutStep()">
+      Select Date &amp; Checkout →
+    </button>
+  </div>
+
+  <!-- ════════════ MOBILE CART DRAWER ════════════ -->
+  <div class="mob-cart-overlay" id="mobCartOverlay">
+    <div class="mob-cart-drawer">
+      <div class="mob-drawer-head">
+        <div class="mob-drawer-title">Your Cart</div>
+        <button class="btn-drawer-close" onclick="closeMobCart()">✕</button>
+      </div>
+      <div class="mob-drawer-items" id="mobDrawerItems"></div>
+      <div class="mob-drawer-foot">
+        <div class="cs-summary"><span>Delivery &amp; Pickup</span><span>$10.00</span></div>
+        <div class="cs-total-row">
+          <span class="cs-total-label">Est. Total</span>
+          <span class="cs-total-val" id="mobDrawerTotal">$0.00</span>
+        </div>
+        <button class="btn-cs-checkout" style="width:100%" onclick="openCheckoutStep()">
+          <i class="fa-regular fa-calendar"></i> Select Date &amp; Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════ DATE & CHECKOUT STEP ════════════ -->
+  <div class="checkout-step" id="checkoutStep">
+    <div class="cs2-header">
+      <button class="btn-cs2-back" onclick="closeCheckoutStep()">
+        <i class="fa-solid fa-arrow-left"></i> Back to Shop
+      </button>
+      <div class="cs2-header-brand">Red Rock Party Rentals</div>
+      <div style="width:120px;"></div>
+    </div>
+
+    <div class="cs2-body">
+      <!-- LEFT: Date picker -->
+      <div class="cs2-left">
+        <div class="cs2-step-label">Step 2 of 3</div>
+        <h2 class="cs2-title">When is your <em>event?</em></h2>
+        <p class="cs2-subtitle">We'll check real-time availability for each item in your cart for this date.</p>
+
+        <div class="big-date-row">
+          <div class="big-date-icon"><i class="fa-regular fa-calendar"></i></div>
+          <div class="big-date-inner">
+            <div class="big-date-sublabel">Event Date</div>
+            <input type="text" id="checkoutDate" class="big-date-input" placeholder="Select a date…" readonly/>
+          </div>
+        </div>
+
+        <!-- Availability results -->
+        <div class="avail-results" id="availResults"></div>
+
+        <button class="btn-confirm-checkout" id="btnConfirmCheckout" disabled onclick="confirmAndCheckout()">
+          <i class="fa-solid fa-lock"></i>
+          Confirm Date &amp; Continue →
+        </button>
+        <div class="confirm-note">
+          <i class="fa-solid fa-circle-info"></i>
+          You won't be charged until the next step
+        </div>
+      </div>
+
+      <!-- RIGHT: Order summary -->
+      <div class="cs2-right">
+        <div class="order-summary-box">
+          <div class="order-summary-title">Order Summary</div>
+          <div id="orderSummaryItems"></div>
+          <div class="order-lines">
+            <div class="order-line"><span>Subtotal</span><span id="oSubtotal">$0.00</span></div>
+            <div class="order-line"><span>Delivery &amp; Pickup</span><span>$10.00</span></div>
+          </div>
+          <div class="order-total-row">
+            <span class="order-total-label">Total</span>
+            <span class="order-total-val" id="oTotal">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <footer class="lp-footer">
+    <div class="lp-footer-brand">Red Rock Party Rentals · Las Vegas, NV</div>
+    <div class="lp-footer-links">
+      <a href="tel:7027062455"><i class="fa-solid fa-phone"></i> 702-706-2455</a>
+      <a href="mailto:booking@redrockpartyrentals.com"><i class="fa-solid fa-envelope"></i> booking@redrockpartyrentals.com</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="availabilityService.js"></script>
+  <script src="checkout.js"></script>
+
+  <script>
+  /* ═══════════════════════════════════════════════════
+     PRODUCT DATA
+  ═══════════════════════════════════════════════════ */
+  const PRODUCTS = {
+    tables: [
+      { id:"7069036000000622084", name:"6ft Tables",           desc:"White plastic 6ft table. Seats up to 8.",         price:8,   image:"https://redrockpartyrentals.com/images/table.jpg" },
+      { id:"7069036000000633191", name:"White Folding Chairs", desc:"White plastic folding chair.",                     price:1,   image:"https://redrockpartyrentals.com/images/chair3.jpg" },
+      { id:"7069036000001145028", name:"Cocktail Tables",      desc:"Black bar-height cocktail table.",                 price:15,  image:"https://redrockpartyrentals.com/images/cocktail-table.jpg" },
+    ],
+    linens: [
+      { id:"7069036000001145033", name:"White Table Cloth",        price:5,  image:"https://redrockpartyrentals.com/images/tablecloth-regular.jpg" },
+      { id:"7069036000001905019", name:"Beige Table Cloth",        price:5,  image:"https://redrockpartyrentals.com/images/table-cloth-beige.png" },
+      { id:"7069036000001905024", name:"Cream Table Cloth",        price:5,  image:"https://redrockpartyrentals.com/images/table-cloth-cream.png" },
+      { id:"7069036000001145038", name:"Fitted Table Cloth",       price:5,  image:"https://redrockpartyrentals.com/images/tablecloth-fitted.jpg" },
+      { id:"7069036000001145043", name:"Cocktail Cover (White)",   price:5,  image:"https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg" },
+      { id:"7069036000001467015", name:"Cocktail Cover (Black)",   price:5,  image:"https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg" },
+      { id:"7069036000001145048", name:"Blue Table Runner",        price:2,  image:"https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg" },
+      { id:"7069036000001145053", name:"Green Table Runner",       price:2,  image:"https://redrockpartyrentals.com/images/tablerunner-sagegreen.jpg" },
+      { id:"7069036000001467020", name:"Pink Table Runner",        price:2,  image:"https://redrockpartyrentals.com/images/tablerunner-lightpink.jpg" },
+      { id:"7069036000001467025", name:"Beige Table Runner",       price:2,  image:"https://redrockpartyrentals.com/images/tablerunner-beige.jpg" },
+      { id:"7069036000001467030", name:"Burnt Orange Runner",      price:2,  image:"https://redrockpartyrentals.com/images/tablerunner-dustyorange.jpg" },
+    ],
+    games: [
+      { id:"7069036000000633662", name:"Giant Connect 4",  price:25, image:"https://redrockpartyrentals.com/images/GiantConnect4.jpg" },
+      { id:"7069036000001145063", name:"Corn Hole Game",   price:25, image:"https://redrockpartyrentals.com/images/Cornhole.jpg" },
+      { id:"7069036000001145068", name:"Giant Jenga Game", price:25, image:"https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF" },
+      { id:"7069036000001905034", name:"Tetris Tumble",    price:25, image:"https://redrockpartyrentals.com/images/game-tetris.png" },
+    ],
+    extras: [
+      { id:"7069036000001340001", name:"Popcorn Machine",         price:75,  image:"https://assets.wfcdn.com/im/69633876/resize-h600-w600%5Ecompr-r85/2346/234694232/Nostalgia+Vintage+Professional+Popcorn+Cart+-+8-Ounce+Kettle+-+53+Inches+Tall.jpg" },
+      { id:"7069036000001145058", name:"Standing Cooler",         price:30,  image:"https://redrockpartyrentals.com/images/StandingCooler.jpg" },
+      { id:"7069036000001905029", name:"Marquee — BABY",          price:150, image:"https://redrockpartyrentals.com/images/marquee-BABY.png" },
+      { id:"7069036000001905039", name:"Marquee — GIRL",          price:150, image:"https://redrockpartyrentals.com/images/marquee-GIRL.png" },
+      { id:"7069036000001905044", name:"Marquee — BOY",           price:125, image:"https://redrockpartyrentals.com/images/marquee-BOY.png" },
+      { id:"7069036000001905049", name:"Marquee — GRAD",          price:150, image:"https://redrockpartyrentals.com/images/marquee-GRAD.png" },
+      { id:"7069036000001905054", name:"Marquee — LOVE",          price:150, image:"https://redrockpartyrentals.com/images/marquee-LOVE.png" },
+      { id:"7069036000001905059", name:"Marquee — XV",            price:100, image:"https://redrockpartyrentals.com/images/marquee-XV.png" },
+    ]
+  };
+
+  // Flat lookup
+  const ALL_PRODUCTS = {};
+  Object.values(PRODUCTS).flat().forEach(p => ALL_PRODUCTS[p.id] = p);
+
+  /* ═══════════════════════════════════════════════════
+     CART
+  ═══════════════════════════════════════════════════ */
+  const CART_KEY = 'rrpr_cart_lp2';
+
+  function getCart() { try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch { return []; } }
+  function saveCart(c) { localStorage.setItem(CART_KEY, JSON.stringify(c)); refreshAll(); }
+
+  function addToCart(id, qty) {
+    qty = qty || 1;
+    const p = ALL_PRODUCTS[id];
+    if (!p) return;
+    const cart = getCart();
+    const ex = cart.find(i => i.id === id);
+    if (ex) { ex.qty += qty; } else { cart.push({ id, name:p.name, price:p.price, image:p.image, qty }); }
+    saveCart(cart);
+    bumpBadge();
+    markInCart(id, true);
+  }
+
+  function removeFromCart(id) {
+    saveCart(getCart().filter(i => i.id !== id));
+    markInCart(id, false);
+  }
+
+  function changeQty(id, delta) {
+    const cart = getCart();
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    const next = item.qty + delta;
+    if (next < 1) { removeFromCart(id); return; }
+    item.qty = next;
+    saveCart(cart);
+  }
+
+  function setQty(id, val) {
+    const cart = getCart();
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    const qty = Math.max(1, parseInt(val) || 1);
+    item.qty = qty;
+    saveCart(cart);
+  }
+
+  const money = v => '$' + Number(v).toFixed(2).replace(/\.00$/, '');
+
+  /* ═══════════════════════════════════════════════════
+     RENDER GRIDS
+  ═══════════════════════════════════════════════════ */
+  function renderPrimary(gridId, products) {
+    const grid = document.getElementById(gridId);
+    grid.innerHTML = '';
+    products.forEach(p => {
+      const inCart = !!getCart().find(i => i.id === p.id);
+      const card = document.createElement('div');
+      card.className = 'p-card';
+      card.dataset.cardId = p.id;
+      card.innerHTML = `
+        <div class="p-img-wrap">
+          <img class="p-img" src="${p.image}" alt="${p.name}" loading="lazy"/>
+        </div>
+        <div class="p-body">
+          <div class="p-name">${p.name}</div>
+          <div class="p-desc">${p.desc || ''}</div>
+          <div class="p-footer">
+            <div>
+              <div class="p-price">${money(p.price)}</div>
+              <span class="p-price-unit">per rental</span>
+            </div>
+            <div class="p-controls">
+              <div class="qty-wrap">
+                <button class="qty-btn" onclick="changePQty('${p.id}',-1)">−</button>
+                <input class="qty-input" type="number" min="1" value="1" data-pqty="${p.id}" onchange="setPQty('${p.id}',this.value)"/>
+                <button class="qty-btn" onclick="changePQty('${p.id}',1)">+</button>
+              </div>
+              <button class="btn-add-cart ${inCart?'in-cart':''}" data-addbtn="${p.id}" onclick="addFromPrimary('${p.id}')">
+                ${inCart ? '✓ In Cart' : 'Add'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function renderUpsell(gridId, products) {
+    const grid = document.getElementById(gridId);
+    grid.innerHTML = '';
+    products.forEach(p => {
+      const inCart = !!getCart().find(i => i.id === p.id);
+      const card = document.createElement('div');
+      card.className = 'u-card';
+      card.dataset.cardId = p.id;
+      card.innerHTML = `
+        <div class="u-img-wrap">
+          <img class="u-img" src="${p.image}" alt="${p.name}" loading="lazy"/>
+        </div>
+        <div class="u-body">
+          <div class="u-name">${p.name}</div>
+          <div class="u-price">${money(p.price)}</div>
+          <button class="btn-u-add ${inCart?'in-cart':''}" data-addbtn="${p.id}" onclick="addToCart('${p.id}',1)">
+            ${inCart ? '✓ Added' : '+ Add to Cart'}
+          </button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function changePQty(id, delta) {
+    const inp = document.querySelector(`[data-pqty="${id}"]`);
+    if (!inp) return;
+    let v = Math.max(1, (parseInt(inp.value)||1) + delta);
+    inp.value = v;
+  }
+
+  function setPQty(id, val) {
+    const inp = document.querySelector(`[data-pqty="${id}"]`);
+    if (inp) inp.value = Math.max(1, parseInt(val)||1);
+  }
+
+  function addFromPrimary(id) {
+    const inp = document.querySelector(`[data-pqty="${id}"]`);
+    const qty = inp ? (parseInt(inp.value)||1) : 1;
+    addToCart(id, qty);
+    // Pulse card
+    const card = document.querySelector(`[data-card-id="${id}"]`);
+    if (card) { card.classList.add('just-added'); setTimeout(() => card.classList.remove('just-added'), 500); }
+  }
+
+  function markInCart(id, inCart) {
+    document.querySelectorAll(`[data-addbtn="${id}"]`).forEach(btn => {
+      btn.classList.toggle('in-cart', inCart);
+      if (btn.classList.contains('btn-add-cart')) btn.textContent = inCart ? '✓ In Cart' : 'Add';
+      if (btn.classList.contains('btn-u-add'))    btn.textContent = inCart ? '✓ Added'   : '+ Add to Cart';
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════
+     SIDEBAR CART RENDER
+  ═══════════════════════════════════════════════════ */
+  function renderSidebar() {
+    const cart = getCart();
+    const container = document.getElementById('csItems');
+    const subEl = document.getElementById('csTotal');
+    const subTitle = document.getElementById('csSub');
+    const btn = document.getElementById('btnCsCheckout');
+
+    let subtotal = 0;
+    container.innerHTML = '';
+
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="cs-empty">
+          <span class="cs-empty-icon">🛒</span>
+          <div class="cs-empty-title">Your cart is empty</div>
+          <div class="cs-empty-arrows">
+            <div class="cs-empty-arrow"><i class="fa-solid fa-arrow-left"></i> Add tables &amp; chairs first</div>
+            <div class="cs-empty-arrow"><i class="fa-solid fa-arrow-left"></i> Then add linens or games</div>
+          </div>
+        </div>`;
+    } else {
+      cart.forEach(item => {
+        const line = item.price * item.qty;
+        subtotal += line;
+        const row = document.createElement('div');
+        row.className = 'ci';
+        row.innerHTML = `
+          <img class="ci-img" src="${item.image}" alt="${item.name}"/>
+          <div class="ci-info">
+            <div class="ci-name">${item.name}</div>
+            <div class="ci-price">${money(item.price)} each</div>
+            <div class="ci-bottom">
+              <div class="ci-qty">
+                <button class="ci-qty-btn" onclick="changeQty('${item.id}',-1)">−</button>
+                <input class="ci-qty-val" type="number" min="1" value="${item.qty}"
+                  onblur="setQty('${item.id}',this.value)"
+                  onkeydown="if(event.key==='Enter')this.blur()"/>
+                <button class="ci-qty-btn" onclick="changeQty('${item.id}',1)">+</button>
+              </div>
+              <span class="ci-total">${money(line)}</span>
+              <button class="ci-del" onclick="removeFromCart('${item.id}')"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    const total = subtotal + 10;
+    subEl.textContent = money(total);
+    subTitle.textContent = cart.length === 0 ? 'Add items to get started' : `${cart.reduce((s,i)=>s+i.qty,0)} item${cart.reduce((s,i)=>s+i.qty,0)===1?'':'s'} · Delivery included`;
+
+    const hasItems = cart.length > 0;
+    btn.disabled = !hasItems;
+    btn.classList.toggle('off', !hasItems);
+
+    // Step indicator
+    document.getElementById('stepNum1').className = `step-num ${hasItems ? 'done' : 'active'}`;
+    document.getElementById('stepNum2').className = `step-num ${hasItems ? 'active' : 'inactive'}`;
+  }
+
+  function renderMobDrawer() {
+    const cart = getCart();
+    const container = document.getElementById('mobDrawerItems');
+    const totEl = document.getElementById('mobDrawerTotal');
+    container.innerHTML = '';
+    let subtotal = 0;
+    cart.forEach(item => {
+      const line = item.price * item.qty;
+      subtotal += line;
+      const row = document.createElement('div');
+      row.className = 'ci';
+      row.style.cssText = 'background:#fff;padding:12px;margin-bottom:8px;border-bottom:none;';
+      row.innerHTML = `
+        <img class="ci-img" src="${item.image}" alt="${item.name}"/>
+        <div class="ci-info">
+          <div class="ci-name">${item.name}</div>
+          <div class="ci-price">${money(item.price)} each</div>
+          <div class="ci-bottom">
+            <div class="ci-qty">
+              <button class="ci-qty-btn" onclick="changeQty('${item.id}',-1)">−</button>
+              <input class="ci-qty-val" type="number" min="1" value="${item.qty}"
+                onblur="setQty('${item.id}',this.value)"
+                onkeydown="if(event.key==='Enter')this.blur()"/>
+              <button class="ci-qty-btn" onclick="changeQty('${item.id}',1)">+</button>
+            </div>
+            <span class="ci-total">${money(line)}</span>
+            <button class="ci-del" onclick="removeFromCart('${item.id}')"><i class="fa-regular fa-trash-can"></i></button>
+          </div>
+        </div>
+      `;
+      container.appendChild(row);
+    });
+    totEl.textContent = money(subtotal + 10);
+  }
+
+  function updateMobBar() {
+    const cart = getCart();
+    const totalItems = cart.reduce((s,i) => s+i.qty, 0);
+    const subtotal = cart.reduce((s,i) => s+i.price*i.qty, 0);
+    document.getElementById('mobCount').textContent = `${totalItems} item${totalItems===1?'':'s'}`;
+    document.getElementById('mobTotal').textContent = money(subtotal + 10);
+    const btn = document.getElementById('btnMobCheckout');
+    btn.disabled = cart.length === 0;
+    // Show/hide bar
+    document.getElementById('mobCartBar').style.display = totalItems > 0 ? 'flex' : 'none';
+  }
+
+  function updateNavBadge() {
+    const cart = getCart();
+    const count = cart.reduce((s,i) => s+i.qty, 0);
+    const badge = document.getElementById('navCount');
+    badge.textContent = count;
+    badge.style.display = count > 0 ? 'flex' : 'none';
+  }
+
+  function bumpBadge() {
+    const badge = document.getElementById('navCount');
+    badge.classList.remove('bump');
+    void badge.offsetWidth;
+    badge.classList.add('bump');
+    setTimeout(() => badge.classList.remove('bump'), 400);
+  }
+
+  function refreshAll() {
+    renderSidebar();
+    renderMobDrawer();
+    updateMobBar();
+    updateNavBadge();
+  }
+
+  /* ═══════════════════════════════════════════════════
+     MOBILE CART
+  ═══════════════════════════════════════════════════ */
+  window.openMobCart = function() {
+    renderMobDrawer();
+    document.getElementById('mobCartOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeMobCart = function() {
+    document.getElementById('mobCartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  document.getElementById('mobCartOverlay').addEventListener('click', e => {
+    if (e.target.id === 'mobCartOverlay') closeMobCart();
+  });
+
+  /* ═══════════════════════════════════════════════════
+     CHECKOUT STEP (Date selection)
+  ═══════════════════════════════════════════════════ */
+  const AVAIL_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwiQbTdtwT0VtIIxGVDnu1IP9q6JXnL6zIhWe7wsnM2O9laf4OProuyfzi9PafriDEoUw/exec?action=availability';
+
+  let selectedDateISO = null;
+  let availabilityData = {};
+
+  window.openCheckoutStep = function() {
+    closeMobCart();
+    renderOrderSummary();
+    document.getElementById('checkoutStep').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('stepNum2').className = 'step-num active';
+    document.getElementById('stepNum3').className = 'step-num inactive';
+  };
+
+  window.closeCheckoutStep = function() {
+    document.getElementById('checkoutStep').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  function renderOrderSummary() {
+    const cart = getCart();
+    const container = document.getElementById('orderSummaryItems');
+    container.innerHTML = '';
+    let subtotal = 0;
+    cart.forEach(item => {
+      const line = item.price * item.qty;
+      subtotal += line;
+      const row = document.createElement('div');
+      row.className = 'order-item';
+      row.innerHTML = `
+        <img src="${item.image}" alt="${item.name}"/>
+        <div class="order-item-info">
+          <div class="order-item-name">${item.name}</div>
+          <div class="order-item-qty">Qty: ${item.qty}</div>
+        </div>
+        <div class="order-item-price">${money(line)}</div>
+      `;
+      container.appendChild(row);
+    });
+    document.getElementById('oSubtotal').textContent = money(subtotal);
+    document.getElementById('oTotal').textContent = money(subtotal + 10);
+  }
+
+  /* Date picker in checkout step */
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  flatpickr('#checkoutDate', {
+    disableMobile: true,
+    dateFormat: 'm/d/Y',
+    minDate: tomorrow,
+    onChange: async function(dates, dateStr) {
+      if (!dateStr) return;
+      const [m, d, y] = dateStr.split('/');
+      selectedDateISO = `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+      await checkAvailability(selectedDateISO);
+    }
+  });
+
+  async function checkAvailability(dateISO) {
+    const resultsEl = document.getElementById('availResults');
+    const confirmBtn = document.getElementById('btnConfirmCheckout');
+
+    resultsEl.innerHTML = `
+      <div class="avail-checking">
+        <div class="spinner"></div>
+        Checking availability for your cart items…
+      </div>`;
+    resultsEl.classList.add('visible');
+    confirmBtn.disabled = true;
+
+    try {
+      const endISO = (() => { const d = new Date(dateISO); d.setDate(d.getDate()+1); return d.toISOString().split('T')[0]; })();
+      const res = await fetch(`${AVAIL_ENDPOINT}&start_date=${dateISO}&end_date=${endISO}`);
+      const data = await res.json();
+
+      availabilityData = {};
+      if (data.success && data.items) {
+        data.items.forEach(item => { availabilityData[item.product_id] = item; });
+      }
+    } catch(e) {
+      console.warn('Availability check failed', e);
+    }
+
+    renderAvailResults();
+  }
+
+  function renderAvailResults() {
+    const cart = getCart();
+    const resultsEl = document.getElementById('availResults');
+    const confirmBtn = document.getElementById('btnConfirmCheckout');
+
+    resultsEl.innerHTML = '';
+    let allGood = true;
+
+    cart.forEach(item => {
+      const avail = availabilityData[item.id];
+      let status, label, cls;
+
+      if (!avail) {
+        // API didn't return this item - assume available
+        status = 'ok'; label = 'Available'; cls = 'ok';
+      } else if (avail.available_qty === 0) {
+        status = 'none'; label = 'Unavailable on this date'; cls = 'none'; allGood = false;
+      } else if (avail.available_qty < item.qty) {
+        status = 'warn'; label = `Only ${avail.available_qty} available`; cls = 'warn'; allGood = false;
+      } else {
+        status = 'ok'; label = `${avail.available_qty} available`; cls = 'ok';
+      }
+
+      const row = document.createElement('div');
+      row.className = 'avail-item';
+      row.innerHTML = `
+        <img src="${item.image}" alt="${item.name}"/>
+        <span class="avail-item-name">${item.name} ×${item.qty}</span>
+        <span class="avail-badge ${cls}">${label}</span>
+      `;
+      resultsEl.appendChild(row);
+    });
+
+    resultsEl.classList.add('visible');
+    confirmBtn.disabled = !allGood;
+
+    if (!allGood) {
+      // Add a note about adjusting quantities
+      const note = document.createElement('div');
+      note.style.cssText = 'font-size:13px;color:var(--amber);background:var(--amber-p);padding:12px 14px;border:1px solid #e8d09a;display:flex;align-items:center;gap:8px;';
+      note.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> Some items have limited availability. Go back and adjust quantities to continue.`;
+      resultsEl.appendChild(note);
+    }
+
+    // Update step indicators
+    document.getElementById('stepNum2').className = `step-num ${allGood ? 'done' : 'active'}`;
+    document.getElementById('stepNum3').className = `step-num ${allGood ? 'active' : 'inactive'}`;
+  }
+
+  window.confirmAndCheckout = function() {
+    if (!selectedDateISO) return;
+
+    // Store date in AvailabilityService for checkout page
+    if (window.AvailabilityService) {
+      window.AvailabilityService.setRentalDates(selectedDateISO);
+    } else {
+      // Fallback: store directly
+      const endDate = (() => { const d = new Date(selectedDateISO); d.setDate(d.getDate()+1); return d.toISOString().split('T')[0]; })();
+      localStorage.setItem('rrpr_availability_state', JSON.stringify({
+        start_date: selectedDateISO,
+        end_date: endDate,
+        event_date: selectedDateISO,
+      }));
+      localStorage.setItem('rrpr_event_date', JSON.stringify(selectedDateISO));
+    }
+
+    // Transfer cart to main cart key for checkout.js compatibility
+    const lpCart = getCart();
+    const mainCart = lpCart.map(item => ({
+      id: item.id,
+      product_id: item.id,
+      name: item.name,
+      price: item.price,
+      image: item.image,
+      qty: item.qty,
+      availableQty: availabilityData[item.id]?.available_qty || 999
+    }));
+    localStorage.setItem('rrpr_cart', JSON.stringify(mainCart));
+
+    window.location.href = '/checkout';
+  };
+
+  /* ═══════════════════════════════════════════════════
+     CATEGORY TAB SCROLL
+  ═══════════════════════════════════════════════════ */
+  document.querySelectorAll('.cat-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = document.getElementById(tab.dataset.target);
+      if (target) {
+        const offset = 64 + 52; // nav + tabs
+        const y = target.getBoundingClientRect().top + window.pageYOffset - offset - 12;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Update active tab on scroll
+  const sections = ['sec-tables','sec-linens','sec-games','sec-extras'];
+  const tabMap = { 'sec-tables':'Tables & Chairs', 'sec-linens':'Table Linens', 'sec-games':'Lawn Games', 'sec-extras':'Party Extras' };
+
+  function updateActiveTab() {
+    const scrollY = window.pageYOffset + 120;
+    let active = sections[0];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top + window.pageYOffset <= scrollY) active = id;
+    });
+    document.querySelectorAll('.cat-tab').forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.target === active);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveTab, { passive: true });
+
+  /* ═══════════════════════════════════════════════════
+     SCROLL REVEALS
+  ═══════════════════════════════════════════════════ */
+  const revealIO = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+
+  /* ═══════════════════════════════════════════════════
+     INIT
+  ═══════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', () => {
+    renderPrimary('grid-tables', PRODUCTS.tables);
+    renderUpsell('grid-linens', PRODUCTS.linens);
+    renderUpsell('grid-games', PRODUCTS.games);
+    renderUpsell('grid-extras', PRODUCTS.extras);
+    refreshAll();
+
+    document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+
+    // Hide mobile bar initially
+    document.getElementById('mobCartBar').style.display = 'none';
+    // Hide nav badge initially
+    document.getElementById('navCount').style.display = 'none';
+  });
+  </script>
+</body>
+</html>
