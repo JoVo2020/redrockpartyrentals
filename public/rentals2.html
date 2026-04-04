@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rentals | Red Rock Party Rentals</title>
+
+  <!-- External CSS — preserved for JS compatibility -->
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="accordion.css"/>
+  <link rel="stylesheet" href="cart.css"/>
+  <link rel="stylesheet" href="book-now-component.css"/>
+
+  <!-- Fonts matching the landing page exactly -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── DESIGN TOKENS — exact match to landing page ── */
+    :root {
+      --crimson:      #8b0000;
+      --crimson-light:#a01010;
+      --crimson-pale: #f9f0f0;
+      --ink:          #1a1210;
+      --muted:        #6b6460;
+      --border:       #e8e0da;
+      --warm-white:   #fdfaf8;
+      --gold:         #c9a96e;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--warm-white);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════
+       NAV — static, not sticky
+    ══════════════════════════════ */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 34px; width: 34px; object-fit: contain; }
+
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links-list {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links-list a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 14px;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links-list a:hover,
+    .nav-links-list a.active { color: var(--ink); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-phone {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-phone:hover { color: var(--crimson); }
+
+    /* Cart button in nav */
+    .nav-cart-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1px solid var(--border);
+      padding: 9px 18px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: border-color 0.2s, color 0.2s;
+      position: relative;
+    }
+
+    .nav-cart-btn:hover { border-color: var(--crimson); color: var(--crimson); }
+
+    .nav-cart-badge {
+      position: absolute;
+      top: -7px; right: -7px;
+      background: var(--crimson);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 9px;
+      padding: 0 4px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-cart-badge.show {
+      display: flex;
+      animation: badgePop 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    @keyframes badgePop { from { transform: scale(0); } to { transform: scale(1); } }
+
+    /* Mobile menu toggle */
+    .nav-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .nav { padding: 16px 24px; }
+      .nav-links-list { display: none; }
+      .nav-phone { display: none; }
+      .nav-menu-toggle { display: block; }
+    }
+
+    /* ══════════════════════════════
+       HERO — split layout
+    ══════════════════════════════ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 72vh;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.1s forwards;
+    }
+
+    .eyebrow-line { width: 36px; height: 1px; background: var(--gold); }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(46px, 5vw, 76px);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--ink);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s forwards;
+    }
+
+    .hero-h1 em { font-style: italic; color: var(--crimson); }
+
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 380px;
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s forwards;
+    }
+
+    /* Category jump links */
+    .cat-jumps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.4s forwards;
+    }
+
+    .cat-jump {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--border);
+      padding: 9px 16px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .cat-jump:hover {
+      border-color: var(--crimson);
+      color: var(--crimson);
+      background: var(--crimson-pale);
+    }
+
+    .cat-jump i { font-size: 11px; }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: #f0ebe6;
+    }
+
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      animation: fadeIn 1.1s 0.2s forwards;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { height: 280px; order: -1; }
+      .hero-left { padding: 52px 24px 48px; }
+      .hero-sub { max-width: 100%; }
+    }
+
+    /* ══════════════════════════════
+       TRUST BAR — same as landing page
+    ══════════════════════════════ */
+    .trust-bar {
+      background: var(--ink);
+      padding: 20px 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.65);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .trust-item i { color: var(--gold); font-size: 14px; }
+
+    @media (max-width: 680px) {
+      .trust-bar { padding: 18px 20px; gap: 18px; }
+      .trust-item { font-size: 12px; }
+    }
+
+    /* ══════════════════════════════
+       SECTION SHELL
+    ══════════════════════════════ */
+    .rentals-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 60px 100px;
+    }
+
+    .rentals-section-head {
+      margin-bottom: 52px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3vw, 46px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .section-title em { font-style: italic; color: var(--crimson); }
+
+    @media (max-width: 680px) {
+      .rentals-section { padding: 56px 20px 80px; }
+    }
+
+    /* ══════════════════════════════
+       ACCORDION — styled to match
+    ══════════════════════════════ */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      /* Override accordion.css padding */
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .accordion-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .accordion-item.open {
+      border-color: #cfc6bc;
+      box-shadow: 0 2px 20px rgba(26,18,16,0.05);
+    }
+
+    .accordion-header {
+      width: 100%;
+      padding: 20px 26px !important;
+      font-family: var(--font-display) !important;
+      font-size: 22px !important;
+      font-weight: 400 !important;
+      color: var(--ink) !important;
+      -webkit-text-fill-color: var(--ink) !important;
+      background: #fff !important;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid transparent;
+      transition: background 0.15s;
+    }
+
+    .accordion-item.open .accordion-header {
+      background: var(--warm-white) !important;
+      border-bottom-color: var(--border);
+    }
+
+    .accordion-header:hover { background: var(--warm-white) !important; }
+
+    .accordion-icon {
+      width: 28px !important;
+      height: 28px !important;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px !important;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform 0.3s ease, border-color 0.2s, color 0.2s !important;
+    }
+
+    .accordion-item.open .accordion-icon {
+      transform: rotate(45deg);
+      border-color: var(--crimson);
+      color: var(--crimson);
+    }
+
+    .accordion-content {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .accordion-item.open .accordion-content { max-height: 6000px; }
+
+    /* ══════════════════════════════
+       INVENTORY GRID — cards
+    ══════════════════════════════ */
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 2px;
+      padding: 20px;
+      background: var(--warm-white);
+    }
+
+    /* Each card */
+    .item.inventory-item {
+      background: #fff;
+      border: none;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .item.inventory-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(26,18,16,0.08);
+    }
+
+    .item.inventory-item:hover img { transform: scale(1.04); }
+
+    /* Link wrapper */
+    .item.inventory-item a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+    }
+
+    /* Image */
+    .item.inventory-item img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    /* Name + price text */
+    .item.inventory-item p {
+      font-family: var(--font-display);
+      font-size: 18px !important;
+      font-weight: 400;
+      color: var(--ink);
+      padding: 12px 14px 8px;
+      line-height: 1.25;
+    }
+
+    /* Add to cart button */
+    .rr-btn-addToCart {
+      background: var(--crimson) !important;
+      color: #fff !important;
+      border: none !important;
+      padding: 11px 14px !important;
+      font-family: var(--font-body) !important;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.09em !important;
+      text-transform: uppercase !important;
+      width: 100% !important;
+      cursor: pointer !important;
+      margin-top: auto !important;
+      transition: background 0.2s !important;
+      border-radius: 0 !important;
+      display: block;
+    }
+
+    .rr-btn-addToCart:hover { background: var(--crimson-light) !important; }
+
+    /* ══════════════════════════════
+       CONTACT / BOOK SECTION
+    ══════════════════════════════ */
+    .book-section {
+      background: var(--ink);
+      padding: 80px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .book-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .book-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3vw, 50px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .book-title em { font-style: italic; color: var(--gold); }
+
+    .book-desc {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .book-ctas {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-book-primary {
+      background: var(--crimson);
+      color: #fff;
+      border: none;
+      padding: 17px 32px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s;
+      width: fit-content;
+    }
+
+    .btn-book-primary:hover { background: var(--crimson-light); }
+
+    .book-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .book-contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .book-contact-link i { color: var(--gold); font-size: 13px; width: 16px; text-align: center; }
+    .book-contact-link:hover { color: rgba(255,255,255,0.85); }
+
+    /* Right side of book section */
+    .book-right {}
+
+    .book-right-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .book-date-input {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 14px 18px;
+      gap: 12px;
+      margin-bottom: 10px;
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+
+    .book-date-input:focus-within { border-color: var(--gold); }
+
+    .book-date-input i { color: rgba(255,255,255,0.4); font-size: 14px; flex-shrink: 0; }
+
+    .book-date-input input {
+      border: none;
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: #fff;
+      -webkit-text-fill-color: #fff;
+      outline: none;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .book-date-input input::placeholder { color: rgba(255,255,255,0.3); -webkit-text-fill-color: rgba(255,255,255,0.3); }
+
+    .btn-book-date {
+      width: 100%;
+      background: var(--gold);
+      color: var(--ink);
+      border: none;
+      padding: 17px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .btn-book-date:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .book-date-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .book-section {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 64px 24px;
+      }
+    }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    .footer {
+      background: #0f0b0a;
+      padding: 26px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.28); }
+
+    @media (max-width: 680px) {
+      .footer { padding: 22px 24px; flex-direction: column; text-align: center; }
+    }
+
+    /* ══════════════════════════════
+       CART PANEL — slides in from right, no sticky
+    ══════════════════════════════ */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,18,16,0.45);
+      z-index: 9000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Override cart.css fullscreen panel */
+    .cart-panel--fullscreen {
+      position: fixed !important;
+      top: 0 !important;
+      right: -100% !important;
+      left: auto !important;
+      width: min(460px, 100vw) !important;
+      height: 100vh !important;
+      transition: right 0.38s cubic-bezier(0.4,0,0.2,1) !important;
+      border-left: 1px solid var(--border);
+      box-shadow: -6px 0 40px rgba(0,0,0,0.12);
+    }
+
+    .cart-overlay.open .cart-panel--fullscreen { right: 0 !important; }
+
+    .cart-header {
+      padding: 18px 24px !important;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-header h2 {
+      font-family: var(--font-display) !important;
+      font-size: 24px !important;
+      font-weight: 400 !important;
+      color: var(--ink) !important;
+    }
+
+    .cart-back, .cart-close {
+      font-size: 18px !important;
+      color: var(--muted) !important;
+      -webkit-text-fill-color: var(--muted) !important;
+    }
+
+    /* Cart date row */
+    #cart-panel-booking-form .form-section { background: transparent !important; }
+
+    #cart-panel-booking-form .form-container {
+      background: var(--warm-white) !important;
+      border-bottom: 1px solid var(--border) !important;
+      padding: 14px 20px !important;
+      gap: 0 !important;
+    }
+
+    #cart-panel-booking-form .dropdown-wrapper {
+      border: 1px solid var(--border) !important;
+      background: #fff !important;
+      padding: 11px 14px !important;
+      box-shadow: none !important;
+    }
+
+    /* Checkout button */
+    .checkout-btn {
+      background: var(--crimson) !important;
+      border-radius: 0 !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.08em !important;
+      transition: background 0.2s !important;
+    }
+
+    .checkout-btn:hover { background: var(--crimson-light) !important; }
+
+    .checkout-btn:disabled, .checkout-btn.disabled {
+      background: var(--border) !important;
+      color: var(--muted) !important;
+    }
+
+    .back-btn {
+      background: #fff !important;
+      color: var(--ink) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 0 !important;
+      font-size: 13px !important;
+      transition: background 0.15s !important;
+    }
+
+    .back-btn:hover { background: var(--warm-white) !important; }
+
+    /* ══════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════
+       FLATPICKR
+    ══════════════════════════════ */
+    .flatpickr-input {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      font-family: var(--font-body) !important;
+      font-size: 15px !important;
+      color: var(--ink) !important;
+      -webkit-text-fill-color: var(--ink) !important;
+      width: 100% !important;
+      cursor: pointer !important;
+    }
+
+    .flatpickr-day.selected { background: var(--crimson) !important; border-color: var(--crimson) !important; }
+    .flatpickr-day:hover { background: var(--crimson-pale) !important; }
+    .flatpickr-day.flatpickr-disabled { color: #ddd !important; }
+  </style>
+</head>
+
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ══ NAV — static, not sticky ══ -->
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="images/logo.png" alt="Red Rock Logo"/>
+      <span class="nav-logo-text">Red Rock Party Rentals</span>
+    </a>
+    <ul class="nav-links-list" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rentals.html" class="active">Rentals</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:7027062455">702-706-2455</a>
+      <button class="nav-cart-btn" id="navCartBtn" onclick="openCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Cart
+        <span class="nav-cart-badge" id="navBadge">0</span>
+      </button>
+      <button class="nav-menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Las Vegas Party Rentals</span>
+      </div>
+
+      <h1 class="hero-h1">
+        Everything<br>
+        You Need to<br>
+        <em>Celebrate</em>
+      </h1>
+
+      <p class="hero-sub">
+        Tables, chairs, linens, games, marquee letters, and more.
+        Browse our full inventory and add items directly to your cart.
+      </p>
+
+      <!-- Category jump links -->
+      <div class="cat-jumps">
+        <a class="cat-jump" href="#cat-tables">
+          <i class="fa-solid fa-chair"></i> Tables &amp; Chairs
+        </a>
+        <a class="cat-jump" href="#cat-linens">
+          <i class="fa-solid fa-sheet-plastic"></i> Linens
+        </a>
+        <a class="cat-jump" href="#cat-games">
+          <i class="fa-solid fa-dice"></i> Games
+        </a>
+        <a class="cat-jump" href="#cat-marquee">
+          <i class="fa-solid fa-star"></i> Marquee Letters
+        </a>
+        <a class="cat-jump" href="#cat-essentials">
+          <i class="fa-solid fa-gift"></i> Party Essentials
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img
+        class="hero-img"
+        src="images/fancy-backyard-dinner.png"
+        alt="Elegant outdoor event with tables and chairs"
+      />
+    </div>
+  </section>
+
+  <!-- ══ TRUST BAR ══ -->
+  <div class="trust-bar">
+    <div class="trust-item"><i class="fa-solid fa-truck"></i> Delivery &amp; Pickup Included</div>
+    <div class="trust-item"><i class="fa-solid fa-star"></i> 5-Star Rated on Google</div>
+    <div class="trust-item"><i class="fa-solid fa-location-dot"></i> Serving Greater Las Vegas</div>
+    <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> No Hidden Fees</div>
+  </div>
+
+  <!-- ══ RENTALS ACCORDION ══ -->
+  <div class="rentals-section">
+    <div class="rentals-section-head reveal">
+      <div class="section-eyebrow">Full Inventory</div>
+      <h2 class="section-title">Browse <em>All Rentals</em></h2>
+    </div>
+
+    <!-- Accordion — all data-category and JS hooks preserved exactly -->
+    <div class="accordion" id="inventoryAccordion">
+
+      <div class="accordion-item" id="cat-tables" data-category="tablesandchairs">
+        <button class="accordion-header">
+          Tables &amp; Chairs
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="rental-items inventory-grid">
+            <div class="rental-items inventory-grid" data-category="Tables And Chairs"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="cat-linens" data-category="tablecovers">
+        <button class="accordion-header">
+          Table Covers
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="rental-items inventory-grid">
+            <div class="rental-items inventory-grid" data-category="Table Covers"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-category="tablerunners">
+        <button class="accordion-header">
+          Table Runners
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="rental-items inventory-grid">
+            <div class="rental-items inventory-grid" data-category="Table Runners"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="cat-games" data-category="games">
+        <button class="accordion-header">
+          Games
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="rental-items inventory-grid">
+            <div class="rental-items inventory-grid" data-category="Games"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="cat-marquee" data-category="Marquee Letters">
+        <button class="accordion-header">
+          Marquee Letters
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="rental-items inventory-grid">
+            <div class="rental-items inventory-grid" data-category="Marquee Letters"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" id="cat-essentials" data-category="addons">
+        <button class="accordion-header">
+          Party Essentials
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <div class="rental-items inventory-grid">
+            <div class="rental-items inventory-grid" data-category="Other"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ BOOK / CONTACT SECTION ══ -->
+  <section class="book-section reveal">
+    <div class="book-left">
+      <div class="book-eyebrow">Ready to Book?</div>
+      <h2 class="book-title">
+        Your Perfect Event<br>
+        <em>Starts Here</em>
+      </h2>
+      <p class="book-desc">
+        Add items to your cart and check out online, or reach out directly —
+        we're happy to help you put together the perfect setup.
+      </p>
+
+      <div class="book-ctas">
+        <a class="btn-book-primary" href="book.html">
+          Book Online <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i>
+        </a>
+      </div>
+
+      <div class="book-contacts">
+        <a class="book-contact-link" href="mailto:booking@redrockpartyrentals.com">
+          <i class="fa-solid fa-envelope"></i>
+          booking@redrockpartyrentals.com
+        </a>
+        <a class="book-contact-link" href="tel:7027062455">
+          <i class="fa-solid fa-phone"></i>
+          702-706-2455
+        </a>
+      </div>
+    </div>
+
+    <div class="book-right">
+      <div class="book-right-label">Check Availability</div>
+      <div class="book-date-input" id="book-date-wrap">
+        <i class="fa-regular fa-calendar"></i>
+        <input type="text" id="dateStart" placeholder="Select your event date" readonly/>
+      </div>
+      <button class="btn-book-date" id="btnBookDate">
+        See Available Rentals →
+      </button>
+      <div class="book-date-note">No commitment required to check availability</div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <div class="footer-brand">Red Rock Party Rentals</div>
+    <div class="footer-copy">© 2025 Red Rock Party Rentals · Las Vegas, NV</div>
+  </footer>
+
+  <!-- ══ CART OVERLAY — panel slides from right ══ -->
+  <div id="cartOverlay" class="cart-overlay">
+    <div class="cart-panel cart-panel--fullscreen">
+
+      <header class="cart-header">
+        <button class="cart-back" onclick="closeCart()" style="font-size:22px;">←</button>
+        <h2 style="margin-bottom:0;">Your Cart</h2>
+        <button class="cart-close" onclick="closeCart()">✕</button>
+      </header>
+
+      <section class="booking-form" style="margin:0;padding:0;">
+        <div id="cart-panel-booking-form" class="form-section"
+             style="background-color:transparent;padding:0;max-width:100%;">
+          <form class="form-container" style="display:flex;flex-wrap:wrap;gap:0;">
+            <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+              <div class="dropdown-icon-calendar"></div>
+              <div class="dropdown-divider"></div>
+              <input type="text" id="dateStart2" placeholder="Select Event Date" required>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div style="background:var(--warm-white);">
+        <div id="CheckingAvailabilityNote" class="checking-availability-message"
+             style="display:none;padding:12px 20px;font-size:14px;">
+          Checking availability…
+        </div>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <footer class="cart-footer" style="border-top:1px solid var(--border);">
+        <div class="cart-summary">
+          <div class="cart-line">
+            <span>Delivery</span>
+            <strong id="cartSubtotal">$10.00</strong>
+          </div>
+          <div class="cart-line total">
+            <span>Total</span>
+            <strong id="cartTotal">$0.00</strong>
+          </div>
+        </div>
+        <div class="button-row" style="display:flex;gap:10px;">
+          <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+          <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- ══ SCRIPTS — same order as original ══ -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="product_data.js"></script>
+  <script src="navbar-scroll.js"></script>
+  <script src="accordion.js"></script>
+  <script src="availabilityService.js"></script>
+  <script src="cart.js"></script>
+  <script src="book-now-component.js"></script>
+  <script src="checkout.js"></script>
+
+  <script>
+    /* ── Render product grid from product_data.js ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      const money = v => '$' + Number(v).toFixed(0);
+      const grids = document.querySelectorAll('.inventory-grid[data-category]');
+
+      grids.forEach(grid => {
+        const cat = grid.getAttribute('data-category');
+        const items = window.PRODUCT_DATA.filter(p => p['Category'] === cat);
+
+        items.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'item inventory-item';
+          card.innerHTML = `
+            <a href="product?id=${item.Product_ID}">
+              <img src="${item.Image}" alt="${item['Item Name']}" loading="lazy"/>
+              <p>${item['Item Name']} — ${money(item['Rental Price'])}</p>
+            </a>
+            <button class="rr-btn-addToCart">Add to Cart</button>
+          `;
+
+          card.querySelector('button').onclick = () => {
+            addToCart({
+              id: item.Product_ID,
+              product_id: item.Product_ID,
+              name: item['Item Name'],
+              price: item['Rental Price'],
+              image: item.Image,
+              availableQty: item['Quantity Available']
+            });
+          };
+
+          grid.appendChild(card);
+        });
+      });
+
+      /* Auto-open Tables & Chairs */
+      const firstItem = document.querySelector('.accordion-item[data-category="tablesandchairs"]');
+      if (firstItem) firstItem.classList.add('open');
+    });
+
+    /* ── Cart badge updater ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      function updateBadge() {
+        const cart = JSON.parse(localStorage.getItem('rrpr_cart') || '[]');
+        const count = cart.reduce((s, i) => s + (i.qty || 1), 0);
+        const badge = document.getElementById('navBadge');
+        if (!badge) return;
+        badge.textContent = count;
+        count > 0 ? badge.classList.add('show') : badge.classList.remove('show');
+      }
+
+      updateBadge();
+      // Re-check whenever storage changes (e.g. after addToCart)
+      window.addEventListener('storage', updateBadge);
+      // Poll lightly since addToCart doesn't dispatch storage event in same tab
+      setInterval(updateBadge, 800);
+    });
+
+    /* ── Date picker for book section ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      flatpickr('#dateStart', {
+        disableMobile: true,
+        dateFormat: 'm/d/Y',
+        minDate: tomorrow
+      });
+
+      document.getElementById('btnBookDate').addEventListener('click', () => {
+        const val = document.getElementById('dateStart').value;
+        if (!val) { alert('Please select your event date first.'); return; }
+        const [m, d, y] = val.split('/');
+        window.location.href = `/book?date=${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+      });
+
+      /* Prefill if date already in service */
+      const dates = window.AvailabilityService?.getRentalDates?.();
+      if (dates?.start) {
+        const [y, m, d] = dates.start.split('-');
+        document.getElementById('dateStart').value = `${m}/${d}/${y}`;
+      }
+    });
+
+    /* ── Scroll reveal ── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    });
+
+    /* ── Cart open/close (complements cart.js) ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('cartOverlay')?.addEventListener('click', e => {
+        if (e.target.id === 'cartOverlay') closeCart();
+      });
+    });
+  </script>
+</body>
+</html>
