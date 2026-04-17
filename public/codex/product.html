@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+	<!-- End Google Tag Manager -->
+	
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Red Rock Party Rentals</title>
+	
+	<!-- style sheets -->
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="book-now-component.css" />
+	<link rel="stylesheet" href="accordion.css" />
+	<link rel="stylesheet" href="cart.css" />
+	<link rel="stylesheet" href="product.css" />
+
+	
+	<!-- Lora font for all text -->
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+	
+	<!-- datepicker -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	
+	<!-- font awesome cart icon -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+	<!-- web icons -->
+	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
+	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+	
+
+ 
+</head>
+
+<body>
+
+	<header>
+	  <nav class="navbar" id="navbar" style="position:static;">
+		<div class="logo">
+			<a href="index.html" >
+				<img src="images/logo.png" alt="Red Rock Logo" />
+				<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+			</a>
+		</div>
+		<div style="display:flex;">
+			<button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+			  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+			</button>
+			<button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
+		</div>
+		<ul class="nav-links" id="nav-links">
+		  <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
+		  <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
+		  <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
+		  <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+		  <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+			  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+		  </button>
+		</ul>
+	  </nav>
+	</header>
+
+
+	<section class="booking-form" style="margin:0 auto 20px auto;max-width:850px;">
+	  <div class="form-section" style="background-color:#eee;padding:15px;">
+		<div class="form-container" style="display:flex;flex-wrap:wrap;gap:1rem;">
+		  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+			<div class="dropdown-icon-calendar"></div>
+			<div class="dropdown-divider"></div>
+			<input type="text" id="dateStartProduct" placeholder="Select Event Date">
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+	<div id="inventoryLoadingProductPage" class="checking-availability-message" style="display:none;">
+	  Checking availability…
+	</div>
+	
+	<div class="breadcrumb" id="breadcrumb"></div>
+	
+
+	<div class="product-wrapper">
+	  <div class="product-image">
+		<img id="productImage"/>
+	  </div>
+
+	  <div>
+		<div class="product-title" id="productName"></div>
+		<div class="product-price" id="productPrice"></div>
+		
+		<div style="margin-top:5px; margin-bottom:20px; font-size:18px; color:#505050;">
+		  <div id="productDescription"></div>
+		</div>	
+		
+		<div id="availabilityBadge" class="availability-badge badge-neutral" style="display:none;"></div>
+
+		
+		<div style="display:flex;gap:5px;">	
+			<div class="cart-qty">
+			  <button id="qtyMinus">−</button>
+
+			  <input
+				id="qtyInput"
+				type="number"
+				min="1"
+				step="1"
+				value="1"
+				class="cart-qty-input"
+				onkeydown="if (event.key === 'Enter') this.blur()"
+			  />
+
+			  <button id="qtyPlus">+</button>
+			</div>
+				
+			
+
+			<button class="btn-primary" id="addBtn">
+			  Add to Cart
+			</button>
+		</div>
+
+	  </div>
+	</div>
+
+
+	
+	<!-- CART OVERLAY -->
+	<div id="cartOverlay" class="cart-overlay">
+	  <div class="cart-panel cart-panel--fullscreen">
+
+		<header class="cart-header">
+		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+		  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+		  <button class="cart-close" onclick="closeCart()">✕</button>
+		</header>
+
+
+		<section class="booking-form" style="margin-bottom:0px;padding:0px;">
+			<div id="cart-panel-booking-form" class="form-section" style="background-color:transparent; padding:0px;max-width:100%;">
+				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;background-color: #eee;padding: 15px;">
+				  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+					<div class="dropdown-icon-calendar"></div>
+					<div class="dropdown-divider"></div>
+					<input type="text" id="dateStart2" placeholder="Select Event Date" required>
+				  </div>
+				</form>
+			</div>
+		</section>
+		
+		<div style="background-color:#eee;">
+			<div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none;">
+				Checking availability…
+			</div>		
+		</div>
+		
+		<div id="cartItems" class="cart-items"></div>
+
+		<footer class="cart-footer">
+		  <div class="cart-summary">
+			<div class="cart-line">
+			  <span>Delivery</span>
+			  <strong id="cartSubtotal">$10.00</strong>
+			</div>
+			<div class="cart-line total">
+			  <span>Total</span>
+			  <strong id="cartTotal">$0.00</strong>
+			</div>
+		  </div>
+
+			<div class="button-row" style="display:flex;gap:10px;">
+			  <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+			  <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+			</div>		
+		</footer>
+
+	  </div>
+	</div>
+
+
+	
+	
+<script src="navbar-scroll.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="product_data.js"></script>
+<script src="availabilityService.js"></script>
+<script src="cart.js"></script>
+<script src="book-now-component.js"></script>
+<script src="checkout.js"></script>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const productId = params.get('id');
+  
+document.addEventListener('DOMContentLoaded', async () => {
+
+
+  // ----------------------------
+  // STATIC PRODUCT DATA
+  // ----------------------------
+	const item = window.PRODUCT_DATA.find(
+	  p => p.Product_ID === productId
+	);
+	
+  if (!item) {
+    document.body.innerHTML = "<h2>Product not found</h2>";
+    return;
+  }
+
+  // ----------------------------
+  // RENDER STATIC DATA INSTANTLY
+  // ----------------------------
+  // Render instantly (no API calls)
+  document.getElementById('productName').textContent =
+    item["Item Name"];
+
+  document.getElementById('productPrice').textContent =
+    "$" + item["Rental Price"].toFixed(2) + " each";
+
+  document.getElementById('productImage').src =
+    item["Image"];
+
+  document.getElementById('productDescription').textContent =
+    item["Item Description"];
+
+  renderBreadcrumb(item);
+
+  const badge = document.getElementById('availabilityBadge');
+  const addBtn = document.getElementById('addBtn');
+  const qtyInput = document.getElementById('qtyInput');
+
+  // ----------------------------
+  // CHECK IF DATE EXISTS
+  // ----------------------------
+  const dates = AvailabilityService.getRentalDates();
+
+  if (!dates) {
+
+    updateBadge();
+
+  } else {
+
+    // ONLY NOW call availability
+    try {
+
+      const availability =
+        await AvailabilityService.ensureAvailability();
+
+      const liveItem =
+        availability ? availability[item.id] : null;
+
+      if (liveItem) {
+
+        updateBadge();
+
+        qtyInput.max =
+          liveItem.availableQty;
+
+      } else {
+
+        updateBadge();
+
+      }
+
+    } catch (err) {
+
+      updateBadge();
+
+    }
+  }
+
+  // ----------------------------
+  // ADD TO CART (ALWAYS ALLOWED)
+  // ----------------------------
+	addBtn.addEventListener('click', async () => {
+
+	  let maxAvailable = 999;
+
+	  const dates = AvailabilityService.getRentalDates();
+
+	  if (dates) {
+		try {
+		  const availability = await AvailabilityService.ensureAvailability();
+		  const liveItem = availability?.[productId];
+
+		  if (liveItem && typeof liveItem.availableQty === "number") {
+			maxAvailable = liveItem.availableQty;
+		  }
+		} catch (err) {
+		  console.warn("Availability check failed, defaulting to 999");
+		}
+	  }
+
+	  const requestedQty = parseInt(qtyInput.value) || 1;
+	  const finalQty = Math.min(requestedQty, maxAvailable);
+
+	  addToCart({
+		id: item["Product_ID"],
+		name: item["Item Name"],
+		price: item["Rental Price"],
+		image: item["Image"],
+		availableQty: maxAvailable,
+		qty: finalQty
+	  });
+
+	});
+
+});
+
+const qtyInput = document.getElementById("qtyInput");
+const minusBtn = document.getElementById("qtyMinus");
+const plusBtn = document.getElementById("qtyPlus");
+
+minusBtn.addEventListener("click", () => {
+  let current = parseInt(qtyInput.value) || 1;
+  if (current > 1) {
+    qtyInput.value = current - 1;
+	updateBadge();
+  }
+});
+
+plusBtn.addEventListener("click", () => {
+  let current = parseInt(qtyInput.value) || 1;
+  qtyInput.value = current + 1;
+  updateBadge();
+});
+
+qtyInput.addEventListener("input", updateBadge);
+
+
+
+function updateBadge() {
+
+  const badge = document.getElementById("availabilityBadge");
+  const qtyInput = document.getElementById("qtyInput");
+
+  if (!badge || !qtyInput) return;
+
+  const dates = AvailabilityService.getRentalDates();
+
+  // No date selected
+  if (!dates) {
+    badge.style.display = "none";
+    return;
+  }
+
+  const liveItem =
+    AvailabilityService.getProductAvailability(productId);
+
+  if (!liveItem) {
+    return; // availability not fetched yet
+  }
+
+  const availableQty = liveItem.availableQty;
+  const requestedQty = parseInt(qtyInput.value) || 1;
+
+  badge.style.display = "inline-block";
+
+  if (availableQty === 0) {
+    badge.textContent = "Unavailable for selected date";
+    badge.className = "availability-badge badge-danger";
+    return;
+  }
+
+  if (availableQty < requestedQty) {
+    badge.textContent =
+      `Only ${availableQty} available for selected date`;
+    badge.className = "availability-badge badge-warning";
+    return;
+  }
+
+  badge.textContent = `Available`;
+  badge.className = "availability-badge badge-success";
+}
+
+
+flatpickr("#dateStartProduct", {
+  disableMobile: true,
+  dateFormat: "m/d/Y",
+  minDate: tomorrow,
+
+  onChange: async function(selectedDates, dateStr) {
+	
+    if (!dateStr) return;
+
+	const note = document.getElementById("inventoryLoadingProductPage");
+	if (note) note.style.display = "block";
+		
+	const badge = document.getElementById('availabilityBadge');
+	const qtyInput = document.getElementById('qtyInput');
+	  
+    const [month, day, year] = dateStr.split('/');
+    const iso = `${year}-${month.padStart(2,'0')}-${day.padStart(2,'0')}`;
+
+    AvailabilityService.setRentalDates(iso);
+
+    // Sync cart calendar
+    const cartInput = document.getElementById("dateStart2");
+    if (cartInput) cartInput.value = dateStr;
+
+    // Get fresh availability
+    const availability = await AvailabilityService.ensureAvailability();
+    const liveItem = availability?.[productId];
+
+    if (liveItem) {
+		updateBadge();
+		qtyInput.max = liveItem.availableQty;
+    }
+	
+	if (note) note.style.display = "none";
+			
+    refreshCartAvailability();
+    renderCart();
+  }
+});
+
+
+function renderBreadcrumb(item) {
+
+  const breadcrumb = document.getElementById("breadcrumb");
+  if (!breadcrumb) return;
+
+  const category = item["Category"] || "Rentals";
+  const categoryPath = item["CategoryPath"];
+  const productName = item["Item Name"];
+
+  breadcrumb.innerHTML = `
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/rentals">Rentals</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/rentals/${categoryPath}">${category}</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>${productName}</span>
+  `;
+}
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const rentalDates = AvailabilityService.getRentalDates();
+
+  if (!rentalDates) return;
+
+  const urlDate = rentalDates.start;
+
+  console.log("product page rental date:", urlDate);
+
+  const [year, month, day] = urlDate.split("-");
+  const formatted = `${month}/${day}/${year}`;
+
+  const productInput = document.getElementById("dateStartProduct");
+  if (productInput) {
+    productInput.value = formatted;
+  }
+
+  const cartInput = document.getElementById("dateStart2");
+  if (cartInput) {
+    cartInput.value = formatted;
+  }
+
+  const mobileInputs = document.querySelectorAll(".flatpickr-mobile");
+  mobileInputs.forEach(input => {
+    input.value = urlDate;
+  });
+
+  updateBadge();
+  console.log("dates should be set");
+});
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rent Party Tables and Chairs | Red Rock Party Rentals</title>
+  <meta
+    name="description"
+    content="Rent party tables and chairs in Las Vegas with Red Rock Party Rentals. Check your event date, see live availability, and book online in minutes."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="book-now-component.css" />
+  <link rel="stylesheet" href="cart.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+
+  <style>
+    :root {
+      --rr-red: #8b0000;
+      --rr-red-deep: #5f0000;
+      --rr-sand: #f7f0ea;
+      --rr-cream: #fcf8f4;
+      --rr-gold: #c6a46c;
+      --rr-ink: #1f1715;
+      --rr-muted: #655753;
+      --rr-border: rgba(96, 61, 48, 0.14);
+      --rr-shadow: 0 20px 60px rgba(72, 27, 14, 0.14);
+    }
+
+    body {
+      background: #fff;
+      color: var(--rr-ink);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: 0;
+      color: var(--rr-ink);
+      text-shadow: none;
+    }
+
+    .navbar {
+      position: sticky !important;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(139, 0, 0, 0.08);
+    }
+
+    .nav-links a,
+    .logo a span {
+      color: rgba(0, 0, 0, 0.82) !important;
+    }
+
+    .landing-shell {
+      padding: 0 28px 70px;
+    }
+
+    .hero-stage {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 40px 0 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      background: #faf7f4;
+      color: var(--rr-ink);
+      border: 1px solid var(--rr-border);
+      border-radius: 0;
+      min-height: 560px;
+      padding: 56px;
+      box-shadow: none;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-copy-inner {
+      max-width: 640px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rr-red);
+      margin-bottom: 16px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3.2rem, 6vw, 5.6rem);
+      line-height: 0.95;
+      color: var(--rr-ink);
+      margin-bottom: 20px;
+    }
+
+    .hero-copy p {
+      max-width: 590px;
+      font-size: 1.14rem;
+      color: var(--rr-muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .hero-pill {
+      padding: 10px 14px;
+      border-radius: 0;
+      border: 1px solid var(--rr-border);
+      background: #fff;
+      color: var(--rr-ink);
+      font-size: 0.92rem;
+    }
+
+    .hero-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      color: var(--rr-ink);
+      font-size: 0.98rem;
+    }
+
+    .hero-price-highlight {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      color: var(--rr-red);
+    }
+
+    .hero-price-highlight strong {
+      font-size: 3rem;
+      font-weight: 400;
+    }
+
+    .hero-panel {
+      background: #fff;
+      border: 1px solid rgba(139, 0, 0, 0.12);
+      box-shadow: none;
+      border-radius: 0;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .hero-panel-card {
+      background: #fff;
+      border-radius: 0;
+      padding: 0 0 8px;
+      border: 1px solid var(--rr-border);
+      border-left: none;
+      border-right: none;
+      border-top: none;
+    }
+
+    .hero-panel-card h2 {
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      margin-bottom: 12px;
+    }
+
+    .hero-panel-card p {
+      color: var(--rr-muted);
+      font-size: 1.02rem;
+      margin-bottom: 20px;
+    }
+
+    .booking-form {
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-panel .form-section {
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .hero-panel .form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-panel .dropdown-wrapper {
+      max-width: 100%;
+      background: #fff;
+      border: 1px solid var(--rr-border);
+      box-shadow: none;
+      padding: 14px 16px;
+      border-radius: 0;
+    }
+
+    .hero-panel .find-rentals-btn,
+    .mini-card button,
+    .inventory-card button,
+    .contact-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 54px;
+      padding: 0 20px;
+      border: none;
+      border-radius: 0;
+      background: var(--rr-red);
+      color: #fff;
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .hero-panel .find-rentals-btn:hover,
+    .mini-card button:hover,
+    .inventory-card button:hover,
+    .contact-actions a:hover {
+      background: #a10b0b;
+      color: #fff;
+    }
+
+    .micro-trust {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .micro-trust-item {
+      background: #fff;
+      border: 1px solid var(--rr-border);
+      border-radius: 0;
+      padding: 18px;
+    }
+
+    .micro-trust-item strong {
+      display: block;
+      color: var(--rr-red);
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+    }
+
+    .micro-trust-item span {
+      color: var(--rr-muted);
+      font-size: 0.95rem;
+    }
+
+    .trust-band,
+    .featured-grid,
+    .steps-grid,
+    .inventory-shell,
+    .faq-grid,
+    .contact-banner {
+      max-width: 1220px;
+      margin: 0 auto;
+    }
+
+    .trust-band {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .trust-item {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--rr-border);
+      border-radius: 0;
+      padding: 22px 20px;
+      box-shadow: none;
+    }
+
+    .trust-item i {
+      color: var(--rr-red);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--rr-ink);
+      margin-bottom: 4px;
+    }
+
+    .trust-item span {
+      color: var(--rr-muted);
+      font-size: 0.95rem;
+    }
+
+    .section-header {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 80px 0 24px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 0;
+      background: #faf7f4;
+      border: 1px solid var(--rr-border);
+      color: var(--rr-red);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.5rem, 4.8vw, 4rem);
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+      color: var(--rr-muted);
+    }
+
+    .featured-grid,
+    .steps-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .mini-card,
+    .faq-card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--rr-border);
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mini-card img {
+      width: 100%;
+      aspect-ratio: 1.12 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mini-card-body,
+    .faq-card {
+      padding: 28px;
+      gap: 12px;
+    }
+
+    .mini-card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .mini-card h3,
+    .step-card h3,
+    .inventory-card h3,
+    .optional-addons-header h3,
+    .faq-card h3 {
+      font-size: 2rem;
+      margin-bottom: 0;
+    }
+
+    .mini-card-price {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      color: var(--rr-red);
+    }
+
+    .mini-card p,
+    .step-card p,
+    .inventory-card p,
+    .optional-addons-header p,
+    .faq-card p {
+      color: var(--rr-muted);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .mini-card p {
+      flex: 1;
+    }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--rr-border);
+      border-radius: 0;
+      padding: 30px;
+      box-shadow: none;
+    }
+
+    .step-no {
+      width: 46px;
+      height: 46px;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(139, 0, 0, 0.1);
+      color: var(--rr-red);
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .inventory-shell {
+      margin-top: 12px;
+      background: #fff;
+      border: 1px solid rgba(139, 0, 0, 0.1);
+      border-radius: 0;
+      box-shadow: none;
+      padding: 34px;
+    }
+
+    .inventory-topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rr-border);
+      margin-bottom: 22px;
+    }
+
+    .inventory-topbar h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 6px;
+      text-align: left;
+    }
+
+    .inventory-topbar p {
+      color: var(--rr-muted);
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .inventory-meta {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .inventory-meta span,
+    .addon-chip {
+      padding: 10px 14px;
+      background: #fff;
+      border: 1px solid var(--rr-border);
+      border-radius: 0;
+      font-size: 0.92rem;
+      color: var(--rr-ink);
+    }
+
+    .inventory-loading,
+    .inventory-empty {
+      padding: 34px 20px;
+      text-align: center;
+      color: var(--rr-muted);
+      font-size: 1rem;
+    }
+
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .inventory-card {
+      background: #fff;
+      border: 1px solid var(--rr-border);
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .inventory-card img {
+      width: 100%;
+      aspect-ratio: 1.2 / 1;
+      object-fit: cover;
+      display: block;
+      background: #f5ede7;
+    }
+
+    .inventory-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 26px;
+      flex: 1;
+    }
+
+    .inventory-price-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      font-size: 0.98rem;
+      color: var(--rr-ink);
+      margin-bottom: 4px;
+    }
+
+    .inventory-price-row strong,
+    .addon-chip strong {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.9rem;
+      color: var(--rr-red);
+      font-weight: 400;
+    }
+
+    .optional-addons {
+      margin-top: 34px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rr-border);
+    }
+
+    .optional-addons-header {
+      margin-bottom: 16px;
+    }
+
+    .addon-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .addon-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      font-size: 0.96rem;
+    }
+
+    .faq-card p {
+      flex: 1;
+    }
+
+    .contact-banner {
+      margin-top: 26px;
+      background: #faf7f4;
+      border: 1px solid var(--rr-border);
+      border-radius: 0;
+      padding: 42px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      box-shadow: none;
+    }
+
+    .contact-banner h2 {
+      color: var(--rr-ink);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .contact-banner p {
+      color: var(--rr-muted);
+      max-width: 620px;
+      font-size: 1.06rem;
+      margin: 0;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-actions .ghost-link {
+      background: #fff;
+      border: 1px solid var(--rr-border);
+      color: var(--rr-red);
+    }
+
+    .cart-panel--fullscreen {
+      max-width: 460px !important;
+      left: auto !important;
+      right: -100vw;
+      transition: right 0.35s ease !important;
+      border-left: 1px solid var(--rr-border);
+    }
+
+    .cart-overlay.open .cart-panel--fullscreen {
+      right: 0 !important;
+    }
+
+    .cart-header,
+    .cart-footer {
+      border-color: var(--rr-border) !important;
+    }
+
+    .cart-header h2 {
+      color: var(--rr-ink) !important;
+    }
+
+    .cart-footer .checkout-btn {
+      background: var(--rr-red) !important;
+      border-radius: 0 !important;
+    }
+
+    .cart-footer .back-btn {
+      border-radius: 0 !important;
+    }
+
+    .flatpickr-day.selected {
+      background: var(--rr-red) !important;
+      border-color: var(--rr-red) !important;
+    }
+
+    .flatpickr-day:hover {
+      background: #f4dfdf !important;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-stage,
+      .featured-grid,
+      .steps-grid,
+      .inventory-grid,
+      .faq-grid,
+      .trust-band {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-copy {
+        min-height: 560px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .landing-shell {
+        padding: 0 18px 70px;
+      }
+
+      .hero-stage,
+      .featured-grid,
+      .steps-grid,
+      .inventory-grid,
+      .faq-grid,
+      .trust-band,
+      .micro-trust {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .inventory-shell,
+      .contact-banner {
+        border-radius: 0;
+      }
+
+      .hero-copy {
+        min-height: 480px;
+        padding: 32px 26px;
+      }
+
+      .hero-panel {
+        padding: 22px;
+      }
+
+      .hero-panel-card,
+      .inventory-shell {
+        padding: 20px;
+      }
+
+      .inventory-topbar,
+      .contact-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-actions,
+      .contact-actions a {
+        width: 100%;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <nav class="navbar" id="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="Red Rock Logo" />
+          <span>Red Rock Party Rentals</span>
+        </a>
+      </div>
+      <div style="display:flex;">
+        <button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+          <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rentals.html">Rentals</a></li>
+        <li><a href="book.html">Book</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+          <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+        </button>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="landing-shell">
+    <section class="hero-stage">
+      <div class="hero-copy">
+        <div class="hero-copy-inner">
+          <div class="eyebrow">Las Vegas Party Rentals</div>
+          <h1>Rent Party<br>Tables and Chairs</h1>
+          <p>
+            Clean setups, simple pricing, and quick online booking for birthdays,
+            showers, graduations, backyard parties, and more.
+          </p>
+          <div class="hero-points">
+            <div class="hero-pill">Tables from $8</div>
+            <div class="hero-pill">Chairs from $1</div>
+            <div class="hero-pill">$10 delivery fee</div>
+          </div>
+          <div class="hero-price-row">
+            <div class="hero-price-highlight"><strong>$1</strong><span>chair rentals</span></div>
+            <span>Choose your date to see what is available right now.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="hero-panel-card">
+          <h2>Check Your Event Date</h2>
+          <p>
+            Pick your date and we'll show live availability for tables, chairs,
+            and optional add-ons in one place.
+          </p>
+
+          <section class="booking-form">
+            <div class="form-section">
+              <form class="form-container" onsubmit="return false;">
+                <div class="dropdown-wrapper">
+                  <div class="dropdown-icon-calendar"></div>
+                  <div class="dropdown-divider"></div>
+                  <input type="text" id="dateStart" placeholder="Select event date" required>
+                </div>
+                <button id="findRentalsBtn" type="button" class="find-rentals-btn">
+                  See Available Rentals
+                </button>
+              </form>
+            </div>
+          </section>
+        </div>
+
+        <div class="micro-trust">
+          <div class="micro-trust-item">
+            <strong>Delivery & Pickup</strong>
+            <span>Fast local service for Las Vegas-area events.</span>
+          </div>
+          <div class="micro-trust-item">
+            <strong>Live Availability</strong>
+            <span>No guessing. You see what can actually be booked.</span>
+          </div>
+          <div class="micro-trust-item">
+            <strong>Easy Checkout</strong>
+            <span>Add items to cart and finish booking online.</span>
+          </div>
+          <div class="micro-trust-item">
+            <strong>Party Essentials Too</strong>
+            <span>Add linens, runners, coolers, and more if needed.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-band">
+      <div class="trust-item">
+        <i class="fa-solid fa-chair"></i>
+        <strong>Simple Seating</strong>
+        <span>White folding chairs work for casual events and polished setups alike.</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-table"></i>
+        <strong>Practical Table Options</strong>
+        <span>6ft guest tables and cocktail tables for mingling, gifts, or food service.</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-calendar-check"></i>
+        <strong>Date-First Booking</strong>
+        <span>Start with your event date so your order matches real availability.</span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-phone"></i>
+        <strong>Need Help?</strong>
+        <span>Text or email if you want help sizing your order before checkout.</span>
+      </div>
+    </section>
+
+    <section class="section-header">
+      <div class="section-kicker">Popular Rentals</div>
+      <h2>Everything Most Parties Need First</h2>
+      <p>
+        This page is built for people searching specifically for party tables and chairs,
+        so we lead with the core items first and keep the path to booking short.
+      </p>
+    </section>
+
+    <section class="featured-grid">
+      <article class="mini-card">
+        <img src="https://redrockpartyrentals.com/images/table.jpg" alt="6ft table rental">
+        <div class="mini-card-body">
+          <h3>6ft Tables</h3>
+          <div class="mini-card-price">From $8</div>
+          <p>White 6ft tables that seat up to 8 guests and work well for dining, gifts, desserts, or buffet layouts.</p>
+          <button type="button" data-scroll-target="#dateStart">Check Date for Tables</button>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <img src="https://redrockpartyrentals.com/images/chair3.jpg" alt="white folding chair rental">
+        <div class="mini-card-body">
+          <h3>White Folding Chairs</h3>
+          <div class="mini-card-price">From $1</div>
+          <p>Affordable seating for birthdays, showers, graduations, family gatherings, and backyard celebrations.</p>
+          <button type="button" data-scroll-target="#dateStart">Check Date for Chairs</button>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <img src="https://redrockpartyrentals.com/images/cocktail-table.jpg" alt="cocktail table rental">
+        <div class="mini-card-body">
+          <h3>Cocktail Tables</h3>
+          <div class="mini-card-price">From $15</div>
+          <p>Great for mingling areas, cake displays, entry tables, and events where guests will stand and socialize.</p>
+          <button type="button" data-scroll-target="#dateStart">Check Date for Cocktail Tables</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-header">
+      <div class="section-kicker">How It Works</div>
+      <h2>A Faster Path From Ad Click to Order</h2>
+    </section>
+
+    <section class="steps-grid">
+      <article class="step-card">
+        <div class="step-no">1</div>
+        <h3>Select Your Date</h3>
+        <p>Start with the one thing that matters most for rentals: your event date.</p>
+      </article>
+      <article class="step-card">
+        <div class="step-no">2</div>
+        <h3>See Live Availability</h3>
+        <p>We show current tables, chairs, and optional add-ons available for that date.</p>
+      </article>
+      <article class="step-card">
+        <div class="step-no">3</div>
+        <h3>Add to Cart and Book</h3>
+        <p>Build your order, review delivery, and complete checkout online.</p>
+      </article>
+    </section>
+
+    <section class="section-header" id="availabilitySectionHeading">
+      <div class="section-kicker">Live Availability</div>
+      <h2>See What You Can Book for Your Date</h2>
+      <p>
+        Choose your event date above to load available inventory. We'll prioritize tables and chairs first,
+        then show optional extras that pair well with your setup.
+      </p>
+    </section>
+
+    <section class="inventory-shell">
+      <div class="inventory-topbar">
+        <div>
+          <h2>Tables & Chairs</h2>
+          <p id="selectedDateLabel">Select your event date to load availability.</p>
+        </div>
+        <div class="inventory-meta">
+          <span>6ft tables from $8</span>
+          <span>White folding chairs from $1</span>
+          <span>$10 delivery fee</span>
+        </div>
+      </div>
+
+      <div id="inventoryLoading" class="inventory-loading">
+        Select your event date above to get started.
+      </div>
+      <div id="inventoryEmpty" class="inventory-empty" style="display:none;">
+        No tables or chairs are currently available for that date. Try another date or contact us for help.
+      </div>
+      <div id="primaryInventory" class="inventory-grid" style="display:none;"></div>
+
+      <div class="optional-addons">
+        <div class="optional-addons-header">
+          <h3>Optional Add-Ons</h3>
+          <p>Helpful extras if you want to round out your setup after tables and chairs are handled.</p>
+        </div>
+        <div id="addonChips" class="addon-chips">
+          <div class="addon-chip"><strong>$5</strong><span>Table cloths</span></div>
+          <div class="addon-chip"><strong>$2</strong><span>Table runners</span></div>
+          <div class="addon-chip"><strong>$30</strong><span>Standing cooler</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-header">
+      <div class="section-kicker">Helpful Details</div>
+      <h2>Answers That Reduce Booking Friction</h2>
+    </section>
+
+    <section class="faq-grid">
+      <article class="faq-card">
+        <h3>How do I know what's available?</h3>
+        <p>Enter your event date and this page loads the inventory currently available to rent for that date.</p>
+      </article>
+      <article class="faq-card">
+        <h3>Do you deliver?</h3>
+        <p>Yes. Your current checkout flow includes delivery and pickup, with a flat $10 delivery fee shown in the cart.</p>
+      </article>
+      <article class="faq-card">
+        <h3>Can I add more than tables and chairs?</h3>
+        <p>Yes. Once your date is selected, you can keep your core order simple and still add linens or other essentials as needed.</p>
+      </article>
+    </section>
+
+    <section class="contact-banner">
+      <div>
+        <h2>Prefer to Text or Email Instead?</h2>
+        <p>
+          If you want help estimating quantities for your guest count, reach out and we can help you put together the right mix.
+        </p>
+      </div>
+      <div class="contact-actions">
+        <a href="sms:+17027062455">Text 702-706-2455</a>
+        <a class="ghost-link" href="mailto:booking@redrockpartyrentals.com">Email Booking</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="cartOverlay" class="cart-overlay">
+    <div class="cart-panel cart-panel--fullscreen">
+      <header class="cart-header">
+        <button class="cart-back" style="font-size:30px;" onclick="closeCart()">&#8592;</button>
+        <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+        <button class="cart-close" onclick="closeCart()">&#10005;</button>
+      </header>
+
+      <section class="booking-form" style="margin-bottom:0;padding:0;">
+        <div id="cart-panel-booking-form" class="form-section" style="background-color:transparent;padding:0;max-width:100%;">
+          <form class="form-container" style="display:flex;flex-wrap:wrap;gap:1rem;background-color:#f8f3ef;padding:15px;">
+            <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+              <div class="dropdown-icon-calendar"></div>
+              <div class="dropdown-divider"></div>
+              <input type="text" id="dateStart2" placeholder="Select Event Date" required>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div style="background-color:#f8f3ef;">
+        <div id="CheckingAvailabilityNote" class="inventory-loading" style="display:none;padding:14px 20px;">
+          Checking availability...
+        </div>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <footer class="cart-footer">
+        <div class="cart-summary">
+          <div class="cart-line">
+            <span>Delivery</span>
+            <strong id="cartSubtotal">$10.00</strong>
+          </div>
+          <div class="cart-line total">
+            <span>Total</span>
+            <strong id="cartTotal">$0.00</strong>
+          </div>
+        </div>
+        <div class="button-row" style="display:flex;gap:10px;">
+          <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+          <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout &#8594;</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="navbar-scroll.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="availabilityService.js"></script>
+  <script src="product_data.js"></script>
+  <script src="cart.js"></script>
+
+  <script>
+    const PRIMARY_CATEGORY = "Tables And Chairs";
+    const ADDON_CATEGORIES = ["Table Covers", "Table Runners", "Other"];
+
+    const featuredProducts = window.PRODUCT_DATA.filter(
+      (item) => item.Category === PRIMARY_CATEGORY
+    );
+
+    const addonProducts = window.PRODUCT_DATA.filter(
+      (item) => ADDON_CATEGORIES.includes(item.Category)
+    );
+
+    function formatMoney(value) {
+      return "$" + Number(value).toFixed(Number.isInteger(Number(value)) ? 0 : 2);
+    }
+
+    function formatDateForUI(isoDate) {
+      const parts = isoDate.split("-");
+      return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2])).toLocaleDateString(
+        "en-US",
+        { weekday: "short", month: "short", day: "numeric", year: "numeric" }
+      );
+    }
+
+    function renderAddonChips() {
+      const container = document.getElementById("addonChips");
+      const unique = [];
+      const seen = new Set();
+
+      addonProducts.forEach((item) => {
+        const key = item["Item Name"];
+        if (seen.has(key)) return;
+        seen.add(key);
+        unique.push(item);
+      });
+
+      container.innerHTML = "";
+      unique.slice(0, 6).forEach((item) => {
+        const chip = document.createElement("div");
+        chip.className = "addon-chip";
+        chip.innerHTML = `<strong>${formatMoney(item["Rental Price"])}</strong><span>${item["Item Name"]}</span>`;
+        container.appendChild(chip);
+      });
+    }
+
+    function createCard(item) {
+      const description = item["Item Description"] || "Party rental item";
+      const availableQty = item.available_qty ?? item["Quantity Available"] ?? 0;
+      const isAvailable = item.available !== false && availableQty > 0;
+      const card = document.createElement("article");
+      card.className = "inventory-card";
+
+      card.innerHTML = `
+        <img src="${item.image || item.Image}" alt="${item.name || item["Item Name"]}">
+        <div class="inventory-card-body">
+          <h3>${item.name || item["Item Name"]}</h3>
+          <div class="inventory-price-row">
+            <strong>${formatMoney(item.price || item["Rental Price"])}</strong>
+            <span>${availableQty} available</span>
+          </div>
+          <p>${description}</p>
+          <button type="button" ${isAvailable ? "" : "disabled"}>${isAvailable ? "Add To Cart" : "Unavailable"}</button>
+        </div>
+      `;
+
+      if (isAvailable) {
+        card.querySelector("button").addEventListener("click", () => {
+          addToCart({
+            id: item.product_id || item.Product_ID,
+            product_id: item.product_id || item.Product_ID,
+            name: item.name || item["Item Name"],
+            price: Number(item.price || item["Rental Price"]),
+            image: item.image || item.Image,
+            availableQty: availableQty
+          });
+        });
+      }
+
+      return card;
+    }
+
+    function renderStaticFeaturedInventory() {
+      const grid = document.getElementById("primaryInventory");
+      document.getElementById("inventoryLoading").style.display = "none";
+      document.getElementById("inventoryEmpty").style.display = "none";
+      grid.innerHTML = "";
+      featuredProducts.forEach((item) => grid.appendChild(createCard(item)));
+      grid.style.display = "grid";
+    }
+
+    async function renderAvailableInventory() {
+      const loading = document.getElementById("inventoryLoading");
+      const empty = document.getElementById("inventoryEmpty");
+      const grid = document.getElementById("primaryInventory");
+      const label = document.getElementById("selectedDateLabel");
+      const dates = AvailabilityService.getRentalDates();
+
+      if (!dates) {
+        loading.textContent = "Select your event date above to get started.";
+        loading.style.display = "block";
+        empty.style.display = "none";
+        grid.style.display = "none";
+        return;
+      }
+
+      label.textContent = "Checking live availability for " + formatDateForUI(dates.start) + ".";
+      loading.textContent = "Checking live availability...";
+      loading.style.display = "block";
+      empty.style.display = "none";
+      grid.style.display = "none";
+
+      try {
+        const availability = await AvailabilityService.ensureAvailability();
+        const availableItems = Object.values(availability).filter((item) => item.category === PRIMARY_CATEGORY);
+
+        grid.innerHTML = "";
+
+        if (!availableItems.length) {
+          loading.style.display = "none";
+          empty.style.display = "block";
+          label.textContent = "No tables or chairs are currently available for " + formatDateForUI(dates.start) + ".";
+          return;
+        }
+
+        availableItems.forEach((item) => grid.appendChild(createCard(item)));
+        refreshCartAvailability();
+        renderCart();
+
+        loading.style.display = "none";
+        empty.style.display = "none";
+        grid.style.display = "grid";
+        label.textContent = "Showing live availability for " + formatDateForUI(dates.start) + ".";
+      } catch (error) {
+        console.error(error);
+        loading.textContent = "Availability is taking longer than expected. Please try again.";
+        empty.style.display = "none";
+      }
+    }
+
+    function setChosenDate(dateStr) {
+      const parts = dateStr.split("/");
+      const iso = `${parts[2]}-${parts[0].padStart(2, "0")}-${parts[1].padStart(2, "0")}`;
+      AvailabilityService.setRentalDates(iso);
+      renderAvailableInventory();
+    }
+
+    function scrollToAvailability() {
+      document.getElementById("availabilitySectionHeading").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderAddonChips();
+
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      flatpickr("#dateStart", {
+        disableMobile: true,
+        dateFormat: "m/d/Y",
+        minDate: tomorrow
+      });
+
+      flatpickr("#dateStart2", {
+        appendTo: document.getElementById("cart-panel-booking-form"),
+        disableMobile: true,
+        dateFormat: "m/d/Y",
+        minDate: tomorrow,
+        position: "top left",
+        onChange: function(selectedDates, dateStr) {
+          if (!dateStr) return;
+
+          document.getElementById("dateStart").value = dateStr;
+          const note = document.getElementById("CheckingAvailabilityNote");
+          note.style.display = "block";
+
+          try {
+            setChosenDate(dateStr);
+          } finally {
+            note.style.display = "none";
+          }
+        }
+      });
+
+      const rentalDates = AvailabilityService.getRentalDates();
+      if (rentalDates) {
+        const parts = rentalDates.start.split("-");
+        const formatted = `${parts[1]}/${parts[2]}/${parts[0]}`;
+        document.getElementById("dateStart").value = formatted;
+        document.getElementById("dateStart2").value = formatted;
+        renderAvailableInventory();
+      } else {
+        renderStaticFeaturedInventory();
+      }
+
+      document.getElementById("findRentalsBtn").addEventListener("click", () => {
+        const dateRaw = document.getElementById("dateStart").value;
+        if (!dateRaw) {
+          alert("Please select event date.");
+          return;
+        }
+
+        setChosenDate(dateRaw);
+        scrollToAvailability();
+      });
+
+      document.querySelectorAll("[data-scroll-target]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const target = document.querySelector(button.getAttribute("data-scroll-target"));
+          if (!target) return;
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          setTimeout(() => target.focus(), 350);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

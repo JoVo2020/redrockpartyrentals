@@ -8,23 +8,23 @@
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
 	<!-- End Google Tag Manager -->
-
+	
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Red Rock Party Rentals</title>
-
+	
 	<!-- style sheets -->
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="book-now-component.css" />
 	<link rel="stylesheet" href="accordion.css" />
 	<link rel="stylesheet" href="cart.css" />
-
+	
 	<!-- Lora font for all text -->
 	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
-
+	
 	<!-- datepicker -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
+	
 	<!-- font awesome cart icon -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
@@ -33,7 +33,7 @@
 	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
 	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
 	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
-
+	
 	  <style>
 
 	.checking-availability-message {
@@ -41,114 +41,12 @@
 	  text-align: center;
 	  font-size: 18px;
 	  color: #555;
-	}
-
-	/* ── Tokens ──────────────────────────────────────────────── */
-	:root {
-	  --red:       #8b0000;
-	  --red-hover: #720000;
-	  --off-white: #f8f8f6;
-	  --border:    #ddd;
-	  --muted:     #777;
-	}
-
-
-
-	/* ─────────────────────────────────────────────────────────
-	   CART SUMMARY BAR
-	   Full-width off-white section — clearly separated from accordion
-	───────────────────────────────────────────────────────── */
-	#bk-cart-summary {
-	  display: none;           /* shown via JS when cart has items */
-	  padding: 1.4rem 2rem;
-	}
-	.bk-cart-bar {
-	  max-width: 660px;
-	  margin: 0 auto;
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-between;
-	  gap: 1rem;
-	  flex-wrap: wrap;
-	  /* Desktop: contained off-white box */
-	  background: var(--off-white);
-	  border: 1px solid var(--border);
-	  padding: 1rem 1.4rem;
-	}
-	.bk-cart-bar-left {
-	  display: flex;
-	  align-items: center;
-	  gap: 0.65rem;
-	  font-size: 1.2rem;
-	  color: #222;
-	}
-	.bk-cart-bar-count {
-	  background: var(--red);
-	  color: #fff;
-	  -webkit-text-fill-color: #fff;
-	  font-size: 1rem;
-	  font-weight: 700;
-	  min-width: 28px;
-	  height: 28px;
-	  padding: 0 6px;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  flex-shrink: 0;
-	}
-	.bk-cart-bar-btn {
-	  background: var(--red);
-	  color: #fff;
-	  -webkit-text-fill-color: #fff;
-	  border: none;
-	  font-family: 'Lora', serif;
-	  font-size: 0.9rem;
-	  font-weight: 600;
-	  letter-spacing: 1px;
-	  text-transform: uppercase;
-	  padding: 0.85rem 1.8rem;
-	  cursor: pointer;
-	  transition: background 0.15s;
-	  white-space: nowrap;
-	}
-	.bk-cart-bar-btn:hover { background: var(--red-hover); }
-
-	/* ── Consistent column width across all desktop sections ── */
-	@media (min-width: 721px) {
-	  /* Booking form inner box — scoped to main page only, not cart */
-	  .page-wrapper .booking-form .form-section { max-width: 900px !important; }
-
-	  /* Accordion — override accordion.css's 10% padding approach */
-	  .accordion { max-width: 900px !important; margin: 0 auto !important; padding-left: 0 !important; padding-right: 0 !important; }
-
-	  /* Cart summary bar */
-	  .bk-cart-bar { max-width: 900px; }
-
-	  /* Other Ways to Book */
-	  #otherWaysSection { max-width: 900px; margin-left: auto; margin-right: auto; }
-	}
-
-	@media (max-width: 720px) {
-	  #bk-cart-summary {
-	    background: var(--off-white);
-	    border-top: 1px solid var(--border);
-	    border-bottom: 1px solid var(--border);
-	    padding: 1.2rem 1.4rem;
-	  }
-	  .bk-cart-bar {
-	    background: none;
-	    border: none;
-	    padding: 0;
-	    flex-direction: column;
-	    align-items: flex-start;
-	  }
-	  .bk-cart-bar-btn { width: 100%; text-align: center; }
-	}
-
-	  </style>
-
-
-
+	} 
+	  
+	  </style>	
+	
+	
+	
 </head>
 <body>
 	<!-- Google Tag Manager (noscript) -->
@@ -184,11 +82,11 @@
 
 
 	<div class="page-wrapper">
-
+	
 			  <div style="font-size: 30px;text-align: center;">
 				When is your event?
 			  </div>
-
+			  
 		<section class="booking-form" style="margin:auto;">
 			<div class="form-section">
 				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;">
@@ -201,16 +99,16 @@
 				</form>
 			</div>
 		</section>
-
+	  
 		<div id="inventoryLoading" class="checking-availability-message" style="display:none;">
 		  Checking availability…
 		</div>
-
+				
 		<!-- Inventory Grid -->
 		<section id="inventorySection" class="rr-inventory-section" style="display:none;">
 
 			<div class="accordion" id="inventoryAccordion">
-
+			  
 			  <div id="selectYourRentalsHeader" style="font-size: 30px;text-align: center;margin-top:25px;">
 				Select your rentals
 			  </div>
@@ -244,7 +142,7 @@
 				  <div class="rr-inventory-grid"></div>
 				</div>
 			  </div>
-
+			  
 			  <div class="accordion-item" data-category="Games">
 				<button class="accordion-header">
 				  Games
@@ -264,7 +162,7 @@
 				  <div class="rr-inventory-grid"></div>
 				</div>
 			  </div>
-
+			  
 			  <div class="accordion-item" data-category="Other">
 				<button class="accordion-header">
 				  Party Essentials
@@ -276,50 +174,40 @@
 			  </div>
 
 			</div>
-
-
+					  
+		  
 		</section>
 
-	</div>
+		<!-- Card Template (hidden) -->
+		<template id="rrItemTemplate">
+		  <div class="rr-card">
+		   <a class="rr-card__imglink">
+			<div class="rr-card__img-wrap">
+			  <img class="rr-card__img" alt="" loading="lazy" />
+			</div>
+		   </a>
+			<div class="rr-card__body">
+			  <div class="rr-card__name"></div>
+			  <div class="rr-card__addToCart"></div>
+			</div>
+		  </div>
+		</template>
+	  
+	  
+		
+		<br>
 
-	<!-- Cart summary bar (shown when inventory is visible and cart has items) -->
-	<div id="bk-cart-summary">
-	  <div class="bk-cart-bar">
-	    <div class="bk-cart-bar-left">
-	      <span class="bk-cart-bar-count" id="bkCartCount">0</span>
-	      <span id="bkCartLabel">items in cart</span>
-	    </div>
-	    <button class="bk-cart-bar-btn" onclick="openCart(); renderCart();">
-	      View Cart &amp; Checkout &rarr;
-	    </button>
-	  </div>
-	</div>
 
-	<!-- Card Template (hidden) -->
-	<template id="rrItemTemplate">
-	  <div class="rr-card">
-	   <a class="rr-card__imglink">
-		<div class="rr-card__img-wrap">
-		  <img class="rr-card__img" alt="" loading="lazy" />
-		</div>
-	   </a>
-		<div class="rr-card__body">
-		  <div class="rr-card__name"></div>
-		  <div class="rr-card__addToCart"></div>
-		</div>
-	  </div>
-	</template>
-
-	<br>
-
-	<section class="booking" id="otherWaysSection" style="display:none;padding: 0rem 1rem 3rem;">
-		<hr class="solid" style="margin-bottom:30px;">
+	  <section class="booking" id="otherWaysSection" style="display:none;padding: 0rem 1rem 3rem;">
+	  	<hr class="solid" style="margin-bottom:30px;">
 		<h3 style="font-size:30px;">Other Ways to Book:</h3>
 		<p style="font-size:22px;">Email us at booking@redrockpartyrentals.com</p>
 		<p style="font-size:22px;">Text us at 702-706-2455</p>
-	</section>
-
-
+	  </section>
+	
+	</div>
+	
+	
 	<!-- CART OVERLAY -->
 	<div id="cartOverlay" class="cart-overlay">
 	  <div class="cart-panel cart-panel--fullscreen">
@@ -342,13 +230,13 @@
 				</form>
 			</div>
 		</section>
-
+		
 		<div style="background-color:#eee;">
 			<div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none;">
 				Checking availability…
-			</div>
+			</div>		
 		</div>
-
+		
 		<div id="cartItems" class="cart-items"></div>
 
 		<footer class="cart-footer">
@@ -366,17 +254,17 @@
 			<div class="button-row" style="display:flex;gap:10px;">
 			  <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
 			  <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
-			</div>
+			</div>		
 		</footer>
 
 	  </div>
 	</div>
 
 
-
-
-
-
+	
+	
+	
+	
 <script src="navbar-scroll.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -387,39 +275,6 @@
 <script src="book-now-component.js"></script>
 <script src="checkout.js"></script>
 <script src="inventory-grid.js"></script>
-
-<script>
-function updateCartUI() {
-  const cart = (typeof getCart === 'function') ? getCart() : [];
-  const qty  = cart.reduce((s, i) => s + i.qty, 0);
-
-  const invVisible = document.getElementById('inventorySection').style.display !== 'none';
-  const bar = document.getElementById('bk-cart-summary');
-  if (bar) {
-    bar.style.display = (qty > 0 && invVisible) ? 'block' : 'none';
-    const countEl = document.getElementById('bkCartCount');
-    const labelEl = document.getElementById('bkCartLabel');
-    if (countEl) countEl.textContent = qty;
-    if (labelEl) labelEl.textContent = qty === 1 ? 'item in cart' : 'items in cart';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const _orig = window.renderCart;
-  if (typeof _orig === 'function') {
-    window.renderCart = function() {
-      _orig();
-      updateCartUI();
-    };
-  }
-  updateCartUI();
-
-  const inv = document.getElementById('inventorySection');
-  if (inv) {
-    new MutationObserver(updateCartUI).observe(inv, { attributes: true, attributeFilter: ['style'] });
-  }
-});
-</script>
 
 
 </body>
