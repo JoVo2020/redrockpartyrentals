@@ -28,7 +28,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000001145028",
       "Item Name": "Cocktail Tables",
       "Item Description": "Black bar height cocktail table",
-      "Quantity Available": 2,
+      "Quantity Available": 6,
       "Rental Price": 15,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
