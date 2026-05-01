@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+	<!-- End Google Tag Manager -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Red Rock Party Rentals</title>
+	
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="accordion.css" />
+	<link rel="stylesheet" href="cart.css" />
+	<link rel="stylesheet" href="book-now-component.css" />
+
+
+	<!-- Lora font for all text -->
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+
+	<!-- datepicker -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	
+	<!-- font awesome cart icon -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+
+	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
+	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+	
+	
+	<style>
+		.hero {
+			background: url(images/fancy-table.png) center center / cover no-repeat;
+		}
+
+	@media (max-width: 600px) {
+		.hero {
+			height: 50vh;
+			min-height: 320px;
+			padding-top: 54px;
+		}
+	}
+
+	@media (min-width: 900px) {
+		.hero {
+			background: url(images/fancy-backyard-dinner.png) center center / cover no-repeat;
+		}
+	}
+
+	.checking-availability-message {
+	  padding: 24px;
+	  text-align: center;
+	  font-size: 18px;
+	  color: #555;
+	}
+
+	/* ── Tokens ─────────────────────────────────────────────── */
+	:root {
+	  --red:       #8b0000;
+	  --red-hover: #720000;
+	  --off-white: #f8f8f6;
+	  --border:    #ddd;
+	  --muted:     #777;
+	}
+
+	/* ── Cart booking info panel ─────────────────────────────── */
+	.cart-info-row {
+	  display: flex;
+	  align-items: flex-start;
+	  justify-content: space-between;
+	  gap: 0.5rem;
+	  padding: 3px 0;
+	}
+	.cart-info-label {
+	  font-size: 0.62rem;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  letter-spacing: 1.5px;
+	  color: #888;
+	  margin-bottom: 3px;
+	}
+	.cart-info-value {
+	  font-size: 0.88rem;
+	  color: #222;
+	  line-height: 1.45;
+	}
+	.cart-info-sep {
+	  border-top: 1px solid #d5d5d5;
+	  margin: 10px 0;
+	}
+	.cart-info-edit {
+	  background: none;
+	  border: none;
+	  font-family: 'Lora', serif;
+	  font-size: 0.78rem;
+	  color: var(--red);
+	  text-decoration: underline;
+	  cursor: pointer;
+	  flex-shrink: 0;
+	  padding: 0;
+	  margin-top: 1px;
+	}
+	.cart-info-edit:hover { color: var(--red-hover); }
+
+	/* ── Click-to-edit affordance ───────────────────────────────── */
+	.cart-info-row > div { cursor: pointer; }
+
+	/* ── Cart scroll area ────────────────────────────────────── */
+	.cart-scroll-area {
+	  flex: 1;
+	  overflow-y: auto;
+	  -webkit-overflow-scrolling: touch;
+	}
+	.cart-scroll-area .cart-items {
+	  flex: none;
+	  overflow-y: visible;
+	}
+
+	/* ── Schedule groups ─────────────────────────────────────── */
+	.schedule-group { margin-bottom: 1.5rem; }
+
+	.schedule-group-title {
+	  font-size: 0.7rem;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  letter-spacing: 1.5px;
+	  color: var(--muted);
+	  margin-bottom: 0.6rem;
+	}
+
+	/* ── Time option cards ───────────────────────────────────── */
+	.time-option-grid {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	  gap: 0.75rem;
+	}
+
+	.time-option-card {
+	  border: 2px solid var(--border);
+	  padding: 5px 10px;
+	  cursor: pointer;
+	  display: block;
+	  transition: border-color 0.15s, background 0.15s;
+	  user-select: none;
+	}
+	.time-option-card input[type="radio"] { display: none; }
+	.time-option-card:has(input:checked)  { border-color: var(--red); background: #fdf5f5; }
+
+	.time-option-card__day {
+	  font-size: 0.67rem;
+	  text-transform: uppercase;
+	  letter-spacing: 0.9px;
+	  color: #bbb;
+	  margin-bottom: 0.15rem;
+	}
+	.time-option-card__date {
+	  font-size: 1.05rem;
+	  font-weight: 600;
+	  color: #bbb;
+	  margin-bottom: 0.25rem;
+	}
+	.time-option-card__window { font-size: 0.85rem; color: #bbb; }
+
+	.time-option-card:has(input:checked) .time-option-card__day   { color: var(--muted); }
+	.time-option-card:has(input:checked) .time-option-card__date  { color: #222; }
+	.time-option-card:has(input:checked) .time-option-card__window { color: #444; }
+
+	@media (max-width: 480px) {
+	  .time-option-grid { grid-template-columns: 1fr; }
+	}
+
+	</style>	
+	
+	
+	
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+
+<header>
+  <nav class="navbar" id="navbar" style="position:static;">
+    <div class="logo">
+		<a href="index.html" >
+			<img src="images/logo.png" alt="Red Rock Logo" />
+			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+		</a>
+    </div>
+	<div style="display:flex;">
+		<button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+		</button>
+		<button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
+	</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+	  <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+	  </button>
+    </ul>
+  </nav>
+</header>
+
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-text">
+        <h1>Rentals</h1>
+      </div>
+    </div>
+  </section>
+  
+	<section class="booking-form" style="margin:0 auto 20px auto;max-width:850px;display:none;">
+	  <div class="form-section" style="background-color:#eee;padding:15px;">
+		<div class="form-container" style="display:flex;flex-wrap:wrap;gap:1rem;">
+		  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
+			<div class="dropdown-icon-calendar"></div>
+			<div class="dropdown-divider"></div>
+			<input type="text" id="dateStart" placeholder="Select Event Date">
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+	<div id="inventoryLoadingProductPage" class="checking-availability-message" style="display:none;">
+	  Checking availability…
+	</div>
+
+  
+  <section class="rentals" style="padding:6px;" >
+	  
+	<div class="accordion" id="inventoryAccordion">
+
+	  <div class="accordion-item" data-category="tablesandchairs">
+		<button class="accordion-header">
+		  Tables & Chairs
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+				<div class="rental-items inventory-grid" data-category="Tables And Chairs"></div>
+			</div>
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="tablecovers">
+		<button class="accordion-header">
+		  Table Covers
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+				<div class="rental-items inventory-grid" data-category="Table Covers"></div>
+			</div>
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="tablerunners">
+		<button class="accordion-header">
+		  Table Runners
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+				<div class="rental-items inventory-grid" data-category="Table Runners"></div> 
+			</div>
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="games">
+		<button class="accordion-header">
+		  Games
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">	  
+				<div class="rental-items inventory-grid" data-category="Games"></div>
+			</div>	
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="Marquee Letters">
+		<button class="accordion-header">
+		  Marquee Letters
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+				<div class="rental-items inventory-grid" data-category="Marquee Letters"></div>
+			</div>	
+		</div>
+	  </div>
+
+	  <div class="accordion-item" data-category="addons">
+		<button class="accordion-header">
+		  Party Essentials
+		  <span class="accordion-icon">+</span>
+		</button>
+		<div class="accordion-content">
+			<div class="rental-items inventory-grid">
+				<div class="rental-items inventory-grid" data-category="Other"></div>
+			</div>	
+		</div>
+	  </div>
+
+	</div>
+
+ 	
+	<div class="cta-button">
+      <button id="RentalPageBookNowBtn" onclick="handleBookNowBtn()">BOOK NOW</button>
+    </div>
+	
+  </section>
+
+  <hr class="solid">
+
+  <section class="booking">
+    <h3>Other Ways to Book:</h3>
+    <p>Email us at booking@redrockpartyrentals.com</p>
+    <p>Text us at 702-706-2455</p>
+  </section>
+
+
+
+	
+	<!-- CART OVERLAY -->
+	<div id="cartOverlay" class="cart-overlay">
+	  <div class="cart-panel cart-panel--fullscreen">
+
+		<header class="cart-header">
+		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+		  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+		  <button class="cart-close" onclick="closeCart()">✕</button>
+		</header>
+
+		<div class="cart-scroll-area">
+		<!-- Cart booking info ─────────────────────────────────── -->
+		<div id="cart-booking-info" style="background:#eee; padding:14px 16px; border-bottom:1px solid #ddd;">
+
+		  <!-- Event date row -->
+		  <div class="cart-info-row" id="cartDateRow">
+		    <div>
+		      <div class="cart-info-label">Event Date</div>
+		      <div class="cart-info-value" id="cartDateValue">Not selected</div>
+		    </div>
+		    <button class="cart-info-edit" id="cartEditDateBtn">Edit</button>
+		  </div>
+
+		  <!-- Date edit: the existing flatpickr input (kept for book-now-component.js) -->
+		  <div id="cartDateEdit" style="display:none; padding-top:8px;">
+		    <div id="cart-panel-booking-form">
+		      <div class="dropdown-wrapper" style="width:100%;">
+		        <div class="dropdown-icon-calendar"></div>
+		        <div class="dropdown-divider"></div>
+		        <input type="text" id="dateStart2" placeholder="Select a date" required>
+		      </div>
+		    </div>
+		  </div>
+
+		  <div class="cart-info-sep"></div>
+
+		  <!-- Dropoff & pickup row -->
+		  <div class="cart-info-row" id="cartTimesRow">
+		    <div style="flex:1; min-width:0;">
+		      <div class="cart-info-label">Dropoff &amp; Pickup</div>
+		      <div class="cart-info-value" id="cartTimesValue">Not selected</div>
+		    </div>
+		    <button class="cart-info-edit" id="cartEditTimesBtn">Edit</button>
+		  </div>
+
+		  <!-- Times edit: mini time-option cards -->
+		  <div id="cartTimesEdit" style="display:none; padding-top:10px;">
+		    <div class="schedule-group">
+		      <div class="schedule-group-title">Dropoff</div>
+		      <div id="cartDropoffOptions" class="time-option-grid"></div>
+		    </div>
+		    <div class="schedule-group">
+		      <div class="schedule-group-title">Pickup</div>
+		      <div id="cartPickupOptions" class="time-option-grid"></div>
+		    </div>
+		    <button id="cartConfirmTimesBtn" type="button" class="find-rentals-btn"
+		            style="font-size:0.82rem; padding:0.65rem 1rem; width:100%; margin-top:0.25rem;">
+		      Confirm Times
+		    </button>
+		  </div>
+
+		  <div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none; padding:8px 0 0; font-size:0.9rem;">
+		    Checking availability…
+		  </div>
+
+		</div>
+		<!-- ─────────────────────────────────────────────────────── -->
+
+		<div id="cartItems" class="cart-items"></div>
+
+		</div><!-- /cart-scroll-area -->
+
+		<footer class="cart-footer">
+		  <div class="cart-summary">
+			<div class="cart-line">
+			  <span>Delivery</span>
+			  <strong id="cartSubtotal">$10.00</strong>
+			</div>
+			<div class="cart-line total">
+			  <span>Total</span>
+			  <strong id="cartTotal">$0.00</strong>
+			</div>
+		  </div>
+		  <div class="button-row" style="display:flex;gap:10px;">
+			<button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+			<button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+		  </div>
+		</footer>
+
+	  </div>
+	</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="product_data.js"></script>
+<script src="navbar-scroll.js"></script>
+<script src="accordion.js"></script>
+<script src="availabilityService.js"></script>
+<script src="cart.js"></script>
+<script src="book-now-component.js"></script>
+<script src="checkout.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const money = (v) => "$" + Number(v).toFixed(0);
+
+  // Get all category containers
+  const grids = document.querySelectorAll(".inventory-grid");
+
+  grids.forEach(grid => {
+    const categoryName = grid.getAttribute("data-category");
+
+    // Filter products by category
+    const items = window.PRODUCT_DATA.filter(p => p["Category"] === categoryName);
+
+    items.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "item inventory-item";
+
+      card.innerHTML = `
+        <a href="product?id=${item.Product_ID}">
+          <img src="${item.Image}" alt="${item["Item Name"]}" />
+          <p>${item["Item Name"]} - ${money(item["Rental Price"])}</p>
+        </a>
+        <button class="rr-btn-addToCart">Add To Cart</button>
+      `;
+
+      // Add to cart logic
+      card.querySelector("button").onclick = () => {
+        addToCart({
+          id: item.Product_ID,
+          product_id: item.Product_ID,
+          name: item["Item Name"],
+          price: item["Rental Price"],
+          image: item.Image,
+          availableQty: item["Quantity Available"]
+        });
+      };
+
+      grid.appendChild(card);
+    });
+
+  });
+
+});
+
+
+
+function handleBookNowBtn() {
+
+  const cart = getCart();
+
+  if (!cart || cart.length === 0) {
+    // Cart empty → go to booking page
+    window.location.href = "/book";
+  } else {
+    // Cart has items → open cart
+    openCart();
+    renderCart();
+  }
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const rentalDates = AvailabilityService.getRentalDates();
+
+  if (!rentalDates) return;
+
+  const urlDate = rentalDates.start;
+  const [year, month, day] = urlDate.split("-");
+  const formatted = `${month}/${day}/${year}`;
+
+  const cartInput = document.getElementById("dateStart2");
+  if (cartInput) {
+    cartInput.value = formatted;
+  }
+
+  const mobileInputs = document.querySelectorAll(".flatpickr-mobile");
+  mobileInputs.forEach(input => {
+    input.value = urlDate;
+  });
+
+});
+</script>
+
+<script>
+// ─── Time-option helpers ──────────────────────────────────────────────────────
+function preselectOption(radioName, isoDate, window) {
+  const target = new Date(isoDate).toDateString();
+  document.querySelectorAll(`input[name="${radioName}"]`).forEach(radio => {
+    const val = JSON.parse(radio.value);
+    if (new Date(val.date).toDateString() === target && val.window === window) {
+      radio.checked = true;
+    }
+  });
+}
+
+function buildOptionCard(radioName, opt) {
+  const dayStr  = opt.date.toLocaleDateString('en-US', { weekday: 'long' });
+  const dateStr = opt.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+  const value   = JSON.stringify({ date: opt.date.toISOString(), window: opt.window });
+  return `
+    <label class="time-option-card">
+      <input type="radio" name="${radioName}" value='${value}' ${opt.isDefault ? 'checked' : ''}>
+      <div class="time-option-card__day">${dayStr}</div>
+      <div class="time-option-card__date">${dateStr}</div>
+      <div class="time-option-card__window">${opt.window}</div>
+    </label>`;
+}
+
+function renderCartDropoffOptions(eventDate) {
+  const dayBefore = new Date(eventDate); dayBefore.setDate(eventDate.getDate() - 1);
+  const dayBeforeIsWeekend = dayBefore.getDay() === 0 || dayBefore.getDay() === 6;
+
+  let options;
+  if (eventDate.getDay() === 6) {
+    options = [
+      { date: new Date(eventDate), window: '8:00 AM – 11:00 AM', isDefault: true },
+      { date: new Date(dayBefore), window: '5:00 PM – 8:00 PM',  isDefault: false }
+    ];
+  } else if (dayBeforeIsWeekend) {
+    options = [
+      { date: new Date(dayBefore), window: '5:00 PM – 8:00 PM',  isDefault: true },
+      { date: new Date(dayBefore), window: '8:00 AM – 11:00 AM', isDefault: false }
+    ];
+  } else {
+    const twoBefore = new Date(eventDate); twoBefore.setDate(eventDate.getDate() - 2);
+    options = [
+      { date: new Date(dayBefore), window: '5:00 PM – 8:00 PM', isDefault: true },
+      { date: twoBefore,           window: '5:00 PM – 8:00 PM', isDefault: false }
+    ];
+  }
+
+  document.getElementById('cartDropoffOptions').innerHTML =
+    [...options].reverse().map(o => buildOptionCard('cartDropoff', o)).join('');
+}
+
+function renderCartPickupOptions(eventDate) {
+  const dayAfter = new Date(eventDate); dayAfter.setDate(eventDate.getDate() + 1);
+  const dayAfterIsWeekend = dayAfter.getDay() === 0 || dayAfter.getDay() === 6;
+
+  let options;
+  if (eventDate.getDay() === 6) {
+    options = [
+      { date: new Date(dayAfter), window: '8:00 AM – 11:00 AM', isDefault: true },
+      { date: new Date(dayAfter), window: '5:00 PM – 8:00 PM',  isDefault: false }
+    ];
+  } else if (dayAfterIsWeekend) {
+    options = [
+      { date: new Date(dayAfter), window: '8:00 AM – 11:00 AM', isDefault: false },
+      { date: new Date(dayAfter), window: '5:00 PM – 8:00 PM',  isDefault: true  }
+    ];
+  } else {
+    const twoDaysAfter = new Date(eventDate); twoDaysAfter.setDate(eventDate.getDate() + 2);
+    options = [
+      { date: new Date(dayAfter), window: '5:00 PM – 8:00 PM', isDefault: true },
+      { date: twoDaysAfter,       window: '5:00 PM – 8:00 PM', isDefault: false }
+    ];
+  }
+
+  document.getElementById('cartPickupOptions').innerHTML =
+    options.map(o => buildOptionCard('cartPickup', o)).join('');
+}
+
+function refreshCartBookingInfo() {
+  const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+  const dateEl = document.getElementById('cartDateValue');
+  if (dateEl) {
+    if (storedDate) {
+      const [y, m, d] = storedDate.split('-');
+      const eventDate = new Date(parseInt(y), parseInt(m) - 1, parseInt(d));
+      dateEl.textContent = eventDate.toLocaleDateString('en-US', {
+        weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+      });
+    } else {
+      dateEl.textContent = 'Not selected';
+    }
+  }
+
+  const timesEl = document.getElementById('cartTimesValue');
+  if (timesEl) {
+    const dropoff = localStorage.getItem('rrpr_dropoff_manual') || localStorage.getItem('rrpr_dropoff');
+    const pickup  = localStorage.getItem('rrpr_pickup_manual')  || localStorage.getItem('rrpr_pickup');
+    if (dropoff && pickup) {
+      const dd  = JSON.parse(dropoff);
+      const pd  = JSON.parse(pickup);
+      const fmt = iso => new Date(iso).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+      timesEl.innerHTML =
+        `Dropoff: ${fmt(dd.dropoffDate)}, ${dd.dropoffWindow}<br>` +
+        `Pickup: ${fmt(pd.pickupDate)}, ${pd.pickupWindow}`;
+    } else {
+      timesEl.textContent = 'Not selected';
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  refreshCartBookingInfo();
+
+  // ── Click label/value area to trigger edit ───────────────────────────────
+  document.querySelector('#cartDateRow > div').addEventListener('click', () => {
+    document.getElementById('cartEditDateBtn').click();
+  });
+  document.querySelector('#cartTimesRow > div').addEventListener('click', () => {
+    document.getElementById('cartEditTimesBtn').click();
+  });
+
+  // Hook into dateStart2's flatpickr onChange (after book-now-component.js sets it up)
+  const fp2 = document.getElementById('dateStart2')._flatpickr;
+  if (fp2) {
+    fp2.config.onChange.push((selectedDates, dateStr) => {
+      if (!dateStr) return;
+      const [month, day, year] = dateStr.split('/');
+      const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+      localStorage.setItem('rrpr_event_date', JSON.stringify(iso));
+      // Clear delivery times — they may not apply to the new date
+      localStorage.removeItem('rrpr_dropoff_manual');
+      localStorage.removeItem('rrpr_pickup_manual');
+      localStorage.removeItem('rrpr_dropoff');
+      localStorage.removeItem('rrpr_pickup');
+      localStorage.removeItem('rrpr_availability_state');
+      // Collapse the date edit form and refresh cart display
+      document.getElementById('cartDateEdit').style.display = 'none';
+      document.getElementById('cartDateRow').style.display  = 'flex';
+      document.getElementById('CheckingAvailabilityNote').style.display = 'none';
+      refreshCartBookingInfo();
+      // Sync main dateStart flatpickr
+      const fpMain = document.getElementById('dateStart')?._flatpickr;
+      if (fpMain) fpMain.setDate(iso, false);
+      // Auto-open time options
+      document.getElementById('cartEditTimesBtn').click();
+    });
+  }
+
+  // Edit date button
+  document.getElementById('cartEditDateBtn').addEventListener('click', () => {
+    document.getElementById('cartDateRow').style.display  = 'none';
+    document.getElementById('cartDateEdit').style.display = 'block';
+  });
+
+  // Edit times button
+  document.getElementById('cartEditTimesBtn').addEventListener('click', () => {
+    const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+    if (!storedDate) { alert('Please select an event date first.'); return; }
+    const [y, m, d] = storedDate.split('-');
+    const eventDate = new Date(parseInt(y), parseInt(m) - 1, parseInt(d));
+
+    // Read before clearing so we can restore the selection
+    const prevDropoff = localStorage.getItem('rrpr_dropoff_manual') || localStorage.getItem('rrpr_dropoff');
+    const prevPickup  = localStorage.getItem('rrpr_pickup_manual')  || localStorage.getItem('rrpr_pickup');
+
+    renderCartDropoffOptions(eventDate);
+    renderCartPickupOptions(eventDate);
+
+    // Restore previously selected options
+    if (prevDropoff) { const dd = JSON.parse(prevDropoff); preselectOption('cartDropoff', dd.dropoffDate, dd.dropoffWindow); }
+    if (prevPickup)  { const pd = JSON.parse(prevPickup);  preselectOption('cartPickup',  pd.pickupDate,  pd.pickupWindow);  }
+
+    document.getElementById('cartTimesRow').style.display  = 'none';
+    document.getElementById('cartTimesEdit').style.display = 'block';
+  });
+
+  // Confirm times button
+  document.getElementById('cartConfirmTimesBtn').addEventListener('click', () => {
+    const dropoffInput = document.querySelector('#cartDropoffOptions input[name="cartDropoff"]:checked');
+    const pickupInput  = document.querySelector('#cartPickupOptions input[name="cartPickup"]:checked');
+    if (!dropoffInput) { alert('Please select a dropoff time.'); return; }
+    if (!pickupInput)  { alert('Please select a pickup time.');  return; }
+
+    const dd = JSON.parse(dropoffInput.value);
+    const pd = JSON.parse(pickupInput.value);
+    const dropoffPayload = { dropoffDate: dd.date, dropoffWindow: dd.window };
+    const pickupPayload  = { pickupDate:  pd.date, pickupWindow:  pd.window  };
+
+    localStorage.setItem('rrpr_dropoff_manual', JSON.stringify(dropoffPayload));
+    localStorage.setItem('rrpr_pickup_manual',  JSON.stringify(pickupPayload));
+    localStorage.setItem('rrpr_dropoff', JSON.stringify(dropoffPayload));
+    localStorage.setItem('rrpr_pickup',  JSON.stringify(pickupPayload));
+
+    const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+    document.getElementById('cartTimesEdit').style.display = 'none';
+    document.getElementById('cartTimesRow').style.display  = 'flex';
+    refreshCartBookingInfo();
+    if (storedDate) {
+      AvailabilityService.setRentalDates(storedDate);
+      renderCart(); // shows "Checking availability..." while fetching
+      AvailabilityService.ensureAvailability()
+        .then(() => {
+          if (typeof refreshCartAvailability === 'function') refreshCartAvailability();
+          renderCart();
+        })
+        .catch(() => renderCart());
+    }
+  });
+});
+</script>
+</body>
+</html>

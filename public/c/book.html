@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+	<!-- End Google Tag Manager -->
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Red Rock Party Rentals – Book</title>
+
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="book-now-component.css" />
+	<link rel="stylesheet" href="accordion.css" />
+	<link rel="stylesheet" href="cart.css" />
+
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
+	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+
+	<style>
+
+	/* ── Tokens ─────────────────────────────────────────────── */
+	:root {
+	  --red:       #8b0000;
+	  --red-hover: #720000;
+	  --off-white: #f8f8f6;
+	  --border:    #ddd;
+	  --muted:     #777;
+	}
+
+	/* ── Page heading ───────────────────────────────────────── */
+	.book-page-title {
+	  font-size: 30px;
+	  text-align: center;
+	  margin: 2rem 0 2rem;
+	  color: #222;
+	}
+
+	/* ── Stepper wrapper ─────────────────────────────────────── */
+	.v2-stepper {
+	  max-width: 740px;
+	  margin: 0 auto;
+	  padding: 0 1.25rem 4rem;
+	}
+
+	/* ── Individual step ─────────────────────────────────────── */
+	.v2-step {
+	  display: grid;
+	  grid-template-columns: 52px 1fr;
+	}
+
+	/* Left column: badge + connector line */
+	.v2-step__left {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  padding-top: 0.15rem;
+	}
+
+	.v2-step__badge {
+	  width: 36px;
+	  height: 36px;
+	  border-radius: 50%;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  font-size: 1rem;
+	  font-weight: 700;
+	  flex-shrink: 0;
+	  background: #ddd;
+	  color: #aaa;
+	  transition: background 0.25s, color 0.25s;
+	  position: relative;
+	  z-index: 1;
+	}
+
+	.v2-step[data-state="active"] .v2-step__badge,
+	.v2-step[data-state="done"]   .v2-step__badge {
+	  background: var(--red);
+	  color: #fff;
+	  -webkit-text-fill-color: #fff;
+	}
+
+	.v2-step__connector {
+	  width: 2px;
+	  background: #e8e8e8;
+	  flex: 1;
+	  min-height: 2rem;
+	  margin-top: 5px;
+	}
+
+	/* Right column */
+	.v2-step__right {
+	  padding-left: 0.25rem;
+	  padding-bottom: 2.5rem;
+	}
+
+	/* Step head (always visible) */
+	.v2-step__head {
+	  display: flex;
+	  align-items: flex-start;
+	  gap: 0.5rem;
+	  min-height: 36px;
+	  padding-top: 0.05rem;
+	  margin-bottom: 0.9rem;
+	}
+
+	.v2-step__meta { flex: 1; min-width: 0; }
+
+	.v2-step__title {
+	  display: block;
+	  font-size: 0.8rem;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  letter-spacing: 1.5px;
+	  line-height: 1.4;
+	  transition: color 0.2s;
+	}
+
+	.v2-step[data-state="locked"] .v2-step__title { color: #ccc; }
+	.v2-step[data-state="active"] .v2-step__title { color: #222; }
+	.v2-step[data-state="done"]   .v2-step__title { color: #aaa; font-size: 0.68rem; }
+
+	.v2-step__summary {
+	  display: none;
+	  font-size: 0.95rem;
+	  color: #222;
+	  line-height: 1.55;
+	  margin-top: 0.2rem;
+	}
+	.v2-step[data-state="done"] .v2-step__summary { display: block; }
+
+	.v2-step__edit {
+	  background: none;
+	  border: none;
+	  font-family: 'Lora', serif;
+	  font-size: 0.8rem;
+	  color: var(--red);
+	  cursor: pointer;
+	  text-decoration: underline;
+	  padding: 0;
+	  margin-top: 0.15rem;
+	  display: none;
+	  flex-shrink: 0;
+	  white-space: nowrap;
+	}
+	.v2-step__edit:hover { color: var(--red-hover); }
+	.v2-step[data-state="done"] .v2-step__edit { display: inline-block; }
+
+	/* Step body: shown only when active */
+	.v2-step__body { display: none; }
+	.v2-step[data-state="active"] .v2-step__body { display: block; }
+
+	/* Step hint: shown only when locked */
+	.v2-step__hint {
+	  display: none;
+	  font-size: 0.88rem;
+	  color: #ccc;
+	  line-height: 1.5;
+	  padding-top: 0.1rem;
+	}
+	.v2-step[data-state="locked"] .v2-step__hint { display: block; }
+
+	/* ── Time option cards ───────────────────────────────────── */
+	.schedule-group { margin-bottom: 1.5rem; }
+
+	.schedule-group-title {
+	  font-size: 0.7rem;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  letter-spacing: 1.5px;
+	  color: var(--muted);
+	  margin-bottom: 0.6rem;
+	}
+
+	.time-option-grid {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	  gap: 0.75rem;
+	}
+
+	.time-option-card {
+	  border: 2px solid var(--border);
+	  padding: 5px 10px;
+	  cursor: pointer;
+	  display: block;
+	  transition: border-color 0.15s, background 0.15s;
+	  user-select: none;
+	}
+	.time-option-card input[type="radio"] { display: none; }
+	.time-option-card:has(input:checked)  { border-color: var(--red); background: #fdf5f5; }
+
+	.time-option-card__day {
+	  font-size: 0.67rem;
+	  text-transform: uppercase;
+	  letter-spacing: 0.9px;
+	  color: #bbb;
+	  margin-bottom: 0.15rem;
+	}
+	.time-option-card__date {
+	  font-size: 1.05rem;
+	  font-weight: 600;
+	  color: #bbb;
+	  margin-bottom: 0.25rem;
+	}
+	.time-option-card__window { font-size: 0.85rem; color: #bbb; }
+
+	.time-option-card:has(input:checked) .time-option-card__day   { color: var(--muted); }
+	.time-option-card:has(input:checked) .time-option-card__date  { color: #222; }
+	.time-option-card:has(input:checked) .time-option-card__window { color: #444; }
+
+	/* Hint placeholder cards (locked state visual) */
+	.time-hint-grid {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	  gap: 0.75rem;
+	  margin-bottom: 1rem;
+	}
+	.time-hint-card {
+	  border: 2px solid #eee;
+	  padding: 1rem 0.9rem;
+	}
+	.time-hint-card__line {
+	  height: 0.7rem;
+	  background: #f0f0f0;
+	  border-radius: 3px;
+	  margin-bottom: 0.4rem;
+	}
+	.time-hint-card__line--short { width: 60%; }
+
+	/* ── Inventory loading message ───────────────────────────── */
+	.checking-availability-message {
+	  padding: 1.5rem 0;
+	  font-size: 1rem;
+	  color: #555;
+	}
+
+	/* ── Inventory card: pin Add To Cart buttons to the same row ─
+	   Cards in a flex-wrap row already stretch to equal height via
+	   align-items:stretch. Making the card itself a flex column lets
+	   flex:1 on the body fill remaining space, and margin-top:auto on
+	   the button pushes it to the bottom of every card. ─────────── */
+	.rr-card {
+	  display: flex;
+	  flex-direction: column;
+	}
+	.rr-card__body {
+	  display: flex;
+	  flex-direction: column;
+	  flex: 1;
+	}
+	.rr-card__addToCart {
+	  margin-top: auto;
+	}
+
+	/* ── Cart summary bar ────────────────────────────────────── */
+	#bk-cart-summary {
+	  display: none;
+	  padding: 1.4rem 2rem;
+	}
+	.bk-cart-bar {
+	  max-width: 740px;
+	  margin: 0 auto;
+	  display: flex;
+	  align-items: center;
+	  justify-content: space-between;
+	  gap: 1rem;
+	  flex-wrap: wrap;
+	  background: var(--off-white);
+	  border: 1px solid var(--border);
+	  padding: 1rem 1.4rem;
+	}
+	.bk-cart-bar-left {
+	  display: flex;
+	  align-items: center;
+	  gap: 0.65rem;
+	  font-size: 1.2rem;
+	  color: #222;
+	}
+	.bk-cart-bar-count {
+	  background: var(--red);
+	  color: #fff;
+	  -webkit-text-fill-color: #fff;
+	  font-size: 1rem;
+	  font-weight: 700;
+	  min-width: 28px;
+	  height: 28px;
+	  padding: 0 6px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  flex-shrink: 0;
+	}
+	.bk-cart-bar-btn {
+	  background: var(--red);
+	  color: #fff;
+	  -webkit-text-fill-color: #fff;
+	  border: none;
+	  font-family: 'Lora', serif;
+	  font-size: 0.9rem;
+	  font-weight: 600;
+	  letter-spacing: 1px;
+	  text-transform: uppercase;
+	  padding: 0.85rem 1.8rem;
+	  cursor: pointer;
+	  transition: background 0.15s;
+	  white-space: nowrap;
+	}
+	.bk-cart-bar-btn:hover { background: var(--red-hover); }
+
+	@media (max-width: 720px) {
+	  .page-wrapper { padding: 0px 30px 0px 2px; }
+
+	  #bk-cart-summary {
+	    background: var(--off-white);
+	    border-top: 1px solid var(--border);
+	    border-bottom: 1px solid var(--border);
+	    padding: 1.2rem 1.4rem;
+	  }
+	  .bk-cart-bar { background: none; border: none; padding: 0; flex-direction: column; align-items: flex-start; }
+	  .bk-cart-bar-btn { width: 100%; text-align: center; }
+	}
+
+	@media (max-width: 480px) {
+	  .time-option-grid,
+	  .time-hint-grid { grid-template-columns: 1fr; }
+	}
+
+	/* ── Cart booking info panel ─────────────────────────────── */
+	.cart-info-row {
+	  display: flex;
+	  align-items: flex-start;
+	  justify-content: space-between;
+	  gap: 0.5rem;
+	  padding: 3px 0;
+	}
+	.cart-info-label {
+	  font-size: 0.62rem;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  letter-spacing: 1.5px;
+	  color: #888;
+	  margin-bottom: 3px;
+	}
+	.cart-info-value {
+	  font-size: 0.88rem;
+	  color: #222;
+	  line-height: 1.45;
+	}
+	.cart-info-sep {
+	  border-top: 1px solid #d5d5d5;
+	  margin: 10px 0;
+	}
+	.cart-info-edit {
+	  background: none;
+	  border: none;
+	  font-family: 'Lora', serif;
+	  font-size: 0.78rem;
+	  color: var(--red);
+	  text-decoration: underline;
+	  cursor: pointer;
+	  flex-shrink: 0;
+	  padding: 0;
+	  margin-top: 1px;
+	}
+	.cart-info-edit:hover { color: var(--red-hover); }
+
+	/* ── Click-to-edit affordance ───────────────────────────────── */
+	.v2-step[data-state="done"] .v2-step__meta { cursor: pointer; }
+	.cart-info-row > div { cursor: pointer; }
+
+	/* accordion override: no extra max-width fighting the stepper */
+	.v2-step__body .accordion {
+	  max-width: 100% !important;
+	  padding: 0 !important;
+	  margin: 0 !important;
+	}
+
+	/* ── Cart scroll area ────────────────────────────────────── */
+	/* Wraps cart-booking-info + cart-items so both scroll together,
+	   keeping the header and footer fixed outside the scroll region. */
+	.cart-scroll-area {
+	  flex: 1;
+	  overflow-y: auto;
+	  -webkit-overflow-scrolling: touch;
+	}
+	/* cart-items has flex:1 + overflow-y:auto in cart.css — override
+	   both so it doesn't try to be its own scroll container inside ours */
+	.cart-scroll-area .cart-items {
+	  flex: none;
+	  overflow-y: visible;
+	}
+
+	</style>
+
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header>
+  <nav class="navbar" id="navbar" style="position:static;">
+    <div class="logo">
+		<a href="index.html">
+			<img src="images/logo.png" alt="Red Rock Logo" />
+			<span style="color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+		</a>
+    </div>
+	<div style="display:flex;">
+		<button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+		</button>
+		<button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
+	</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" style="color:rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color:rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color:rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color:rgba(0,0,0,.8);">Contact</a></li>
+	  <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+	  </button>
+    </ul>
+  </nav>
+</header>
+
+
+<div class="page-wrapper">
+
+  <p class="book-page-title">Book your rentals</p>
+
+  <div class="v2-stepper">
+
+    <!-- ══════════════════════════════════════════════════════
+         STEP 1 — Event Date
+    ══════════════════════════════════════════════════════ -->
+    <div class="v2-step" id="v2-step-1" data-state="active">
+
+      <div class="v2-step__left">
+        <div class="v2-step__badge" data-num="1">1</div>
+        <div class="v2-step__connector"></div>
+      </div>
+
+      <div class="v2-step__right">
+        <div class="v2-step__head">
+          <div class="v2-step__meta">
+            <span class="v2-step__title">When is your event?</span>
+            <span class="v2-step__summary" id="step1Summary"></span>
+          </div>
+          <button class="v2-step__edit" id="editStep1Btn">Edit</button>
+        </div>
+
+        <!-- Active content: just the date picker, no button -->
+        <div class="v2-step__body">
+          <div class="dropdown-wrapper" style="max-width:280px;">
+            <div class="dropdown-icon-calendar"></div>
+            <div class="dropdown-divider"></div>
+            <input type="text" id="dateStart" placeholder="Select a date" required>
+          </div>
+        </div>
+
+        <div class="v2-step__hint"></div>
+      </div>
+
+    </div><!-- /step 1 -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+         STEP 2 — Dropoff & Pickup Times
+    ══════════════════════════════════════════════════════ -->
+    <div class="v2-step" id="v2-step-2" data-state="locked">
+
+      <div class="v2-step__left">
+        <div class="v2-step__badge" data-num="2">2</div>
+        <div class="v2-step__connector"></div>
+      </div>
+
+      <div class="v2-step__right">
+        <div class="v2-step__head">
+          <div class="v2-step__meta">
+            <span class="v2-step__title">Dropoff &amp; pickup times</span>
+            <span class="v2-step__summary" id="step2Summary"></span>
+          </div>
+          <button class="v2-step__edit" id="editStep2Btn">Edit</button>
+        </div>
+
+        <!-- Active content -->
+        <div class="v2-step__body">
+          <div class="schedule-group">
+            <div class="schedule-group-title">Dropoff</div>
+            <div id="dropoffOptions" class="time-option-grid"></div>
+          </div>
+          <div class="schedule-group">
+            <div class="schedule-group-title">Pickup</div>
+            <div id="pickupOptions" class="time-option-grid"></div>
+          </div>
+          <button id="seeRentalsBtn" type="button" class="find-rentals-btn">
+            SEE AVAILABLE RENTALS →
+          </button>
+        </div>
+
+        <!-- Locked hint -->
+        <div class="v2-step__hint">
+          <p style="margin:0 0 0.85rem;">Select your preferred dropoff and pickup windows.</p>
+          <div style="margin-bottom:0.5rem; font-size:0.65rem; letter-spacing:1px; text-transform:uppercase; color:#ddd;">Dropoff</div>
+          <div class="time-hint-grid">
+            <div class="time-hint-card">
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line time-hint-card__line--short"></div>
+            </div>
+            <div class="time-hint-card">
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line time-hint-card__line--short"></div>
+            </div>
+          </div>
+          <div style="margin:0.85rem 0 0.5rem; font-size:0.65rem; letter-spacing:1px; text-transform:uppercase; color:#ddd;">Pickup</div>
+          <div class="time-hint-grid">
+            <div class="time-hint-card">
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line time-hint-card__line--short"></div>
+            </div>
+            <div class="time-hint-card">
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line time-hint-card__line--short"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /step 2 -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+         STEP 3 — Select Rentals
+    ══════════════════════════════════════════════════════ -->
+    <div class="v2-step" id="v2-step-3" data-state="locked">
+
+      <div class="v2-step__left">
+        <div class="v2-step__badge" data-num="3">3</div>
+      </div>
+
+      <div class="v2-step__right" id="selectYourRentalsHeader">
+        <div class="v2-step__head">
+          <div class="v2-step__meta">
+            <span class="v2-step__title">Select your rentals</span>
+          </div>
+        </div>
+
+        <!-- Active content: loading + inventory -->
+        <div class="v2-step__body">
+          <div id="inventoryLoading" class="checking-availability-message" style="display:none;">
+            Checking availability…
+          </div>
+          <section id="inventorySection" style="display:none;">
+            <div class="accordion" id="inventoryAccordion">
+
+              <div class="accordion-item" data-category="Tables And Chairs">
+                <button class="accordion-header">
+                  Tables &amp; Chairs
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Table Covers">
+                <button class="accordion-header">
+                  Table Covers
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Table Runners">
+                <button class="accordion-header">
+                  Table Runners
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Games">
+                <button class="accordion-header">
+                  Games
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Marquee Letters">
+                <button class="accordion-header">
+                  Marquee Letters
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Other">
+                <button class="accordion-header">
+                  Party Essentials
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+
+        <!-- Locked hint -->
+        <div class="v2-step__hint">
+          <p style="margin:0; color:#ccc; font-size:0.88rem;">
+            Select your delivery times to browse available rentals.
+          </p>
+        </div>
+
+      </div>
+
+    </div><!-- /step 3 -->
+
+  </div><!-- /v2-stepper -->
+
+</div><!-- /page-wrapper -->
+
+
+<!-- Cart summary bar -->
+<div id="bk-cart-summary">
+  <div class="bk-cart-bar">
+    <div class="bk-cart-bar-left">
+      <span class="bk-cart-bar-count" id="bkCartCount">0</span>
+      <span id="bkCartLabel">items in cart</span>
+    </div>
+    <button class="bk-cart-bar-btn" onclick="openCart(); renderCart();">
+      View Cart &amp; Checkout &rarr;
+    </button>
+  </div>
+</div>
+
+
+<!-- Card Template (hidden) -->
+<template id="rrItemTemplate">
+  <div class="rr-card">
+   <a class="rr-card__imglink">
+	<div class="rr-card__img-wrap">
+	  <img class="rr-card__img" alt="" loading="lazy" />
+	</div>
+   </a>
+	<div class="rr-card__body">
+	  <div class="rr-card__name"></div>
+	  <div class="rr-card__addToCart"></div>
+	</div>
+  </div>
+</template>
+
+<section class="booking" id="otherWaysSection" style="display:none; padding:0 1rem 3rem; max-width:740px; margin:0 auto;">
+  <hr class="solid" style="margin-bottom:30px;">
+  <h3 style="font-size:30px;">Other Ways to Book:</h3>
+  <p style="font-size:22px;">Email us at booking@redrockpartyrentals.com</p>
+  <p style="font-size:22px;">Text us at 702-706-2455</p>
+</section>
+
+
+<!-- CART OVERLAY -->
+<div id="cartOverlay" class="cart-overlay">
+  <div class="cart-panel cart-panel--fullscreen">
+
+	<header class="cart-header">
+	  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+	  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+	  <button class="cart-close" onclick="closeCart()">✕</button>
+	</header>
+
+	<div class="cart-scroll-area">
+	<!-- Cart booking info ─────────────────────────────────── -->
+	<div id="cart-booking-info" style="background:#eee; padding:14px 16px; border-bottom:1px solid #ddd;">
+
+	  <!-- Event date row -->
+	  <div class="cart-info-row" id="cartDateRow">
+	    <div>
+	      <div class="cart-info-label">Event Date</div>
+	      <div class="cart-info-value" id="cartDateValue">Not selected</div>
+	    </div>
+	    <button class="cart-info-edit" id="cartEditDateBtn">Edit</button>
+	  </div>
+
+	  <!-- Date edit: the existing flatpickr input (kept for book-now-component.js) -->
+	  <div id="cartDateEdit" style="display:none; padding-top:8px;">
+	    <div id="cart-panel-booking-form">
+	      <div class="dropdown-wrapper" style="width:100%;">
+	        <div class="dropdown-icon-calendar"></div>
+	        <div class="dropdown-divider"></div>
+	        <input type="text" id="dateStart2" placeholder="Select a date" required>
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="cart-info-sep"></div>
+
+	  <!-- Dropoff & pickup row -->
+	  <div class="cart-info-row" id="cartTimesRow">
+	    <div style="flex:1; min-width:0;">
+	      <div class="cart-info-label">Dropoff &amp; Pickup</div>
+	      <div class="cart-info-value" id="cartTimesValue">Not selected</div>
+	    </div>
+	    <button class="cart-info-edit" id="cartEditTimesBtn">Edit</button>
+	  </div>
+
+	  <!-- Times edit: mini time-option cards -->
+	  <div id="cartTimesEdit" style="display:none; padding-top:10px;">
+	    <div class="schedule-group">
+	      <div class="schedule-group-title">Dropoff</div>
+	      <div id="cartDropoffOptions" class="time-option-grid"></div>
+	    </div>
+	    <div class="schedule-group">
+	      <div class="schedule-group-title">Pickup</div>
+	      <div id="cartPickupOptions" class="time-option-grid"></div>
+	    </div>
+	    <button id="cartConfirmTimesBtn" type="button" class="find-rentals-btn"
+	            style="font-size:0.82rem; padding:0.65rem 1rem; width:100%; margin-top:0.25rem;">
+	      Confirm Times
+	    </button>
+	  </div>
+
+	  <div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none; padding:8px 0 0; font-size:0.9rem;">
+	    Checking availability…
+	  </div>
+
+	</div>
+	<!-- ─────────────────────────────────────────────────────── -->
+
+	<div id="cartItems" class="cart-items"></div>
+
+	</div><!-- /cart-scroll-area -->
+
+	<footer class="cart-footer">
+	  <div class="cart-summary">
+		<div class="cart-line">
+		  <span>Delivery</span>
+		  <strong id="cartSubtotal">$10.00</strong>
+		</div>
+		<div class="cart-line total">
+		  <span>Total</span>
+		  <strong id="cartTotal">$0.00</strong>
+		</div>
+	  </div>
+	  <div class="button-row" style="display:flex;gap:10px;">
+		<button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+		<button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+	  </div>
+	</footer>
+
+  </div>
+</div>
+
+
+<script src="navbar-scroll.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="accordion.js"></script>
+<script src="availabilityService.js"></script>
+<script src="cart.js"></script>
+<script src="book-now-component.js"></script>
+<script src="checkout.js"></script>
+<script src="inventory-grid.js"></script>
+
+<script>
+// ─── Suppress inventory-grid.js auto-load ────────────────────────────────────
+const _origLoadInventory = loadInventory;
+window.loadInventory = function () {
+  document.getElementById('inventoryLoading').style.display = 'none';
+  document.getElementById('otherWaysSection').style.display = 'none';
+};
+
+// ─── Step state helpers ───────────────────────────────────────────────────────
+function setStepState(stepId, state) {
+  const el = document.getElementById(stepId);
+  el.dataset.state = state;
+  if (state !== 'done') {
+    const badge = el.querySelector('.v2-step__badge');
+    badge.textContent = badge.dataset.num;
+  }
+}
+
+function markStepDone(stepId, summaryHtml) {
+  const el = document.getElementById(stepId);
+  el.dataset.state = 'done';
+  el.querySelector('.v2-step__badge').textContent = '✓';
+  el.querySelector('.v2-step__summary').innerHTML = summaryHtml;
+}
+
+// ─── Time-option helpers ──────────────────────────────────────────────────────
+// Pre-select a radio whose date+window matches stored manual selection
+function preselectOption(radioName, isoDate, window) {
+  const target = new Date(isoDate).toDateString();
+  document.querySelectorAll(`input[name="${radioName}"]`).forEach(radio => {
+    const val = JSON.parse(radio.value);
+    if (new Date(val.date).toDateString() === target && val.window === window) {
+      radio.checked = true;
+    }
+  });
+}
+
+function buildOptionCard(radioName, opt) {
+  const dayStr  = opt.date.toLocaleDateString('en-US', { weekday: 'long' });
+  const dateStr = opt.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+  const value   = JSON.stringify({ date: opt.date.toISOString(), window: opt.window });
+  return `
+    <label class="time-option-card">
+      <input type="radio" name="${radioName}" value='${value}' ${opt.isDefault ? 'checked' : ''}>
+      <div class="time-option-card__day">${dayStr}</div>
+      <div class="time-option-card__date">${dateStr}</div>
+      <div class="time-option-card__window">${opt.window}</div>
+    </label>`;
+}
+
+function renderDropoffOptions(eventDate) {
+  const dayBefore = new Date(eventDate); dayBefore.setDate(eventDate.getDate() - 1);
+  const dayBeforeIsWeekend = dayBefore.getDay() === 0 || dayBefore.getDay() === 6;
+
+  let options;
+  if (eventDate.getDay() === 6) {
+    // Saturday: prefer same-day morning; day-before (Fri) evening as alternative
+    options = [
+      { date: new Date(eventDate), window: '8:00 AM \u2013 11:00 AM', isDefault: true },
+      { date: new Date(dayBefore), window: '5:00 PM \u2013 8:00 PM',  isDefault: false }
+    ];
+  } else if (dayBeforeIsWeekend) {
+    // Day-before is a weekend \u2014 offer morning slot on that same day
+    options = [
+      { date: new Date(dayBefore), window: '5:00 PM \u2013 8:00 PM',  isDefault: true },
+      { date: new Date(dayBefore), window: '8:00 AM \u2013 11:00 AM', isDefault: false }
+    ];
+  } else {
+    // Day-before is a weekday \u2014 offer two-days-before as the second slot
+    const twoBefore = new Date(eventDate); twoBefore.setDate(eventDate.getDate() - 2);
+    options = [
+      { date: new Date(dayBefore), window: '5:00 PM \u2013 8:00 PM', isDefault: true },
+      { date: twoBefore,           window: '5:00 PM \u2013 8:00 PM', isDefault: false }
+    ];
+  }
+
+  document.getElementById('dropoffOptions').innerHTML =
+    [...options].reverse().map(o => buildOptionCard('dropoffOption', o)).join('');
+}
+
+function renderPickupOptions(eventDate) {
+  const dayAfter = new Date(eventDate); dayAfter.setDate(eventDate.getDate() + 1);
+  const dayAfterIsWeekend = dayAfter.getDay() === 0 || dayAfter.getDay() === 6;
+
+  let options;
+  if (eventDate.getDay() === 6) {
+    // Saturday: prefer Sunday morning pickup; Sunday evening as alternative
+    options = [
+      { date: new Date(dayAfter), window: '8:00 AM \u2013 11:00 AM', isDefault: true },
+      { date: new Date(dayAfter), window: '5:00 PM \u2013 8:00 PM',  isDefault: false }
+    ];
+  } else if (dayAfterIsWeekend) {
+    // Day-after is a weekend \u2014 offer morning slot on that same day (chronological: AM first)
+    options = [
+      { date: new Date(dayAfter), window: '8:00 AM \u2013 11:00 AM', isDefault: false },
+      { date: new Date(dayAfter), window: '5:00 PM \u2013 8:00 PM',  isDefault: true  }
+    ];
+  } else {
+    // Day-after is a weekday \u2014 offer two-days-after as the second slot
+    const twoDaysAfter = new Date(eventDate); twoDaysAfter.setDate(eventDate.getDate() + 2);
+    options = [
+      { date: new Date(dayAfter), window: '5:00 PM \u2013 8:00 PM', isDefault: true },
+      { date: twoDaysAfter,       window: '5:00 PM \u2013 8:00 PM', isDefault: false }
+    ];
+  }
+
+  document.getElementById('pickupOptions').innerHTML =
+    options.map(o => buildOptionCard('pickupOption', o)).join('');
+}
+
+// ─── Step 1: auto-advance on date pick ───────────────────────────────────────
+// book-now-component.js initializes flatpickr on #dateStart synchronously,
+// so _flatpickr is already set by the time this inline script runs.
+// We push an onChange handler onto the existing instance rather than
+// re-initializing, which would clobber book-now-component.js's config.
+(function hookDatePicker() {
+  const fp = document.getElementById('dateStart')._flatpickr;
+  if (!fp) return;
+
+  // Replace (not push) to prevent book-now-component.js from redirecting
+  fp.config.onChange = [function (selectedDates, dateStr) {
+    if (!dateStr) return;
+
+    const [month, day, year] = dateStr.split('/');
+    const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    const [y, m, d] = iso.split('-');
+    const eventDate = new Date(parseInt(y), parseInt(m) - 1, parseInt(d));
+
+    localStorage.setItem('rrpr_event_date', JSON.stringify(iso));
+    localStorage.removeItem('rrpr_dropoff_manual');
+    localStorage.removeItem('rrpr_pickup_manual');
+
+    markStepDone('v2-step-1',
+      eventDate.toLocaleDateString('en-US', {
+        weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+      })
+    );
+
+    setStepState('v2-step-2', 'active');
+    renderDropoffOptions(eventDate);
+    renderPickupOptions(eventDate);
+    refreshCartBookingInfo();
+  }];
+}());
+
+// ─── Skip already-completed steps on page load ───────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  // If a ?date=YYYY-MM-DD param is in the URL, honour it.
+  // Only clear manual times if the date is different from what was stored.
+  const urlDate = new URLSearchParams(window.location.search).get('date');
+  if (urlDate) {
+    const existing = JSON.parse(localStorage.getItem('rrpr_event_date'));
+    if (existing !== urlDate) {
+      localStorage.removeItem('rrpr_dropoff_manual');
+      localStorage.removeItem('rrpr_pickup_manual');
+    }
+    localStorage.setItem('rrpr_event_date', JSON.stringify(urlDate));
+  }
+
+  const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+  if (!storedDate) return;
+
+  // Pre-fill the date picker silently (false = don't fire onChange)
+  const fp = document.getElementById('dateStart')._flatpickr;
+  if (fp) fp.setDate(storedDate, false);
+
+  const [y, m, d] = storedDate.split('-');
+  const eventDate = new Date(parseInt(y), parseInt(m) - 1, parseInt(d));
+
+  markStepDone('v2-step-1',
+    eventDate.toLocaleDateString('en-US', {
+      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+    })
+  );
+
+  const dropoffManual = localStorage.getItem('rrpr_dropoff_manual');
+  const pickupManual  = localStorage.getItem('rrpr_pickup_manual');
+
+  if (dropoffManual && pickupManual) {
+    // Both steps done — jump straight to the inventory
+    const dd = JSON.parse(dropoffManual);
+    const pd = JSON.parse(pickupManual);
+    const fmt = iso => new Date(iso).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    markStepDone('v2-step-2',
+      `Dropoff: ${fmt(dd.dropoffDate)}, ${dd.dropoffWindow}<br>` +
+      `Pickup: ${fmt(pd.pickupDate)}, ${pd.pickupWindow}`
+    );
+    AvailabilityService.setRentalDates(storedDate);
+    setStepState('v2-step-3', 'active');
+    _origLoadInventory();
+  } else {
+    // Date selected but no delivery times yet — open step 2
+    setStepState('v2-step-2', 'active');
+    renderDropoffOptions(eventDate);
+    renderPickupOptions(eventDate);
+  }
+});
+
+// ─── Remaining step navigation ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Edit step 1: open the calendar; onChange handles any downstream reset ──
+  document.getElementById('editStep1Btn').addEventListener('click', () => {
+    setStepState('v2-step-1', 'active');
+    const fp = document.getElementById('dateStart')._flatpickr;
+    if (fp) fp.open();
+  });
+
+  // ── Step 2 → Step 3 ──────────────────────────────────────────────────────
+  document.getElementById('seeRentalsBtn').addEventListener('click', () => {
+    const dropoffInput = document.querySelector('input[name="dropoffOption"]:checked');
+    const pickupInput  = document.querySelector('input[name="pickupOption"]:checked');
+    if (!dropoffInput) { alert('Please select a dropoff time.'); return; }
+    if (!pickupInput)  { alert('Please select a pickup time.');  return; }
+
+    const dropoffData = JSON.parse(dropoffInput.value);
+    const pickupData  = JSON.parse(pickupInput.value);
+
+    const dropoffPayload = { dropoffDate: dropoffData.date, dropoffWindow: dropoffData.window };
+    const pickupPayload  = { pickupDate:  pickupData.date,  pickupWindow:  pickupData.window  };
+
+    localStorage.setItem('rrpr_dropoff_manual', JSON.stringify(dropoffPayload));
+    localStorage.setItem('rrpr_pickup_manual',  JSON.stringify(pickupPayload));
+    localStorage.setItem('rrpr_dropoff', JSON.stringify(dropoffPayload));
+    localStorage.setItem('rrpr_pickup',  JSON.stringify(pickupPayload));
+
+    const dateRaw = document.getElementById('dateStart').value;
+    const [month, day, year] = dateRaw.split('/');
+    const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    localStorage.setItem('rrpr_event_date', JSON.stringify(iso));
+    AvailabilityService.setRentalDates(iso);
+
+    const fmt = d => new Date(d).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    markStepDone('v2-step-2',
+      `Dropoff: ${fmt(dropoffData.date)}, ${dropoffData.window}<br>` +
+      `Pickup: ${fmt(pickupData.date)}, ${pickupData.window}`
+    );
+
+    setStepState('v2-step-3', 'active');
+    _origLoadInventory();
+    refreshCartBookingInfo();
+  });
+
+  // ── Click summary area to trigger edit ───────────────────────────────────
+  document.querySelector('#v2-step-1 .v2-step__meta').addEventListener('click', () => {
+    if (document.getElementById('v2-step-1').dataset.state === 'done')
+      document.getElementById('editStep1Btn').click();
+  });
+  document.querySelector('#v2-step-2 .v2-step__meta').addEventListener('click', () => {
+    const state = document.getElementById('v2-step-2').dataset.state;
+    if (state === 'done')   document.getElementById('editStep2Btn').click();
+    if (state === 'active') document.getElementById('seeRentalsBtn').click();
+  });
+
+  // ── Edit step 2 ──────────────────────────────────────────────────────────
+  document.getElementById('editStep2Btn').addEventListener('click', () => {
+    setStepState('v2-step-2', 'active');
+    setStepState('v2-step-3', 'locked');
+
+    // Read before clearing so we can restore the selection
+    const prevDropoff = localStorage.getItem('rrpr_dropoff_manual');
+    const prevPickup  = localStorage.getItem('rrpr_pickup_manual');
+
+    localStorage.removeItem('rrpr_dropoff_manual');
+    localStorage.removeItem('rrpr_pickup_manual');
+    document.getElementById('inventorySection').style.display = 'none';
+    document.getElementById('inventoryLoading').style.display = 'none';
+
+    const rawdate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+    if (rawdate) {
+      const [y, m, d] = rawdate.split('-');
+      const eventDate = new Date(parseInt(y), parseInt(m) - 1, parseInt(d));
+      renderDropoffOptions(eventDate);
+      renderPickupOptions(eventDate);
+
+      // Restore previously selected options
+      if (prevDropoff) { const dd = JSON.parse(prevDropoff); preselectOption('dropoffOption', dd.dropoffDate, dd.dropoffWindow); }
+      if (prevPickup)  { const pd = JSON.parse(prevPickup);  preselectOption('pickupOption',  pd.pickupDate,  pd.pickupWindow);  }
+    }
+  });
+
+});
+
+// ─── Cart booking info panel ──────────────────────────────────────────────────
+function refreshCartBookingInfo() {
+  const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+  const dateEl = document.getElementById('cartDateValue');
+  if (dateEl) {
+    if (storedDate) {
+      const [y, m, d] = storedDate.split('-');
+      const eventDate = new Date(parseInt(y), parseInt(m) - 1, parseInt(d));
+      dateEl.textContent = eventDate.toLocaleDateString('en-US', {
+        weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+      });
+    } else {
+      dateEl.textContent = 'Not selected';
+    }
+  }
+
+  const timesEl = document.getElementById('cartTimesValue');
+  if (timesEl) {
+    const dropoff = localStorage.getItem('rrpr_dropoff_manual') || localStorage.getItem('rrpr_dropoff');
+    const pickup  = localStorage.getItem('rrpr_pickup_manual')  || localStorage.getItem('rrpr_pickup');
+    if (dropoff && pickup) {
+      const dd  = JSON.parse(dropoff);
+      const pd  = JSON.parse(pickup);
+      const fmt = iso => new Date(iso).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+      timesEl.innerHTML =
+        `Dropoff: ${fmt(dd.dropoffDate)}, ${dd.dropoffWindow}<br>` +
+        `Pickup: ${fmt(pd.pickupDate)}, ${pd.pickupWindow}`;
+    } else {
+      timesEl.textContent = 'Not selected';
+    }
+  }
+}
+
+function renderCartDropoffOptions(eventDate) {
+  const dayBefore = new Date(eventDate); dayBefore.setDate(eventDate.getDate() - 1);
+  const dayBeforeIsWeekend = dayBefore.getDay() === 0 || dayBefore.getDay() === 6;
+
+  let options;
+  if (eventDate.getDay() === 6) {
+    options = [
+      { date: new Date(eventDate), window: '8:00 AM \u2013 11:00 AM', isDefault: true },
+      { date: new Date(dayBefore), window: '5:00 PM \u2013 8:00 PM',  isDefault: false }
+    ];
+  } else if (dayBeforeIsWeekend) {
+    options = [
+      { date: new Date(dayBefore), window: '5:00 PM \u2013 8:00 PM',  isDefault: true },
+      { date: new Date(dayBefore), window: '8:00 AM \u2013 11:00 AM', isDefault: false }
+    ];
+  } else {
+    const twoBefore = new Date(eventDate); twoBefore.setDate(eventDate.getDate() - 2);
+    options = [
+      { date: new Date(dayBefore), window: '5:00 PM \u2013 8:00 PM', isDefault: true },
+      { date: twoBefore,           window: '5:00 PM \u2013 8:00 PM', isDefault: false }
+    ];
+  }
+
+  document.getElementById('cartDropoffOptions').innerHTML =
+    [...options].reverse().map(o => buildOptionCard('cartDropoff', o)).join('');
+}
+
+function renderCartPickupOptions(eventDate) {
+  const dayAfter = new Date(eventDate); dayAfter.setDate(eventDate.getDate() + 1);
+  const dayAfterIsWeekend = dayAfter.getDay() === 0 || dayAfter.getDay() === 6;
+
+  let options;
+  if (eventDate.getDay() === 6) {
+    options = [
+      { date: new Date(dayAfter), window: '8:00 AM \u2013 11:00 AM', isDefault: true },
+      { date: new Date(dayAfter), window: '5:00 PM \u2013 8:00 PM',  isDefault: false }
+    ];
+  } else if (dayAfterIsWeekend) {
+    options = [
+      { date: new Date(dayAfter), window: '8:00 AM \u2013 11:00 AM', isDefault: false },
+      { date: new Date(dayAfter), window: '5:00 PM \u2013 8:00 PM',  isDefault: true  }
+    ];
+  } else {
+    const twoDaysAfter = new Date(eventDate); twoDaysAfter.setDate(eventDate.getDate() + 2);
+    options = [
+      { date: new Date(dayAfter), window: '5:00 PM \u2013 8:00 PM', isDefault: true },
+      { date: twoDaysAfter,       window: '5:00 PM \u2013 8:00 PM', isDefault: false }
+    ];
+  }
+
+  document.getElementById('cartPickupOptions').innerHTML =
+    options.map(o => buildOptionCard('cartPickup', o)).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  refreshCartBookingInfo();
+
+  // ── Click label/value area to trigger edit ───────────────────────────────
+  document.querySelector('#cartDateRow > div').addEventListener('click', () => {
+    document.getElementById('cartEditDateBtn').click();
+  });
+  document.querySelector('#cartTimesRow > div').addEventListener('click', () => {
+    document.getElementById('cartEditTimesBtn').click();
+  });
+
+  // Hook into dateStart2's flatpickr onChange (after book-now-component.js sets it up)
+  const fp2 = document.getElementById('dateStart2')._flatpickr;
+  if (fp2) {
+    fp2.config.onChange.push((selectedDates, dateStr) => {
+      if (!dateStr) return;
+      const [month, day, year] = dateStr.split('/');
+      const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+      localStorage.setItem('rrpr_event_date', JSON.stringify(iso));
+      // Clear delivery times — they may not apply to the new date
+      localStorage.removeItem('rrpr_dropoff_manual');
+      localStorage.removeItem('rrpr_pickup_manual');
+      localStorage.removeItem('rrpr_dropoff');
+      localStorage.removeItem('rrpr_pickup');
+      // Collapse the date edit form and refresh cart display
+      document.getElementById('cartDateEdit').style.display = 'none';
+      document.getElementById('cartDateRow').style.display  = 'flex';
+      document.getElementById('CheckingAvailabilityNote').style.display = 'none';
+      refreshCartBookingInfo();
+      // Auto-open time options
+      document.getElementById('cartEditTimesBtn').click();
+      // ── Sync main stepper ──────────────────────────────────────────────────
+      const [y2, m2, d2] = iso.split('-');
+      const evDate = new Date(parseInt(y2), parseInt(m2) - 1, parseInt(d2));
+      // Silently update the main date picker
+      const fpMain = document.getElementById('dateStart')._flatpickr;
+      if (fpMain) fpMain.setDate(iso, false);
+      // Mark step 1 done with new date
+      markStepDone('v2-step-1', evDate.toLocaleDateString('en-US', {
+        weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+      }));
+      // Reset steps 2 & 3 and show fresh time options
+      setStepState('v2-step-2', 'active');
+      setStepState('v2-step-3', 'locked');
+      document.getElementById('inventorySection').style.display = 'none';
+      document.getElementById('inventoryLoading').style.display = 'none';
+      renderDropoffOptions(evDate);
+      renderPickupOptions(evDate);
+    });
+  }
+
+  // Edit date button
+  document.getElementById('cartEditDateBtn').addEventListener('click', () => {
+    document.getElementById('cartDateRow').style.display  = 'none';
+    document.getElementById('cartDateEdit').style.display = 'block';
+  });
+
+  // Edit times button
+  document.getElementById('cartEditTimesBtn').addEventListener('click', () => {
+    const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+    if (!storedDate) { alert('Please select an event date first.'); return; }
+    const [y, m, d] = storedDate.split('-');
+    const eventDate = new Date(parseInt(y), parseInt(m) - 1, parseInt(d));
+
+    // Read before clearing so we can restore the selection
+    const prevDropoff = localStorage.getItem('rrpr_dropoff_manual') || localStorage.getItem('rrpr_dropoff');
+    const prevPickup  = localStorage.getItem('rrpr_pickup_manual')  || localStorage.getItem('rrpr_pickup');
+
+    renderCartDropoffOptions(eventDate);
+    renderCartPickupOptions(eventDate);
+
+    // Restore previously selected options
+    if (prevDropoff) { const dd = JSON.parse(prevDropoff); preselectOption('cartDropoff', dd.dropoffDate, dd.dropoffWindow); }
+    if (prevPickup)  { const pd = JSON.parse(prevPickup);  preselectOption('cartPickup',  pd.pickupDate,  pd.pickupWindow);  }
+
+    document.getElementById('cartTimesRow').style.display  = 'none';
+    document.getElementById('cartTimesEdit').style.display = 'block';
+  });
+
+  // Confirm times button
+  document.getElementById('cartConfirmTimesBtn').addEventListener('click', () => {
+    const dropoffInput = document.querySelector('#cartDropoffOptions input[name="cartDropoff"]:checked');
+    const pickupInput  = document.querySelector('#cartPickupOptions input[name="cartPickup"]:checked');
+    if (!dropoffInput) { alert('Please select a dropoff time.'); return; }
+    if (!pickupInput)  { alert('Please select a pickup time.');  return; }
+
+    const dd = JSON.parse(dropoffInput.value);
+    const pd = JSON.parse(pickupInput.value);
+    const dropoffPayload = { dropoffDate: dd.date, dropoffWindow: dd.window };
+    const pickupPayload  = { pickupDate:  pd.date, pickupWindow:  pd.window  };
+
+    localStorage.setItem('rrpr_dropoff_manual', JSON.stringify(dropoffPayload));
+    localStorage.setItem('rrpr_pickup_manual',  JSON.stringify(pickupPayload));
+    localStorage.setItem('rrpr_dropoff', JSON.stringify(dropoffPayload));
+    localStorage.setItem('rrpr_pickup',  JSON.stringify(pickupPayload));
+
+    document.getElementById('cartTimesEdit').style.display = 'none';
+    document.getElementById('cartTimesRow').style.display  = 'flex';
+    refreshCartBookingInfo();
+    // ── Sync main stepper step 2 ───────────────────────────────────────────
+    const fmt = iso => new Date(iso).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    if (document.getElementById('v2-step-2').dataset.state === 'done' ||
+        document.getElementById('v2-step-3').dataset.state === 'active') {
+      markStepDone('v2-step-2',
+        `Dropoff: ${fmt(dropoffPayload.dropoffDate)}, ${dropoffPayload.dropoffWindow}<br>` +
+        `Pickup: ${fmt(pickupPayload.pickupDate)}, ${pickupPayload.pickupWindow}`
+      );
+    }
+    // ── Check availability ────────────────────────────────────────────────
+    const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+    if (storedDate) {
+      AvailabilityService.setRentalDates(storedDate);
+      renderCart();
+      AvailabilityService.ensureAvailability()
+        .then(() => {
+          if (typeof refreshCartAvailability === 'function') refreshCartAvailability();
+          renderCart();
+        })
+        .catch(() => renderCart());
+    }
+  });
+});
+
+// ─── Cart summary bar ─────────────────────────────────────────────────────────
+function updateCartUI() {
+  const cart = (typeof getCart === 'function') ? getCart() : [];
+  const qty  = cart.reduce((s, i) => s + i.qty, 0);
+  const invVisible = document.getElementById('inventorySection').style.display !== 'none';
+  const bar = document.getElementById('bk-cart-summary');
+  if (bar) {
+    bar.style.display = (qty > 0 && invVisible) ? 'block' : 'none';
+    const countEl = document.getElementById('bkCartCount');
+    const labelEl = document.getElementById('bkCartLabel');
+    if (countEl) countEl.textContent = qty;
+    if (labelEl) labelEl.textContent = qty === 1 ? 'item in cart' : 'items in cart';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const _orig = window.renderCart;
+  if (typeof _orig === 'function') {
+    window.renderCart = function () { _orig(); updateCartUI(); };
+  }
+  updateCartUI();
+  const inv = document.getElementById('inventorySection');
+  if (inv) new MutationObserver(updateCartUI).observe(inv, { attributes: true, attributeFilter: ['style'] });
+});
+</script>
+
+
+</body>
+</html>

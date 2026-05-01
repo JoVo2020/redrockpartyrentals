@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tables & Chairs for Rent in Las Vegas | Red Rock Party Rentals</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+
+  <style>
+    /* ── Reset ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lora', serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Tokens ──────────────────────────────────────────────── */
+    :root {
+      --red: #8b0000;
+      --red-hover: #720000;
+      --off-white: #f8f8f6;
+      --border: #ddd;
+      --muted: #777;
+      --gap-section: 5rem;
+    }
+
+    /* ── Navbar (matches site-wide style) ────────────────────── */
+    header { width: 100%; }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background: #fff;
+      position: static;
+      width: 100%;
+      z-index: 1000;
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
+    .logo a { display: flex; align-items: center; gap: 0.5rem; color: rgba(0,0,0,0.8); }
+    .logo img { height: 32px; vertical-align: bottom; }
+    .logo span { font-size: 1.05rem; }
+    .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: rgba(0,0,0,0.8); font-weight: 400; font-size: 1em; }
+    .nav-links a:hover { color: var(--red); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: rgba(0,0,0,0.7);
+      font-size: 1.5rem;
+      margin-left: 1rem;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    /* ── Hero ────────────────────────────────────────────────── */
+    .hero {
+      background: url('images/fancy-backyard-dinner.png') center center / cover no-repeat;
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.58) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 3.5rem 2rem 4rem;
+      max-width: 680px;
+    }
+    .hero-eyebrow {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.9rem;
+    }
+    .hero h1 {
+      font-size: 3.4rem;
+      color: #fff;
+      font-weight: 600;
+      line-height: 1.08;
+      margin-bottom: 1.1rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .hero-prices {
+      color: rgba(255,255,255,0.88);
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    /* ── Booking Bar ─────────────────────────────────────────── */
+    .booking-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 2.2rem 2rem;
+    }
+    .booking-bar-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .booking-bar-label {
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .booking-bar-row {
+      display: flex;
+      border: 1.5px solid #222;
+    }
+    .date-icon {
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      font-size: 1.1rem;
+      border-right: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      cursor: pointer;       /* clickable to open calendar */
+      user-select: none;
+    }
+    .date-icon:hover { color: var(--red); }
+    #heroDateInput {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      padding: 0.9rem 1rem;
+      color: #222;
+      background: #fff;
+      -webkit-text-fill-color: #222;
+      cursor: pointer;
+    }
+    #heroDateInput::placeholder { color: #aaa; }
+    .booking-bar-btn {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      font-family: 'Lora', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0 2rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .booking-bar-btn:hover { background: var(--red-hover); }
+    .booking-bar-note {
+      margin-top: 0.7rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ── Trust Row ───────────────────────────────────────────── */
+    .trust-row {
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-row-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1.4rem 2rem;
+      gap: 0.4rem 3rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #444;
+    }
+    .trust-check {
+      color: var(--red);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* ── Generic section ─────────────────────────────────────── */
+    .section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: var(--gap-section) 2rem;
+    }
+    .section-title {
+      font-size: 1.9rem;
+      color: #222;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 3rem;
+    }
+    hr.rule { border: none; border-top: 1px solid var(--border); }
+
+    /* ── Product Grid ────────────────────────────────────────── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      border: 1.5px solid var(--border);
+    }
+    .product-card { background: #fff; overflow: hidden; }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .product-card-body {
+      padding: 1.4rem 1.4rem 1.6rem;
+      border-top: 1.5px solid var(--border);
+    }
+    .product-card-name { font-size: 1rem; color: #222; margin-bottom: 0.25rem; }
+    .product-card-price {
+      font-size: 1.55rem;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+      font-weight: 400;
+    }
+    .product-card-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Outline button — used for product cards AND "Start Booking" */
+    .btn-outline {
+      display: block;
+      text-align: center;
+      background: transparent;
+      color: var(--red);
+      border: 1.5px solid var(--red);
+      padding: 0.65rem 1rem;
+      font-size: 0.82rem;
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.15s, color 0.15s;
+      cursor: pointer;
+    }
+    .btn-outline:hover { background: var(--red); color: #fff; }
+
+    /* Inline (non-block) version for standalone CTAs */
+    .btn-outline-inline {
+      display: inline-block;
+      text-align: center;
+      background: transparent;
+      color: var(--red);
+      border: 1.5px solid var(--red);
+      padding: 0.8rem 2.4rem;
+      font-size: 0.88rem;
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.15s, color 0.15s;
+      margin-top: 3rem;
+    }
+    .btn-outline-inline:hover { background: var(--red); color: #fff; }
+
+    .link-more {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 0.88rem;
+      color: var(--red);
+      border-bottom: 1px solid var(--red);
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+    .link-more:hover { opacity: 0.7; }
+
+    /* ── How It Works ────────────────────────────────────────── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .step-num {
+      font-size: 3.5rem;
+      color: #e8e8e8;
+      line-height: 1;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .step h3 { font-size: 1.05rem; color: #222; font-weight: 600; margin-bottom: 0.5rem; }
+    .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── Reviews ─────────────────────────────────────────────── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .review-card {
+      border-top: 2px solid var(--red);
+      padding-top: 1.4rem;
+    }
+    .review-stars { color: #c8a000; font-size: 0.78rem; letter-spacing: 3px; margin-bottom: 0.8rem; }
+    .review-text { font-size: 0.9rem; color: #444; font-style: italic; line-height: 1.7; margin-bottom: 1rem; }
+    .review-author { font-size: 0.78rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ── FAQ ─────────────────────────────────────────────────── */
+    .faq-list { max-width: 620px; }
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      color: #222;
+      padding: 1.2rem 2.5rem 1.2rem 0;
+      cursor: pointer;
+      position: relative;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
+      color: var(--red);
+      font-weight: 400;
+    }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-answer { max-height: 280px; padding-bottom: 1.3rem; }
+
+    /* ── CTA Section ─────────────────────────────────────────── */
+    .cta-section {
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cta-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: var(--gap-section) 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cta-text h2 { font-size: 1.8rem; color: #222; font-weight: 400; margin-bottom: 0.4rem; }
+    .cta-text p { font-size: 0.9rem; color: var(--muted); font-style: italic; }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+    .btn-red-lg {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      padding: 0.9rem 2.4rem;
+      font-family: 'Lora', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.15s;
+    }
+    .btn-red-lg:hover { background: var(--red-hover); color: #fff; }
+    .cta-or { font-size: 0.82rem; color: var(--muted); }
+    .cta-or a { color: var(--red); border-bottom: 1px solid var(--red); padding-bottom: 1px; }
+
+    /* ── Footer ──────────────────────────────────────────────── */
+    .lp-footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+    .lp-footer a { color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 1px; }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .hero { min-height: 380px; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-content { padding: 2.5rem 1.4rem 3rem; }
+
+      .booking-bar { padding: 1.8rem 1.4rem; }
+      .booking-bar-row { flex-direction: column; }
+      .date-icon { border-right: none; border-bottom: 1px solid var(--border); padding: 0.8rem 1rem; }
+      #heroDateInput { padding: 0.9rem 1rem; }
+      .booking-bar-btn { padding: 1rem; text-align: center; }
+
+      /* Trust: 2×2 grid on mobile */
+      .trust-row-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7rem 1rem;
+        padding: 1.2rem 1.4rem;
+      }
+
+      .section { padding: 3.5rem 1.4rem; }
+
+      .product-grid { grid-template-columns: 1fr; gap: 1px; }
+      .product-card img { height: 220px; }
+
+      .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      .reviews-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      .cta-inner { flex-direction: column; align-items: flex-start; }
+      .cta-text h2 { font-size: 1.5rem; }
+      .cta-actions { width: 100%; }
+      .btn-red-lg { width: 100%; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .navbar { flex-direction: row; align-items: center; padding: 0.45rem 0.7rem; font-size: 1.1rem; }
+      .logo span { font-size: 0.95rem; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        flex-direction: column;
+        background: #fff;
+        position: fixed;
+        inset: 0;
+        top: 50px;
+        left: 0;
+        width: 100vw;
+        display: none;
+        z-index: 2000;
+        padding: 1.2rem;
+        font-size: 1.3rem;
+        gap: 0;
+      }
+      .nav-links li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ── Navbar (matches book.html) ─────────────────────────────── -->
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Red Rock Logo" />
+        <span>Red Rock Party Rentals</span>
+      </a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rentals.html">Rentals</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- ── Hero ──────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Party Rentals &mdash; Las Vegas, NV</span>
+    <h1>Tables &amp; Chairs<br>for Rent</h1>
+    <p class="hero-prices">Chairs from $1 &nbsp;&middot;&nbsp; Tables from $8 &nbsp;&middot;&nbsp; Delivery &amp; Pickup</p>
+  </div>
+</section>
+
+
+<!-- ── Booking Bar ────────────────────────────────────────────── -->
+<div class="booking-bar">
+  <div class="booking-bar-inner">
+    <p class="booking-bar-label">When is your event?</p>
+    <div class="booking-bar-row">
+      <span class="date-icon" onclick="picker.open()" title="Open calendar">&#128197;</span>
+      <input type="text" id="heroDateInput" placeholder="Select a date to see available rentals" readonly />
+      <button class="booking-bar-btn" onclick="handleHeroCta()">See Rentals &rarr;</button>
+    </div>
+    <p class="booking-bar-note">No payment required to browse &mdash; book online in 2 minutes.</p>
+  </div>
+</div>
+
+
+<!-- ── Trust Row ─────────────────────────────────────────────── -->
+<div class="trust-row">
+  <div class="trust-row-inner">
+    <span class="trust-item"><span class="trust-check">&#10003;</span> Locally owned &amp; operated</span>
+    <span class="trust-item"><span class="trust-check">&#10003;</span> Delivery &amp; Pickup</span>
+    <span class="trust-item"><span class="trust-check">&#10003;</span> Easy online booking</span>
+    <span class="trust-item"><span class="trust-check">&#10003;</span> Always clean &amp; inspected</span>
+  </div>
+</div>
+
+
+<!-- ── Products ──────────────────────────────────────────────── -->
+<div class="section">
+  <h2 class="section-title">Tables &amp; Chairs</h2>
+  <p class="section-sub">Clean, reliable rentals delivered to your door</p>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+      <img src="https://redrockpartyrentals.com/images/chair3.jpg" alt="White Folding Chairs" />
+      <div class="product-card-body">
+        <div class="product-card-name">White Folding Chairs</div>
+        <div class="product-card-price">$1 <span style="font-size:0.9rem; color:var(--muted);">each</span></div>
+        <div class="product-card-desc">Clean white plastic folding chairs — great for any backyard party or event. Up to 120 available.</div>
+        <a href="book.html" class="btn-outline">Book Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://redrockpartyrentals.com/images/table.jpg" alt="6ft Banquet Tables" />
+      <div class="product-card-body">
+        <div class="product-card-name">6ft Banquet Tables</div>
+        <div class="product-card-price">$8 <span style="font-size:0.9rem; color:var(--muted);">each</span></div>
+        <div class="product-card-desc">White plastic 6ft table. Seats up to 8 people. Perfect for food, gifts, or seating.</div>
+        <a href="book.html" class="btn-outline">Book Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://redrockpartyrentals.com/images/cocktail-table.jpg" alt="Cocktail Tables" />
+      <div class="product-card-body">
+        <div class="product-card-name">Cocktail Tables</div>
+        <div class="product-card-price">$15 <span style="font-size:0.9rem; color:var(--muted);">each</span></div>
+        <div class="product-card-desc">Black bar-height cocktail tables. Adds a stylish, upscale touch to any event setup.</div>
+        <a href="book.html" class="btn-outline">Book Now</a>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="rentals.html" class="link-more">Browse all rentals — table covers, runners, games &amp; more &rarr;</a>
+</div>
+
+<hr class="rule" />
+
+
+<!-- ── How It Works ───────────────────────────────────────────── -->
+<div class="section">
+  <h2 class="section-title">How it works</h2>
+  <p class="section-sub">Three steps from browsing to delivered</p>
+
+  <div class="steps-grid">
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Pick your date</h3>
+      <p>Enter your event date above to see exactly what's available. We show real-time inventory so you know what you're getting.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Choose your rentals</h3>
+      <p>Browse tables, chairs, and add-ons. Add what you need to your cart — it takes about 2 minutes.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>We deliver &amp; pick up</h3>
+      <p>We drop everything off before your event and come back to collect it all when you're done. No hassle.</p>
+    </div>
+
+  </div>
+
+  <a href="book.html" class="btn-outline-inline">Start Booking &rarr;</a>
+</div>
+
+<hr class="rule" />
+
+
+<!-- ── Reviews ────────────────────────────────────────────────── -->
+<div class="section">
+  <h2 class="section-title">What customers say</h2>
+  <p class="section-sub">From Las Vegas families &amp; event hosts</p>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Super easy to book online and the chairs and tables were spotless. Will definitely rent again for our next party!"</p>
+      <div class="review-author">Maria T. &mdash; Henderson, NV</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Prices are unbeatable — $1 chairs is honestly a steal. Delivery was on time and pickup was effortless."</p>
+      <div class="review-author">James R. &mdash; Las Vegas, NV</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Rented tables and chairs for my daughter's quinceañera. Everything was clean and exactly as described. Amazing local company!"</p>
+      <div class="review-author">Sandra L. &mdash; North Las Vegas, NV</div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="rule" />
+
+
+<!-- ── FAQ ───────────────────────────────────────────────────── -->
+<div class="section">
+  <h2 class="section-title">Common questions</h2>
+  <p class="section-sub" style="margin-bottom:2rem;"></p>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question">How much does it cost to rent tables and chairs?</button>
+      <div class="faq-answer">White folding chairs are $1 each, 6ft banquet tables are $8 each, and cocktail tables are $15 each. A delivery fee is added at checkout. You can browse all pricing online with no commitment until you complete your order.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do you deliver, or do I have to pick up?</button>
+      <div class="faq-answer">We deliver directly to your event location and pick everything back up when you're done — no heavy lifting on your end.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How far in advance should I book?</button>
+      <div class="faq-answer">As soon as you know your event date. Weekends fill up quickly, especially in spring and fall. Booking early locks in your date and the inventory you need.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What areas do you serve?</button>
+      <div class="faq-answer">We serve Las Vegas and the surrounding area including Henderson, North Las Vegas, Summerlin, and nearby communities. Not sure if we reach you? Text us at 702-706-2455 and we'll let you know.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Are the rentals clean?</button>
+      <div class="faq-answer">Every table and chair is cleaned and inspected after each rental. We take pride in delivering rentals that look great at your event.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Can I change or cancel my order?</button>
+      <div class="faq-answer">Yes. Email us at booking@redrockpartyrentals.com or text 702-706-2455 and we'll work with you. We're a local business — we want your event to go smoothly.</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ── CTA Section ────────────────────────────────────────────── -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Ready to reserve your tables &amp; chairs?</h2>
+      <p>Chairs from $1 &nbsp;&middot;&nbsp; Tables from $8 &nbsp;&middot;&nbsp; Delivery &amp; Pickup &nbsp;&middot;&nbsp; Book online in 2 minutes</p>
+    </div>
+    <div class="cta-actions">
+      <a href="book.html" class="btn-red-lg">Check Availability &rarr;</a>
+      <p class="cta-or">Or text us: <a href="sms:7027062455">702-706-2455</a></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer class="lp-footer">
+  &copy; 2025 Red Rock Party Rentals &nbsp;&middot;&nbsp; Las Vegas, NV &nbsp;&middot;&nbsp;
+  <a href="mailto:booking@redrockpartyrentals.com">booking@redrockpartyrentals.com</a>
+  &nbsp;&middot;&nbsp;
+  <a href="tel:7027062455">702-706-2455</a>
+</footer>
+
+
+<!-- ── Scripts ────────────────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  // disableMobile: true forces flatpickr's own calendar UI on all devices
+  // (avoids the ugly native browser date input on mobile)
+  let picker;
+  document.addEventListener('DOMContentLoaded', () => {
+    picker = flatpickr('#heroDateInput', {
+      minDate: 'today',
+      dateFormat: 'Y-m-d',
+      disableMobile: true,
+      onChange(selectedDates, dateStr) {
+        if (dateStr) sessionStorage.setItem('rr_event_date', dateStr);
+      }
+    });
+  });
+
+  function handleHeroCta() {
+    const date = document.getElementById('heroDateInput').value;
+    if (!date) { picker.open(); return; }
+    sessionStorage.setItem('rr_event_date', date);
+    window.location.href = 'book.html';
+  }
+
+  // Hamburger menu
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    const nav = document.getElementById('nav-links');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('nav-links').classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
