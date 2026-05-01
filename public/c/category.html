@@ -609,10 +609,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('cartTimesRow').style.display  = 'flex';
     refreshCartBookingInfo();
 
-    // ── Check availability ────────────────────────────────────────────────
+    // ── Check availability using actual dropoff → pickup window ──────────
     const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
     if (storedDate) {
+      const toLocalISO = isoStr => {
+        const d = new Date(isoStr);
+        return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+      };
       AvailabilityService.setRentalDates(storedDate);
+      AvailabilityService.setRentalDateRange(
+        toLocalISO(dropoffPayload.dropoffDate),
+        toLocalISO(pickupPayload.pickupDate)
+      );
       renderCart();
       AvailabilityService.ensureAvailability()
         .then(() => {
