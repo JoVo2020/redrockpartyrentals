@@ -128,32 +128,30 @@ flatpickr("#dateStart2", {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const rentalDates = AvailabilityService.getRentalDates();
-  
-  console.log("rental date: " + rentalDates.start);
+  // Use rrpr_event_date (the event date) — not start_date which may now be
+  // the dropoff date after setRentalDateRange is called.
+  const storedEventDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
 
-  if (rentalDates) {
-	const urlDate = rentalDates.start
-    const [year, month, day] = urlDate.split('-');
+  if (storedEventDate) {
+    const [year, month, day] = storedEventDate.split('-');
     const formatted = `${month}/${day}/${year}`;
 
-	console.log("formatted rental date: " + formatted);
-	
     const desktopInput = document.getElementById('dateStart');
     if (desktopInput) {
-      desktopInput.value = formatted;
+      const fp = desktopInput._flatpickr;
+      if (fp) fp.setDate(storedEventDate, false);
+      else desktopInput.value = formatted;
     }
 
     const desktopInput2 = document.getElementById('dateStart2');
     if (desktopInput2) {
-      desktopInput2.value = formatted;
+      const fp2 = desktopInput2._flatpickr;
+      if (fp2) fp2.setDate(storedEventDate, false);
+      else desktopInput2.value = formatted;
     }
-	
-    const mobileInput = document.querySelectorAll('.flatpickr-mobile');
-    if (mobileInput) {
-      mobileInput.value = urlDate;
-    }
+
+    const mobileInputs = document.querySelectorAll('.flatpickr-mobile');
+    mobileInputs.forEach(input => { input.value = storedEventDate; });
   }
-	console.log("rental date should be set for reals");
 });
 

@@ -562,6 +562,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Edit date button
   document.getElementById('cartEditDateBtn').addEventListener('click', () => {
+    const fp2 = document.getElementById('dateStart2')?._flatpickr;
+    if (fp2) {
+      const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
+      if (storedDate) fp2.setDate(storedDate, false);
+    }
     document.getElementById('cartDateRow').style.display  = 'none';
     document.getElementById('cartDateEdit').style.display = 'block';
   });
