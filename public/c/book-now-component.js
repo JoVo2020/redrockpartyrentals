@@ -135,18 +135,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (storedEventDate) {
     const [year, month, day] = storedEventDate.split('-');
     const formatted = `${month}/${day}/${year}`;
+    const localDate = new Date(+year, +month - 1, +day);
 
     const desktopInput = document.getElementById('dateStart');
     if (desktopInput) {
       const fp = desktopInput._flatpickr;
-      if (fp) fp.setDate(storedEventDate, false);
+      if (fp) { fp.setDate(localDate, false); fp.jumpToDate(localDate); }
       else desktopInput.value = formatted;
     }
 
     const desktopInput2 = document.getElementById('dateStart2');
     if (desktopInput2) {
       const fp2 = desktopInput2._flatpickr;
-      if (fp2) fp2.setDate(storedEventDate, false);
+      if (fp2) { fp2.setDate(localDate, false); fp2.jumpToDate(localDate); }
       else desktopInput2.value = formatted;
     }
 

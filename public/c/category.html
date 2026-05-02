@@ -565,7 +565,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const fp2 = document.getElementById('dateStart2')?._flatpickr;
     if (fp2) {
       const storedDate = JSON.parse(localStorage.getItem('rrpr_event_date'));
-      if (storedDate) fp2.setDate(storedDate, false);
+      if (storedDate) {
+        const [y, m, d] = storedDate.split('-');
+        const localDate = new Date(+y, +m - 1, +d);
+        fp2.setDate(localDate, false);
+        fp2.jumpToDate(localDate);
+      }
     }
     document.getElementById('cartDateRow').style.display  = 'none';
     document.getElementById('cartDateEdit').style.display = 'block';
