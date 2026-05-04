@@ -266,6 +266,10 @@
 		      <div class="schedule-group-title">Pickup</div>
 		      <div id="cartPickupOptions" class="time-option-grid"></div>
 		    </div>
+		    <div style="margin-bottom:0.75rem;">
+		      <label style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); display:block; margin-bottom:0.4rem;">Notes (optional)</label>
+		      <textarea id="cartDeliveryNotes" placeholder="Need a specific time or have special instructions? Let us know." style="width:100%; box-sizing:border-box; font-family:'Lora',serif; font-size:0.85rem; padding:8px 10px; border:1px solid #ddd; resize:none; height:60px; color:#333;"></textarea>
+		    </div>
 		    <button id="cartConfirmTimesBtn" type="button" class="find-rentals-btn"
 		            style="font-size:0.82rem; padding:0.65rem 1rem; width:100%; margin-top:0.25rem;">
 		      Confirm Times
@@ -594,6 +598,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevDropoff) { const dd = JSON.parse(prevDropoff); preselectOption('cartDropoff', dd.dropoffDate, dd.dropoffWindow); }
     if (prevPickup)  { const pd = JSON.parse(prevPickup);  preselectOption('cartPickup',  pd.pickupDate,  pd.pickupWindow);  }
 
+    // Pre-populate notes from rrpr_notes
+    const notesEl = document.getElementById('cartDeliveryNotes');
+    if (notesEl) notesEl.value = localStorage.getItem('rrpr_notes') || '';
+
     document.getElementById('cartTimesRow').style.display  = 'none';
     document.getElementById('cartTimesEdit').style.display = 'block';
   });
@@ -614,6 +622,14 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('rrpr_pickup_manual',  JSON.stringify(pickupPayload));
     localStorage.setItem('rrpr_dropoff', JSON.stringify(dropoffPayload));
     localStorage.setItem('rrpr_pickup',  JSON.stringify(pickupPayload));
+
+    // Save delivery notes to rrpr_notes (shared with checkout notes field)
+    const notesEl = document.getElementById('cartDeliveryNotes');
+    if (notesEl) {
+      const note = notesEl.value.trim();
+      if (note) localStorage.setItem('rrpr_notes', note);
+      else localStorage.removeItem('rrpr_notes');
+    }
 
     document.getElementById('cartTimesEdit').style.display = 'none';
     document.getElementById('cartTimesRow').style.display  = 'flex';
