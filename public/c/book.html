@@ -505,6 +505,10 @@
             <div class="schedule-group-title">Pickup</div>
             <div id="pickupOptions" class="time-option-grid"></div>
           </div>
+          <div style="margin-bottom:0.75rem;">
+            <label style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); display:block; margin-bottom:0.4rem;">Notes (optional)</label>
+            <textarea id="deliveryNotes" placeholder="Need a specific time or have special instructions? Let us know." style="width:100%; box-sizing:border-box; font-family:'Lora',serif; font-size:0.85rem; padding:8px 10px; border:1px solid #ddd; resize:none; height:60px; color:#333;"></textarea>
+          </div>
           <button id="seeRentalsBtn" type="button" class="find-rentals-btn">
             SEE AVAILABLE RENTALS →
           </button>
@@ -1028,6 +1032,14 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('rrpr_dropoff', JSON.stringify(dropoffPayload));
     localStorage.setItem('rrpr_pickup',  JSON.stringify(pickupPayload));
 
+    // Save delivery notes to rrpr_notes (shared with checkout notes field)
+    const stepNotesEl = document.getElementById('deliveryNotes');
+    if (stepNotesEl) {
+      const note = stepNotesEl.value.trim();
+      if (note) localStorage.setItem('rrpr_notes', note);
+      else localStorage.removeItem('rrpr_notes');
+    }
+
     const dateRaw = document.getElementById('dateStart').value;
     const [month, day, year] = dateRaw.split('/');
     const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
@@ -1081,6 +1093,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (prevDropoff) { const dd = JSON.parse(prevDropoff); preselectOption('dropoffOption', dd.dropoffDate, dd.dropoffWindow); }
       if (prevPickup)  { const pd = JSON.parse(prevPickup);  preselectOption('pickupOption',  pd.pickupDate,  pd.pickupWindow);  }
     }
+
+    // Pre-populate notes from rrpr_notes
+    const stepNotesEl = document.getElementById('deliveryNotes');
+    if (stepNotesEl) stepNotesEl.value = localStorage.getItem('rrpr_notes') || '';
   });
 
 });
