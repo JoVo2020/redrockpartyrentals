@@ -13,155 +13,38 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Red Rock Party Rentals</title>
 
-	<!-- style sheets -->
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="book-now-component.css" />
 	<link rel="stylesheet" href="accordion.css" />
 	<link rel="stylesheet" href="cart.css" />
 
-	<!-- Lora font for all text -->
 	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
-
-	<!-- datepicker -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-	<!-- font awesome cart icon -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-	<!-- web icons -->
 	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
 	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
 	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
 
-	  <style>
-
-	.checking-availability-message {
-	  padding: 24px;
-	  text-align: center;
-	  font-size: 18px;
-	  color: #555;
-	}
-
-	/* ── Tokens ──────────────────────────────────────────────── */
-	:root {
-	  --red:       #8b0000;
-	  --red-hover: #720000;
-	  --off-white: #f8f8f6;
-	  --border:    #ddd;
-	  --muted:     #777;
-	}
-
-
-
-	/* ─────────────────────────────────────────────────────────
-	   CART SUMMARY BAR
-	   Full-width off-white section — clearly separated from accordion
-	───────────────────────────────────────────────────────── */
-	#bk-cart-summary {
-	  display: none;           /* shown via JS when cart has items */
-	  padding: 1.4rem 2rem;
-	}
-	.bk-cart-bar {
-	  max-width: 660px;
-	  margin: 0 auto;
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-between;
-	  gap: 1rem;
-	  flex-wrap: wrap;
-	  /* Desktop: contained off-white box */
-	  background: var(--off-white);
-	  border: 1px solid var(--border);
-	  padding: 1rem 1.4rem;
-	}
-	.bk-cart-bar-left {
-	  display: flex;
-	  align-items: center;
-	  gap: 0.65rem;
-	  font-size: 1.2rem;
-	  color: #222;
-	}
-	.bk-cart-bar-count {
-	  background: var(--red);
-	  color: #fff;
-	  -webkit-text-fill-color: #fff;
-	  font-size: 1rem;
-	  font-weight: 700;
-	  min-width: 28px;
-	  height: 28px;
-	  padding: 0 6px;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  flex-shrink: 0;
-	}
-	.bk-cart-bar-btn {
-	  background: var(--red);
-	  color: #fff;
-	  -webkit-text-fill-color: #fff;
-	  border: none;
-	  font-family: 'Lora', serif;
-	  font-size: 0.9rem;
-	  font-weight: 600;
-	  letter-spacing: 1px;
-	  text-transform: uppercase;
-	  padding: 0.85rem 1.8rem;
-	  cursor: pointer;
-	  transition: background 0.15s;
-	  white-space: nowrap;
-	}
-	.bk-cart-bar-btn:hover { background: var(--red-hover); }
-
-	/* ── Consistent column width across all desktop sections ── */
-	@media (min-width: 721px) {
-	  /* Booking form inner box — scoped to main page only, not cart */
-	  .page-wrapper .booking-form .form-section { max-width: 900px !important; }
-
-	  /* Accordion — override accordion.css's 10% padding approach */
-	  .accordion { max-width: 900px !important; margin: 0 auto !important; padding-left: 0 !important; padding-right: 0 !important; }
-
-	  /* Cart summary bar */
-	  .bk-cart-bar { max-width: 900px; }
-
-	  /* Other Ways to Book */
-	  #otherWaysSection { max-width: 900px; margin-left: auto; margin-right: auto; }
-	}
-
+	<style>
 	@media (max-width: 720px) {
-	  #bk-cart-summary {
-	    background: var(--off-white);
-	    border-top: 1px solid var(--border);
-	    border-bottom: 1px solid var(--border);
-	    padding: 1.2rem 1.4rem;
-	  }
-	  .bk-cart-bar {
-	    background: none;
-	    border: none;
-	    padding: 0;
-	    flex-direction: column;
-	    align-items: flex-start;
-	  }
-	  .bk-cart-bar-btn { width: 100%; text-align: center; }
+	  .page-wrapper { padding: 0px 30px 0px 2px; }
 	}
-
-	  </style>
-
-
+	</style>
 
 </head>
 <body>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
 
 <header>
   <nav class="navbar" id="navbar" style="position:static;">
     <div class="logo">
-		<a href="index.html" >
+		<a href="index.html">
 			<img src="images/logo.png" alt="Red Rock Logo" />
-			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+			<span style="color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
 		</a>
     </div>
 	<div style="display:flex;">
@@ -171,10 +54,10 @@
 		<button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
 	</div>
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
-      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
-      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
-      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+      <li><a href="index.html" style="color:rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color:rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color:rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color:rgba(0,0,0,.8);">Contact</a></li>
 	  <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
 		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
 	  </button>
@@ -183,241 +66,393 @@
 </header>
 
 
-	<div class="page-wrapper">
+<div class="page-wrapper">
 
-			  <div style="font-size: 30px;text-align: center;">
-				When is your event?
-			  </div>
+  <p class="book-page-title">Book your rentals</p>
 
-		<section class="booking-form" style="margin:auto;">
-			<div class="form-section">
-				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;">
-				  <div class="dropdown-wrapper">
-					<div class="dropdown-icon-calendar"></div>
-					<div class="dropdown-divider"></div>
-					<input type="text" id="dateStart" placeholder="Event Date" required>
-				  </div>
-				  <button id="findRentalsBtn" type="button" class="find-rentals-btn">SEE AVAILABLE RENTALS →</button>
-				</form>
-			</div>
-		</section>
+  <div class="v2-stepper" id="bk-stepper">
 
-		<div id="inventoryLoading" class="checking-availability-message" style="display:none;">
-		  Checking availability…
-		</div>
+    <!-- ══════════════════════════════════════════════════════
+         STEP 1 — Event Date
+    ══════════════════════════════════════════════════════ -->
+    <div class="v2-step" id="v2-step-1" data-state="active">
 
-		<!-- Inventory Grid -->
-		<section id="inventorySection" class="rr-inventory-section" style="display:none;">
+      <div class="v2-step__left">
+        <div class="v2-step__badge" data-num="1">1</div>
+        <div class="v2-step__connector"></div>
+      </div>
 
-			<div class="accordion" id="inventoryAccordion">
+      <div class="v2-step__right">
+        <div class="v2-step__head">
+          <div class="v2-step__meta">
+            <span class="v2-step__title">When is your event?</span>
+            <span class="v2-step__summary" id="step1Summary"></span>
+          </div>
+          <button class="v2-step__edit" id="editStep1Btn">Edit</button>
+        </div>
 
-			  <div id="selectYourRentalsHeader" style="font-size: 30px;text-align: center;margin-top:25px;">
-				Select your rentals
-			  </div>
+        <div class="v2-step__body">
+          <div class="dropdown-wrapper" style="max-width:280px;">
+            <div class="dropdown-icon-calendar"></div>
+            <div class="dropdown-divider"></div>
+            <input type="text" id="dateStart" placeholder="Select a date" required>
+          </div>
+        </div>
 
-			  <div class="accordion-item" data-category="Tables And Chairs">
-				<button class="accordion-header">
-				  Tables & Chairs
-				  <span class="accordion-icon">+</span>
-				</button>
-				<div class="accordion-content">
-				  <div class="rr-inventory-grid"></div>
-				</div>
-			  </div>
+        <div class="v2-step__hint"></div>
+      </div>
 
-			  <div class="accordion-item" data-category="Table Covers">
-				<button class="accordion-header">
-				  Table Covers
-				  <span class="accordion-icon">+</span>
-				</button>
-				<div class="accordion-content">
-				  <div class="rr-inventory-grid"></div>
-				</div>
-			  </div>
-
-			  <div class="accordion-item" data-category="Table Runners">
-				<button class="accordion-header">
-				  Table Runners
-				  <span class="accordion-icon">+</span>
-				</button>
-				<div class="accordion-content">
-				  <div class="rr-inventory-grid"></div>
-				</div>
-			  </div>
-
-			  <div class="accordion-item" data-category="Games">
-				<button class="accordion-header">
-				  Games
-				  <span class="accordion-icon">+</span>
-				</button>
-				<div class="accordion-content">
-				  <div class="rr-inventory-grid"></div>
-				</div>
-			  </div>
-
-			  <div class="accordion-item" data-category="Marquee Letters">
-				<button class="accordion-header">
-				  Marquee Letters
-				  <span class="accordion-icon">+</span>
-				</button>
-				<div class="accordion-content">
-				  <div class="rr-inventory-grid"></div>
-				</div>
-			  </div>
-
-			  <div class="accordion-item" data-category="Other">
-				<button class="accordion-header">
-				  Party Essentials
-				  <span class="accordion-icon">+</span>
-				</button>
-				<div class="accordion-content">
-				  <div class="rr-inventory-grid"></div>
-				</div>
-			  </div>
-
-			</div>
+    </div><!-- /step 1 -->
 
 
-		</section>
+    <!-- ══════════════════════════════════════════════════════
+         STEP 2 — Dropoff & Pickup Times
+    ══════════════════════════════════════════════════════ -->
+    <div class="v2-step" id="v2-step-2" data-state="locked">
 
+      <div class="v2-step__left">
+        <div class="v2-step__badge" data-num="2">2</div>
+        <div class="v2-step__connector"></div>
+      </div>
+
+      <div class="v2-step__right">
+        <div class="v2-step__head">
+          <div class="v2-step__meta">
+            <span class="v2-step__title">Select Dropoff &amp; Pickup Times</span>
+            <span class="v2-step__summary" id="step2Summary"></span>
+          </div>
+          <button class="v2-step__edit" id="editStep2Btn">Edit</button>
+        </div>
+
+        <!-- Active content -->
+        <div class="v2-step__body">
+          <div class="schedule-group">
+            <div class="schedule-group-title">Dropoff</div>
+            <div id="dropoffOptions" class="time-option-grid"></div>
+          </div>
+          <div class="schedule-group">
+            <div class="schedule-group-title">Pickup</div>
+            <div id="pickupOptions" class="time-option-grid"></div>
+          </div>
+          <div style="display:none;">
+		    <label style="font-size:16px; color:#b80000; display:block; margin-bottom:0.4rem;padding-bottom:15px;">If the times above don't work, or you need a more specific time, please select the closest option and let us know in the notes below.</label>
+            <label style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); display:block; margin-bottom:0.4rem;">Notes (optional)</label>
+            <textarea id="deliveryNotes" placeholder="Need a specific time or have special instructions? Let us know." style="width:100%; box-sizing:border-box; font-family:'Lora',serif; font-size:0.85rem; padding:8px 10px; border:1px solid #ddd; resize:none; height:60px; color:#333;"></textarea>
+          </div>
+          <button id="seeRentalsBtn" type="button" class="find-rentals-btn">
+            SEE AVAILABLE RENTALS →
+          </button>
+        </div>
+
+        <!-- Locked hint -->
+        <div class="v2-step__hint">
+          <p style="margin:0 0 0.85rem;">Select your preferred dropoff and pickup windows.</p>
+          <div style="margin-bottom:0.5rem; font-size:0.65rem; letter-spacing:1px; text-transform:uppercase; color:#ddd;">Dropoff</div>
+          <div class="time-hint-grid">
+            <div class="time-hint-card">
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line time-hint-card__line--short"></div>
+            </div>
+            <div class="time-hint-card">
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line time-hint-card__line--short"></div>
+            </div>
+          </div>
+          <div style="margin:0.85rem 0 0.5rem; font-size:0.65rem; letter-spacing:1px; text-transform:uppercase; color:#ddd;">Pickup</div>
+          <div class="time-hint-grid">
+            <div class="time-hint-card">
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line time-hint-card__line--short"></div>
+            </div>
+            <div class="time-hint-card">
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line"></div>
+              <div class="time-hint-card__line time-hint-card__line--short"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /step 2 -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+         STEP 3 — Select Rentals
+    ══════════════════════════════════════════════════════ -->
+    <div class="v2-step" id="v2-step-3" data-state="locked">
+
+      <div class="v2-step__left">
+        <div class="v2-step__badge" data-num="3">3</div>
+      </div>
+
+      <div class="v2-step__right" id="selectYourRentalsHeader">
+        <div class="v2-step__head">
+          <div class="v2-step__meta">
+            <span class="v2-step__title">Select your rentals</span>
+          </div>
+        </div>
+
+        <!-- Active content: loading + inventory -->
+        <div class="v2-step__body">
+          <div id="inventoryLoading" class="checking-availability-message" style="display:none; font-size:1rem;">
+            <i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability&hellip;
+          </div>
+          <section id="inventorySection" style="display:none;">
+            <div class="accordion" id="inventoryAccordion">
+
+              <div class="accordion-item" data-category="Tables And Chairs">
+                <button class="accordion-header">
+                  Tables &amp; Chairs
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Table Covers">
+                <button class="accordion-header">
+                  Table Covers
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Table Runners">
+                <button class="accordion-header">
+                  Table Runners
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Games">
+                <button class="accordion-header">
+                  Games
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Marquee Letters">
+                <button class="accordion-header">
+                  Marquee Letters
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+              <div class="accordion-item" data-category="Other">
+                <button class="accordion-header">
+                  Party Essentials
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <div class="rr-inventory-grid"></div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Locked hint -->
+        <div class="v2-step__hint">
+          <p style="margin:0; color:#ccc; font-size:0.88rem;">
+            Select your delivery times to browse available rentals.
+          </p>
+        </div>
+
+      </div>
+
+    </div><!-- /step 3 -->
+
+  </div><!-- /v2-stepper -->
+
+</div><!-- /page-wrapper -->
+
+<!-- Cart summary bar -->
+<div id="bk-cart-summary">
+  <div class="bk-cart-bar">
+    <div class="bk-cart-bar-left">
+      <span class="bk-cart-bar-count" id="bkCartCount">0</span>
+      <span id="bkCartLabel">items in cart</span>
+    </div>
+    <button class="bk-cart-bar-btn" onclick="openCart(); renderCart();">
+      View Cart &amp; Checkout &rarr;
+    </button>
+  </div>
+</div>
+
+
+<section class="booking" id="otherWaysSection" style="display:none; padding:0 1rem 3rem; max-width:740px; margin:0 auto;">
+  <hr class="solid" style="margin-bottom:30px;">
+  <h3 style="font-size:30px;">Other Ways to Book:</h3>
+  <p style="font-size:22px;">Email us at booking@redrockpartyrentals.com</p>
+  <p style="font-size:22px;">Text us at 702-706-2455</p>
+</section>
+
+
+<!-- Card Template (hidden) -->
+<template id="rrItemTemplate">
+  <div class="rr-card">
+   <a class="rr-card__imglink">
+	<div class="rr-card__img-wrap">
+	  <img class="rr-card__img" alt="" loading="lazy" />
 	</div>
+   </a>
+	<div class="rr-card__body">
+	  <div class="rr-card__name"></div>
+	  <div class="rr-card__addToCart"></div>
+	</div>
+  </div>
+</template>
 
-	<!-- Cart summary bar (shown when inventory is visible and cart has items) -->
-	<div id="bk-cart-summary">
-	  <div class="bk-cart-bar">
-	    <div class="bk-cart-bar-left">
-	      <span class="bk-cart-bar-count" id="bkCartCount">0</span>
-	      <span id="bkCartLabel">items in cart</span>
+
+<!-- CART OVERLAY -->
+<div id="cartOverlay" class="cart-overlay">
+  <div class="cart-panel cart-panel--fullscreen">
+
+	<header class="cart-header">
+	  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+	  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+	  <button class="cart-close" onclick="closeCart()">✕</button>
+	</header>
+
+	<div class="cart-scroll-area">
+	  <div id="cart-booking-info" style="background:#eee; padding:14px 16px; border-bottom:1px solid #ddd;">
+
+	    <div class="cart-info-row" id="cartDateRow">
+	      <div>
+	        <div class="cart-info-label">Event Date</div>
+	        <div class="cart-info-value" id="cartDateValue">Not selected</div>
+	      </div>
+	      <button class="cart-info-edit" id="cartEditDateBtn">Edit</button>
 	    </div>
-	    <button class="bk-cart-bar-btn" onclick="openCart(); renderCart();">
-	      View Cart &amp; Checkout &rarr;
-	    </button>
-	  </div>
-	</div>
 
-	<!-- Card Template (hidden) -->
-	<template id="rrItemTemplate">
-	  <div class="rr-card">
-	   <a class="rr-card__imglink">
-		<div class="rr-card__img-wrap">
-		  <img class="rr-card__img" alt="" loading="lazy" />
-		</div>
-	   </a>
-		<div class="rr-card__body">
-		  <div class="rr-card__name"></div>
-		  <div class="rr-card__addToCart"></div>
-		</div>
-	  </div>
-	</template>
+	    <div id="cartDateEdit" style="display:none; padding-top:8px;">
+	      <div class="cart-info-label" style="margin-bottom:8px;">Select Event Date</div>
+	      <div id="cart-panel-booking-form">
+	        <div class="dropdown-wrapper" style="width:100%;">
+	          <div class="dropdown-icon-calendar"></div>
+	          <div class="dropdown-divider"></div>
+	          <input type="text" id="dateStart2" placeholder="Select a date" required>
+	        </div>
+	      </div>
+	    </div>
 
-	<br>
+	    <div class="cart-info-sep"></div>
 
-	<section class="booking" id="otherWaysSection" style="display:none;padding: 0rem 1rem 3rem;">
-		<hr class="solid" style="margin-bottom:30px;">
-		<h3 style="font-size:30px;">Other Ways to Book:</h3>
-		<p style="font-size:22px;">Email us at booking@redrockpartyrentals.com</p>
-		<p style="font-size:22px;">Text us at 702-706-2455</p>
-	</section>
+	    <div class="cart-info-row" id="cartTimesRow">
+	      <div style="flex:1; min-width:0;">
+	        <div class="cart-info-label">Dropoff &amp; Pickup</div>
+	        <div class="cart-info-value" id="cartTimesValue">Not selected</div>
+	      </div>
+	      <button class="cart-info-edit" id="cartEditTimesBtn">Edit</button>
+	    </div>
 
+	    <div id="cartTimesEdit" style="display:none; padding-top:10px;">
+	      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px;">
+	        <div class="cart-info-label" style="margin-bottom:0;">Select Dropoff &amp; Pickup Times</div>
+	        <button id="cartCancelTimesBtn" type="button" class="cart-info-edit">Cancel</button>
+	      </div>
+	      <div class="schedule-group">
+	        <div class="schedule-group-title">Dropoff</div>
+	        <div id="cartDropoffOptions" class="time-option-grid"></div>
+	      </div>
+	      <div class="schedule-group">
+	        <div class="schedule-group-title">Pickup</div>
+	        <div id="cartPickupOptions" class="time-option-grid"></div>
+	      </div>
+	      <div style="display:none;">
+	        <label style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); display:block; margin-bottom:0.4rem;">Notes (optional)</label>
+	        <textarea id="cartDeliveryNotes" placeholder="Need a specific time or have special instructions? Let us know."
+	                  style="width:100%; box-sizing:border-box; font-family:'Lora',serif; font-size:0.85rem; padding:8px 10px; border:1px solid #ddd; resize:none; height:60px; color:#333;"></textarea>
+	      </div>
+	      <button id="cartConfirmTimesBtn" type="button" class="find-rentals-btn"
+	              style="font-size:0.82rem; padding:0.65rem 1rem; width:100%; margin-top:0.25rem;">
+	        Confirm Times
+	      </button>
+	    </div>
 
-	<!-- CART OVERLAY -->
-	<div id="cartOverlay" class="cart-overlay">
-	  <div class="cart-panel cart-panel--fullscreen">
-
-		<header class="cart-header">
-		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
-		  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
-		  <button class="cart-close" onclick="closeCart()">✕</button>
-		</header>
-
-
-		<section class="booking-form" style="margin-bottom:0px;padding:0px;">
-			<div id="cart-panel-booking-form" class="form-section" style="background-color:transparent; padding:0px;max-width:100%;">
-				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;background-color: #eee;padding: 15px;">
-				  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
-					<div class="dropdown-icon-calendar"></div>
-					<div class="dropdown-divider"></div>
-					<input type="text" id="dateStart2" placeholder="Select Event Date" required>
-				  </div>
-				</form>
-			</div>
-		</section>
-
-		<div style="background-color:#eee;">
-			<div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none;">
-				Checking availability…
-			</div>
-		</div>
-
-		<div id="cartItems" class="cart-items"></div>
-
-		<footer class="cart-footer">
-		  <div class="cart-summary">
-			<div class="cart-line">
-			  <span>Delivery</span>
-			  <strong id="cartSubtotal">$10.00</strong>
-			</div>
-			<div class="cart-line total">
-			  <span>Total</span>
-			  <strong id="cartTotal">$0.00</strong>
-			</div>
-		  </div>
-
-			<div class="button-row" style="display:flex;gap:10px;">
-			  <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
-			  <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
-			</div>
-		</footer>
+	    <div id="CheckingAvailabilityNote" class="checking-availability-message"
+	         style="display:none; padding:14px 0; font-size:1rem;">
+	      <i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability&hellip;
+	    </div>
 
 	  </div>
-	</div>
+	  <div id="cartItems" class="cart-items"></div>
+	</div><!-- /cart-scroll-area -->
 
+	<footer class="cart-footer">
+	  <div class="cart-summary">
+		<div class="cart-line">
+		  <span>Delivery</span>
+		  <strong id="cartSubtotal">$10.00</strong>
+		</div>
+		<div class="cart-line total">
+		  <span>Total</span>
+		  <strong id="cartTotal">$0.00</strong>
+		</div>
+	  </div>
+	  <div class="button-row" style="display:flex;gap:10px;">
+		<button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+		<button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+	  </div>
+	</footer>
 
-
-
+  </div>
+</div>
 
 
 <script src="navbar-scroll.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
 <script src="accordion.js"></script>
 <script src="availabilityService.js"></script>
 <script src="cart.js"></script>
 <script src="book-now-component.js"></script>
 <script src="checkout.js"></script>
 <script src="inventory-grid.js"></script>
+<script src="dropoff_pickup_rules.js"></script>
+<script src="book-steps.js"></script>
+<script src="cart-booking.js"></script>
 
 <script>
 function updateCartUI() {
-  const cart = (typeof getCart === 'function') ? getCart() : [];
-  const qty  = cart.reduce((s, i) => s + i.qty, 0);
-
-  const invVisible = document.getElementById('inventorySection').style.display !== 'none';
-  const bar = document.getElementById('bk-cart-summary');
+  var cart = (typeof getCart === 'function') ? getCart() : [];
+  var qty = cart.reduce(function(s, i) { return s + i.qty; }, 0);
+  var invVisible = document.getElementById('inventorySection').style.display !== 'none';
+  var bar = document.getElementById('bk-cart-summary');
   if (bar) {
-    bar.style.display = (qty > 0 && invVisible) ? 'block' : 'none';
-    const countEl = document.getElementById('bkCartCount');
-    const labelEl = document.getElementById('bkCartLabel');
+    bar.style.display = (qty > 0) ? 'block' : 'none';
+    var countEl = document.getElementById('bkCartCount');
+    var labelEl = document.getElementById('bkCartLabel');
     if (countEl) countEl.textContent = qty;
     if (labelEl) labelEl.textContent = qty === 1 ? 'item in cart' : 'items in cart';
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const _orig = window.renderCart;
+document.addEventListener('DOMContentLoaded', function () {
+  var _orig = window.renderCart;
   if (typeof _orig === 'function') {
-    window.renderCart = function() {
-      _orig();
-      updateCartUI();
-    };
+    window.renderCart = function () { _orig(); updateCartUI(); };
   }
   updateCartUI();
-
-  const inv = document.getElementById('inventorySection');
-  if (inv) {
-    new MutationObserver(updateCartUI).observe(inv, { attributes: true, attributeFilter: ['style'] });
-  }
+  var inv = document.getElementById('inventorySection');
+  if (inv) new MutationObserver(updateCartUI).observe(inv, { attributes: true, attributeFilter: ['style'] });
 });
 </script>
 

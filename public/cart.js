@@ -140,6 +140,14 @@ function renderCart() {
   container.innerHTML = "";
   let subtotal = 0;
 
+  if (cart.length === 0) {
+    container.innerHTML =
+      '<div class="cart-empty-state">' +
+        '<i class="fa-solid fa-cart-shopping cart-empty-state__icon"></i>' +
+        '<p class="cart-empty-state__msg">Your cart is empty</p>' +
+      '</div>';
+  }
+
   cart.forEach(item => {
     const itemTotal = item.price * item.qty;
     subtotal += itemTotal;
@@ -189,6 +197,18 @@ function renderCart() {
     container.appendChild(row);
   });
 
+  // If any item is still in the "Adjusted" flash phase, schedule a re-render
+  // timed to when the first label needs to change (3s from adjustedAt)
+  var earliestRefreshMs = null;
+  cart.forEach(function(item) {
+    if (!item.adjustedForAvailability) return;
+    var secs = (Date.now() - (item.adjustedAt || 0)) / 1000;
+    if (secs < 3) {
+      var ms = (3 - secs) * 1000 + 100;
+      if (earliestRefreshMs === null || ms < earliestRefreshMs) earliestRefreshMs = ms;
+    }
+  });
+  if (earliestRefreshMs !== null) setTimeout(renderCart, earliestRefreshMs);
 
   //subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
   const grandtotal = subtotal + 10;
@@ -200,30 +220,18 @@ function renderCart() {
 
 	if (checkoutBtn) {
 
-	  const rentalDates = AvailabilityService.getRentalDates();
+	  const rentalDates  = AvailabilityService.getRentalDates();
+	  const storedDropoff = localStorage.getItem('rrpr_dropoff');
+	  const storedPickup  = localStorage.getItem('rrpr_pickup');
 
-	  // IF cart is empty → disable checkout
-	  if (cart.length === 0) {
+	  const canCheckout = cart.length > 0 && rentalDates && storedDropoff && storedPickup;
 
-		checkoutBtn.disabled = true;
-		checkoutBtn.classList.add("disabled");
-
-	  }
-
-	  // ELSE IF no rental date selected → disable checkout
-	  else if (!rentalDates) {
-
-		checkoutBtn.disabled = true;
-		checkoutBtn.classList.add("disabled");
-
-	  }
-
-	  // ELSE everything is valid → enable checkout
-	  else {
-
+	  if (canCheckout) {
 		checkoutBtn.disabled = false;
 		checkoutBtn.classList.remove("disabled");
-
+	  } else {
+		checkoutBtn.disabled = true;
+		checkoutBtn.classList.add("disabled");
 	  }
 
 	}

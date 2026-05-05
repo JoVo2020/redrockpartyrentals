@@ -31,7 +31,16 @@ const tomorrow = new Date();
   flatpickr("#dateStart", {
 	disableMobile: true,
     dateFormat: "m/d/Y",
-    minDate: tomorrow
+    minDate: tomorrow,
+    onChange: function(selectedDates, dateStr) {
+      if (!dateStr) return;
+      const [month, day, year] = dateStr.split('/');
+      const iso = `${year}-${month.padStart(2,'0')}-${day.padStart(2,'0')}`;
+      if (typeof window.onDateSelected === 'function') window.onDateSelected(iso);
+    },
+    onClose: function() {
+      if (typeof window.cancelDateEdit === 'function') window.cancelDateEdit();
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -95,65 +104,39 @@ flatpickr("#dateStart2", {
 	minDate: tomorrow,
 	position: "top left",
   
-	onChange: async function(selectedDates, dateStr) {
+	onChange: function(selectedDates, dateStr) {
 	  if (!dateStr) return;
-
-		const mainCalendarInput = document.getElementById("dateStart");
-		if (mainCalendarInput) {
-		  mainCalendarInput.value = dateStr;
-		}
-
-	  const note = document.getElementById("CheckingAvailabilityNote");
-	  if (note) note.style.display = "block";
-
-	  try {
-		const [month, day, year] = dateStr.split('/');
-		const iso = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-
-		AvailabilityService.setRentalDates(iso);
-		await AvailabilityService.ensureAvailability();
-
-		if (typeof renderCart === "function") {
-		  refreshCartAvailability();
-		  renderCart();
-		}
-
-	  } finally {
-		// Always hide, even if something errors
-		if (note) note.style.display = "none";
+	  const [month, day, year] = dateStr.split('/');
+	  const iso = `${year}-${month.padStart(2,'0')}-${day.padStart(2,'0')}`;
+	  if (typeof window.onDateSelected === 'function') window.onDateSelected(iso);
+	},
+	onClose: function() {
+	  var cartDateEdit = document.getElementById('cartDateEdit');
+	  if (cartDateEdit && cartDateEdit.style.display !== 'none') {
+	    cartDateEdit.style.display = 'none';
+	    var cartDateRow = document.getElementById('cartDateRow');
+	    if (cartDateRow) cartDateRow.style.display = 'flex';
 	  }
-	} 
-  
+	}
+
 });
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const rentalDates = AvailabilityService.getRentalDates();
-  
-  console.log("rental date: " + rentalDates.start);
+  const eventDate = localStorage.getItem('rrpr_event_date')
+    ? JSON.parse(localStorage.getItem('rrpr_event_date'))
+    : new URLSearchParams(window.location.search).get('date');
 
-  if (rentalDates) {
-	const urlDate = rentalDates.start
-    const [year, month, day] = urlDate.split('-');
-    const formatted = `${month}/${day}/${year}`;
+  if (eventDate) {
+    const [year, month, day] = eventDate.split('-').map(Number);
+    const d = new Date(year, month - 1, day);
 
-	console.log("formatted rental date: " + formatted);
-	
-    const desktopInput = document.getElementById('dateStart');
-    if (desktopInput) {
-      desktopInput.value = formatted;
-    }
+    const fp1 = document.getElementById('dateStart');
+    if (fp1 && fp1._flatpickr) fp1._flatpickr.setDate(d, false);
 
-    const desktopInput2 = document.getElementById('dateStart2');
-    if (desktopInput2) {
-      desktopInput2.value = formatted;
-    }
-	
-    const mobileInput = document.querySelectorAll('.flatpickr-mobile');
-    if (mobileInput) {
-      mobileInput.value = urlDate;
-    }
+    const fp2 = document.getElementById('dateStart2');
+    if (fp2 && fp2._flatpickr) fp2._flatpickr.setDate(d, false);
   }
-	console.log("rental date should be set for reals");
+
 });
 

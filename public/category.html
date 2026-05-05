@@ -109,25 +109,70 @@
 		</header>
 
 
-		<section class="booking-form" style="margin-bottom:0px;padding:0px;">
-			<div id="cart-panel-booking-form" class="form-section" style="background-color:transparent; padding:0px;max-width:100%;">
-				<form class="form-container" style="display:flex; flex-wrap:wrap;gap:1rem;background-color: #eee;padding: 15px;">
-				  <div class="dropdown-wrapper" style="width:100%;max-width:100%;">
-					<div class="dropdown-icon-calendar"></div>
-					<div class="dropdown-divider"></div>
-					<input type="text" id="dateStart2" placeholder="Select Event Date" required>
-				  </div>
-				</form>
-			</div>
-		</section>
-		
-		<div style="background-color:#eee;">
-			<div id="CheckingAvailabilityNote" class="checking-availability-message" style="display:none;">
-				Checking availability…
-			</div>		
-		</div>
-		
-		<div id="cartItems" class="cart-items"></div>
+		<div class="cart-scroll-area">
+		  <div id="cart-booking-info" style="background:#eee; padding:14px 16px; border-bottom:1px solid #ddd;">
+
+		    <div class="cart-info-row" id="cartDateRow">
+		      <div>
+		        <div class="cart-info-label">Event Date</div>
+		        <div class="cart-info-value" id="cartDateValue">Not selected</div>
+		      </div>
+		      <button class="cart-info-edit" id="cartEditDateBtn">Edit</button>
+		    </div>
+
+		    <div id="cartDateEdit" style="display:none; padding-top:8px;">
+		      <div class="cart-info-label" style="margin-bottom:8px;">Select Event Date</div>
+		      <div id="cart-panel-booking-form">
+		        <div class="dropdown-wrapper" style="width:100%;">
+		          <div class="dropdown-icon-calendar"></div>
+		          <div class="dropdown-divider"></div>
+		          <input type="text" id="dateStart2" placeholder="Select a date" required>
+		        </div>
+		      </div>
+		    </div>
+
+		    <div class="cart-info-sep"></div>
+
+		    <div class="cart-info-row" id="cartTimesRow">
+		      <div style="flex:1; min-width:0;">
+		        <div class="cart-info-label">Dropoff &amp; Pickup</div>
+		        <div class="cart-info-value" id="cartTimesValue">Not selected</div>
+		      </div>
+		      <button class="cart-info-edit" id="cartEditTimesBtn">Edit</button>
+		    </div>
+
+		    <div id="cartTimesEdit" style="display:none; padding-top:10px;">
+		      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px;">
+		        <div class="cart-info-label" style="margin-bottom:0;">Select Dropoff &amp; Pickup Times</div>
+		        <button id="cartCancelTimesBtn" type="button" class="cart-info-edit">Cancel</button>
+		      </div>
+		      <div class="schedule-group">
+		        <div class="schedule-group-title">Dropoff</div>
+		        <div id="cartDropoffOptions" class="time-option-grid"></div>
+		      </div>
+		      <div class="schedule-group">
+		        <div class="schedule-group-title">Pickup</div>
+		        <div id="cartPickupOptions" class="time-option-grid"></div>
+		      </div>
+		      <div style="display:none;">
+		        <label style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); display:block; margin-bottom:0.4rem;">Notes (optional)</label>
+		        <textarea id="cartDeliveryNotes" placeholder="Need a specific time or have special instructions? Let us know."
+		                  style="width:100%; box-sizing:border-box; font-family:'Lora',serif; font-size:0.85rem; padding:8px 10px; border:1px solid #ddd; resize:none; height:60px; color:#333;"></textarea>
+		      </div>
+		      <button id="cartConfirmTimesBtn" type="button" class="find-rentals-btn"
+		              style="font-size:0.82rem; padding:0.65rem 1rem; width:100%; margin-top:0.25rem;">
+		        Confirm Times
+		      </button>
+		    </div>
+
+		    <div id="CheckingAvailabilityNote" class="checking-availability-message"
+		         style="display:none; padding:14px 0; font-size:1rem;">
+		      <i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability&hellip;
+		    </div>
+
+		  </div>
+		  <div id="cartItems" class="cart-items"></div>
+		</div><!-- /cart-scroll-area -->
 
 		<footer class="cart-footer">
 		  <div class="cart-summary">
@@ -156,6 +201,8 @@
 	<script src="/product_data.js"></script>
 	<script src="/cart.js"></script>
 	<script src="/book-now-component.js"></script>
+	<script src="/dropoff_pickup_rules.js"></script>
+	<script src="/cart-booking.js"></script>
 
 	<script>
 	/* -------------------------

@@ -58,8 +58,7 @@ async function loadInventory() {
   // -------------------------
   if (!dates) {
     loadingEl.style.display = 'block';
-    loadingEl.textContent =
-      'To get started, please enter your event date.';
+    loadingEl.textContent = 'To get started, please enter your event date.';
     inventorySection.style.display = 'none';
     otherWays.style.display = 'block';
     return;
@@ -72,7 +71,7 @@ async function loadInventory() {
   // 1️⃣ Show loading
   // -------------------------
   loadingEl.style.display = 'block';
-  loadingEl.textContent = 'Checking availability…';
+  loadingEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability…';
   inventorySection.style.display = 'none';
   otherWays.style.display = 'block';
 
@@ -188,5 +187,7 @@ function renderInventory(items) {
 ------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadInventory();
+  if (!document.getElementById('bk-stepper')) {
+    loadInventory();
+  }
 });

@@ -68,36 +68,40 @@ window.AvailabilityService = (function () {
 	
 
 	function getRentalDates() {
-
-	  // 1️⃣ First check URL parameter
-	  const params = new URLSearchParams(window.location.search);
-	  const urlDate = params.get('date');
-
-	  let startDate = null;
-
+	  // Prefer stored state dates (real dropoff/pickup range) over URL
+	  const state = readState();
+	  if (state && state.start_date && state.end_date) {
+		return { start: state.start_date, end: state.end_date };
+	  }
+	  // Fall back to URL event date + 1 day
+	  const urlDate = new URLSearchParams(window.location.search).get('date');
 	  if (urlDate) {
-		startDate = urlDate;
+		return { start: urlDate, end: calc_end_date(urlDate) };
 	  }
+	  return null;
+	}
 
-	  // 2️⃣ If URL does not contain date, check localStorage
-	  if (!startDate) {
-		const state = readState();
-		if (state && state.start_date) {
-		  startDate = state.start_date;
-		}
-	  }
+	function getEventDate() {
+	  const urlDate = new URLSearchParams(window.location.search).get('date');
+	  if (urlDate) return urlDate;
+	  const state = readState();
+	  return (state && state.event_date) || null;
+	}
 
-	  // 3️⃣ If still no date, return null
-	  if (!startDate) {
-		return null;
-	  }
-
-	  endDate = calc_end_date(startDate);
-
-	  return {
-		start: startDate,
-		end: endDate
-	  };
+	function setRentalDateRange(start, end, eventDate) {
+	  const state = readState() || {};
+	  state.start_date   = start;
+	  state.end_date     = end;
+	  state.event_date   = eventDate;
+	  state.checkedAt    = null;
+	  state.availability = null;
+	  writeState(state);
+	  localStorage.setItem('rrpr_event_date', JSON.stringify(eventDate));
+	  const params = new URLSearchParams(window.location.search);
+	  params.set('date', eventDate);
+	  params.delete('start');
+	  params.delete('end');
+	  history.replaceState({}, '', `${location.pathname}?${params}`);
 	}
 
 
@@ -232,9 +236,11 @@ window.AvailabilityService = (function () {
       };
     });
 
+    const prevState = readState() || {};
     writeState({
       start_date: response.start_date,
       end_date: response.end_date,
+      event_date: prevState.event_date || null,
       availability: availabilityByProductId,
       checkedAt: nowISO()
     });
@@ -270,9 +276,11 @@ window.AvailabilityService = (function () {
       };
     });
 
+    const prevState2 = readState() || {};
     writeState({
       start_date: response.start_date,
       end_date: response.end_date,
+      event_date: prevState2.event_date || null,
       availability: availabilityByProductId,
       checkedAt: nowISO()
     });
@@ -290,7 +298,9 @@ window.AvailabilityService = (function () {
 
   return {
     getRentalDates,
+    getEventDate,
     setRentalDates,
+    setRentalDateRange,
     ensureAvailability,
 	isCacheValid,
     getProductAvailability,
