@@ -165,7 +165,8 @@
 	  top: 0;
 	  right: -100vw;
 	  width: 100vw;
-	  height: 100vh;
+	  height: 100vh;        /* fallback */
+	  height: 100dvh;       /* iOS Safari: actual visible height, adjusts with browser UI */
 	  background: #fff;
 
 	  transition: right 0.35s ease;

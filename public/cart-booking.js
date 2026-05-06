@@ -17,6 +17,32 @@
     return d;
   }
 
+  // ── Closed-days override helpers ────────────────────────────────────────────
+  function findOverride(eventIso) {
+    return (window.CLOSED_DAYS_OVERRIDES || []).find(function (o) {
+      return eventIso >= o.event_date_start && eventIso <= o.event_date_end;
+    });
+  }
+
+  function renderOverrideCartOptions(containerId, options, radioName) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var validOptions = options.filter(function (opt) {
+      var p = opt.date.split('-').map(Number);
+      return new Date(p[0], p[1] - 1, p[2]).getTime() > today.getTime();
+    });
+    var hasDefault = validOptions.some(function (o) { return o.default; });
+    container.innerHTML = validOptions.map(function (opt, i) {
+      var p = opt.date.split('-').map(Number);
+      var actualDate = new Date(p[0], p[1] - 1, p[2]);
+      var isDefault  = hasDefault ? opt.default : (i === 0);
+      return buildCartOptionCard(radioName, actualDate, opt.time, isDefault);
+    }).join('');
+    container.style.gridTemplateColumns = '1fr';
+  }
+
   function buildCartOptionCard(radioName, actualDate, timeWindow, isDefault) {
     var dayStr  = actualDate.toLocaleDateString('en-US', { weekday: 'long' });
     var dateStr = actualDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
@@ -40,6 +66,13 @@
   }
 
   function renderCartTimeOptions(eventIso) {
+    var override = findOverride(eventIso);
+    if (override) {
+      renderOverrideCartOptions('cartDropoffOptions', override.dropoff, 'cartDropoff');
+      renderOverrideCartOptions('cartPickupOptions',  override.pickup,  'cartPickup');
+      return;
+    }
+
     var parts = eventIso.split('-').map(Number);
     var eventDate = new Date(parts[0], parts[1] - 1, parts[2]);
     var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];

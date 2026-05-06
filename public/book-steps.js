@@ -40,6 +40,31 @@
     });
   }
 
+  // ── Closed-days override helpers ────────────────────────────────────────────
+  function findOverride(eventIso) {
+    return (window.CLOSED_DAYS_OVERRIDES || []).find(function (o) {
+      return eventIso >= o.event_date_start && eventIso <= o.event_date_end;
+    });
+  }
+
+  function renderOverrideOptions(containerId, options, radioName) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var validOptions = options.filter(function (opt) {
+      var p = opt.date.split('-').map(Number);
+      return new Date(p[0], p[1] - 1, p[2]).getTime() > today.getTime();
+    });
+    var hasDefault = validOptions.some(function (o) { return o.default; });
+    container.innerHTML = validOptions.map(function (opt, i) {
+      var p = opt.date.split('-').map(Number);
+      var actualDate = new Date(p[0], p[1] - 1, p[2]);
+      var isDefault  = hasDefault ? opt.default : (i === 0);
+      return buildOptionCard(radioName, actualDate, opt.time, isDefault);
+    }).join('');
+  }
+
   // ── Time card builder ───────────────────────────────────────────────────────
   function buildOptionCard(radioName, actualDate, timeWindow, isDefault) {
     var dayStr  = actualDate.toLocaleDateString('en-US', { weekday: 'long' });
@@ -98,14 +123,19 @@
     setStepState('v2-step-2', 'active');
     setStepState('v2-step-3', 'locked');
 
-    var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var rule = (window.DROPOFF_PICKUP_RULES || []).find(function (r) {
-      return r.event_day === dayNames[eventDate.getDay()];
-    });
-
-    if (rule) {
-      renderOptions('dropoffOptions', rule.dropoff, iso, 'dropoffOption');
-      renderOptions('pickupOptions',  rule.pickup,  iso, 'pickupOption');
+    var override = findOverride(iso);
+    if (override) {
+      renderOverrideOptions('dropoffOptions', override.dropoff, 'dropoffOption');
+      renderOverrideOptions('pickupOptions',  override.pickup,  'pickupOption');
+    } else {
+      var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var rule = (window.DROPOFF_PICKUP_RULES || []).find(function (r) {
+        return r.event_day === dayNames[eventDate.getDay()];
+      });
+      if (rule) {
+        renderOptions('dropoffOptions', rule.dropoff, iso, 'dropoffOption');
+        renderOptions('pickupOptions',  rule.pickup,  iso, 'pickupOption');
+      }
     }
 
     var notesEl = document.getElementById('deliveryNotes');
@@ -126,25 +156,31 @@
       document.getElementById('inventorySection').style.display = 'none';
       document.getElementById('inventoryLoading').style.display = 'none';
       if (currentEventIso) {
-        var parts = currentEventIso.split('-').map(Number);
-        var eventDate = new Date(parts[0], parts[1] - 1, parts[2]);
-        var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        var rule = (window.DROPOFF_PICKUP_RULES || []).find(function (r) {
-          return r.event_day === dayNames[eventDate.getDay()];
-        });
-        if (rule) {
-          renderOptions('dropoffOptions', rule.dropoff, currentEventIso, 'dropoffOption');
-          renderOptions('pickupOptions',  rule.pickup,  currentEventIso, 'pickupOption');
-          var prevDropoff = localStorage.getItem('rrpr_dropoff');
-          var prevPickup  = localStorage.getItem('rrpr_pickup');
-          if (prevDropoff) {
-            var dd = JSON.parse(prevDropoff);
-            preselectOption('dropoffOption', dd.dropoffDate, dd.dropoffWindow);
+        var override2 = findOverride(currentEventIso);
+        if (override2) {
+          renderOverrideOptions('dropoffOptions', override2.dropoff, 'dropoffOption');
+          renderOverrideOptions('pickupOptions',  override2.pickup,  'pickupOption');
+        } else {
+          var parts = currentEventIso.split('-').map(Number);
+          var eventDate = new Date(parts[0], parts[1] - 1, parts[2]);
+          var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+          var rule = (window.DROPOFF_PICKUP_RULES || []).find(function (r) {
+            return r.event_day === dayNames[eventDate.getDay()];
+          });
+          if (rule) {
+            renderOptions('dropoffOptions', rule.dropoff, currentEventIso, 'dropoffOption');
+            renderOptions('pickupOptions',  rule.pickup,  currentEventIso, 'pickupOption');
           }
-          if (prevPickup) {
-            var pd = JSON.parse(prevPickup);
-            preselectOption('pickupOption', pd.pickupDate, pd.pickupWindow);
-          }
+        }
+        var prevDropoff = localStorage.getItem('rrpr_dropoff');
+        var prevPickup  = localStorage.getItem('rrpr_pickup');
+        if (prevDropoff) {
+          var dd = JSON.parse(prevDropoff);
+          preselectOption('dropoffOption', dd.dropoffDate, dd.dropoffWindow);
+        }
+        if (prevPickup) {
+          var pd = JSON.parse(prevPickup);
+          preselectOption('pickupOption', pd.pickupDate, pd.pickupWindow);
         }
         var notesEl = document.getElementById('deliveryNotes');
         if (notesEl) notesEl.value = localStorage.getItem('rrpr_notes') || '';
