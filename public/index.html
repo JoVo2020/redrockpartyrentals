@@ -504,8 +504,8 @@
       -webkit-text-fill-color: rgba(255,255,255,0.9) !important;
     }
     #ctaDate::placeholder {
-      color: rgba(255,255,255,0.35) !important;
-      -webkit-text-fill-color: rgba(255,255,255,0.35) !important;
+      color: rgba(255,255,255,0.70) !important;
+      -webkit-text-fill-color: rgba(255,255,255,0.70) !important;
     }
 
     .cta-left {}
@@ -984,7 +984,7 @@
 
     <div class="cta-form reveal" style="transition-delay:0.15s">
       <div class="input-group cta-input" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);padding:14px 16px;gap:12px;display:flex;align-items:center;">
-        <i class="fa-regular fa-calendar" style="color:rgba(255,255,255,0.4);font-size:14px;flex-shrink:0;"></i>
+        <i class="fa-regular fa-calendar" style="color:rgba(255,255,255,0.70);font-size:14px;flex-shrink:0;"></i>
         <input type="text" id="ctaDate" placeholder="Select your event date" style="border:none;background:transparent;font-family:var(--font-body);font-size:15px;color:#fff;width:100%;outline:none;" readonly>
       </div>
       <button class="btn-cta-submit" id="ctaBookBtn">
@@ -1140,7 +1140,7 @@
     document.getElementById('ctaBookBtn').addEventListener('click', function () {
       var dateRaw = document.getElementById('ctaDate').value;
       if (!dateRaw) {
-        alert('Please select your event date first.');
+        window.location.href = '/book';
         return;
       }
       var parts = dateRaw.split('/');
