@@ -190,6 +190,18 @@
     // Stepper hook — only present on book2.html
     if (typeof window.stepperOnDateSelected === 'function') {
       window.stepperOnDateSelected(iso);
+    } else {
+      // Non-book pages: auto-confirm cart defaults (no stepper to do it)
+      var cartDropoffInput = document.querySelector('#cartDropoffOptions input[name="cartDropoff"]:checked');
+      var cartPickupInput  = document.querySelector('#cartPickupOptions input[name="cartPickup"]:checked');
+      if (cartDropoffInput && cartPickupInput) {
+        var dd = JSON.parse(cartDropoffInput.value);
+        var pd = JSON.parse(cartPickupInput.value);
+        window.onTimesConfirmed(
+          { dropoffDate: dd.date, dropoffWindow: dd.window },
+          { pickupDate:  pd.date, pickupWindow:  pd.window }
+        );
+      }
     }
   };
 

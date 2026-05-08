@@ -142,6 +142,20 @@
     if (notesEl) notesEl.value = localStorage.getItem('rrpr_notes') || '';
   }
 
+  function autoConfirmDefaults() {
+    var dropoffInput = document.querySelector('input[name="dropoffOption"]:checked');
+    var pickupInput  = document.querySelector('input[name="pickupOption"]:checked');
+    if (!dropoffInput || !pickupInput) return;
+    var dd = JSON.parse(dropoffInput.value);
+    var pd = JSON.parse(pickupInput.value);
+    if (typeof window.onTimesConfirmed === 'function') {
+      window.onTimesConfirmed(
+        { dropoffDate: dd.date, dropoffWindow: dd.window },
+        { pickupDate:  pd.date, pickupWindow:  pd.window }
+      );
+    }
+  }
+
   function editStep(n) {
     if (n === 1) {
       setStepState('v2-step-1', 'active');
@@ -191,6 +205,7 @@
   // ── Stepper hooks (called by cart-booking.js shared actions) ────────────────
   window.stepperOnDateSelected = function (iso) {
     advanceToStep2(iso);
+    autoConfirmDefaults();
   };
 
   window.stepperOnTimesConfirmed = function () {
@@ -334,6 +349,7 @@
         if (typeof loadInventory === 'function') loadInventory();
       } else {
         advanceToStep2(eventDate);
+        autoConfirmDefaults();
       }
     }
 
