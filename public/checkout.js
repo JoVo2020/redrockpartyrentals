@@ -36,7 +36,7 @@ function renderCheckoutCart() {
   });
 
   document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById('total').textContent = `$${(subtotal + 10).toFixed(2)}`;
+  document.getElementById('total').textContent = `$${(subtotal + 15).toFixed(2)}`;
 }
 
 
