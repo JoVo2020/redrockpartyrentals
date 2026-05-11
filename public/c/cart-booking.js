@@ -168,7 +168,23 @@
 
   // ── Shared actions (work on any page) ───────────────────────────────────────
 
-  window.onDateSelected = function (iso) {
+  window.onDateSelected = function (iso, fromCart) {
+    var previousDate  = JSON.parse(localStorage.getItem('rrpr_event_date') || 'null');
+    var storedDropoff = localStorage.getItem('rrpr_dropoff');
+    var storedPickup  = localStorage.getItem('rrpr_pickup');
+
+    // Same date re-selected with times already confirmed — nothing to reset
+    if (iso === previousDate && storedDropoff && storedPickup) {
+      var fp1 = document.getElementById('dateStart');
+      var fp2 = document.getElementById('dateStart2');
+      if (fp1 && fp1._flatpickr) fp1._flatpickr.setDate(iso, false);
+      if (fp2 && fp2._flatpickr) fp2._flatpickr.setDate(iso, false);
+      document.getElementById('cartDateEdit').style.display = 'none';
+      document.getElementById('cartDateRow').style.display  = 'flex';
+      refreshCartBookingInfo();
+      return;
+    }
+
     localStorage.setItem('rrpr_event_date', JSON.stringify(iso));
     localStorage.removeItem('rrpr_dropoff');
     localStorage.removeItem('rrpr_pickup');
@@ -185,28 +201,55 @@
     document.getElementById('cartDateRow').style.display  = 'flex';
 
     refreshCartBookingInfo();
-    cartOpenTimesEdit();
 
     // Stepper hook — only present on book2.html
     if (typeof window.stepperOnDateSelected === 'function') {
       window.stepperOnDateSelected(iso);
+      if (fromCart && typeof window.stepperAutoConfirmDefaults === 'function') {
+        window.stepperAutoConfirmDefaults();
+      }
+    } else {
+      cartOpenTimesEdit();
+      // Non-book pages: auto-confirm cart defaults (no stepper to do it)
+      var cartDropoffInput = document.querySelector('#cartDropoffOptions input[name="cartDropoff"]:checked');
+      var cartPickupInput  = document.querySelector('#cartPickupOptions input[name="cartPickup"]:checked');
+      if (cartDropoffInput && cartPickupInput) {
+        var dd = JSON.parse(cartDropoffInput.value);
+        var pd = JSON.parse(cartPickupInput.value);
+        window.onTimesConfirmed(
+          { dropoffDate: dd.date, dropoffWindow: dd.window },
+          { pickupDate:  pd.date, pickupWindow:  pd.window }
+        );
+      }
     }
   };
 
   window.onTimesConfirmed = function (dropoffPayload, pickupPayload) {
-    localStorage.setItem('rrpr_dropoff', JSON.stringify(dropoffPayload));
-    localStorage.setItem('rrpr_pickup',  JSON.stringify(pickupPayload));
-
     var toLocalISO = function (isoStr) {
       var d = new Date(isoStr);
       return d.getFullYear() + '-' +
         String(d.getMonth() + 1).padStart(2, '0') + '-' +
         String(d.getDate()).padStart(2, '0');
     };
+
+    var prevDropoff = JSON.parse(localStorage.getItem('rrpr_dropoff') || 'null');
+    var prevPickup  = JSON.parse(localStorage.getItem('rrpr_pickup')  || 'null');
+    var timesUnchanged = prevDropoff && prevPickup &&
+      toLocalISO(dropoffPayload.dropoffDate) === toLocalISO(prevDropoff.dropoffDate) &&
+      dropoffPayload.dropoffWindow === prevDropoff.dropoffWindow &&
+      toLocalISO(pickupPayload.pickupDate)  === toLocalISO(prevPickup.pickupDate) &&
+      pickupPayload.pickupWindow  === prevPickup.pickupWindow;
+
+    localStorage.setItem('rrpr_dropoff', JSON.stringify(dropoffPayload));
+    localStorage.setItem('rrpr_pickup',  JSON.stringify(pickupPayload));
+
     var eventIso    = JSON.parse(localStorage.getItem('rrpr_event_date') || 'null');
     var dropoffDate = toLocalISO(dropoffPayload.dropoffDate);
     var pickupDate  = toLocalISO(pickupPayload.pickupDate);
-    AvailabilityService.setRentalDateRange(dropoffDate, pickupDate, eventIso);
+
+    if (!timesUnchanged) {
+      AvailabilityService.setRentalDateRange(dropoffDate, pickupDate, eventIso);
+    }
 
     cartCloseTimesEdit();
     refreshCartBookingInfo();
@@ -216,17 +259,19 @@
       window.stepperOnTimesConfirmed();
     }
 
-    // Async availability → re-render cart
-    var note = document.getElementById('CheckingAvailabilityNote');
-    if (note) note.style.display = 'block';
-    AvailabilityService.ensureAvailability()
-      .then(function () {
-        if (typeof refreshCartAvailability === 'function') refreshCartAvailability();
-        if (typeof renderCart              === 'function') renderCart();
-      })
-      .finally(function () {
-        if (note) note.style.display = 'none';
-      });
+    if (!timesUnchanged) {
+      // Async availability → re-render cart
+      var note = document.getElementById('CheckingAvailabilityNote');
+      if (note) note.style.display = 'block';
+      AvailabilityService.ensureAvailability()
+        .then(function () {
+          if (typeof refreshCartAvailability === 'function') refreshCartAvailability();
+          if (typeof renderCart              === 'function') renderCart();
+        })
+        .finally(function () {
+          if (note) note.style.display = 'none';
+        });
+    }
   };
 
   // ── Register window callbacks for book-steps.js ─────────────────────────────

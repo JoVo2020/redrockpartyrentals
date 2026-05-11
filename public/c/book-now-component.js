@@ -108,7 +108,7 @@ flatpickr("#dateStart2", {
 	  if (!dateStr) return;
 	  const [month, day, year] = dateStr.split('/');
 	  const iso = `${year}-${month.padStart(2,'0')}-${day.padStart(2,'0')}`;
-	  if (typeof window.onDateSelected === 'function') window.onDateSelected(iso);
+	  if (typeof window.onDateSelected === 'function') window.onDateSelected(iso, true);
 	},
 	onClose: function() {
 	  var cartDateEdit = document.getElementById('cartDateEdit');
