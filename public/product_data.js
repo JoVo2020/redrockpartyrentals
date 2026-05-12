@@ -211,6 +211,17 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/table-cloth-cream.png"
     },
     {
+      "Item_ID": "Sage_Green_Table_Cloth",
+      "Product_ID": "7069036000002302007",
+      "Item Name": "Sage Green Table Cloth",
+      "Item Description": "Regular sage green rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 5,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/sage-green-table-cloth.png"
+    },
+    {
       "Item_ID": "Tetris_Game",
       "Product_ID": "7069036000001905034",
       "Item Name": "Tetris Tumble Game",
