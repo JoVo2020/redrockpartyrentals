@@ -236,8 +236,8 @@ function calculateDropoff() {
 	const rawdate = JSON.parse(localStorage.getItem('rrpr_event_date'));
 	if (!rawdate) return null;
 
-	const eventDate = new Date(rawdate);
-	eventDate.setHours(0, 0, 0, 0);
+	const [y, m, d] = rawdate.split('-').map(Number);
+	const eventDate = new Date(y, m - 1, d);
 
   const day = eventDate.getDay(); // 0=Sun, 5=Fri, 6=Sat
 
@@ -266,8 +266,8 @@ function calculatePickup() {
 	const rawdate = JSON.parse(localStorage.getItem('rrpr_event_date'));
 	if (!rawdate) return null;
 
-	const eventDate = new Date(rawdate);
-	eventDate.setHours(0, 0, 0, 0);
+	const [y, m, d] = rawdate.split('-').map(Number);
+	const eventDate = new Date(y, m - 1, d);
 
   const day = eventDate.getDay(); // 0=Sun, 5=Fri, 6=Sat
 
