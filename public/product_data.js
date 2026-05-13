@@ -21,7 +21,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 12,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-      "Image": "https://m.media-amazon.com/images/I/61TgvK5D9kL._AC_SL1500_.jpg"
+      "Image": "https://redrockpartyrentals.com/images/6ft-round-table.png"
     },
     {
       "Item_ID": "Chair",
