@@ -12,6 +12,17 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "tables-chairs",
       "Image": "https://redrockpartyrentals.com/images/table.jpg"
     },
+	{
+      "Item_ID": "6ft_Round_Table",
+      "Product_ID": "7069036000002302022",
+      "Item Name": "6ft Round Tables",
+      "Item Description": "White plastic 6ft round table. Seats up to 8 people",
+      "Quantity Available": 5,
+      "Rental Price": 12,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+      "Image": "https://m.media-amazon.com/images/I/61TgvK5D9kL._AC_SL1500_.jpg"
+    },
     {
       "Item_ID": "Chair",
       "Product_ID": "7069036000000633191",
