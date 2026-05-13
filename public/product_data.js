@@ -16,7 +16,7 @@ window.PRODUCT_DATA = [
       "Item_ID": "6ft_Round_Table",
       "Product_ID": "7069036000002302022",
       "Item Name": "6ft Round Tables",
-      "Item Description": "White plastic 6ft round table. Seats up to 8 people",
+      "Item Description": "White plastic 6ft round table. Seats up to 8 people.",
       "Quantity Available": 5,
       "Rental Price": 12,
       "Category": "Tables And Chairs",
