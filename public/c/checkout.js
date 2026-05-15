@@ -36,7 +36,7 @@ function renderCheckoutCart() {
   });
 
   document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById('total').textContent = `$${(subtotal + 10).toFixed(2)}`;
+  document.getElementById('total').textContent = `$${(subtotal + 15).toFixed(2)}`;
 }
 
 
@@ -99,7 +99,7 @@ function goToBookPage() {
 	const email = document.getElementById('email').value.trim();
 
 	const state = JSON.parse(localStorage.getItem('rrpr_availability_state'));
-	const startDate = state?.start_date;
+	const startDate = JSON.parse(localStorage.getItem('rrpr_event_date')) || state?.event_date;
 
 	if (!startDate) {
 		window.location.href = '/book';
@@ -232,85 +232,23 @@ function autopopulateNotes() {
 }
 
 
-function calculateDropoff() {
-	const rawdate = JSON.parse(localStorage.getItem('rrpr_event_date'));
-	if (!rawdate) return null;
-
-	const eventDate = new Date(rawdate);
-	eventDate.setHours(0, 0, 0, 0);
-
-  const day = eventDate.getDay(); // 0=Sun, 5=Fri, 6=Sat
-
-  let dropoffDate = new Date(eventDate);
-  let dropoffWindow;
-
-  // ----- DROPOFF -----
-  if (day === 6) { // Saturday
-    dropoffWindow = '8:00 AM – 11:00 AM';
-  } else {
-    dropoffDate.setDate(eventDate.getDate() - 1);
-    dropoffWindow = '5:00 PM – 8:00 PM';
-  }
-  
-	localStorage.setItem('rrpr_dropoff', JSON.stringify({
-		dropoffDate, dropoffWindow
-	}));
-  return {
-      dropoffDate: dropoffDate,
-      dropoffWindow: dropoffWindow
-  };
-}
-
-function calculatePickup() {
-  
-	const rawdate = JSON.parse(localStorage.getItem('rrpr_event_date'));
-	if (!rawdate) return null;
-
-	const eventDate = new Date(rawdate);
-	eventDate.setHours(0, 0, 0, 0);
-
-  const day = eventDate.getDay(); // 0=Sun, 5=Fri, 6=Sat
-
-  let pickupDate = new Date(eventDate);
-  let pickupWindow;
-
-  // ----- PICKUP -----
-  if (day === 5) { // Friday
-    pickupDate.setDate(eventDate.getDate() + 1);
-    pickupWindow = '8:00 AM – 11:00 AM';
-  } else {
-    pickupDate.setDate(eventDate.getDate() + 1);
-    pickupWindow = '5:00 PM – 8:00 PM';
-  }
-	  
-	localStorage.setItem('rrpr_pickup', JSON.stringify({
-		pickupDate, pickupWindow
-	}));
-
-  return {
-      pickupDate: pickupDate,
-      pickupWindow: pickupWindow
-  };
-}
-
-
 function render_schedule() {
   const scheduleContainer = document.getElementById('scheduleInfo');
-  const eventDateRaw = JSON.parse(localStorage.getItem('rrpr_event_date'));
 
-  if (!eventDateRaw) {
+  const dropoffRaw = localStorage.getItem('rrpr_dropoff');
+  const pickupRaw  = localStorage.getItem('rrpr_pickup');
+
+  if (!dropoffRaw || !pickupRaw) {
     scheduleContainer.innerHTML = '<em>No schedule available.</em>';
     return;
   }
 
-  const dropoff = calculateDropoff();
-  const pickup = calculatePickup();
+  const dropoff = JSON.parse(dropoffRaw);
+  const pickup  = JSON.parse(pickupRaw);
 
-  const formatDate = (date) =>
-    date.toLocaleDateString('en-US', {
-      weekday: 'short',
-      month: 'short',
-      day: 'numeric'
+  const formatDate = (isoStr) =>
+    new Date(isoStr).toLocaleDateString('en-US', {
+      weekday: 'short', month: 'short', day: 'numeric'
     });
 
   scheduleContainer.innerHTML = `
@@ -385,7 +323,7 @@ function getOrderTotal() {
     0
   );
 
-  const delivery_fee = 10.00; // keep aligned with Zoho Books
+  const delivery_fee = 15.00; // keep aligned with Zoho Books
   const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
   const total = +(subtotal + delivery_fee + tax).toFixed(2);
 
@@ -479,7 +417,7 @@ async function placeOrderToN8N() {
     0
   );
 
-  const delivery_fee = 10; // keep aligned with Zoho Books
+  const delivery_fee = 15; // keep aligned with Zoho Books
   const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
   const total = +(subtotal + delivery_fee + tax).toFixed(2);
 
@@ -564,7 +502,7 @@ function firePurchaseEvent() {
     0
   );
 
-  const delivery = 10.00;
+  const delivery = 15.00;
   const total = subtotal + delivery;
 
   // Generate a simple transaction ID
