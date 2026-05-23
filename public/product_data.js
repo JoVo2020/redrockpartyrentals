@@ -109,7 +109,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 2,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-      "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.jpg"
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.png"
     },
     {
       "Item_ID": "Standing_Cooler",
@@ -175,7 +175,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 2,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-      "Image": "https://redrockpartyrentals.com/images/tablerunner-lightpink.jpg"
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-lightpink.png"
     },
     {
       "Item_ID": "Beige_Table_Runner",
@@ -186,7 +186,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 2,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-      "Image": "https://redrockpartyrentals.com/images/tablerunner-beige.jpg"
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-beige.png"
     },
     {
       "Item_ID": "Orange_Table_Runner",
@@ -197,7 +197,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 2,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-      "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.jpg"
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.png"
     },
     {
       "Item_ID": "Beige_Table_Cloth",
