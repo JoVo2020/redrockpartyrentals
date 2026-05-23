@@ -90,12 +90,34 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg"
     },
     {
+      "Item_ID": "Fitted_Cocktail_Table_Cover_Pink",
+      "Product_ID": "7069036000002417001",
+      "Item Name": "Pink Fitted Cocktail Table Cover",
+      "Item Description": "Pink, fitted, cocktail table cover",
+      "Quantity Available": 6,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png"
+    },
+    {
+      "Item_ID": "White_Draped_Cocktail_Table_Cover",
+      "Product_ID": "7069036000002417003",
+      "Item Name": "White Draped Cocktail Table Cover",
+      "Item Description": "White, draped, cocktail table cover",
+      "Quantity Available": 6,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png"
+    },
+    {
       "Item_ID": "Blue_Table_Runner",
       "Product_ID": "7069036000001145048",
       "Item Name": "Blue Table Runner",
       "Item Description": "Light Blue table runner",
       "Quantity Available": 8,
-      "Rental Price": 2,
+      "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg"
@@ -106,7 +128,7 @@ window.PRODUCT_DATA = [
       "Item Name": "Green Table Runner",
       "Item Description": "Sage Green table runner",
       "Quantity Available": 8,
-      "Rental Price": 2,
+      "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.png"
@@ -172,7 +194,7 @@ window.PRODUCT_DATA = [
       "Item Name": "Pink Table Runner",
       "Item Description": "Light pink table runner",
       "Quantity Available": 8,
-      "Rental Price": 2,
+      "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-lightpink.png"
@@ -183,7 +205,7 @@ window.PRODUCT_DATA = [
       "Item Name": "Beige Table Runner",
       "Item Description": "Beige table runner",
       "Quantity Available": 8,
-      "Rental Price": 2,
+      "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-beige.png"
@@ -194,7 +216,7 @@ window.PRODUCT_DATA = [
       "Item Name": "Burnt Orange Table Runner",
       "Item Description": "Burnt Orange table runner",
       "Quantity Available": 8,
-      "Rental Price": 2,
+      "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.png"
