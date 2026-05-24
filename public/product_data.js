@@ -56,6 +56,40 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "table-covers",
       "Image": "https://redrockpartyrentals.com/images/tablecloth-regular.jpg"
     },
+	
+    {
+      "Item_ID": "Beige_Table_Cloth",
+      "Product_ID": "7069036000001905019",
+      "Item Name": "Beige Table Cloth",
+      "Item Description": "Regular beige rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 8,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/table-cloth-beige.png"
+    },	
+    {
+      "Item_ID": "Cream_Table_Cloth",
+      "Product_ID": "7069036000001905024",
+      "Item Name": "Cream Table Cloth",
+      "Item Description": "Regular cream-colored rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 8,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/table-cloth-cream.png"
+    },
+    {
+      "Item_ID": "Sage_Green_Table_Cloth",
+      "Product_ID": "7069036000002302007",
+      "Item Name": "Sage Green Table Cloth",
+      "Item Description": "Regular sage green rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 5,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/sage-green-table-cloth.png"
+    },
     {
       "Item_ID": "Fitted_Table_Cover",
       "Product_ID": "7069036000001145038",
@@ -220,39 +254,6 @@ window.PRODUCT_DATA = [
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.png"
-    },
-    {
-      "Item_ID": "Beige_Table_Cloth",
-      "Product_ID": "7069036000001905019",
-      "Item Name": "Beige Table Cloth",
-      "Item Description": "Regular beige rectangular table cloth, 70 inches x 120 inches.",
-      "Quantity Available": 8,
-      "Rental Price": 5,
-      "Category": "Table Covers",
-	  "CategoryPath": "table-covers",
-      "Image": "https://redrockpartyrentals.com/images/table-cloth-beige.png"
-    },	
-    {
-      "Item_ID": "Cream_Table_Cloth",
-      "Product_ID": "7069036000001905024",
-      "Item Name": "Cream Table Cloth",
-      "Item Description": "Regular cream-colored rectangular table cloth, 70 inches x 120 inches.",
-      "Quantity Available": 8,
-      "Rental Price": 5,
-      "Category": "Table Covers",
-	  "CategoryPath": "table-covers",
-      "Image": "https://redrockpartyrentals.com/images/table-cloth-cream.png"
-    },
-    {
-      "Item_ID": "Sage_Green_Table_Cloth",
-      "Product_ID": "7069036000002302007",
-      "Item Name": "Sage Green Table Cloth",
-      "Item Description": "Regular sage green rectangular table cloth, 70 inches x 120 inches.",
-      "Quantity Available": 5,
-      "Rental Price": 5,
-      "Category": "Table Covers",
-	  "CategoryPath": "table-covers",
-      "Image": "https://redrockpartyrentals.com/images/sage-green-table-cloth.png"
     },
     {
       "Item_ID": "Tetris_Game",
