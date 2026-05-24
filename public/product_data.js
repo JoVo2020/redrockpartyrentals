@@ -24,17 +24,6 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/6ft-round-table.png"
     },
     {
-      "Item_ID": "Chair",
-      "Product_ID": "7069036000000633191",
-      "Item Name": "White Folding Chairs",
-      "Item Description": "White plastic folding chair",
-      "Quantity Available": 120,
-      "Rental Price": 1,
-      "Category": "Tables And Chairs",
-	  "CategoryPath": "tables-chairs",
-      "Image": "https://redrockpartyrentals.com/images/chair3.jpg"
-    },
-    {
       "Item_ID": "Cocktail_Table",
       "Product_ID": "7069036000001145028",
       "Item Name": "Cocktail Tables",
@@ -45,6 +34,42 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "tables-chairs",
       "Image": "https://redrockpartyrentals.com/images/cocktail-table.jpg"
     },
+	
+    {
+      "Item_ID": "Chair",
+      "Product_ID": "7069036000000633191",
+      "Item Name": "White Folding Chairs",
+      "Item Description": "White plastic folding chair",
+      "Quantity Available": 120,
+      "Rental Price": 1,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+      "Image": "https://redrockpartyrentals.com/images/chair3.jpg"
+    },
+
+    {
+      "Item_ID": "Black_Bar_Stool",
+      "Product_ID": "7069036000002423005",
+      "Item Name": "Black Bar Stool",
+      "Item Description": "Black bar stool",
+      "Quantity Available": 12,
+      "Rental Price": 8,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+      "Image": "https://redrockpartyrentals.com/images/bar-stool.png"
+    },
+    {
+      "Item_ID": "Black_Bar_Stool_with_Back",
+      "Product_ID": "",
+      "Item Name": "Black Bar Stool with Back",
+      "Item Description": "Black bar stool with Back",
+      "Quantity Available": 12,
+      "Rental Price": 10,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+      "Image": "https://redrockpartyrentals.com/images/bar-stool-with-back.png"
+    },
+
     {
       "Item_ID": "White_Table_Cover",
       "Product_ID": "7069036000001145033",
