@@ -167,6 +167,31 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "table-runners",
       "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.png"
     },
+	
+    {
+      "Item_ID": "White_Chair_Cover",
+      "Product_ID": "7069036000002423001",
+      "Item Name": "White Chair Cover",
+      "Item Description": "White, fitted chair cover",
+      "Quantity Available": 30,
+      "Rental Price": 3,
+      "Category": "Chair Covers",
+	  "CategoryPath": "chair-covers",
+      "Image": "https://redrockpartyrentals.com/images/white-chair-cover.png"
+    },	
+	
+    {
+      "Item_ID": "Purple_Chair_Sash",
+      "Product_ID": "7069036000002423003",
+      "Item Name": "Purple Chair Sash",
+      "Item Description": "Purple Chair Sash",
+      "Quantity Available": 100,
+      "Rental Price": 1.50,
+      "Category": "Chair Covers",
+	  "CategoryPath": "chair-covers",
+      "Image": "https://redrockpartyrentals.com/images/purple-chair-sash.png"
+    },		
+	
     {
       "Item_ID": "Standing_Cooler",
       "Product_ID": "7069036000001145058",
