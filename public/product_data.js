@@ -60,7 +60,7 @@ window.PRODUCT_DATA = [
     },
     {
       "Item_ID": "Black_Bar_Stool_with_Back",
-      "Product_ID": "",
+      "Product_ID": "7069036000002423007",
       "Item Name": "Black Bar Stool with Back",
       "Item Description": "Black bar stool with Back",
       "Quantity Available": 12,
