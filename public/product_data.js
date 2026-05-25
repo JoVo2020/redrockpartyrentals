@@ -211,7 +211,7 @@ window.PRODUCT_DATA = [
       "Item Name": "Purple Chair Sash",
       "Item Description": "Purple Chair Sash",
       "Quantity Available": 100,
-      "Rental Price": 1.50,
+      "Rental Price": 2,
       "Category": "Chair Covers",
 	  "CategoryPath": "chair-covers",
       "Image": "https://redrockpartyrentals.com/images/purple-chair-sash.png"
