@@ -60,7 +60,7 @@ async function loadInventory() {
     loadingEl.style.display = 'block';
     loadingEl.textContent = 'To get started, please enter your event date.';
     inventorySection.style.display = 'none';
-    otherWays.style.display = 'block';
+    if (otherWays) otherWays.style.display = 'block';
     return;
   }
 
@@ -73,7 +73,7 @@ async function loadInventory() {
   loadingEl.style.display = 'block';
   loadingEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability…';
   inventorySection.style.display = 'none';
-  otherWays.style.display = 'block';
+  if (otherWays) otherWays.style.display = 'block';
 
   try {
     let availability;
