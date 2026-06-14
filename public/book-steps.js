@@ -355,7 +355,7 @@
         jumpToSlide(4);
         if (typeof loadInventory === 'function') loadInventory();
       } else {
-        goToSlide(2);
+        jumpToSlide(2);
       }
     }
 
