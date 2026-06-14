@@ -41,6 +41,26 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function jumpToSlide(n) {
+    var track    = document.getElementById('slidesTrack');
+    var viewport = document.getElementById('slidesViewport');
+    var slides   = track.querySelectorAll('.sl-slide');
+    if (n < 1 || n > TOTAL_SLIDES) return;
+    syncSlideSizes();
+    track.style.transition = 'none';
+    viewport.style.transition = 'none';
+    track.style.transform = 'translateX(-' + ((n - 1) * slideWidth()) + 'px)';
+    viewport.style.height = slides[n - 1].scrollHeight + 'px';
+    requestAnimationFrame(function () {
+      track.style.transition = '';
+      viewport.style.transition = '';
+    });
+    currentSlide = n;
+    updateProgress(n);
+    updateBackBtn(n);
+    updateContextBar(n);
+  }
+
   window.slideGoBack    = function () { goToSlide(currentSlide - 1); };
   window.slideGoToDate  = function () { goToSlide(1); };
 
@@ -331,8 +351,8 @@
       }
 
       if (storedDropoff && storedPickup) {
-        // Fully restored — go straight to rentals
-        goToSlide(4);
+        // Fully restored — jump instantly to rentals (no slide animation)
+        jumpToSlide(4);
         if (typeof loadInventory === 'function') loadInventory();
       } else {
         goToSlide(2);
