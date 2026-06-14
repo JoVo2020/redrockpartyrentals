@@ -1128,7 +1128,7 @@
     document.getElementById('heroBookBtn').addEventListener('click', function () {
       var dateRaw = document.getElementById('heroDate').value;
       if (!dateRaw) {
-        alert('Please select your event date first.');
+        window.location.href = '/book';
         return;
       }
       var parts = dateRaw.split('/');
