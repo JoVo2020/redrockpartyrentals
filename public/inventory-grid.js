@@ -187,7 +187,7 @@ function renderInventory(items) {
 ------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (!document.getElementById('bk-stepper')) {
+  if (!document.getElementById('bk-stepper') && !document.querySelector('.sl-track')) {
     loadInventory();
   }
 });
