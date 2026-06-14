@@ -274,12 +274,10 @@
     var viewport = document.getElementById('slidesViewport');
     var slides   = track ? track.querySelectorAll('.sl-slide') : [];
 
-    // Size all slides to viewport width, set initial height without transition
+    // Size all slides to viewport width, set initial height
     syncSlideSizes();
     if (viewport && slides[0]) {
-      viewport.style.transition = 'none';
       viewport.style.height = slides[0].scrollHeight + 'px';
-      requestAnimationFrame(function () { viewport.style.transition = ''; });
     }
 
     updateProgress(1);
