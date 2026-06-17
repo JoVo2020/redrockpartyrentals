@@ -211,7 +211,7 @@ function renderCart() {
   if (earliestRefreshMs !== null) setTimeout(renderCart, earliestRefreshMs);
 
   //subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-  const grandtotal = subtotal + 15;
+  const grandtotal = subtotal + 20;
   totalEl.textContent = `$${grandtotal.toFixed(2)}`;
   
   
