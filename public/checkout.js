@@ -36,7 +36,7 @@ function renderCheckoutCart() {
   });
 
   document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById('total').textContent = `$${(subtotal + 15).toFixed(2)}`;
+  document.getElementById('total').textContent = `$${(subtotal + 20).toFixed(2)}`;
 }
 
 
@@ -323,7 +323,7 @@ function getOrderTotal() {
     0
   );
 
-  const delivery_fee = 15.00; // keep aligned with Zoho Books
+  const delivery_fee = 20.00; // keep aligned with Zoho Books
   const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
   const total = +(subtotal + delivery_fee + tax).toFixed(2);
 
@@ -417,7 +417,7 @@ async function placeOrderToN8N() {
     0
   );
 
-  const delivery_fee = 15; // keep aligned with Zoho Books
+  const delivery_fee = 20; // keep aligned with Zoho Books
   const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
   const total = +(subtotal + delivery_fee + tax).toFixed(2);
 
@@ -502,7 +502,7 @@ function firePurchaseEvent() {
     0
   );
 
-  const delivery = 15.00;
+  const delivery = 20.00;
   const total = subtotal + delivery;
 
   // Generate a simple transaction ID
