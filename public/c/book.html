@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Red Rock Party Rentals — Book</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="book-now-component.css" />
+  <link rel="stylesheet" href="accordion.css" />
+  <link rel="stylesheet" href="cart.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+
+  <style>
+  /* ── Tokens ────────────────────────────────────────────── */
+  :root {
+    --red:       #8b0000;
+    --red-hover: #720000;
+    --off-white: #f8f8f6;
+    --border:    #ddd;
+    --muted:     #777;
+  }
+
+  /* ── Outer container ───────────────────────────────────── */
+  .sl-outer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1.5rem 0 0;
+  }
+
+  /* ── Chrome bar: back + progress + step label ──────────── */
+  .sl-chrome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1.5rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sl-back-btn {
+    background: none;
+    border: none;
+    color: var(--red);
+    font-size: 0.85rem;
+    font-family: 'Lora', serif;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+    visibility: hidden;
+    line-height: 1;
+  }
+  .sl-back-btn.visible { visibility: visible; }
+  .sl-back-btn:hover { color: var(--red-hover); background: none; }
+
+  .sl-progress-track {
+    flex: 1;
+    height: 3px;
+    background: #e8e8e8;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .sl-progress-fill {
+    height: 100%;
+    background: var(--red);
+    border-radius: 2px;
+    width: 25%;
+    transition: width 0.4s ease;
+  }
+
+  .sl-step-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  /* ── Context bar (shows prior selections) ──────────────── */
+  .sl-context-bar {
+    display: none;
+    max-width: 600px;
+    margin: 0.85rem auto 0;
+    padding: 0.9rem 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .sl-ctx-section {
+    padding: 0.4rem 0;
+  }
+  .sl-ctx-section + .sl-ctx-section {
+    margin-top: 0.6rem;
+  }
+
+  .sl-ctx-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #aaa;
+    margin-bottom: 0.25rem;
+  }
+
+  .sl-ctx-body {
+    font-size: 0.95rem;
+    color: #222;
+    line-height: 1.55;
+  }
+
+  .sl-ctx-section--editable { cursor: pointer; }
+
+  .sl-ctx-section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+  }
+
+  .sl-ctx-edit-btn {
+    background: none;
+    border: none;
+    font-family: 'Lora', serif;
+    font-size: 0.78rem;
+    color: var(--red);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+  }
+  .sl-ctx-edit-btn:hover { color: var(--red-hover); background: none; }
+
+  /* ── Slide viewport + track ────────────────────────────── */
+  .sl-viewport {
+    overflow: hidden;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sl-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    align-items: flex-start;
+  }
+  .sl-slide {
+    flex-shrink: 0;
+    padding: 0 1.5rem 5rem;
+    box-sizing: border-box;
+    /* width is set in JS via syncSlideSizes() */
+  }
+
+  /* ── Slide content ─────────────────────────────────────── */
+  .sl-question {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 2rem 0 0.5rem;
+    line-height: 1.3;
+  }
+
+  .sl-subtext {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0 0 1.75rem;
+    line-height: 1.5;
+  }
+
+  /* ── Next / CTA button ─────────────────────────────────── */
+  .sl-next-btn {
+    background: var(--red);
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    border: none;
+    font-family: 'Lora', serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 2rem;
+    display: block;
+    width: 100%;
+  }
+  .sl-next-btn:hover { background: var(--red-hover); }
+  .sl-next-btn:disabled { display: none; }
+
+  .sl-change-date-link {
+    display: block;
+    background: none;
+    border: none;
+    font-family: 'Lora', serif;
+    font-size: 0.8rem;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 0;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+  .sl-change-date-link:hover { color: #444; background: none; }
+
+  /* ── Time option cards (reused from book-now-component.css) */
+  .time-option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .time-option-card {
+    border: 2px solid var(--border);
+    padding: 0.6rem 0.75rem;
+    cursor: pointer;
+    display: block;
+    background-color: #fff;
+    transition: border-color 0.15s, background-color 0.15s;
+    user-select: none;
+  }
+  .time-option-card input[type="radio"] { display: none; }
+  .time-option-card:has(input:checked)  { border-color: var(--red); background: #fdf5f5; }
+  .time-option-card__day {
+    font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.9px;
+    color: #999; margin-bottom: 0.15rem;
+  }
+  .time-option-card__date { font-size: 0.9rem; font-weight: 600; color: #444; margin-bottom: 0.2rem; }
+  .time-option-card__window { font-size: 0.82rem; color: #555; }
+  .time-option-card:hover { background: #f5f5f5; border-color: #ccc; }
+  .time-option-card:has(input:checked):hover { background: #fdf5f5; border-color: var(--red); }
+  .time-option-card:has(input:checked) .time-option-card__day    { color: var(--muted); }
+  .time-option-card:has(input:checked) .time-option-card__date   { color: #222; }
+  .time-option-card:has(input:checked) .time-option-card__window { color: #444; }
+
+  /* ── Inventory card ────────────────────────────────────── */
+  .rr-card { display: flex; flex-direction: column; }
+  .rr-card__body { display: flex; flex-direction: column; flex: 1; }
+  .rr-card__addToCart { margin-top: auto; }
+
+  /* accordion override */
+  .sl-slide .accordion { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+
+  .checking-availability-message {
+    padding: 1.5rem 0; font-size: 1rem; color: #555;
+  }
+
+  /* ── Cart summary bar ──────────────────────────────────── */
+  #bk-cart-summary { display: none; padding: 1.4rem 2rem; }
+  .bk-cart-bar {
+    max-width: 600px; margin: 0 auto; display: flex;
+    align-items: center; justify-content: space-between; gap: 1rem;
+    flex-wrap: wrap; background: var(--off-white);
+    border: 1px solid var(--border); padding: 1rem 1.4rem;
+  }
+  .bk-cart-bar-left {
+    display: flex; align-items: center; gap: 0.65rem;
+    font-size: 1.2rem; color: #222;
+  }
+  .bk-cart-bar-count {
+    background: var(--red); color: #fff; -webkit-text-fill-color: #fff;
+    font-size: 1rem; font-weight: 700; min-width: 28px; height: 28px;
+    padding: 0 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .bk-cart-bar-btn {
+    background: var(--red); color: #fff; -webkit-text-fill-color: #fff;
+    border: none; font-family: 'Lora', serif; font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; padding: 0.85rem 1.8rem;
+    cursor: pointer; transition: background 0.15s; white-space: nowrap;
+  }
+  .bk-cart-bar-btn:hover { background: var(--red-hover); }
+
+  @media (max-width: 720px) {
+    #bk-cart-summary {
+      background: var(--off-white); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border); padding: 1.2rem 1.4rem;
+    }
+    .bk-cart-bar { background: none; border: none; padding: 0; flex-direction: column; align-items: flex-start; }
+    .bk-cart-bar-btn { width: 100%; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .time-option-grid { grid-template-columns: 1fr; }
+    .sl-question { font-size: 1.4rem; }
+    .sl-chrome { padding: 1.2rem 1.2rem 0; }
+    .sl-slide { padding: 0 1.2rem 5rem; }
+    .sl-context-bar { padding: 0.6rem 1.2rem; }
+  }
+
+  /* ── Cart booking info ─────────────────────────────────── */
+  .cart-info-row { display:flex; align-items:flex-start; justify-content:space-between; gap:0.5rem; padding:3px 0; }
+  .cart-info-label { font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#888; margin-bottom:3px; }
+  .cart-info-value { font-size:0.88rem; color:#222; line-height:1.45; }
+  .cart-info-sep { border-top:1px solid #d5d5d5; margin:10px 0; }
+  .cart-info-edit { background:none; border:none; font-family:'Lora',serif; font-size:0.78rem; color:var(--red); text-decoration:underline; cursor:pointer; flex-shrink:0; padding:0; margin-top:1px; }
+  .cart-info-edit:hover { color:var(--red-hover); }
+  .cart-info-row > div { cursor:pointer; }
+  .cart-scroll-area { flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; background-color:#eee; }
+  .cart-scroll-area .cart-items { flex:none; overflow-y:visible; }
+  .cart-empty-state { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:5rem 1rem; gap:0.75rem; }
+  .cart-empty-state__icon { font-size:2.5rem; color:#bbb; }
+  .cart-empty-state__msg { font-family:'Lora',serif; font-size:0.95rem; color:#aaa; margin:0; }
+
+  @media (max-width: 720px) {
+    .page-wrapper { padding: 0; }
+  }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header>
+    <nav class="navbar" id="navbar" style="position:static;">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="Red Rock Logo" />
+          <span style="color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+        </a>
+      </div>
+      <div style="display:flex;">
+        <button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+          <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" style="color:rgba(0,0,0,.8);">Home</a></li>
+        <li><a href="rentals.html" style="color:rgba(0,0,0,.8);">Rentals</a></li>
+        <li><a href="book.html" style="color:rgba(0,0,0,.8);">Book</a></li>
+        <li><a href="contact.html" style="color:rgba(0,0,0,.8);">Contact</a></li>
+        <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+          <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+        </button>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- ── Chrome: back button + progress bar ──────────────── -->
+  <div class="sl-chrome">
+    <button class="sl-back-btn" id="slBackBtn" aria-label="Go back">
+      <i class="fa-solid fa-arrow-left" style="font-size:0.8rem;"></i> Back
+    </button>
+    <div class="sl-progress-track">
+      <div class="sl-progress-fill" id="slProgressFill"></div>
+    </div>
+    <span class="sl-step-label" id="slStepLabel">1 / 4</span>
+  </div>
+
+  <!-- ── Context bar (prior selections) ──────────────────── -->
+  <div class="sl-context-bar" id="slContextBar"></div>
+
+  <!-- ── Slides ───────────────────────────────────────────── -->
+  <div class="sl-viewport" id="slidesViewport">
+    <div class="sl-track" id="slidesTrack">
+
+      <!-- SLIDE 1: Event Date ─────────────────────────────── -->
+      <div class="sl-slide" id="slide-1">
+        <div class="sl-outer">
+          <p class="sl-question">When is your event?</p>
+          <p class="sl-subtext">Pick the date and we'll show you available dropoff and pickup windows.</p>
+          <div class="dropdown-wrapper" style="max-width:300px;">
+            <div class="dropdown-icon-calendar"></div>
+            <div class="dropdown-divider"></div>
+            <input type="text" id="dateStart" placeholder="Select a date" required>
+          </div>
+          <button class="sl-next-btn" id="dateNextBtn" disabled>Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Dropoff Time ───────────────────────────── -->
+      <div class="sl-slide" id="slide-2">
+        <div class="sl-outer">
+          <p class="sl-question">When should we drop off?</p>
+          <p class="sl-subtext">Choose the window that works best for your setup.</p>
+          <div id="dropoffOptions" class="time-option-grid"></div>
+          <button class="sl-next-btn" id="dropoffNextBtn">Next &rarr;</button>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: Pickup Time ────────────────────────────── -->
+      <div class="sl-slide" id="slide-3">
+        <div class="sl-outer">
+          <p class="sl-question">When should we pick up?</p>
+          <p class="sl-subtext">Choose a pickup window after your event wraps up.</p>
+          <div id="pickupOptions" class="time-option-grid"></div>
+          <button class="sl-next-btn" id="seeRentalsBtn">See Available Rentals &rarr;</button>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: Select Rentals ─────────────────────────── -->
+      <div class="sl-slide" id="slide-4">
+        <div class="sl-outer">
+          <p class="sl-question">Select your rentals</p>
+
+          <div id="inventoryLoading" class="checking-availability-message" style="display:none;">
+            <i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability&hellip;
+          </div>
+
+          <section id="inventorySection" style="display:none;">
+            <div class="accordion" id="inventoryAccordion">
+
+              <div class="accordion-item" data-category="Tables And Chairs">
+                <button class="accordion-header">Tables &amp; Chairs<span class="accordion-icon">+</span></button>
+                <div class="accordion-content"><div class="rr-inventory-grid"></div></div>
+              </div>
+
+              <div class="accordion-item" data-category="Table Covers">
+                <button class="accordion-header">Table Covers<span class="accordion-icon">+</span></button>
+                <div class="accordion-content"><div class="rr-inventory-grid"></div></div>
+              </div>
+
+              <div class="accordion-item" data-category="Table Runners">
+                <button class="accordion-header">Table Runners<span class="accordion-icon">+</span></button>
+                <div class="accordion-content"><div class="rr-inventory-grid"></div></div>
+              </div>
+
+              <div class="accordion-item" data-category="Games">
+                <button class="accordion-header">Games<span class="accordion-icon">+</span></button>
+                <div class="accordion-content"><div class="rr-inventory-grid"></div></div>
+              </div>
+
+              <div class="accordion-item" data-category="Marquee Letters">
+                <button class="accordion-header">Marquee Letters<span class="accordion-icon">+</span></button>
+                <div class="accordion-content"><div class="rr-inventory-grid"></div></div>
+              </div>
+
+              <div class="accordion-item" data-category="Other">
+                <button class="accordion-header">Party Essentials<span class="accordion-icon">+</span></button>
+                <div class="accordion-content"><div class="rr-inventory-grid"></div></div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+      </div>
+
+    </div><!-- /sl-track -->
+  </div><!-- /sl-viewport -->
+
+
+  <!-- Cart summary bar -->
+  <div id="bk-cart-summary">
+    <div class="bk-cart-bar">
+      <div class="bk-cart-bar-left">
+        <span class="bk-cart-bar-count" id="bkCartCount">0</span>
+        <span id="bkCartLabel">items in cart</span>
+      </div>
+      <button class="bk-cart-bar-btn" onclick="openCart(); renderCart();">
+        View Cart &amp; Checkout &rarr;
+      </button>
+    </div>
+  </div>
+
+
+  <section id="otherWaysSection" style="display:none; padding:2.5rem 1.5rem 3rem; max-width:600px; margin:0 auto; border-top:1px solid #ddd; font-family:'Lora',serif;">
+    <p style="font-size:1.2rem; font-weight:600; color:#1a1a1a; margin:0 0 0.4rem;">Don't see what you need?</p>
+    <p style="font-size:1.1rem; color:#666; margin:0 0 1.25rem; line-height:1.6;">We're happy to help. Reach out and we'll do our best to make it work.</p>
+    <div style="display:flex; flex-direction:column; gap:0.6rem;">
+      <a href="mailto:booking@redrockpartyrentals.com" style="display:flex; align-items:center; gap:0.6rem; font-size:1.1rem; color:#8b0000; text-decoration:none; font-family:'Lora',serif;">
+        <i class="fa-solid fa-envelope" style="width:16px;"></i> booking@redrockpartyrentals.com
+      </a>
+      <a href="sms:7027062455" style="display:flex; align-items:center; gap:0.6rem; font-size:1.1rem; color:#8b0000; text-decoration:none; font-family:'Lora',serif;">
+        <i class="fa-solid fa-message" style="width:16px;"></i> 702-706-2455
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Card Template (hidden) -->
+  <template id="rrItemTemplate">
+    <div class="rr-card">
+      <a class="rr-card__imglink">
+        <div class="rr-card__img-wrap">
+          <img class="rr-card__img" alt="" loading="lazy" />
+        </div>
+      </a>
+      <div class="rr-card__body">
+        <div class="rr-card__name"></div>
+        <div class="rr-card__addToCart"></div>
+      </div>
+    </div>
+  </template>
+
+
+  <!-- CART OVERLAY -->
+  <div id="cartOverlay" class="cart-overlay">
+    <div class="cart-panel cart-panel--fullscreen">
+
+      <header class="cart-header">
+        <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+        <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+        <button class="cart-close" onclick="closeCart()">✕</button>
+      </header>
+
+      <div class="cart-scroll-area">
+        <div id="cart-booking-info" style="background:#eee; padding:14px 16px; border-bottom:1px solid #ddd;">
+
+          <div class="cart-info-row" id="cartDateRow">
+            <div>
+              <div class="cart-info-label">Event Date</div>
+              <div class="cart-info-value" id="cartDateValue">Not selected</div>
+            </div>
+            <button class="cart-info-edit" id="cartEditDateBtn">Edit</button>
+          </div>
+
+          <div id="cartDateEdit" style="display:none; padding-top:8px;">
+            <div class="cart-info-label" style="margin-bottom:8px;">Select Event Date</div>
+            <div id="cart-panel-booking-form">
+              <div class="dropdown-wrapper" style="width:100%;">
+                <div class="dropdown-icon-calendar"></div>
+                <div class="dropdown-divider"></div>
+                <input type="text" id="dateStart2" placeholder="Select a date" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-info-sep"></div>
+
+          <div class="cart-info-row" id="cartTimesRow">
+            <div style="flex:1; min-width:0;">
+              <div class="cart-info-label">Dropoff &amp; Pickup</div>
+              <div class="cart-info-value" id="cartTimesValue">Not selected</div>
+            </div>
+            <button class="cart-info-edit" id="cartEditTimesBtn">Edit</button>
+          </div>
+
+          <div id="cartTimesEdit" style="display:none; padding-top:10px;">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px;">
+              <div class="cart-info-label" style="margin-bottom:0;">Select Dropoff &amp; Pickup Times</div>
+              <button id="cartCancelTimesBtn" type="button" class="cart-info-edit">Cancel</button>
+            </div>
+            <div style="margin-bottom:0.5rem; font-size:0.65rem; letter-spacing:1px; text-transform:uppercase; color:#888;">Dropoff</div>
+            <div id="cartDropoffOptions" class="time-option-grid" style="grid-template-columns:1fr; margin-bottom:1rem;"></div>
+            <div style="margin-bottom:0.5rem; font-size:0.65rem; letter-spacing:1px; text-transform:uppercase; color:#888;">Pickup</div>
+            <div id="cartPickupOptions" class="time-option-grid" style="grid-template-columns:1fr;"></div>
+            <button id="cartConfirmTimesBtn" type="button" class="find-rentals-btn"
+                    style="font-size:0.82rem; padding:0.65rem 1rem; width:100%; margin-top:1rem;">
+              Confirm Times
+            </button>
+          </div>
+
+          <div id="CheckingAvailabilityNote" class="checking-availability-message"
+               style="display:none; padding:14px 0; font-size:1rem;">
+            <i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability&hellip;
+          </div>
+
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+      </div><!-- /cart-scroll-area -->
+
+      <footer class="cart-footer">
+        <div class="cart-summary">
+          <div class="cart-line">
+            <span>Delivery</span>
+            <strong id="cartSubtotal">$10.00</strong>
+          </div>
+          <div class="cart-line total">
+            <span>Total</span>
+            <strong id="cartTotal">$0.00</strong>
+          </div>
+        </div>
+        <div class="button-row" style="display:flex;gap:10px;">
+          <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+          <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+
+  <script src="navbar-scroll.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="accordion.js"></script>
+  <script src="availabilityService.js"></script>
+  <script src="cart.js"></script>
+  <script src="book-now-component.js"></script>
+  <script src="checkout.js"></script>
+  <script src="inventory-grid.js"></script>
+  <script src="dropoff_pickup_rules.js"></script>
+  <script src="closed_days.js"></script>
+  <script src="book-steps.js"></script>
+  <script src="cart-booking.js"></script>
+
+  <script>
+  function updateCartUI() {
+    var cart = (typeof getCart === 'function') ? getCart() : [];
+    var qty  = cart.reduce(function(s, i) { return s + i.qty; }, 0);
+    var bar  = document.getElementById('bk-cart-summary');
+    if (bar) {
+      bar.style.display = (qty > 0) ? 'block' : 'none';
+      var countEl = document.getElementById('bkCartCount');
+      var labelEl = document.getElementById('bkCartLabel');
+      if (countEl) countEl.textContent = qty;
+      if (labelEl) labelEl.textContent = qty === 1 ? 'item in cart' : 'items in cart';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var _orig = window.renderCart;
+    if (typeof _orig === 'function') {
+      window.renderCart = function () { _orig(); updateCartUI(); };
+    }
+    updateCartUI();
+    var inv = document.getElementById('inventorySection');
+    if (inv) new MutationObserver(updateCartUI).observe(inv, { attributes: true, attributeFilter: ['style'] });
+  });
+  </script>
+
+</body>
+</html>
