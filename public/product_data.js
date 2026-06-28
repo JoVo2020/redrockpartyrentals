@@ -272,6 +272,19 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "party-essentials",
       "Image": "https://assets.wfcdn.com/im/69633876/resize-h600-w600%5Ecompr-r85/2346/234694232/Nostalgia+Vintage+Professional+Popcorn+Cart+-+8-Ounce+Kettle+-+53+Inches+Tall.jpg"
     },
+
+    {
+      "Item_ID": "Mist_Fan",
+      "Product_ID": "7069036000002646003",
+      "Item Name": "Mist Fan",
+      "Item Description": "Beat the heat! Battery-powered mobile cooling station with a high-velocity fan and adjustable misting system. Essential for outdoor events.",
+      "Quantity Available": 4,
+      "Rental Price": 35,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+      "Image": "https://redrockpartyrentals.com/images/mist-fan-main.png"
+    },
+
     {
       "Item_ID": "Pink_Table_Runner",
       "Product_ID": "7069036000001467020",
