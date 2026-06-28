@@ -40,8 +40,8 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000000633191",
       "Item Name": "White Folding Chairs",
       "Item Description": "White plastic folding chair",
-      "Quantity Available": 120,
-      "Rental Price": 1,
+      "Quantity Available": 198,
+      "Rental Price": 1.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
       "Image": "https://redrockpartyrentals.com/images/chair3.jpg"
