@@ -6,7 +6,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000000622084",
       "Item Name": "6ft Tables",
       "Item Description": "White plastic 6ft table. Seats up to 8 people (3 on each side, 1 one on each end)",
-      "Quantity Available": 25,
+      "Quantity Available": 40,
       "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
@@ -17,7 +17,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000002302022",
       "Item Name": "60in Round Tables",
       "Item Description": "White plastic 60inch round table. Seats up to 8 people.",
-      "Quantity Available": 10,
+      "Quantity Available": 20,
       "Rental Price": 12,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
@@ -40,11 +40,23 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000000633191",
       "Item Name": "White Folding Chairs",
       "Item Description": "White plastic folding chair",
-      "Quantity Available": 198,
+      "Quantity Available": 300,
       "Rental Price": 1.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
       "Image": "https://redrockpartyrentals.com/images/chair3.jpg"
+    },
+
+    {
+      "Item_ID": "White_Garden_Chair",
+      "Product_ID": "7069036000002646007",
+      "Item Name": "White Garden Chairs",
+      "Item Description": "White resin folding chair with cushion.",
+      "Quantity Available": 160,
+      "Rental Price": 3.50,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+      "Image": "https://redrockpartyrentals.com/images/garden-chair-main.png"
     },
 
     {
