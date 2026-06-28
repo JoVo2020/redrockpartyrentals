@@ -6,8 +6,8 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000000622084",
       "Item Name": "6ft Tables",
       "Item Description": "White plastic 6ft table. Seats up to 8 people (3 on each side, 1 one on each end)",
-      "Quantity Available": 18,
-      "Rental Price": 8,
+      "Quantity Available": 25,
+      "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
       "Image": "https://redrockpartyrentals.com/images/table.jpg"
