@@ -17,7 +17,7 @@ window.PRODUCT_DATA = [
       "Product_ID": "7069036000002302022",
       "Item Name": "60in Round Tables",
       "Item Description": "White plastic 60inch round table. Seats up to 8 people.",
-      "Quantity Available": 5,
+      "Quantity Available": 10,
       "Rental Price": 12,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
