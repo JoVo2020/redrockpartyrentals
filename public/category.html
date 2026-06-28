@@ -252,7 +252,7 @@
 	------------------------- */
 	const grid = document.getElementById("categoryGrid");
 
-	const money = (v) => "$" + Number(v).toFixed(0);
+	const money = (v) => "$" + Number(v).toFixed(2);
 
 	window.PRODUCT_DATA
 	  .filter(p => p["Category"] === categoryName)
