@@ -284,6 +284,18 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "party-essentials",
       "Image": "https://redrockpartyrentals.com/images/mist-fan-main.png"
     },
+	
+    {
+      "Item_ID": "Fan",
+      "Product_ID": "7069036000002646005",
+      "Item Name": "Fan",
+      "Item Description": "High-powered fan. Great for outdoor events.",
+      "Quantity Available": 3,
+      "Rental Price": 25,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+      "Image": "https://redrockpartyrentals.com/images/fan-main.png"
+    },
 
     {
       "Item_ID": "Pink_Table_Runner",
