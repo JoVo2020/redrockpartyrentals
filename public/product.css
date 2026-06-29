@@ -121,5 +121,34 @@
 	  text-align: center;
 	  font-size: 18px;
 	  color: #555;
-	} 
-	  
+	}
+
+	.product-thumbnails {
+	  display: flex;
+	  gap: 8px;
+	  margin-top: 10px;
+	  flex-wrap: wrap;
+	}
+
+	.product-thumbnails img {
+	  width: 72px;
+	  height: 72px;
+	  object-fit: cover;
+	  border: 2px solid #ddd;
+	  cursor: pointer;
+	  border-radius: 3px;
+	  transition: border-color 0.15s;
+	}
+
+	.product-thumbnails img.active {
+	  border-color: #8b0000;
+	}
+
+	.product-thumbnails img:hover {
+	  border-color: #aaa;
+	}
+
+	.product-thumbnails img.active:hover {
+	  border-color: #8b0000;
+	}
+

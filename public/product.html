@@ -79,6 +79,7 @@
 	<div class="product-wrapper">
 	  <div class="product-image">
 		<img id="productImage"/>
+		<div id="productThumbnails" class="product-thumbnails"></div>
 	  </div>
 
 	  <div>
@@ -261,8 +262,38 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('productPrice').textContent =
     "$" + item["Rental Price"].toFixed(2) + " each";
 
-  document.getElementById('productImage').src =
-    item["Image"];
+  const mainImg = document.getElementById('productImage');
+  const images = (item["Images"] || []).filter(src => src);
+  mainImg.src = images[0] || item["Image"];
+
+  if (images.length > 1) {
+    const thumbsEl = document.getElementById('productThumbnails');
+    images.forEach((src, i) => {
+      const thumb = document.createElement('img');
+      thumb.src = src;
+      thumb.alt = '';
+      if (i === 0) thumb.classList.add('active');
+      thumb.addEventListener('click', () => {
+        mainImg.src = src;
+        thumbsEl.querySelectorAll('img').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+      thumbsEl.appendChild(thumb);
+    });
+
+    let touchStartX = 0;
+    mainImg.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    mainImg.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) < 40) return;
+      const thumbs = Array.from(thumbsEl.querySelectorAll('img'));
+      const activeIdx = thumbs.findIndex(t => t.classList.contains('active'));
+      const nextIdx = diff > 0
+        ? Math.min(activeIdx + 1, thumbs.length - 1)
+        : Math.max(activeIdx - 1, 0);
+      thumbs[nextIdx].click();
+    }, { passive: true });
+  }
 
   document.getElementById('productDescription').textContent =
     item["Item Description"];
