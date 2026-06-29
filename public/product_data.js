@@ -323,8 +323,12 @@ window.PRODUCT_DATA = [
       "Rental Price": 35,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-      "Image": "https://redrockpartyrentals.com/images/mist-fan-main.png",
-      "Images": ["https://redrockpartyrentals.com/images/mist-fan-main.png"]
+      "Image": "https://redrockpartyrentals.com/images/mist-fan-3.png",
+      "Images": [
+		"https://redrockpartyrentals.com/images/mist-fan-3.png",
+		"https://redrockpartyrentals.com/images/mist-fan-main.png",
+		"https://redrockpartyrentals.com/images/mist-fan-2.png"
+		]
     },
 
     {
