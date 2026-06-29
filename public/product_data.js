@@ -13,8 +13,8 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/table.jpg",
       "Images": [
         "https://redrockpartyrentals.com/images/table.jpg",
-        "https://marvel-b1-cdn.bc0a.com/f00000000107743/www.lifetime.com/imagecache/kodachrome/product/main/92a98e39-79f1-48f7-959e-8a61de42a108.jpg?v=20210528224451",
-        "https://paulbhardware.com/media/catalog/product/cache/306be0ea33a9bd9853274cfca8a93169/L/T/LT2924-8d06f7ffd5d276b0e44a79491acebcd4.jpg"
+        "https://redrockpartyrentals.com/images/6ft-table-2.png",
+		"https://redrockpartyrentals.com/images/6ft-table-1.png"
       ]
     },
 	{
