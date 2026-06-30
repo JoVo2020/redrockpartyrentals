@@ -255,7 +255,7 @@
 	const money = (v) => "$" + Number(v).toFixed(2);
 
 	window.PRODUCT_DATA
-	  .filter(p => p["Category"] === categoryName)
+	  .filter(p => p["Category"] === categoryName || (Array.isArray(p.category_tags) && p.category_tags.includes(categoryName)))
 	  .forEach(item => {
 
 		const card = document.createElement("div");
