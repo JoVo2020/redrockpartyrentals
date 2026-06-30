@@ -10,6 +10,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras"],
       "Image": "https://redrockpartyrentals.com/images/table.jpg",
       "Images": [
         "https://redrockpartyrentals.com/images/table.jpg",
@@ -26,6 +27,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 12,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras"],
       "Image": "https://redrockpartyrentals.com/images/6ft-round-table.png",
       "Images": ["https://redrockpartyrentals.com/images/6ft-round-table.png"]
     },
@@ -38,6 +40,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 15,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-table.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-table.jpg"]
     },
@@ -51,6 +54,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 1.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras"],
       "Image": "https://redrockpartyrentals.com/images/chair3.jpg",
       "Images": ["https://redrockpartyrentals.com/images/chair3.jpg"]
     },
@@ -262,6 +266,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 30,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
+	  "category_tags": ["beat-the-heat"],
       "Image": "https://redrockpartyrentals.com/images/StandingCooler.jpg",
       "Images": ["https://redrockpartyrentals.com/images/StandingCooler.jpg"]
     },
@@ -286,6 +291,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Games",
 	  "CategoryPath": "games",
+	  "category_tags": ["beat-the-heat-extras"],
       "Image": "https://redrockpartyrentals.com/images/Cornhole.jpg",
       "Images": ["https://redrockpartyrentals.com/images/Cornhole.jpg"]
     },
@@ -298,6 +304,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Games",
 	  "CategoryPath": "games",
+	  "category_tags": ["beat-the-heat-extras"],
       "Image": "https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
       "Images": ["https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF"]
     },
