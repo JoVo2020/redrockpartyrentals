@@ -323,6 +323,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 35,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
+	  "category_tags": ["Other", "beat-the-heat"],
       "Image": "https://redrockpartyrentals.com/images/mist-fan-4.png",
       "Images": [
 		"https://redrockpartyrentals.com/images/mist-fan-4.png",
@@ -340,6 +341,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
+	  "category_tags": ["Other", "beat-the-heat"],
       "Image": "https://redrockpartyrentals.com/images/fan-main.png",
       "Images": ["https://redrockpartyrentals.com/images/fan-main.png"]
     },
