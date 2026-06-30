@@ -10,12 +10,11 @@ window.PRODUCT_DATA = [
       "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["Tables And Chairs"],
       "Image": "https://redrockpartyrentals.com/images/table.jpg",
       "Images": [
         "https://redrockpartyrentals.com/images/table.jpg",
-        "https://marvel-b1-cdn.bc0a.com/f00000000107743/www.lifetime.com/imagecache/kodachrome/product/main/92a98e39-79f1-48f7-959e-8a61de42a108.jpg?v=20210528224451",
-        "https://paulbhardware.com/media/catalog/product/cache/306be0ea33a9bd9853274cfca8a93169/L/T/LT2924-8d06f7ffd5d276b0e44a79491acebcd4.jpg"
+        "https://redrockpartyrentals.com/images/6ft-table-2.png",
+		"https://redrockpartyrentals.com/images/6ft-table-1.png"
       ]
     },
 	{
@@ -27,7 +26,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 12,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["Tables And Chairs"],
       "Image": "https://redrockpartyrentals.com/images/6ft-round-table.png",
       "Images": ["https://redrockpartyrentals.com/images/6ft-round-table.png"]
     },
@@ -40,7 +38,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 15,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["Tables And Chairs"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-table.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-table.jpg"]
     },
@@ -54,7 +51,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 1.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["Tables And Chairs"],
       "Image": "https://redrockpartyrentals.com/images/chair3.jpg",
       "Images": ["https://redrockpartyrentals.com/images/chair3.jpg"]
     },
@@ -68,7 +64,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 3.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["Tables And Chairs"],
       "Image": "https://redrockpartyrentals.com/images/garden-chair-main.png",
       "Images": ["https://redrockpartyrentals.com/images/garden-chair-main.png"]
     },
@@ -82,7 +77,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 8,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["Tables And Chairs"],
       "Image": "https://redrockpartyrentals.com/images/bar-stool.png",
       "Images": ["https://redrockpartyrentals.com/images/bar-stool.png"]
     },
@@ -95,7 +89,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["Tables And Chairs"],
       "Image": "https://redrockpartyrentals.com/images/bar-stool-with-back.png",
       "Images": ["https://redrockpartyrentals.com/images/bar-stool-with-back.png"]
     },
@@ -109,7 +102,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/tablecloth-regular.jpg",
       "Images": ["https://redrockpartyrentals.com/images/tablecloth-regular.jpg"]
     },
@@ -123,7 +115,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/table-cloth-beige.png",
       "Images": ["https://redrockpartyrentals.com/images/table-cloth-beige.png"]
     },
@@ -136,7 +127,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/table-cloth-cream.png",
       "Images": ["https://redrockpartyrentals.com/images/table-cloth-cream.png"]
     },
@@ -149,7 +139,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/sage-green-table-cloth.png",
       "Images": ["https://redrockpartyrentals.com/images/sage-green-table-cloth.png"]
     },
@@ -162,7 +151,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/tablecloth-fitted.jpg",
       "Images": ["https://redrockpartyrentals.com/images/tablecloth-fitted.jpg"]
     },
@@ -175,7 +163,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg"]
     },
@@ -188,7 +175,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg"]
     },
@@ -201,7 +187,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png",
       "Images": ["https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png"]
     },
@@ -214,7 +199,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["Table Covers"],
       "Image": "https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png",
       "Images": ["https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png"]
     },
@@ -227,7 +211,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["Table Runners"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg"]
     },
@@ -240,7 +223,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["Table Runners"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-sagegreen.png"]
     },
@@ -254,7 +236,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Chair Covers",
 	  "CategoryPath": "chair-covers",
-	  "category_tags": ["Chair Covers"],
       "Image": "https://redrockpartyrentals.com/images/white-chair-cover.png",
       "Images": ["https://redrockpartyrentals.com/images/white-chair-cover.png"]
     },
@@ -268,7 +249,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 2,
       "Category": "Chair Covers",
 	  "CategoryPath": "chair-covers",
-	  "category_tags": ["Chair Covers"],
       "Image": "https://redrockpartyrentals.com/images/purple-chair-sash.png",
       "Images": ["https://redrockpartyrentals.com/images/purple-chair-sash.png"]
     },
@@ -282,7 +262,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 30,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["Other", "beat-the-heat"],
       "Image": "https://redrockpartyrentals.com/images/StandingCooler.jpg",
       "Images": ["https://redrockpartyrentals.com/images/StandingCooler.jpg"]
     },
@@ -295,7 +274,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Games",
 	  "CategoryPath": "games",
-	  "category_tags": ["Games"],
       "Image": "https://redrockpartyrentals.com/images/GiantConnect4.jpg",
       "Images": ["https://redrockpartyrentals.com/images/GiantConnect4.jpg"]
     },
@@ -308,7 +286,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Games",
 	  "CategoryPath": "games",
-	  "category_tags": ["Games"],
       "Image": "https://redrockpartyrentals.com/images/Cornhole.jpg",
       "Images": ["https://redrockpartyrentals.com/images/Cornhole.jpg"]
     },
@@ -321,7 +298,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Games",
 	  "CategoryPath": "games",
-	  "category_tags": ["Games"],
       "Image": "https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
       "Images": ["https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF"]
     },
@@ -334,7 +310,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 75,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["Other"],
       "Image": "https://assets.wfcdn.com/im/69633876/resize-h600-w600%5Ecompr-r85/2346/234694232/Nostalgia+Vintage+Professional+Popcorn+Cart+-+8-Ounce+Kettle+-+53+Inches+Tall.jpg",
       "Images": ["https://assets.wfcdn.com/im/69633876/resize-h600-w600%5Ecompr-r85/2346/234694232/Nostalgia+Vintage+Professional+Popcorn+Cart+-+8-Ounce+Kettle+-+53+Inches+Tall.jpg"]
     },
@@ -348,9 +323,12 @@ window.PRODUCT_DATA = [
       "Rental Price": 35,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["Other", "beat-the-heat"],
-      "Image": "https://redrockpartyrentals.com/images/mist-fan-main.png",
-      "Images": ["https://redrockpartyrentals.com/images/mist-fan-main.png"]
+      "Image": "https://redrockpartyrentals.com/images/mist-fan-4.png",
+      "Images": [
+		"https://redrockpartyrentals.com/images/mist-fan-4.png",
+		"https://redrockpartyrentals.com/images/mist-fan-main.png",
+		"https://redrockpartyrentals.com/images/mist-fan-2.png"
+		]
     },
 
     {
@@ -362,7 +340,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["Other", "beat-the-heat"],
       "Image": "https://redrockpartyrentals.com/images/fan-main.png",
       "Images": ["https://redrockpartyrentals.com/images/fan-main.png"]
     },
@@ -376,7 +353,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["Table Runners"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-lightpink.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-lightpink.png"]
     },
@@ -389,7 +365,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["Table Runners"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-beige.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-beige.png"]
     },
@@ -402,7 +377,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["Table Runners"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-dustyorange.png"]
     },
@@ -415,7 +389,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 25,
       "Category": "Games",
 	  "CategoryPath": "games",
-	  "category_tags": ["Games"],
       "Image": "https://redrockpartyrentals.com/images/game-tetris.png",
       "Images": ["https://redrockpartyrentals.com/images/game-tetris.png"]
     },
@@ -428,7 +401,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 150,
       "Category": "Marquee Letters",
 	  "CategoryPath": "marquee-letters",
-	  "category_tags": ["Marquee Letters"],
       "Image": "https://redrockpartyrentals.com/images/marquee-BABY.png",
       "Images": ["https://redrockpartyrentals.com/images/marquee-BABY.png"]
     },
@@ -441,7 +413,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 150,
       "Category": "Marquee Letters",
 	  "CategoryPath": "marquee-letters",
-	  "category_tags": ["Marquee Letters"],
       "Image": "https://redrockpartyrentals.com/images/marquee-GIRL.png",
       "Images": ["https://redrockpartyrentals.com/images/marquee-GIRL.png"]
     },
@@ -454,7 +425,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 125,
       "Category": "Marquee Letters",
 	  "CategoryPath": "marquee-letters",
-	  "category_tags": ["Marquee Letters"],
       "Image": "https://redrockpartyrentals.com/images/marquee-BOY.png",
       "Images": ["https://redrockpartyrentals.com/images/marquee-BOY.png"]
     },
@@ -467,7 +437,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 150,
       "Category": "Marquee Letters",
 	  "CategoryPath": "marquee-letters",
-	  "category_tags": ["Marquee Letters"],
       "Image": "https://redrockpartyrentals.com/images/marquee-GRAD.png",
       "Images": ["https://redrockpartyrentals.com/images/marquee-GRAD.png"]
     },
@@ -480,7 +449,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 150,
       "Category": "Marquee Letters",
 	  "CategoryPath": "marquee-letters",
-	  "category_tags": ["Marquee Letters"],
       "Image": "https://redrockpartyrentals.com/images/marquee-LOVE.png",
       "Images": ["https://redrockpartyrentals.com/images/marquee-LOVE.png"]
     },
@@ -493,7 +461,6 @@ window.PRODUCT_DATA = [
       "Rental Price": 100,
       "Category": "Marquee Letters",
 	  "CategoryPath": "marquee-letters",
-	  "category_tags": ["Marquee Letters"],
       "Image": "https://redrockpartyrentals.com/images/marquee-XV.png",
       "Images": ["https://redrockpartyrentals.com/images/marquee-XV.png"]
     }
