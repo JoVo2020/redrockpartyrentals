@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
+	<!-- End Google Tag Manager -->
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Beat The Heat | Red Rock Party Rentals</title>
+
+	<link rel="stylesheet" href="/style.css" />
+	<link rel="stylesheet" href="/cart.css" />
+	<link rel="stylesheet" href="/book-now-component.css" />
+	<link rel="stylesheet" href="/product.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
+	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
+	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
+	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
+
+	<style>
+	/* ── Hero ── */
+	.bth-hero {
+	  position: relative;
+	  width: 100%;
+	  line-height: 0;
+	}
+	.bth-hero img {
+	  width: 100%;
+	  height: auto;
+	  display: block;
+	}
+	.bth-hero::after {
+	  content: '';
+	  position: absolute;
+	  bottom: 0; left: 0; right: 0;
+	  height: 40%;
+	  background: linear-gradient(to bottom, transparent, #111);
+	  pointer-events: none;
+	}
+
+	/* ── Urgency bar ── */
+	.bth-temp-bar {
+	  background: #ff5e1a;
+	  color: #fff;
+	  font-family: 'Lora', serif;
+	  font-size: 0.85rem;
+	  text-align: center;
+	  padding: 0.5rem 1rem;
+	  letter-spacing: 0.08em;
+	  text-transform: uppercase;
+	}
+
+	/* ── Dark intro ── */
+	.bth-intro {
+	  background: #111;
+	  color: #fff;
+	  text-align: center;
+	  padding: 1.5rem 2rem 2rem;
+	  font-family: 'Lora', serif;
+	}
+	.bth-intro p {
+	  font-size: 1.05rem;
+	  color: #ccc;
+	  max-width: 560px;
+	  margin: 0 auto 1.5rem;
+	  line-height: 1.7;
+	}
+	.bth-intro-btn {
+	  display: inline-block;
+	  background: #ff5e1a;
+	  color: #fff;
+	  font-family: 'Lora', serif;
+	  font-size: 1rem;
+	  padding: 0.8rem 2.25rem;
+	  border-radius: 4px;
+	  text-decoration: none;
+	  letter-spacing: 0.03em;
+	  transition: background 0.2s;
+	}
+	.bth-intro-btn:hover { background: #e04a08; }
+
+	/* ── Section headings ── */
+	.bth-section-head {
+	  text-align: center;
+	  margin: 2rem 1rem 0.25rem;
+	  font-family: 'Lora', serif;
+	  font-size: 1.6rem;
+	  color: #8b0000;
+	  font-weight: 400;
+	}
+	.bth-section-sub {
+	  text-align: center;
+	  color: #666;
+	  font-size: 0.95rem;
+	  margin-bottom: 0.25rem;
+	  font-family: 'Lora', serif;
+	}
+
+	/* ── Divider between sections ── */
+	.bth-divider {
+	  border: none;
+	  border-top: 1px solid #eee;
+	  margin: 1.5rem 2rem 0;
+	}
+
+	/* ── Extras section has a tinted background ── */
+	.bth-extras-section {
+	  background: #f9f6f0;
+	  padding-bottom: 1.5rem;
+	  margin-top: 1rem;
+	}
+
+	/* ── Product grid ── */
+	.rr-category-grid {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-evenly;
+	  gap: 18px;
+	  padding: 1rem 1.5rem;
+	}
+
+	/* ── Social proof ── */
+	.bth-proof {
+	  background: #f9f9f9;
+	  border-top: 1px solid #eee;
+	  border-bottom: 1px solid #eee;
+	  padding: 1.5rem 2rem;
+	  display: flex;
+	  gap: 1.5rem;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  font-family: 'Lora', serif;
+	}
+	.bth-proof-item {
+	  display: flex;
+	  align-items: flex-start;
+	  gap: 0.75rem;
+	  max-width: 280px;
+	}
+	.bth-proof-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+	.bth-proof-text strong { display: block; color: #222; font-size: 0.95rem; font-weight: 400; }
+	.bth-proof-text span { color: #777; font-size: 0.85rem; }
+
+	/* ── Final CTA ── */
+	.bth-final-cta {
+	  background: #111;
+	  color: #fff;
+	  text-align: center;
+	  padding: 2.5rem 2rem;
+	  font-family: 'Lora', serif;
+	}
+	.bth-final-cta h2 { font-size: 1.6rem; color: #fff; font-weight: 400; margin-bottom: 0.5rem; }
+	.bth-final-cta p { color: #aaa; font-size: 0.95rem; margin-bottom: 1.5rem; }
+	.bth-final-cta a {
+	  display: inline-block;
+	  background: #ff5e1a;
+	  color: #fff;
+	  font-family: 'Lora', serif;
+	  font-size: 1rem;
+	  padding: 0.8rem 2.25rem;
+	  border-radius: 4px;
+	  text-decoration: none;
+	  transition: background 0.2s;
+	}
+	.bth-final-cta a:hover { background: #e04a08; }
+	</style>
+</head>
+
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+	<header>
+	  <nav class="navbar" id="navbar" style="position:static;">
+		<div class="logo">
+		  <a href="index.html">
+			<img src="/images/logo.png" alt="Red Rock Logo" />
+			<span style="color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
+		  </a>
+		</div>
+		<div style="display:flex;">
+		  <button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+			<i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+		  </button>
+		  <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
+		</div>
+		<ul class="nav-links" id="nav-links">
+		  <li><a href="index.html" style="color:rgba(0,0,0,.8);">Home</a></li>
+		  <li><a href="rentals.html" style="color:rgba(0,0,0,.8);">Rentals</a></li>
+		  <li><a href="book.html" style="color:rgba(0,0,0,.8);">Book</a></li>
+		  <li><a href="contact.html" style="color:rgba(0,0,0,.8);">Contact</a></li>
+		  <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+			<i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+		  </button>
+		</ul>
+	  </nav>
+	</header>
+
+	<div class="breadcrumb" id="breadcrumb" style="margin:0.75rem 1.5rem;padding:0;"></div>
+
+	<!-- Urgency bar -->
+	<div class="bth-temp-bar">☀️ Las Vegas summer rentals — book before your dates fill up</div>
+
+	<!-- Hero -->
+	<div class="bth-hero">
+	  <img src="/images/headers/beat-the-heat.png" alt="Beat The Heat - Stay Cool, Party On" />
+	</div>
+
+	<!-- Dark intro with above-fold CTA -->
+	<div class="bth-intro">
+	  <p>Outdoor events in Vegas get hot fast. Our misting fans, high-powered fans, and standing coolers keep your guests comfortable from start to finish — delivered right to your venue.</p>
+	  <a href="/book.html" class="bth-intro-btn">Book Your Event Date →</a>
+	</div>
+
+	<!-- Cooling products -->
+	<div class="bth-section-head">Cooling Rentals</div>
+	<div class="bth-section-sub">Add to cart, then pick your event date at checkout.</div>
+	<div class="rr-category-grid" id="coolingGrid"></div>
+
+	<!-- Extras section -->
+	<div class="bth-extras-section">
+	  <hr class="bth-divider" />
+	  <div class="bth-section-head">Complete Your Outdoor Setup</div>
+	  <div class="bth-section-sub">Tables, chairs, and games to round out your event.</div>
+	  <div class="rr-category-grid" id="extrasGrid"></div>
+	</div>
+
+	<!-- Social proof -->
+	<div class="bth-proof">
+	  <div class="bth-proof-item">
+		<div class="bth-proof-icon">🚚</div>
+		<div class="bth-proof-text">
+		  <strong>We deliver &amp; pick up</strong>
+		  <span>Drop-off and pick-up included with every rental.</span>
+		</div>
+	  </div>
+	  <div class="bth-proof-item">
+		<div class="bth-proof-icon">📅</div>
+		<div class="bth-proof-text">
+		  <strong>Easy online booking</strong>
+		  <span>Pick your date, add items to cart, done.</span>
+		</div>
+	  </div>
+	  <div class="bth-proof-item">
+		<div class="bth-proof-icon">⭐</div>
+		<div class="bth-proof-text">
+		  <strong>5-star rated service</strong>
+		  <span>Trusted by Las Vegas families and event hosts.</span>
+		</div>
+	  </div>
+	</div>
+
+	<!-- Final CTA -->
+	<div class="bth-final-cta">
+	  <h2>Ready to keep your guests cool?</h2>
+	  <p>Browse all our rentals or go straight to booking your event.</p>
+	  <a href="/book.html">Start Booking →</a>
+	</div>
+
+	<!-- CART OVERLAY -->
+	<div id="cartOverlay" class="cart-overlay">
+	  <div class="cart-panel cart-panel--fullscreen">
+		<header class="cart-header">
+		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+		  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+		  <button class="cart-close" onclick="closeCart()">✕</button>
+		</header>
+		<div class="cart-scroll-area">
+		  <div id="cart-booking-info" style="background:#eee;padding:14px 16px;border-bottom:1px solid #ddd;">
+		    <div class="cart-info-row" id="cartDateRow">
+		      <div>
+		        <div class="cart-info-label">Event Date</div>
+		        <div class="cart-info-value" id="cartDateValue">Not selected</div>
+		      </div>
+		      <button class="cart-info-edit" id="cartEditDateBtn">Edit</button>
+		    </div>
+		    <div id="cartDateEdit" style="display:none;padding-top:8px;">
+		      <div class="cart-info-label" style="margin-bottom:8px;">Select Event Date</div>
+		      <div id="cart-panel-booking-form">
+		        <div class="dropdown-wrapper" style="width:100%;">
+		          <div class="dropdown-icon-calendar"></div>
+		          <div class="dropdown-divider"></div>
+		          <input type="text" id="dateStart2" placeholder="Select a date" required>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="cart-info-sep"></div>
+		    <div class="cart-info-row" id="cartTimesRow">
+		      <div style="flex:1;min-width:0;">
+		        <div class="cart-info-label">Dropoff &amp; Pickup</div>
+		        <div class="cart-info-value" id="cartTimesValue">Not selected</div>
+		      </div>
+		      <button class="cart-info-edit" id="cartEditTimesBtn">Edit</button>
+		    </div>
+		    <div id="cartTimesEdit" style="display:none;padding-top:10px;">
+		      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">
+		        <div class="cart-info-label" style="margin-bottom:0;">Select Dropoff &amp; Pickup Times</div>
+		        <button id="cartCancelTimesBtn" type="button" class="cart-info-edit">Cancel</button>
+		      </div>
+		      <div class="schedule-group">
+		        <div class="schedule-group-title">Dropoff</div>
+		        <div id="cartDropoffOptions" class="time-option-grid"></div>
+		      </div>
+		      <div class="schedule-group">
+		        <div class="schedule-group-title">Pickup</div>
+		        <div id="cartPickupOptions" class="time-option-grid"></div>
+		      </div>
+		      <div style="display:none;">
+		        <textarea id="cartDeliveryNotes" placeholder="Need a specific time or have special instructions?"
+		                  style="width:100%;box-sizing:border-box;font-family:'Lora',serif;font-size:0.85rem;padding:8px 10px;border:1px solid #ddd;resize:none;height:60px;color:#333;"></textarea>
+		      </div>
+		      <button id="cartConfirmTimesBtn" type="button" class="find-rentals-btn"
+		              style="font-size:0.82rem;padding:0.65rem 1rem;width:100%;margin-top:0.25rem;">
+		        Confirm Times
+		      </button>
+		    </div>
+		    <div id="CheckingAvailabilityNote" class="checking-availability-message"
+		         style="display:none;padding:14px 0;font-size:1rem;">
+		      <i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability&hellip;
+		    </div>
+		  </div>
+		  <div id="cartItems" class="cart-items"></div>
+		</div>
+		<footer class="cart-footer">
+		  <div class="cart-summary">
+			<div class="cart-line"><span>Delivery</span><strong id="cartSubtotal">$20.00</strong></div>
+			<div class="cart-line total"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
+		  </div>
+		  <div class="button-row" style="display:flex;gap:10px;">
+			<button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+			<button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+		  </div>
+		</footer>
+	  </div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="/navbar-scroll.js"></script>
+	<script src="/availabilityService.js"></script>
+	<script src="/product_data.js"></script>
+	<script src="/cart.js"></script>
+	<script src="/book-now-component.js"></script>
+	<script src="/dropoff_pickup_rules.js"></script>
+	<script src="/closed_days.js"></script>
+	<script src="/cart-booking.js"></script>
+
+	<script>
+	const money = (v) => "$" + Number(v).toFixed(2);
+
+	function makeCard(item) {
+	  const card = document.createElement("div");
+	  card.className = "rr-card";
+	  card.innerHTML = `
+		<a href="/product?id=${item.Product_ID}">
+		  <img class="rr-card__img" src="${item.Image}" />
+		</a>
+		<div class="rr-card__body">
+		  <div class="rr-card__name">${item["Item Name"]} - ${money(item["Rental Price"])}</div>
+		  <button class="rr-btn-addToCart">Add To Cart</button>
+		</div>
+	  `;
+	  card.querySelector("button").onclick = () => addToCart({
+		id: item.Product_ID, product_id: item.Product_ID,
+		name: item["Item Name"], price: item["Rental Price"],
+		image: item.Image, availableQty: item["Quantity Available"]
+	  });
+	  return card;
+	}
+
+	window.PRODUCT_DATA
+	  .filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("beat-the-heat"))
+	  .forEach(item => document.getElementById("coolingGrid").appendChild(makeCard(item)));
+
+	window.PRODUCT_DATA
+	  .filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("beat-the-heat-extras"))
+	  .forEach(item => document.getElementById("extrasGrid").appendChild(makeCard(item)));
+
+	document.addEventListener("DOMContentLoaded", () => {
+	  const b = document.getElementById("breadcrumb");
+	  if (b) b.innerHTML = `<a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/rentals">Rentals</a><span class="breadcrumb-sep">›</span><span>Beat The Heat</span>`;
+	});
+	</script>
+</body>
+</html>
