@@ -258,19 +258,6 @@ window.PRODUCT_DATA = [
     },
 
     {
-      "Item_ID": "Standing_Cooler",
-      "Product_ID": "7069036000001145058",
-      "Item Name": "Standing Cooler",
-      "Item Description": "Standing, Coca-cola branded cooler",
-      "Quantity Available": 1,
-      "Rental Price": 30,
-      "Category": "Other",
-	  "CategoryPath": "party-essentials",
-	  "category_tags": ["beat-the-heat"],
-      "Image": "https://redrockpartyrentals.com/images/StandingCooler.jpg",
-      "Images": ["https://redrockpartyrentals.com/images/StandingCooler.jpg"]
-    },
-    {
       "Item_ID": "Giant_Connect_4_Game",
       "Product_ID": "7069036000000633662",
       "Item Name": "Giant Connect 4 Game",
@@ -352,7 +339,21 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/fan-main.png",
       "Images": ["https://redrockpartyrentals.com/images/fan-main.png"]
     },
-
+	
+    {
+      "Item_ID": "Standing_Cooler",
+      "Product_ID": "7069036000001145058",
+      "Item Name": "Standing Cooler",
+      "Item Description": "Standing, Coca-cola branded cooler",
+      "Quantity Available": 1,
+      "Rental Price": 30,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["beat-the-heat"],
+      "Image": "https://redrockpartyrentals.com/images/StandingCooler.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/StandingCooler.jpg"]
+    },
+	
     {
       "Item_ID": "Pink_Table_Runner",
       "Product_ID": "7069036000001467020",
