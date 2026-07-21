@@ -158,6 +158,59 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/tablecloth-fitted.jpg",
       "Images": ["https://redrockpartyrentals.com/images/tablecloth-fitted.jpg"]
     },
+	
+    {
+      "Item_ID": "White_Round_Table_Cloths",
+      "Product_ID": "7069036000002795004",
+      "Item Name": "White Round Table Cloths",
+      "Item Description": "White Round Table Cloth, 120 inches. Fits 60in Round Tables.",
+      "Quantity Available": 20,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/white-round-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/white-round-table-cloth-1.png"]
+    },
+	
+    {
+      "Item_ID": "Navy_Round_Table_Cloths",
+      "Product_ID": "7069036000002795006",
+      "Item Name": "Navy Round Table Cloths",
+      "Item Description": "Navy Round Table Cloth, 120 inches. Fits 60in Round Tables.",
+      "Quantity Available": 20,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/navy-round-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/navy-round-table-cloth-1.png"]
+    },
+	
+    {
+      "Item_ID": "Black_Round_Table_Cloths",
+      "Product_ID": "7069036000002795008",
+      "Item Name": "Black Round Table Cloths",
+      "Item Description": "Black Round Table Cloth, 120 inches. Fits 60in Round Tables.",
+      "Quantity Available": 20,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/black-round-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/black-round-table-cloth-1.png"]
+    },
+	
+    {
+      "Item_ID": "Ivory_Round_Table_Cloths",
+      "Product_ID": "7069036000002795010",
+      "Item Name": "Ivory Round Table Cloths",
+      "Item Description": "Ivory Round Table Cloth, 120 inches. Fits 60in Round Tables.",
+      "Quantity Available": 20,
+      "Rental Price": 5,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+      "Image": "https://redrockpartyrentals.com/images/ivory-round-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/ivory-round-table-cloth-1.png"]
+    },
+	
     {
       "Item_ID": "Fitted_Cocktail_Table_Cover_White",
       "Product_ID": "7069036000001145043",
@@ -255,6 +308,24 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "chair-covers",
       "Image": "https://redrockpartyrentals.com/images/purple-chair-sash.png",
       "Images": ["https://redrockpartyrentals.com/images/purple-chair-sash.png"]
+    },
+	
+    {
+      "Item_ID": "Gold_Chair_Sash",
+      "Product_ID": "7069036000002795012",
+      "Item Name": "Gold Chair Sash",
+      "Item Description": "Gold Chair Sash",
+      "Quantity Available": 100,
+      "Rental Price": 2,
+      "Category": "Chair Covers",
+	  "CategoryPath": "chair-covers",
+      "Image": "https://redrockpartyrentals.com/images/gold-chair-sash-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/gold-chair-sash-1.png",
+				"https://redrockpartyrentals.com/images/gold-chair-sash-2.png",
+				"https://redrockpartyrentals.com/images/gold-chair-sash-3.png",
+				"https://redrockpartyrentals.com/images/gold-chair-sash-4.png"
+				]
     },
 
     {
