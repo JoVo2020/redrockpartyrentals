@@ -15,6 +15,27 @@ function getNoteText() {
   return localStorage.getItem('rrpr_notes') || null;
 }
 
+function splitName(fullName) {
+  const parts = (fullName || '').trim().split(/\s+/).filter(Boolean);
+  const first_name = parts[0] || '';
+  const last_name = parts.slice(1).join(' ');
+  return { first_name, last_name };
+}
+
+function normalizePhoneToE164(phone) {
+  const digits = (phone || '').replace(/\D/g, '');
+
+  if (digits.length === 10) {
+    return `+1${digits}`;
+  }
+
+  if (digits.length === 11 && digits.startsWith('1')) {
+    return `+${digits}`;
+  }
+
+  return null;
+}
+
 function renderCheckoutCart() {
   const cart = getCart();
   const container = document.getElementById('checkoutCartItems');
@@ -483,6 +504,7 @@ function firePurchaseEvent() {
 
   const cart = JSON.parse(localStorage.getItem('rrpr_cart')) || [];
   const contact = JSON.parse(localStorage.getItem('rrpr_contact')) || null;
+  const address = getAddressInfo();
 
   if (!cart.length || !contact) {
     console.warn('Purchase event not fired: missing cart or contact info');
@@ -509,9 +531,30 @@ function firePurchaseEvent() {
   const transactionId =
     'rrpr_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
 
+  // Build user_data for Google Ads Enhanced Conversions
+  const { first_name, last_name } = splitName(contact.name);
+  const normalizedPhone = normalizePhoneToE164(contact.phone);
+
+  const user_data = {
+    email: contact.email,
+    ...(normalizedPhone && { phone_number: normalizedPhone }),
+    address: {
+      first_name,
+      last_name,
+      ...(address && {
+        street: `${address.street} ${address.unit || ''}`.trim(),
+        city: address.city,
+        region: address.state,
+        postal_code: address.zip,
+        country: 'US'
+      })
+    }
+  };
+
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'purchase',
+    user_data,
     ecommerce: {
       transaction_id: transactionId,
       value: total,
