@@ -68,6 +68,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras"],
       "Image": "https://redrockpartyrentals.com/images/garden-chair-main.png",
       "Images": ["https://redrockpartyrentals.com/images/garden-chair-main.png"]
     },
@@ -390,7 +391,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 35,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["Other", "beat-the-heat"],
+	  "category_tags": ["Other", "beat-the-heat", "party-games-extras"],
       "Image": "https://redrockpartyrentals.com/images/mist-fan-4.png",
       "Images": [
 		"https://redrockpartyrentals.com/images/mist-fan-4.png",
@@ -422,7 +423,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 30,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["beat-the-heat"],
+	  "category_tags": ["beat-the-heat", "party-games-extras"],
       "Image": "https://redrockpartyrentals.com/images/StandingCooler.jpg",
       "Images": ["https://redrockpartyrentals.com/images/StandingCooler.jpg"]
     },
