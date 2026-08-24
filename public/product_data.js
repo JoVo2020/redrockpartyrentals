@@ -54,7 +54,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 1.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion","tac-rectangular", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/chair3.jpg",
       "Images": ["https://redrockpartyrentals.com/images/chair3.jpg"]
     },
@@ -68,7 +68,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion","tac-rectangular", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/garden-chair-main.png",
       "Images": ["https://redrockpartyrentals.com/images/garden-chair-main.png"]
     },
