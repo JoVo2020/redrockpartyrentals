@@ -355,6 +355,21 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/Cornhole.jpg",
       "Images": ["https://redrockpartyrentals.com/images/Cornhole.jpg"]
     },
+	
+    {
+      "Item_ID": "Beer_Pong",
+      "Product_ID": "7069036000003140003",
+      "Item Name": "Beer Pong",
+      "Item Description": "Beer Pong Table",
+      "Quantity Available": 1,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["beat-the-heat-extras", "party-games"],
+      "Image": "https://redrockpartyrentals.com/images/beer-pong-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/beer-pong-0.png"]
+    },
+	
     {
       "Item_ID": "Giant_Jenga_Game",
       "Product_ID": "7069036000001145068",
