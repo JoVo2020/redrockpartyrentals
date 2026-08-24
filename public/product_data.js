@@ -389,7 +389,7 @@ window.PRODUCT_DATA = [
       "Item_ID": "Giant_Lego_Set",
       "Product_ID": "7069036000003140007",
       "Item Name": "Giant Lego Set",
-      "Item Description": "Giant Lego Set",
+      "Item Description": "96pc Giant Lego Set",
       "Quantity Available": 1,
       "Rental Price": 25,
       "Category": "Games",
