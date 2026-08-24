@@ -82,7 +82,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 8,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["tables-and-chairs-for-any-occasion"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cocktail"],
       "Image": "https://redrockpartyrentals.com/images/bar-stool.png",
       "Images": ["https://redrockpartyrentals.com/images/bar-stool.png"]
     },
@@ -95,7 +95,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["tables-and-chairs-for-any-occasion"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cocktail"],
       "Image": "https://redrockpartyrentals.com/images/bar-stool-with-back.png",
       "Images": ["https://redrockpartyrentals.com/images/bar-stool-with-back.png"]
     },
