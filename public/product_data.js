@@ -369,6 +369,21 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/beer-pong-0.png",
       "Images": ["https://redrockpartyrentals.com/images/beer-pong-0.png"]
     },
+
+    {
+      "Item_ID": "Giant_Guess_Who",
+      "Product_ID": "7069036000003140005",
+      "Item Name": "Giant Guess Who",
+      "Item Description": "Giant Guess Who",
+      "Quantity Available": 1,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["beat-the-heat-extras", "party-games"],
+      "Image": "https://redrockpartyrentals.com/images/guess-who-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/guess-who-1.png",
+				"https://redrockpartyrentals.com/images/guess-who-0.png"]
+    },
 	
     {
       "Item_ID": "Giant_Jenga_Game",
