@@ -10,7 +10,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular"],
       "Image": "https://redrockpartyrentals.com/images/table.jpg",
       "Images": [
         "https://redrockpartyrentals.com/images/table.jpg",
@@ -27,7 +27,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 12,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/6ft-round-table.png",
       "Images": ["https://redrockpartyrentals.com/images/6ft-round-table.png"]
     },
@@ -40,7 +40,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 15,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cocktail"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-table.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-table.jpg"]
     },
@@ -109,7 +109,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular"],
       "Image": "https://redrockpartyrentals.com/images/tablecloth-regular.jpg",
       "Images": ["https://redrockpartyrentals.com/images/tablecloth-regular.jpg"]
     },
@@ -123,7 +123,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular"],
       "Image": "https://redrockpartyrentals.com/images/table-cloth-beige.png",
       "Images": ["https://redrockpartyrentals.com/images/table-cloth-beige.png"]
     },
@@ -136,7 +136,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular"],
       "Image": "https://redrockpartyrentals.com/images/table-cloth-cream.png",
       "Images": ["https://redrockpartyrentals.com/images/table-cloth-cream.png"]
     },
@@ -149,7 +149,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular"],
       "Image": "https://redrockpartyrentals.com/images/sage-green-table-cloth.png",
       "Images": ["https://redrockpartyrentals.com/images/sage-green-table-cloth.png"]
     },
@@ -162,7 +162,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular"],
       "Image": "https://redrockpartyrentals.com/images/tablecloth-fitted.jpg",
       "Images": ["https://redrockpartyrentals.com/images/tablecloth-fitted.jpg"]
     },
@@ -176,7 +176,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/white-round-table-cloth-1.png",
       "Images": ["https://redrockpartyrentals.com/images/white-round-table-cloth-1.png"]
     },
@@ -190,7 +190,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/navy-round-table-cloth-1.png",
       "Images": ["https://redrockpartyrentals.com/images/navy-round-table-cloth-1.png"]
     },
@@ -204,7 +204,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/black-round-table-cloth-1.png",
       "Images": ["https://redrockpartyrentals.com/images/black-round-table-cloth-1.png"]
     },
@@ -218,7 +218,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/ivory-round-table-cloth-1.png",
       "Images": ["https://redrockpartyrentals.com/images/ivory-round-table-cloth-1.png"]
     },
@@ -232,7 +232,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg"]
     },
@@ -245,7 +245,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg"]
     },
@@ -258,7 +258,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail"],
       "Image": "https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png",
       "Images": ["https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png"]
     },
@@ -271,7 +271,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 5,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail"],
       "Image": "https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png",
       "Images": ["https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png"]
     },
@@ -284,7 +284,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg"]
     },
@@ -297,7 +297,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-sagegreen.png"]
     },
@@ -524,7 +524,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-lightpink.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-lightpink.png"]
     },
@@ -537,7 +537,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-beige.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-beige.png"]
     },
@@ -550,7 +550,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-dustyorange.png"]
     },
