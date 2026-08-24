@@ -429,6 +429,28 @@ window.PRODUCT_DATA = [
     },
 	
     {
+      "Item_ID": "Pioneer_Speaker",
+      "Product_ID": "7069036000003140001",
+      "Item Name": "Pioneer Party Speaker",
+      "Item Description": "Pioneer 700 Watt Party Speaker. Comes with Wireless Mic and Speaker Tripod Stand. Must be plugged in for power.",
+      "Quantity Available": 1,
+      "Rental Price": 45,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["beat-the-heat", "party-games-extras"],
+      "Image": "https://redrockpartyrentals.com/images/speaker-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/speaker-0.png",
+				"https://redrockpartyrentals.com/images/speaker-1.png",
+				"https://redrockpartyrentals.com/images/speaker-2.png",
+				"https://redrockpartyrentals.com/images/speaker-3.png",
+				"https://redrockpartyrentals.com/images/speaker-4.png",
+				"https://redrockpartyrentals.com/images/speaker-5.png",
+				"https://redrockpartyrentals.com/images/speaker-6.png",
+				"https://redrockpartyrentals.com/images/speaker-7.png"]
+    },	
+
+	
+    {
       "Item_ID": "Pink_Table_Runner",
       "Product_ID": "7069036000001467020",
       "Item Name": "Pink Table Runner",
