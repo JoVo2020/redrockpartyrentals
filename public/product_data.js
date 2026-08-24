@@ -446,7 +446,8 @@ window.PRODUCT_DATA = [
 				"https://redrockpartyrentals.com/images/speaker-4.png",
 				"https://redrockpartyrentals.com/images/speaker-5.png",
 				"https://redrockpartyrentals.com/images/speaker-6.png",
-				"https://redrockpartyrentals.com/images/speaker-7.png"]
+				"https://redrockpartyrentals.com/images/speaker-7.png",
+				"https://redrockpartyrentals.com/images/speaker-8.png"]
     },	
 
 	
