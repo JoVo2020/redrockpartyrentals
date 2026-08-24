@@ -498,7 +498,7 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "games",
 	  "category_tags": ["party-games"],
       "Image": "https://redrockpartyrentals.com/images/tetris-0.png",
-      "Images": ["https://redrockpartyrentals.com/images/tetris-0.png"
+      "Images": ["https://redrockpartyrentals.com/images/tetris-0.png",
 				"https://redrockpartyrentals.com/images/tetris-1.png",
 				"https://redrockpartyrentals.com/images/tetris-2.png",
 				"https://redrockpartyrentals.com/images/tetris-3.png"]
