@@ -10,7 +10,7 @@
 	<!-- End Google Tag Manager -->
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Beat The Heat | Red Rock Party Rentals</title>
+	<title>Tables & Chairs For Any Occasion | Red Rock Party Rentals</title>
 	<link rel="stylesheet" href="/style.css" />
 	<link rel="stylesheet" href="/cart.css" />
 	<link rel="stylesheet" href="/book-now-component.css" />
@@ -23,69 +23,53 @@
 	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
 	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
 	<style>
-	.bth-hero { position: relative; width: 100%; line-height: 0; }
-	.bth-hero img { width: 100%; height: auto; display: block; }
-	.bth-hero::after {
+	.tac-hero { position: relative; width: 100%; line-height: 0; }
+	.tac-hero img { width: 100%; height: auto; display: block; }
+	.tac-hero::after {
 	  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-	  height: 40%; background: linear-gradient(to bottom, transparent, #111);
+	  height: 15%; background: linear-gradient(to bottom, transparent, #111);
 	  pointer-events: none;
 	}
-	.bth-temp-bar {
-	  background: #ff5e1a; color: #fff; font-family: 'Lora', serif;
+	.tac-temp-bar {
+	  background: #a67c00; color: #fff; font-family: 'Lora', serif;
 	  font-size: 0.85rem; text-align: center; padding: 0.5rem 1rem;
 	  letter-spacing: 0.08em; text-transform: uppercase;
 	}
-	/* Dark intro with scroll-down CTA */
-	.bth-intro {
-	  background: #111; color: #fff; text-align: center;
-	  padding: 1.5rem 2rem 2rem; font-family: 'Lora', serif;
-	}
-	.bth-intro p {
-	  font-size: 1.05rem; color: #ccc; max-width: 560px;
-	  margin: 0 auto 1.5rem; line-height: 1.7;
-	}
-	.bth-scroll-btn {
-	  display: inline-block; background: transparent;
-	  color: #fff; font-family: 'Lora', serif; font-size: 1rem;
-	  padding: 0.75rem 2rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.4);
-	  cursor: pointer; transition: border-color 0.2s, background 0.2s; letter-spacing: 0.03em;
-	}
-	.bth-scroll-btn:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
-	.bth-section-head {
+	.tac-section-head {
 	  text-align: center; margin: 2rem 1rem 0.25rem;
-	  font-family: 'Lora', serif; font-size: 1.6rem; color: #8b0000; font-weight: 400;
+	  font-family: 'Lora', serif; font-size: 1.6rem; color: #a67c00; font-weight: 400;
 	}
-	.bth-section-sub {
+	.tac-section-sub {
 	  text-align: center; color: #666; font-size: 0.95rem;
 	  margin-bottom: 0.25rem; font-family: 'Lora', serif;
 	}
-	.bth-divider { border: none; border-top: 1px solid #eee; margin: 1.5rem 2rem 0; }
-	.bth-extras-section { background: #f9f6f0; padding-bottom: 1.5rem; margin-top: 1rem; }
+	.tac-divider { border: none; border-top: 1px solid #eee; margin: 1.5rem 2rem 0; }
+	.tac-extras-section { background: #f9f6f0; padding-bottom: 1.5rem; margin-top: 1rem; }
 	.rr-category-grid {
 	  display: flex; flex-wrap: wrap; justify-content: space-evenly;
 	  gap: 18px; padding: 1rem 1.5rem;
 	}
-	.bth-proof {
+	.tac-proof {
 	  background: #f9f9f9; border-top: 1px solid #eee; border-bottom: 1px solid #eee;
 	  padding: 1.5rem 2rem; display: flex; gap: 1.5rem;
 	  justify-content: center; flex-wrap: wrap; font-family: 'Lora', serif;
 	}
-	.bth-proof-item { display: flex; align-items: flex-start; gap: 0.75rem; max-width: 280px; }
-	.bth-proof-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
-	.bth-proof-text strong { display: block; color: #222; font-size: 0.95rem; font-weight: 400; }
-	.bth-proof-text span { color: #777; font-size: 0.85rem; }
-	.bth-final-cta {
+	.tac-proof-item { display: flex; align-items: flex-start; gap: 0.75rem; max-width: 280px; }
+	.tac-proof-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+	.tac-proof-text strong { display: block; color: #222; font-size: 0.95rem; font-weight: 400; }
+	.tac-proof-text span { color: #777; font-size: 0.85rem; }
+	.tac-final-cta {
 	  background: #111; color: #fff; text-align: center;
 	  padding: 2.5rem 2rem; font-family: 'Lora', serif;
 	}
-	.bth-final-cta h2 { font-size: 1.6rem; color: #fff; font-weight: 400; margin-bottom: 0.5rem; }
-	.bth-final-cta p { color: #aaa; font-size: 0.95rem; margin-bottom: 1.5rem; }
-	.bth-final-cta-btn {
-	  background: #ff5e1a; color: #fff; font-family: 'Lora', serif;
+	.tac-final-cta h2 { font-size: 1.6rem; color: #fff; font-weight: 400; margin-bottom: 0.5rem; }
+	.tac-final-cta p { color: #aaa; font-size: 0.95rem; margin-bottom: 1.5rem; }
+	.tac-final-cta-btn {
+	  background: #a67c00; color: #fff; font-family: 'Lora', serif;
 	  font-size: 1rem; padding: 0.8rem 2.25rem; border-radius: 4px;
 	  border: none; cursor: pointer; transition: background 0.2s;
 	}
-	.bth-final-cta-btn:hover { background: #e04a08; }
+	.tac-final-cta-btn:hover { background: #8a6600; }
 	</style>
 </head>
 <body>
@@ -109,40 +93,43 @@
 	  </nav>
 	</header>
 
-	<div class="breadcrumb" id="breadcrumb" style="margin:0.75rem 1.5rem;padding:0;"></div>
-	<div class="bth-temp-bar">☀️ Las Vegas summer rentals — book before your dates fill up</div>
+	<div class="tac-temp-bar">🪑 Tables & chairs for weddings, parties & every occasion — book before your dates fill up</div>
 
-	<div class="bth-hero">
-	  <img src="/images/headers/beat-the-heat.png" alt="Beat The Heat - Stay Cool, Party On" />
+	<div class="tac-hero">
+	  <picture>
+	    <source media="(max-width: 600px)" srcset="/images/headers/tables-and-chairs-1-mobile.png" />
+	    <img src="/images/headers/tables-and-chairs-1.png" alt="Tables and Chairs for Any Occasion" />
+	  </picture>
 	</div>
 
-	<!-- Dark intro with scroll-down CTA -->
-	<div class="bth-intro">
-	  <p>Outdoor events in Vegas get hot fast. Our misting fans, high-powered fans, and standing coolers keep your guests comfortable from start to finish — delivered right to your venue.</p>
-	  <button class="bth-scroll-btn" onclick="document.getElementById('coolingSection').scrollIntoView({ behavior: 'smooth' })">Find My Rentals ↓</button>
+	<div class="tac-section-head" id="tablesSection">Tables & Chairs for Every Occasion</div>
+	<div class="tac-section-sub">Add to cart, then pick your event date at checkout.</div>
+	<div class="rr-category-grid" id="tablesGrid"></div>
+
+	<div class="tac-extras-section">
+	  <hr class="tac-divider" />
+	  <div class="tac-section-head">Dress Up Your Tables</div>
+	  <div class="tac-section-sub">Covers, runners, and sashes to complete your look.</div>
+	  <div class="rr-category-grid" id="linensGrid"></div>
 	</div>
 
-	<div class="bth-section-head" id="coolingSection">Cooling Rentals</div>
-	<div class="bth-section-sub">Add to cart, then pick your event date at checkout.</div>
-	<div class="rr-category-grid" id="coolingGrid"></div>
-
-	<div class="bth-extras-section">
-	  <hr class="bth-divider" />
-	  <div class="bth-section-head">Complete Your Outdoor Setup</div>
-	  <div class="bth-section-sub">Tables, chairs, and games to round out your event.</div>
-	  <div class="rr-category-grid" id="extrasGrid"></div>
+	<div class="tac-extras-section">
+	  <hr class="tac-divider" />
+	  <div class="tac-section-head">Complete the Party</div>
+	  <div class="tac-section-sub">Coolers, games, and speakers to round out your event.</div>
+	  <div class="rr-category-grid" id="partyExtrasGrid"></div>
 	</div>
 
-	<div class="bth-proof">
-	  <div class="bth-proof-item"><div class="bth-proof-icon">🚚</div><div class="bth-proof-text"><strong>We deliver &amp; pick up</strong><span>Drop-off and pick-up included with every rental.</span></div></div>
-	  <div class="bth-proof-item"><div class="bth-proof-icon">📅</div><div class="bth-proof-text"><strong>Easy online booking</strong><span>Pick your date, add items to cart, done.</span></div></div>
-	  <div class="bth-proof-item"><div class="bth-proof-icon">⭐</div><div class="bth-proof-text"><strong>5-star rated service</strong><span>Trusted by Las Vegas families and event hosts.</span></div></div>
+	<div class="tac-proof">
+	  <div class="tac-proof-item"><div class="tac-proof-icon">🚚</div><div class="tac-proof-text"><strong>We deliver &amp; pick up</strong><span>Drop-off and pick-up included with every rental.</span></div></div>
+	  <div class="tac-proof-item"><div class="tac-proof-icon">📅</div><div class="tac-proof-text"><strong>Easy online booking</strong><span>Pick your date, add items to cart, done.</span></div></div>
+	  <div class="tac-proof-item"><div class="tac-proof-icon">⭐</div><div class="tac-proof-text"><strong>5-star rated service</strong><span>Trusted by Las Vegas families and event hosts.</span></div></div>
 	</div>
 
-	<div class="bth-final-cta">
-	  <h2>Ready to keep your guests cool?</h2>
+	<div class="tac-final-cta">
+	  <h2>Ready to set the scene?</h2>
 	  <p id="ctaSubtext"></p>
-	  <button onclick="handleBottomCta()" class="bth-final-cta-btn" id="ctaBtn"></button>
+	  <button onclick="handleBottomCta()" class="tac-final-cta-btn" id="ctaBtn"></button>
 	</div>
 
 	<!-- CART OVERLAY -->
@@ -204,8 +191,9 @@
 	  card.querySelector("button").onclick = () => { addToCart({ id: item.Product_ID, product_id: item.Product_ID, name: item["Item Name"], price: item["Rental Price"], image: item.Image, availableQty: item["Quantity Available"] }); updateCtaText(); };
 	  return card;
 	}
-	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("beat-the-heat")).forEach(item => document.getElementById("coolingGrid").appendChild(makeCard(item)));
-	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("beat-the-heat-extras")).forEach(item => document.getElementById("extrasGrid").appendChild(makeCard(item)));
+	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("tables-and-chairs-for-any-occasion")).forEach(item => document.getElementById("tablesGrid").appendChild(makeCard(item)));
+	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("tables-and-chairs-for-any-occasion-linens")).forEach(item => document.getElementById("linensGrid").appendChild(makeCard(item)));
+	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("tables-and-chairs-for-any-occasion-extras")).forEach(item => document.getElementById("partyExtrasGrid").appendChild(makeCard(item)));
 
 	function hasCartItems() { return JSON.parse(localStorage.getItem("cart") || "[]").length > 0; }
 	function handleBottomCta() {
@@ -223,8 +211,6 @@
 	  }
 	}
 	document.addEventListener("DOMContentLoaded", () => {
-	  const b = document.getElementById("breadcrumb");
-	  if (b) b.innerHTML = `<a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/rentals">Rentals</a><span class="breadcrumb-sep">›</span><span>Beat The Heat</span>`;
 	  updateCtaText();
 	  window.addEventListener("storage", updateCtaText);
 	});
