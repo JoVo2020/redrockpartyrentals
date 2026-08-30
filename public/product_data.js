@@ -501,7 +501,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 45,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["beat-the-heat", "party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
       "Image": "https://redrockpartyrentals.com/images/speaker-0.png",
       "Images": ["https://redrockpartyrentals.com/images/speaker-0.png",
 				"https://redrockpartyrentals.com/images/speaker-1.png",
