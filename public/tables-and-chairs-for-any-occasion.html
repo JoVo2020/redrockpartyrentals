@@ -118,23 +118,23 @@
 	  <div class="tac-section-head">Dress Up Your Tables</div>
 	  <div class="tac-section-sub">Covers, runners, and sashes to complete your look.</div>
 	  <div class="accordion" id="linensAccordion">
-	    <div class="accordion-item">
+	    <div class="accordion-item open">
 	      <button class="accordion-header">Linens for Round Tables<span class="accordion-icon">+</span></button>
 	      <div class="accordion-content"><div class="rr-category-grid" id="linensRoundGrid"></div></div>
 	    </div>
-	    <div class="accordion-item">
+	    <div class="accordion-item open">
 	      <button class="accordion-header">Linens for Rectangular Tables<span class="accordion-icon">+</span></button>
 	      <div class="accordion-content"><div class="rr-category-grid" id="linensRectangularGrid"></div></div>
 	    </div>
-	    <div class="accordion-item">
+	    <div class="accordion-item open">
 	      <button class="accordion-header">Linens for Cocktail Tables<span class="accordion-icon">+</span></button>
 	      <div class="accordion-content"><div class="rr-category-grid" id="linensCocktailGrid"></div></div>
 	    </div>
-	    <div class="accordion-item">
+	    <div class="accordion-item open">
 	      <button class="accordion-header">Table Runners<span class="accordion-icon">+</span></button>
 	      <div class="accordion-content"><div class="rr-category-grid" id="linensRunnersGrid"></div></div>
 	    </div>
-	    <div class="accordion-item">
+	    <div class="accordion-item open">
 	      <button class="accordion-header">Linens for Chairs<span class="accordion-icon">+</span></button>
 	      <div class="accordion-content"><div class="rr-category-grid" id="linensChairsGrid"></div></div>
 	    </div>
@@ -233,6 +233,11 @@
 	renderLinensAccordionGrid("linensChairsGrid", "tac-chair-linens");
 
 	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("tables-and-chairs-for-any-occasion-extras")).forEach(item => document.getElementById("partyExtrasGrid").appendChild(makeCard(item)));
+
+	const viewAllCard = document.createElement("div");
+	viewAllCard.className = "rr-card";
+	viewAllCard.innerHTML = `<a href="/rentals"><img class="rr-card__img" src="/images/headers/view%20all%20rentals%201080x1080.png" /></a><div class="rr-card__body"><div class="rr-card__name">View All Rentals</div><a class="rr-btn-addToCart" href="/rentals" style="display:inline-block;text-decoration:none;">Browse All →</a></div>`;
+	document.getElementById("partyExtrasGrid").appendChild(viewAllCard);
 
 	function hasCartItems() { return JSON.parse(localStorage.getItem("cart") || "[]").length > 0; }
 	function handleBottomCta() {
