@@ -42,7 +42,7 @@
 }
 
 .accordion-item.open .accordion-content {
-  max-height: 4000px; /* large enough for inventory */
+  max-height: 20000px; /* generous ceiling so single-column mobile layouts (tall stacked cards) never get clipped, even for the largest category */
 }
 
 /* Optional spacing for items inside */
