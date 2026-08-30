@@ -284,7 +284,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg"]
     },
@@ -297,7 +297,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-sagegreen.png"]
     },
@@ -524,7 +524,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-lightpink.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-lightpink.png"]
     },
@@ -537,7 +537,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-beige.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-beige.png"]
     },
@@ -550,7 +550,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Table Runners",
 	  "CategoryPath": "table-runners",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
       "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.png",
       "Images": ["https://redrockpartyrentals.com/images/tablerunner-dustyorange.png"]
     },

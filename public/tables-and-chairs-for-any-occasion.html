@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="/cart.css" />
 	<link rel="stylesheet" href="/book-now-component.css" />
 	<link rel="stylesheet" href="/product.css" />
+	<link rel="stylesheet" href="/accordion.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -45,6 +46,12 @@
 	}
 	.tac-divider { border: none; border-top: 1px solid #eee; margin: 1.5rem 2rem 0; }
 	.tac-extras-section { background: #f9f6f0; padding-bottom: 1.5rem; margin-top: 1rem; }
+	.tac-extras-section .accordion { padding: 0.5rem 1.5rem 0; gap: 14px; }
+	.tac-extras-section .accordion-item { background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #ece3d0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+	.tac-extras-section .accordion-header { font-family: 'Lora', serif; font-size: 1.05rem; color: #333; padding: 18px 20px; border-left: 4px solid #a67c00; transition: background 0.15s; }
+	.tac-extras-section .accordion-header:hover { background: #faf3e2; }
+	.tac-extras-section .accordion-item.open .accordion-header { background: #faf3e2; }
+	.tac-extras-section .accordion-icon { color: #a67c00; font-weight: 600; font-size: 16px; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid #a67c00; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 	.rr-category-grid {
 	  display: flex; flex-wrap: wrap; justify-content: space-evenly;
 	  gap: 18px; padding: 1rem 1.5rem;
@@ -110,7 +117,28 @@
 	  <hr class="tac-divider" />
 	  <div class="tac-section-head">Dress Up Your Tables</div>
 	  <div class="tac-section-sub">Covers, runners, and sashes to complete your look.</div>
-	  <div class="rr-category-grid" id="linensGrid"></div>
+	  <div class="accordion" id="linensAccordion">
+	    <div class="accordion-item">
+	      <button class="accordion-header">Linens for Round Tables<span class="accordion-icon">+</span></button>
+	      <div class="accordion-content"><div class="rr-category-grid" id="linensRoundGrid"></div></div>
+	    </div>
+	    <div class="accordion-item">
+	      <button class="accordion-header">Linens for Rectangular Tables<span class="accordion-icon">+</span></button>
+	      <div class="accordion-content"><div class="rr-category-grid" id="linensRectangularGrid"></div></div>
+	    </div>
+	    <div class="accordion-item">
+	      <button class="accordion-header">Linens for Cocktail Tables<span class="accordion-icon">+</span></button>
+	      <div class="accordion-content"><div class="rr-category-grid" id="linensCocktailGrid"></div></div>
+	    </div>
+	    <div class="accordion-item">
+	      <button class="accordion-header">Table Runners<span class="accordion-icon">+</span></button>
+	      <div class="accordion-content"><div class="rr-category-grid" id="linensRunnersGrid"></div></div>
+	    </div>
+	    <div class="accordion-item">
+	      <button class="accordion-header">Linens for Chairs<span class="accordion-icon">+</span></button>
+	      <div class="accordion-content"><div class="rr-category-grid" id="linensChairsGrid"></div></div>
+	    </div>
+	  </div>
 	</div>
 
 	<div class="tac-extras-section">
@@ -175,6 +203,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script src="/navbar-scroll.js"></script>
+	<script src="/accordion.js"></script>
 	<script src="/availabilityService.js"></script>
 	<script src="/product_data.js"></script>
 	<script src="/cart.js"></script>
@@ -192,7 +221,17 @@
 	  return card;
 	}
 	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("tables-and-chairs-for-any-occasion")).forEach(item => document.getElementById("tablesGrid").appendChild(makeCard(item)));
-	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("tables-and-chairs-for-any-occasion-linens")).forEach(item => document.getElementById("linensGrid").appendChild(makeCard(item)));
+
+	function renderLinensAccordionGrid(gridId, shapeTag, excludeTag) {
+	  const grid = document.getElementById(gridId);
+	  window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("tables-and-chairs-for-any-occasion-linens") && p.category_tags.includes(shapeTag) && (!excludeTag || !p.category_tags.includes(excludeTag))).forEach(item => grid.appendChild(makeCard(item)));
+	}
+	renderLinensAccordionGrid("linensRoundGrid", "tac-round", "tac-table-runner");
+	renderLinensAccordionGrid("linensRectangularGrid", "tac-rectangular", "tac-table-runner");
+	renderLinensAccordionGrid("linensCocktailGrid", "tac-cocktail");
+	renderLinensAccordionGrid("linensRunnersGrid", "tac-table-runner");
+	renderLinensAccordionGrid("linensChairsGrid", "tac-chair-linens");
+
 	window.PRODUCT_DATA.filter(p => Array.isArray(p.category_tags) && p.category_tags.includes("tables-and-chairs-for-any-occasion-extras")).forEach(item => document.getElementById("partyExtrasGrid").appendChild(makeCard(item)));
 
 	function hasCartItems() { return JSON.parse(localStorage.getItem("cart") || "[]").length > 0; }
