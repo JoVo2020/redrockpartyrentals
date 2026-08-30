@@ -10,7 +10,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Red Rock Party Rentals — Set Your Dates</title>
+  <title>Red Rock Party Rentals — Set Your Dates (v2)</title>
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="book-now-component.css" />
@@ -249,31 +249,29 @@
     padding: 1.5rem 0; font-size: 1rem; color: #555;
   }
 
-  /* ── Cart summary line (quiet — not a CTA) ─────────────── */
-  #bk-cart-summary {
+  /* ── Cart badge on header cart icons ───────────────────── */
+  .cart-toggle-mobile, .cart-toggle { position: relative; }
+  .cart-badge {
     display: none;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0.5rem 1.5rem 0;
-    text-align: center;
-  }
-  .bk-cart-line {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: none;
-    border: none;
-    padding: 0.4rem 0;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+    -webkit-text-fill-color: #fff;
     font-family: 'Lora', serif;
-    font-size: 0.8rem;
-    color: var(--muted);
-    cursor: pointer;
+    font-size: 0.68rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+    line-height: 1;
+    pointer-events: none;
   }
-  .bk-cart-line:hover { color: #444; }
-  .bk-cart-line strong { color: #333; font-weight: 600; }
-  .bk-cart-line .bk-cart-line-sep { color: #ccc; }
-  .bk-cart-line .bk-cart-line-arrow { color: var(--red); }
-  .bk-cart-line:hover .bk-cart-line-arrow { color: var(--red-hover); }
+  .cart-badge.visible { display: flex; }
 
   @media (max-width: 480px) {
     .time-option-grid { grid-template-columns: 1fr; }
@@ -318,6 +316,7 @@
       <div style="display:flex;">
         <button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
           <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+          <span class="cart-badge" id="navCartBadgeMobile">0</span>
         </button>
         <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
       </div>
@@ -328,6 +327,7 @@
         <li><a href="contact.html" style="color:rgba(0,0,0,.8);">Contact</a></li>
         <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
           <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+          <span class="cart-badge" id="navCartBadgeDesktop">0</span>
         </button>
       </ul>
     </nav>
@@ -388,17 +388,6 @@
 
     </div><!-- /sl-track -->
   </div><!-- /sl-viewport -->
-
-
-  <!-- Cart summary line -->
-  <div id="bk-cart-summary">
-    <button type="button" class="bk-cart-line" onclick="openCart(); renderCart();">
-      <span id="bkCartLabel">1 item</span>
-      <span class="bk-cart-line-sep">&middot;</span>
-      <strong id="bkCartSubtotal">$0.00</strong>
-      <span class="bk-cart-line-arrow">View cart &rarr;</span>
-    </button>
-  </div>
 
 
   <!-- CART OVERLAY -->
@@ -502,15 +491,12 @@
   function updateCartUI() {
     var cart = (typeof getCart === 'function') ? getCart() : [];
     var qty  = cart.reduce(function(s, i) { return s + i.qty; }, 0);
-    var subtotal = cart.reduce(function(s, i) { return s + (i.price * i.qty); }, 0);
-    var bar  = document.getElementById('bk-cart-summary');
-    if (bar) {
-      bar.style.display = (qty > 0) ? 'block' : 'none';
-      var labelEl    = document.getElementById('bkCartLabel');
-      var subtotalEl = document.getElementById('bkCartSubtotal');
-      if (labelEl)    labelEl.textContent = qty + (qty === 1 ? ' item' : ' items');
-      if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
-    }
+    ['navCartBadgeMobile', 'navCartBadgeDesktop'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = qty;
+      el.classList.toggle('visible', qty > 0);
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function () {

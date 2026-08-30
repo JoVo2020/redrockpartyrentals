@@ -249,31 +249,39 @@
     padding: 1.5rem 0; font-size: 1rem; color: #555;
   }
 
-  /* ── Cart summary line (quiet — not a CTA) ─────────────── */
-  #bk-cart-summary {
-    display: none;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0.5rem 1.5rem 0;
-    text-align: center;
+  @media (max-width: 720px) {
+    #bk-cart-summary {
+      background: var(--off-white); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border); padding: 1.2rem 1.4rem;
+    }
+    .bk-cart-bar { background: none; border: none; padding: 0; flex-direction: column; align-items: flex-start; }
+    .bk-cart-bar-btn { width: 100%; text-align: center; }
   }
-  .bk-cart-line {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: none;
-    border: none;
-    padding: 0.4rem 0;
-    font-family: 'Lora', serif;
-    font-size: 0.8rem;
-    color: var(--muted);
-    cursor: pointer;
+
+  /* ── Cart summary bar ──────────────────────────────────── */
+  #bk-cart-summary { display: none; padding: 1.4rem 2rem; }
+  .bk-cart-bar {
+    max-width: 600px; margin: 0 auto; display: flex;
+    align-items: center; justify-content: space-between; gap: 1rem;
+    flex-wrap: wrap; background: var(--off-white);
+    border: 1px solid var(--border); padding: 1rem 1.4rem;
   }
-  .bk-cart-line:hover { color: #444; }
-  .bk-cart-line strong { color: #333; font-weight: 600; }
-  .bk-cart-line .bk-cart-line-sep { color: #ccc; }
-  .bk-cart-line .bk-cart-line-arrow { color: var(--red); }
-  .bk-cart-line:hover .bk-cart-line-arrow { color: var(--red-hover); }
+  .bk-cart-bar-left {
+    display: flex; align-items: center; gap: 0.65rem;
+    font-size: 1.2rem; color: #222;
+  }
+  .bk-cart-bar-count {
+    background: var(--red); color: #fff; -webkit-text-fill-color: #fff;
+    font-size: 1rem; font-weight: 700; min-width: 28px; height: 28px;
+    padding: 0 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .bk-cart-bar-btn {
+    background: var(--red); color: #fff; -webkit-text-fill-color: #fff;
+    border: none; font-family: 'Lora', serif; font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; padding: 0.85rem 1.8rem;
+    cursor: pointer; transition: background 0.15s; white-space: nowrap;
+  }
+  .bk-cart-bar-btn:hover { background: var(--red-hover); }
 
   @media (max-width: 480px) {
     .time-option-grid { grid-template-columns: 1fr; }
@@ -390,14 +398,17 @@
   </div><!-- /sl-viewport -->
 
 
-  <!-- Cart summary line -->
+  <!-- Cart summary bar -->
   <div id="bk-cart-summary">
-    <button type="button" class="bk-cart-line" onclick="openCart(); renderCart();">
-      <span id="bkCartLabel">1 item</span>
-      <span class="bk-cart-line-sep">&middot;</span>
-      <strong id="bkCartSubtotal">$0.00</strong>
-      <span class="bk-cart-line-arrow">View cart &rarr;</span>
-    </button>
+    <div class="bk-cart-bar">
+      <div class="bk-cart-bar-left">
+        <span class="bk-cart-bar-count" id="bkCartCount">0</span>
+        <span id="bkCartLabel">items in cart</span>
+      </div>
+      <button class="bk-cart-bar-btn" onclick="openCart(); renderCart();">
+        View Cart &amp; Checkout &rarr;
+      </button>
+    </div>
   </div>
 
 
@@ -502,14 +513,13 @@
   function updateCartUI() {
     var cart = (typeof getCart === 'function') ? getCart() : [];
     var qty  = cart.reduce(function(s, i) { return s + i.qty; }, 0);
-    var subtotal = cart.reduce(function(s, i) { return s + (i.price * i.qty); }, 0);
     var bar  = document.getElementById('bk-cart-summary');
     if (bar) {
       bar.style.display = (qty > 0) ? 'block' : 'none';
-      var labelEl    = document.getElementById('bkCartLabel');
-      var subtotalEl = document.getElementById('bkCartSubtotal');
-      if (labelEl)    labelEl.textContent = qty + (qty === 1 ? ' item' : ' items');
-      if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+      var countEl = document.getElementById('bkCartCount');
+      var labelEl = document.getElementById('bkCartLabel');
+      if (countEl) countEl.textContent = qty;
+      if (labelEl) labelEl.textContent = qty === 1 ? 'item in cart' : 'items in cart';
     }
   }
 

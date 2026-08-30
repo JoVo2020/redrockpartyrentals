@@ -10,7 +10,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Red Rock Party Rentals — Set Your Dates</title>
+  <title>Red Rock Party Rentals — Set Your Dates (v3)</title>
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="book-now-component.css" />
@@ -42,7 +42,7 @@
     padding: 0 1.5rem 0 0;
   }
 
-  /* ── Chrome bar: back + progress + step label ──────────── */
+  /* ── Chrome bar: back + progress + step label + cart chip ── */
   .sl-chrome {
     display: flex;
     align-items: center;
@@ -93,6 +93,26 @@
     color: var(--muted);
     flex-shrink: 0;
   }
+
+  /* ── Cart chip (folded into the chrome row) ────────────── */
+  .sl-cart-chip {
+    display: none;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    font-family: 'Lora', serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0;
+  }
+  .sl-cart-chip.visible { display: inline-flex; }
+  .sl-cart-chip i { color: var(--red); font-size: 0.78rem; }
+  .sl-cart-chip:hover { color: #444; }
+  .sl-cart-chip:hover i { color: var(--red-hover); }
 
   /* ── Context bar (shows prior selections) ──────────────── */
   .sl-context-bar {
@@ -249,36 +269,11 @@
     padding: 1.5rem 0; font-size: 1rem; color: #555;
   }
 
-  /* ── Cart summary line (quiet — not a CTA) ─────────────── */
-  #bk-cart-summary {
-    display: none;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0.5rem 1.5rem 0;
-    text-align: center;
-  }
-  .bk-cart-line {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: none;
-    border: none;
-    padding: 0.4rem 0;
-    font-family: 'Lora', serif;
-    font-size: 0.8rem;
-    color: var(--muted);
-    cursor: pointer;
-  }
-  .bk-cart-line:hover { color: #444; }
-  .bk-cart-line strong { color: #333; font-weight: 600; }
-  .bk-cart-line .bk-cart-line-sep { color: #ccc; }
-  .bk-cart-line .bk-cart-line-arrow { color: var(--red); }
-  .bk-cart-line:hover .bk-cart-line-arrow { color: var(--red-hover); }
-
   @media (max-width: 480px) {
     .time-option-grid { grid-template-columns: 1fr; }
     .sl-question { font-size: 1.4rem; }
-    .sl-chrome { padding: 1.2rem 1.2rem 0; }
+    .sl-chrome { padding: 1.2rem 1.2rem 0; flex-wrap: wrap; row-gap: 0.5rem; }
+    .sl-cart-chip { margin-left: auto; }
     .sl-slide { padding: 0 1.2rem 5rem; }
     .sl-context-bar { padding: 0.6rem 1.2rem; }
   }
@@ -334,7 +329,7 @@
   </header>
 
 
-  <!-- ── Chrome: back button + progress bar ──────────────── -->
+  <!-- ── Chrome: back button + progress bar + cart chip ──── -->
   <div class="sl-chrome">
     <button class="sl-back-btn" id="slBackBtn" aria-label="Go back">
       <i class="fa-solid fa-arrow-left" style="font-size:0.8rem;"></i> Back
@@ -343,6 +338,10 @@
       <div class="sl-progress-fill" id="slProgressFill"></div>
     </div>
     <span class="sl-step-label" id="slStepLabel">1 / 3</span>
+    <button type="button" class="sl-cart-chip" id="slCartChip" onclick="openCart(); renderCart();">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="slCartChipText">0 · $0.00</span>
+    </button>
   </div>
 
   <!-- ── Context bar (prior selections) ──────────────────── -->
@@ -388,17 +387,6 @@
 
     </div><!-- /sl-track -->
   </div><!-- /sl-viewport -->
-
-
-  <!-- Cart summary line -->
-  <div id="bk-cart-summary">
-    <button type="button" class="bk-cart-line" onclick="openCart(); renderCart();">
-      <span id="bkCartLabel">1 item</span>
-      <span class="bk-cart-line-sep">&middot;</span>
-      <strong id="bkCartSubtotal">$0.00</strong>
-      <span class="bk-cart-line-arrow">View cart &rarr;</span>
-    </button>
-  </div>
 
 
   <!-- CART OVERLAY -->
@@ -503,13 +491,11 @@
     var cart = (typeof getCart === 'function') ? getCart() : [];
     var qty  = cart.reduce(function(s, i) { return s + i.qty; }, 0);
     var subtotal = cart.reduce(function(s, i) { return s + (i.price * i.qty); }, 0);
-    var bar  = document.getElementById('bk-cart-summary');
-    if (bar) {
-      bar.style.display = (qty > 0) ? 'block' : 'none';
-      var labelEl    = document.getElementById('bkCartLabel');
-      var subtotalEl = document.getElementById('bkCartSubtotal');
-      if (labelEl)    labelEl.textContent = qty + (qty === 1 ? ' item' : ' items');
-      if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+    var chip = document.getElementById('slCartChip');
+    var chipText = document.getElementById('slCartChipText');
+    if (chip) {
+      chip.classList.toggle('visible', qty > 0);
+      if (chipText) chipText.textContent = qty + ' · $' + subtotal.toFixed(2);
     }
   }
 
