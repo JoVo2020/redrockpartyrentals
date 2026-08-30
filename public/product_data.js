@@ -311,7 +311,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3,
       "Category": "Chair Covers",
 	  "CategoryPath": "chair-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs", "tac-chair-linens"],
       "Image": "https://redrockpartyrentals.com/images/white-chair-cover.png",
       "Images": ["https://redrockpartyrentals.com/images/white-chair-cover.png"]
     },
@@ -325,7 +325,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 2,
       "Category": "Chair Covers",
 	  "CategoryPath": "chair-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs", "tac-chair-linens"],
       "Image": "https://redrockpartyrentals.com/images/purple-chair-sash.png",
       "Images": ["https://redrockpartyrentals.com/images/purple-chair-sash.png"]
     },
@@ -339,7 +339,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 2,
       "Category": "Chair Covers",
 	  "CategoryPath": "chair-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs", "tac-chair-linens"],
       "Image": "https://redrockpartyrentals.com/images/gold-chair-sash-1.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/gold-chair-sash-1.png",
