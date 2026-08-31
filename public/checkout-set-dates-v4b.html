@@ -40,23 +40,15 @@
     display: none;
     max-width: 600px;
     margin: 1.5rem auto 0;
+    padding: 1.1rem 1.5rem;
     background: var(--off-white);
     border: 1px solid var(--border);
   }
   .order-summary__head {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.85rem 1.5rem;
-    cursor: pointer;
-    user-select: none;
-  }
-  .order-summary__head-left {
-    display: flex;
     align-items: baseline;
-    gap: 0.6rem;
-    min-width: 0;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
   }
   .order-summary__label {
     font-size: 0.68rem;
@@ -64,21 +56,6 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #999;
-    flex-shrink: 0;
-  }
-  .order-summary__compact-line {
-    font-size: 0.82rem;
-    color: var(--muted);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .order-summary.is-expanded .order-summary__compact-line { display: none; }
-  .order-summary__head-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-shrink: 0;
   }
   .order-summary__edit {
     background: none;
@@ -91,14 +68,6 @@
     padding: 0;
   }
   .order-summary__edit:hover { color: var(--red-hover); }
-  .order-summary__chevron {
-    color: #999;
-    font-size: 0.75rem;
-    transition: transform 0.2s ease;
-  }
-  .order-summary.is-expanded .order-summary__chevron { transform: rotate(180deg); }
-  .order-summary__body { display: none; padding: 0 1.5rem 1.1rem; }
-  .order-summary.is-expanded .order-summary__body { display: block; }
   .order-summary__hint {
     font-size: 0.82rem;
     color: var(--muted);
@@ -149,6 +118,23 @@
     color: #333;
   }
   .order-summary__total strong { font-size: 0.95rem; }
+
+  /* ── Compact state (slides 2+, so the CTA stays reachable) */
+  .order-summary__compact-line {
+    display: none;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0.15rem 0 0;
+  }
+  .order-summary.is-compact {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+  .order-summary.is-compact .order-summary__head { margin-bottom: 0; }
+  .order-summary.is-compact .order-summary__hint,
+  .order-summary.is-compact .order-summary__items,
+  .order-summary.is-compact .order-summary__total { display: none; }
+  .order-summary.is-compact .order-summary__compact-line { display: block; }
 
   /* ── Outer container ───────────────────────────────────── */
   .sl-outer {
@@ -370,9 +356,7 @@
     .sl-chrome { padding: 1.2rem 1.2rem 0; }
     .sl-slide { padding: 0 1.2rem 5rem; }
     .sl-context-bar { padding: 0.6rem 1.2rem; }
-    .order-summary { margin: 1.2rem 1.2rem 0; width: auto; }
-    .order-summary__head { padding: 0.8rem 1.2rem; }
-    .order-summary__body { padding: 0 1.2rem 1rem; }
+    .order-summary { margin: 1.2rem 1.2rem 0; padding: 1rem 1.2rem; width: auto; }
   }
 
   /* ── Cart booking info ─────────────────────────────────── */
@@ -427,24 +411,17 @@
 
   <!-- ── Order summary (confirms cart carried over) ────────── -->
   <div class="order-summary" id="orderSummary">
-    <div class="order-summary__head" id="orderSummaryToggle" role="button" tabindex="0" aria-expanded="false">
-      <span class="order-summary__head-left">
-        <span class="order-summary__label">Your Order</span>
-        <span class="order-summary__compact-line" id="orderSummaryCompactLine"></span>
-      </span>
-      <span class="order-summary__head-right">
-        <button type="button" class="order-summary__edit" onclick="event.stopPropagation(); openCart(); renderCart();">Edit</button>
-        <i class="fa-solid fa-chevron-down order-summary__chevron"></i>
-      </span>
+    <div class="order-summary__head">
+      <span class="order-summary__label">Your Order</span>
+      <button type="button" class="order-summary__edit" onclick="openCart(); renderCart();">Edit</button>
     </div>
-    <div class="order-summary__body" id="orderSummaryBody">
-      <p class="order-summary__hint">Confirm your order, then set your dates below.</p>
-      <div class="order-summary__items" id="orderSummaryItems"></div>
-      <div class="order-summary__total">
-        <span>Subtotal</span>
-        <strong id="orderSummarySubtotal">$0.00</strong>
-      </div>
+    <p class="order-summary__hint">Confirm your order, then set your dates below.</p>
+    <div class="order-summary__items" id="orderSummaryItems"></div>
+    <div class="order-summary__total">
+      <span>Subtotal</span>
+      <strong id="orderSummarySubtotal">$0.00</strong>
     </div>
+    <p class="order-summary__compact-line" id="orderSummaryCompactLine"></p>
   </div>
 
 
@@ -639,12 +616,12 @@
     card.style.display = 'block';
   }
 
-  function toggleOrderSummary() {
+  function syncOrderSummaryCompactState() {
     var card = document.getElementById('orderSummary');
-    var toggle = document.getElementById('orderSummaryToggle');
-    if (!card || !toggle) return;
-    var expanded = card.classList.toggle('is-expanded');
-    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    var label = document.getElementById('slStepLabel');
+    if (!card || !label) return;
+    var step = parseInt(label.textContent, 10) || 1;
+    card.classList.toggle('is-compact', step > 1);
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -654,15 +631,11 @@
     }
     renderOrderSummary();
 
-    var toggle = document.getElementById('orderSummaryToggle');
-    if (toggle) {
-      toggle.addEventListener('click', toggleOrderSummary);
-      toggle.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleOrderSummary();
-        }
-      });
+    syncOrderSummaryCompactState();
+    var stepLabel = document.getElementById('slStepLabel');
+    if (stepLabel) {
+      new MutationObserver(syncOrderSummaryCompactState)
+        .observe(stepLabel, { childList: true, characterData: true, subtree: true });
     }
   });
   </script>
