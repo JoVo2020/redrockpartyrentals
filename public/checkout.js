@@ -632,6 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	autopopulateAddressInfo();
 	renderCheckoutCart();
 	renderContactInfo();
+	render_schedule();
   }
   
   if (page === 'checkout-place-order') {
