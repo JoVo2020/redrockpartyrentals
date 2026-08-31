@@ -292,8 +292,6 @@
     document.getElementById('dropoffNextBtn').addEventListener('click', function () {
       var sel = document.querySelector('input[name="dropoffOption"]:checked');
       if (!sel) { alert('Please select a dropoff time.'); return; }
-      var v = JSON.parse(sel.value);
-      localStorage.setItem('rrpr_dropoff', JSON.stringify({ dropoffDate: v.date, dropoffWindow: v.window }));
       goToSlide(3);
     });
 
