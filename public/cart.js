@@ -220,11 +220,7 @@ function renderCart() {
 
 	if (checkoutBtn) {
 
-	  const rentalDates  = AvailabilityService.getRentalDates();
-	  const storedDropoff = localStorage.getItem('rrpr_dropoff');
-	  const storedPickup  = localStorage.getItem('rrpr_pickup');
-
-	  const canCheckout = cart.length > 0 && rentalDates && storedDropoff && storedPickup;
+	  const canCheckout = cart.length > 0;
 
 	  if (canCheckout) {
 		checkoutBtn.disabled = false;
@@ -284,7 +280,11 @@ document.getElementById('cartOverlay').addEventListener('click', e => {
 
 function goToCheckout() {
   closeCart();
-  window.location.href = "/checkout";
+  const rentalDates   = AvailabilityService.getRentalDates();
+  const storedDropoff = localStorage.getItem('rrpr_dropoff');
+  const storedPickup  = localStorage.getItem('rrpr_pickup');
+  const datesSet = rentalDates && storedDropoff && storedPickup;
+  window.location.href = datesSet ? "/checkout" : "/checkout-set-dates";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
