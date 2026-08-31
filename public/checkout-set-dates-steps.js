@@ -61,7 +61,10 @@
     updateContextBar(n);
   }
 
-  window.slideGoBack    = function () { goToSlide(currentSlide - 1); };
+  window.slideGoBack    = function () {
+    if (currentSlide <= 1) { window.history.back(); return; }
+    goToSlide(currentSlide - 1);
+  };
   window.slideGoToDate  = function () { goToSlide(1); };
 
   function updateProgress(n) {
@@ -73,9 +76,7 @@
 
   function updateBackBtn(n) {
     var btn = document.getElementById('slBackBtn');
-    if (!btn) return;
-    if (n > 1) btn.classList.add('visible');
-    else       btn.classList.remove('visible');
+    if (btn) btn.classList.add('visible');
   }
 
   function updateContextBar(n) {
