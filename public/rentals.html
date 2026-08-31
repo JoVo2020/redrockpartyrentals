@@ -396,9 +396,8 @@ function handleBookNowBtn() {
     // Cart empty → go to booking page
     window.location.href = "/book";
   } else {
-    // Cart has items → open cart
-    openCart();
-    renderCart();
+    // Cart has items → route via the same logic as the cart's Checkout button
+    goToCheckout();
   }
 
 }
