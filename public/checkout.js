@@ -625,6 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (page === 'checkout') {
     autopopulateContactInfo();
 	renderCheckoutCart();
+	render_schedule();
   }
 
   if (page === 'checkout-delivery') {
