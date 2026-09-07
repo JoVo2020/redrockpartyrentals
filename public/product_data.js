@@ -103,8 +103,8 @@ window.PRODUCT_DATA = [
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
 	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
-      "Image": "https://redrockpartyrentals.com/images/bar-stool.png",
-      "Images": ["https://redrockpartyrentals.com/images/bar-stool.png"]
+      "Image": "https://redrockpartyrentals.com/images/bar-stool-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/bar-stool-0.png"]
     },
     {
       "Item_ID": "Black_Bar_Stool_with_Back",
@@ -116,8 +116,8 @@ window.PRODUCT_DATA = [
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
 	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
-      "Image": "https://redrockpartyrentals.com/images/bar-stool-with-back.png",
-      "Images": ["https://redrockpartyrentals.com/images/bar-stool-with-back.png"]
+      "Image": "https://redrockpartyrentals.com/images/bar-stool-with-back-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/bar-stool-with-back-0.png"]
     },
 
     {
