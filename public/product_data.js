@@ -515,8 +515,8 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Pioneer_Speaker",
       "Product_ID": "7069036000003140001",
-      "Item Name": "Pioneer Party Speaker",
-      "Item Description": "Pioneer 700 Watt Party Speaker. Comes with Wireless Mic and Speaker Tripod Stand. Must be plugged in for power.",
+      "Item Name": "Party Speaker",
+      "Item Description": "700 Watt Party Speaker. Comes with Wireless Mic and Speaker Tripod Stand. Must be plugged in for power.",
       "Quantity Available": 1,
       "Rental Price": 45,
       "Category": "Other",
