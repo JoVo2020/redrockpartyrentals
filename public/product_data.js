@@ -462,8 +462,8 @@ window.PRODUCT_DATA = [
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
 	  "category_tags": ["party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
-      "Image": "https://assets.wfcdn.com/im/69633876/resize-h600-w600%5Ecompr-r85/2346/234694232/Nostalgia+Vintage+Professional+Popcorn+Cart+-+8-Ounce+Kettle+-+53+Inches+Tall.jpg",
-      "Images": ["https://assets.wfcdn.com/im/69633876/resize-h600-w600%5Ecompr-r85/2346/234694232/Nostalgia+Vintage+Professional+Popcorn+Cart+-+8-Ounce+Kettle+-+53+Inches+Tall.jpg"]
+      "Image": "https://redrockpartyrentals.com/images/popcorn-machine-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/popcorn-machine-1.png"]
     },
 
     {
