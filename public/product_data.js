@@ -18,6 +18,25 @@ window.PRODUCT_DATA = [
 		"https://redrockpartyrentals.com/images/6ft-table-1.png"
       ]
     },
+
+	{
+      "Item_ID": "8ft_Table",
+      "Product_ID": "7069036000003301002",
+      "Item Name": "8ft Tables",
+      "Item Description": "White plastic 8ft table. Seats up to 10 people (4 on each side, 1 one on each end)",
+      "Quantity Available": 20,
+      "Rental Price": 12,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
+      "Image": "https://redrockpartyrentals.com/images/8ft-rectangular-table-1.png",
+      "Images": [
+        "https://redrockpartyrentals.com/images/8ft-rectangular-table-1.png",
+        "https://redrockpartyrentals.com/images/8ft-rectangular-table-2.png",
+		"https://redrockpartyrentals.com/images/8ft-rectangular-table-3.png"
+		]
+    },
+
 	{
       "Item_ID": "60in_Round_Table",
       "Product_ID": "7069036000002302022",
