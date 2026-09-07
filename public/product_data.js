@@ -61,8 +61,8 @@ window.PRODUCT_DATA = [
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
 	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cocktail", "tac-cat-tables"],
-      "Image": "https://redrockpartyrentals.com/images/cocktail-table.jpg",
-      "Images": ["https://redrockpartyrentals.com/images/cocktail-table.jpg"]
+      "Image": "https://redrockpartyrentals.com/images/cocktail-table-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/cocktail-table-0.png"]
     },
 
     {
