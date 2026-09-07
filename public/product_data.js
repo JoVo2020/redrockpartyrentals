@@ -11,9 +11,10 @@ window.PRODUCT_DATA = [
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
 	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
-      "Image": "https://redrockpartyrentals.com/images/table.jpg",
+      "Image": "https://redrockpartyrentals.com/images/6ft-table-0.png",
       "Images": [
-        "https://redrockpartyrentals.com/images/table.jpg",
+        "https://redrockpartyrentals.com/images/6ft-table-0.png",
+		"https://redrockpartyrentals.com/images/table.jpg",
         "https://redrockpartyrentals.com/images/6ft-table-2.png",
 		"https://redrockpartyrentals.com/images/6ft-table-1.png"
       ]
