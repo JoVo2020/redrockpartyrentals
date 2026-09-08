@@ -92,8 +92,11 @@ window.PRODUCT_DATA = [
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
 	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
-      "Image": "https://redrockpartyrentals.com/images/garden-chair-main.png",
-      "Images": ["https://redrockpartyrentals.com/images/garden-chair-main.png"]
+      "Image": "https://redrockpartyrentals.com/images/garden-chair-0.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/garden-chair-main.png",
+				"https://redrockpartyrentals.com/images/garden-chair-0.png"
+				]
     },
 
     {
