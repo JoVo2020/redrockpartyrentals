@@ -519,9 +519,9 @@ window.PRODUCT_DATA = [
     },
 	
     {
-      "Item_ID": "Pioneer_Speaker",
+      "Item_ID": "700W_Party_Speaker",
       "Product_ID": "7069036000003140001",
-      "Item Name": "Party Speaker",
+      "Item Name": "700W Party Speaker",
       "Item Description": "700 Watt Party Speaker. Comes with Wireless Mic and Speaker Tripod Stand. Must be plugged in for power.",
       "Quantity Available": 1,
       "Rental Price": 45,
@@ -529,7 +529,8 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "party-essentials",
 	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
       "Image": "https://redrockpartyrentals.com/images/speaker-1.png",
-      "Images": ["https://redrockpartyrentals.com/images/speaker-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/speaker-1.png",
 				"https://redrockpartyrentals.com/images/speaker-0.png",
 				"https://redrockpartyrentals.com/images/speaker-2.png",
 				"https://redrockpartyrentals.com/images/speaker-3.png",
@@ -537,7 +538,26 @@ window.PRODUCT_DATA = [
 				"https://redrockpartyrentals.com/images/speaker-5.png",
 				"https://redrockpartyrentals.com/images/speaker-6.png",
 				"https://redrockpartyrentals.com/images/speaker-7.png",
-				"https://redrockpartyrentals.com/images/speaker-8.png"]
+				"https://redrockpartyrentals.com/images/speaker-8.png"
+				]
+    },	
+	
+    {
+      "Item_ID": "2000W_Party_Speaker",
+      "Product_ID": "",
+      "Item Name": "2000W Party Speaker",
+      "Item Description": "2,000 Watt Party Speaker. Comes with Wireless Mic. Must be plugged in for power.",
+      "Quantity Available": 2,
+      "Rental Price": 65,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/monster-speaker-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/monster-speaker-3.png",
+				"https://redrockpartyrentals.com/images/monster-speaker-1.png",
+				"https://redrockpartyrentals.com/images/monster-speaker-2.png"
+				]
     },	
 	
     {
@@ -551,9 +571,11 @@ window.PRODUCT_DATA = [
 	  "CategoryPath": "party-essentials",
 	  "category_tags": ["party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
       "Image": "https://redrockpartyrentals.com/images/heater-1.png",
-      "Images": ["https://redrockpartyrentals.com/images/heater-2.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/heater-2.png",
 				"https://redrockpartyrentals.com/images/heater-1.png",
-				"https://redrockpartyrentals.com/images/heater-3.png"]
+				"https://redrockpartyrentals.com/images/heater-3.png"
+				]
     },	
 
 	
