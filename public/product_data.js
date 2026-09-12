@@ -539,6 +539,22 @@ window.PRODUCT_DATA = [
 				"https://redrockpartyrentals.com/images/speaker-7.png",
 				"https://redrockpartyrentals.com/images/speaker-8.png"]
     },	
+	
+    {
+      "Item_ID": "Patio_Heater",
+      "Product_ID": "7069036000003400028",
+      "Item Name": "Patio Heater",
+      "Item Description": "The modern and stylish pyramid design is a great option to elevate any outdoor entertainment space, and the 48,000 BTU heat output offers up to 20ft of heat range.",
+      "Quantity Available": 6,
+      "Rental Price": 85,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/heater-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/heater-2.png",
+				"https://redrockpartyrentals.com/images/heater-1.png",
+				"https://redrockpartyrentals.com/images/heater-3.png"]
+    },	
 
 	
     {
