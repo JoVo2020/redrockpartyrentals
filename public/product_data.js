@@ -422,7 +422,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Giant_Connect_4_Game",
       "Product_ID": "7069036000000633662",
-      "Item Name": "Giant Connect 4 Game",
+      "Item Name": "Giant Connect 4",
       "Item Description": "Giant Connect 4 game (4ft tall)",
       "Quantity Available": 3,
       "Rental Price": 25,
@@ -436,7 +436,7 @@ window.PRODUCT_DATA = [
       "Item_ID": "Corn_Hole_Game",
       "Product_ID": "7069036000001145063",
       "Item Name": "Corn Hole Game",
-      "Item Description": "Corn Hole game",
+      "Item Description": "Corn Hole",
       "Quantity Available": 2,
       "Rental Price": 25,
       "Category": "Games",
@@ -492,7 +492,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Giant_Jenga_Game",
       "Product_ID": "7069036000001145068",
-      "Item Name": "Giant Jenga Game",
+      "Item Name": "Giant Jenga",
       "Item Description": "Giant Jenga game, stacks over 5 feet high.",
       "Quantity Available": 2,
       "Rental Price": 25,
@@ -665,7 +665,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Tetris_Game",
       "Product_ID": "7069036000001905034",
-      "Item Name": "Tetris Tumble Game",
+      "Item Name": "Tetris Tumble",
       "Item Description": "Tetris Tumble game",
       "Quantity Available": 1,
       "Rental Price": 25,
