@@ -435,7 +435,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Corn_Hole_Game",
       "Product_ID": "7069036000001145063",
-      "Item Name": "Corn Hole Game",
+      "Item Name": "Corn Hole",
       "Item Description": "Corn Hole",
       "Quantity Available": 2,
       "Rental Price": 25,
