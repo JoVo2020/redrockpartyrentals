@@ -588,7 +588,7 @@ window.PRODUCT_DATA = [
 	
     {
       "Item_ID": "2000W_Party_Speaker",
-      "Product_ID": "",
+      "Product_ID": "7069036000003415003",
       "Item Name": "2000W Party Speaker",
       "Item Description": "2,000 Watt Party Speaker. Comes with Wireless Mic. Must be plugged in for power.",
       "Quantity Available": 2,
