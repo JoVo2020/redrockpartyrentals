@@ -51,39 +51,8 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/6ft-round-table.png",
       "Images": ["https://redrockpartyrentals.com/images/6ft-round-table.png"]
     },
-	
-	{
-      "Item_ID": "6ft_Wooden_Farm_Table",
-      "Product_ID": "7069036000003415005",
-      "Item Name": "6ft Wooden Farm Table",
-      "Item Description": "6ft wooden farm table with Chestnut finish. Seats up to 8 people (3 on each side, 1 one on each end)",
-      "Quantity Available": 10,
-      "Rental Price": 50,
-      "Category": "Tables And Chairs",
-	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
-      "Image": "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
-      "Images": [
-        "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
-        "https://redrockpartyrentals.com/images/6ft-chestnut-table-2.png",
-		"https://redrockpartyrentals.com/images/6ft-chestnut-table-4.png"
-		]
-    },
 
 
-    {
-      "Item_ID": "Cocktail_Table",
-      "Product_ID": "7069036000001145028",
-      "Item Name": "Cocktail Tables",
-      "Item Description": "Black bar height cocktail table",
-      "Quantity Available": 6,
-      "Rental Price": 15,
-      "Category": "Tables And Chairs",
-	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cocktail", "tac-cat-tables"],
-      "Image": "https://redrockpartyrentals.com/images/cocktail-table-0.png",
-      "Images": ["https://redrockpartyrentals.com/images/cocktail-table-0.png"]
-    },
 
     {
       "Item_ID": "Chair",
@@ -120,23 +89,19 @@ window.PRODUCT_DATA = [
     },
 	
     {
-      "Item_ID": "Chestnut_Resin_Chair",
-      "Product_ID": "7069036000003415009",
-      "Item Name": "Chestnut Resin Chairs",
-      "Item Description": "Chestnut resin folding chair with ivory cushion.",
-      "Quantity Available": 80,
-      "Rental Price": 4.50,
+      "Item_ID": "Cocktail_Table",
+      "Product_ID": "7069036000001145028",
+      "Item Name": "Cocktail Tables",
+      "Item Description": "Black bar height cocktail table",
+      "Quantity Available": 6,
+      "Rental Price": 15,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
-      "Image": "https://redrockpartyrentals.com/images/chestnut-chair-1.png",
-      "Images": [
-				"https://redrockpartyrentals.com/images/chestnut-chair-3.png",
-				"https://redrockpartyrentals.com/images/chestnut-chair-1.png",
-				"https://redrockpartyrentals.com/images/chestnut-chair2.png"
-				]
-    },
-
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cocktail", "tac-cat-tables"],
+      "Image": "https://redrockpartyrentals.com/images/cocktail-table-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/cocktail-table-0.png"]
+    },	
+	
     {
       "Item_ID": "Black_Bar_Stool",
       "Product_ID": "7069036000002423005",
@@ -162,7 +127,48 @@ window.PRODUCT_DATA = [
 	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
       "Image": "https://redrockpartyrentals.com/images/bar-stool-with-back-0.png",
       "Images": ["https://redrockpartyrentals.com/images/bar-stool-with-back-0.png"]
+    },	
+	
+	{
+      "Item_ID": "6ft_Wooden_Farm_Table",
+      "Product_ID": "7069036000003415005",
+      "Item Name": "6ft Wooden Farm Table",
+      "Item Description": "6ft wooden farm table with Chestnut finish. Seats up to 8 people (3 on each side, 1 one on each end)",
+      "Quantity Available": 10,
+      "Rental Price": 50,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
+      "Image": "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
+      "Images": [
+        "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
+        "https://redrockpartyrentals.com/images/6ft-chestnut-table-2.png",
+		"https://redrockpartyrentals.com/images/6ft-chestnut-table-4.png"
+		]
     },
+
+
+
+	
+    {
+      "Item_ID": "Chestnut_Resin_Chair",
+      "Product_ID": "7069036000003415009",
+      "Item Name": "Chestnut Resin Chairs",
+      "Item Description": "Chestnut resin folding chair with ivory cushion.",
+      "Quantity Available": 80,
+      "Rental Price": 4.50,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+      "Image": "https://redrockpartyrentals.com/images/chestnut-chair-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/chestnut-chair-3.png",
+				"https://redrockpartyrentals.com/images/chestnut-chair-1.png",
+				"https://redrockpartyrentals.com/images/chestnut-chair2.png"
+				]
+    },
+
+
 
     {
       "Item_ID": "White_Table_Cover",
