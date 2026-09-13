@@ -66,7 +66,7 @@ window.PRODUCT_DATA = [
       "Images": [
         "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
         "https://redrockpartyrentals.com/images/6ft-chestnut-table-2.png",
-		"https://redrockpartyrentals.com/images/6ft-chestnut-table-3.png"
+		"https://redrockpartyrentals.com/images/6ft-chestnut-table-4.png"
 		]
     },
 
