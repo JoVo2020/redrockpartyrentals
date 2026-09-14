@@ -240,7 +240,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "White_Round_Table_Cloths",
       "Product_ID": "7069036000002795004",
-      "Item Name": "White Round Table Cloths",
+      "Item Name": "White Round Table Cloth",
       "Item Description": "White Round Table Cloth, 120 inches. Fits 60in Round Tables.",
       "Quantity Available": 20,
       "Rental Price": 5,
@@ -254,7 +254,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Navy_Round_Table_Cloths",
       "Product_ID": "7069036000002795006",
-      "Item Name": "Navy Round Table Cloths",
+      "Item Name": "Navy Round Table Cloth",
       "Item Description": "Navy Round Table Cloth, 120 inches. Fits 60in Round Tables.",
       "Quantity Available": 20,
       "Rental Price": 5,
@@ -268,7 +268,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Black_Round_Table_Cloths",
       "Product_ID": "7069036000002795008",
-      "Item Name": "Black Round Table Cloths",
+      "Item Name": "Black Round Table Cloth",
       "Item Description": "Black Round Table Cloth, 120 inches. Fits 60in Round Tables.",
       "Quantity Available": 20,
       "Rental Price": 5,
@@ -282,7 +282,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Ivory_Round_Table_Cloths",
       "Product_ID": "7069036000002795010",
-      "Item Name": "Ivory Round Table Cloths",
+      "Item Name": "Ivory Round Table Cloth",
       "Item Description": "Ivory Round Table Cloth, 120 inches. Fits 60in Round Tables.",
       "Quantity Available": 20,
       "Rental Price": 5,
