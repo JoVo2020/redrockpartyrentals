@@ -200,8 +200,8 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Cream_Table_Cloth",
       "Product_ID": "7069036000001905024",
-      "Item Name": "Cream Table Cloth",
-      "Item Description": "Regular cream-colored rectangular table cloth, 70 inches x 120 inches.",
+      "Item Name": "Ivory Table Cloth",
+      "Item Description": "Regular ivory-colored rectangular table cloth, 70 inches x 120 inches.",
       "Quantity Available": 8,
       "Rental Price": 5,
       "Category": "Table Covers",
@@ -226,7 +226,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Fitted_Table_Cover",
       "Product_ID": "7069036000001145038",
-      "Item Name": "Fitted Table Cloth",
+      "Item Name": "White Fitted Table Cloth",
       "Item Description": "White, fitted table cloth for 6ft table.",
       "Quantity Available": 4,
       "Rental Price": 5,
@@ -296,7 +296,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Fitted_Cocktail_Table_Cover_White",
       "Product_ID": "7069036000001145043",
-      "Item Name": "Fitted Cocktail Table Cover (White)",
+      "Item Name": "White Fitted Cocktail Table Cover",
       "Item Description": "White, fitted, cocktail table cover",
       "Quantity Available": 2,
       "Rental Price": 5,
@@ -309,7 +309,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "Fitted_Cocktail_Table_Cover_Black",
       "Product_ID": "7069036000001467015",
-      "Item Name": "Fitted Cocktail Table Cover (Black)",
+      "Item Name": "Black Fitted Cocktail Table Cover",
       "Item Description": "Black, fitted, cocktail table cover",
       "Quantity Available": 2,
       "Rental Price": 5,
