@@ -26,7 +26,7 @@ window.PRODUCT_DATA = [
       "Item Name": "8ft Tables",
       "Item Description": "White plastic 8ft table. Seats up to 10 people (4 on each side, 1 one on each end)",
       "Quantity Available": 20,
-      "Rental Price": 12,
+      "Rental Price": 14,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
 	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
