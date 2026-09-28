@@ -418,6 +418,7 @@ async function placeOrderToN8N() {
 
   const dropoff = JSON.parse(localStorage.getItem('rrpr_dropoff'));
   const pickup = JSON.parse(localStorage.getItem('rrpr_pickup'));
+  const source = localStorage.getItem('Source'); // null if not set
 
   if (!cart.length || !contact || !address || !dropoff || !pickup) {
     alert('Missing order information. Please refresh and try again.');
@@ -467,7 +468,10 @@ async function placeOrderToN8N() {
     delivery_fee,
     tax,
     total,
-    notes
+    notes,
+
+    source: source,
+    channel: 'Website'
   };
   
   console.log("N8N payload:", payload);
