@@ -176,12 +176,35 @@ window.PRODUCT_DATA = [
       "Item Name": "White Table Cloth",
       "Item Description": "Regular white rectangular table cloth, 70 inches x 120 inches.",
       "Quantity Available": 8,
-      "Rental Price": 5,
+      "Rental Price": 10,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
 	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-cat-linens"],
       "Image": "https://redrockpartyrentals.com/images/tablecloth-regular.jpg",
-      "Images": ["https://redrockpartyrentals.com/images/tablecloth-regular.jpg"]
+      "Images": ["https://redrockpartyrentals.com/images/tablecloth-regular.jpg"],
+      "Sizes": [
+        { "Size": "70x120", "Product_ID": "7069036000001145033" },
+        { "Size": "96x156", "Product_ID": "7069036000001199999" }
+      ]
+    },
+
+    {
+      "Item_ID": "White_Table_Cover_XL",
+      "Product_ID": "7069036000003851009",
+      "Item Name": "XL White Table Cloth",
+      "Item Description": "Extra large white rectangular table cloth, 96 inches x 156 inches.",
+      "Quantity Available": 10,
+      "Rental Price": 12,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": [],
+	  "HideFromListings": true,
+      "Image": "https://redrockpartyrentals.com/images/white-xl-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/white-xl-table-cloth-1.png"],
+      "Sizes": [
+        { "Size": "70x120", "Product_ID": "7069036000001145033" },
+        { "Size": "96x156", "Product_ID": "7069036000001199999" }
+      ]
     },
 
     {

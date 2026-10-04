@@ -89,8 +89,10 @@
 		
 		<div style="margin-top:5px; margin-bottom:20px; font-size:18px; color:#505050;">
 		  <div id="productDescription"></div>
-		</div>	
-		
+		</div>
+
+		<div id="sizeOptions" class="size-options" style="display:none;"></div>
+
 		<div id="availabilityBadge" class="availability-badge badge-neutral" style="display:none;"></div>
 
 		
@@ -299,6 +301,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('productDescription').textContent =
     item["Item Description"];
 
+  renderSizeOptions(item);
   renderBreadcrumb(item);
 
   const badge = document.getElementById('availabilityBadge');
@@ -449,6 +452,39 @@ function updateBadge() {
   badge.className = "availability-badge badge-success";
 }
 
+
+
+
+function renderSizeOptions(item) {
+
+  const container = document.getElementById("sizeOptions");
+  const sizes = item["Sizes"];
+  if (!container || !sizes || sizes.length < 2) return;
+
+  const label = document.createElement("div");
+  label.className = "size-options-label";
+  label.textContent = "Size";
+  container.appendChild(label);
+
+  const list = document.createElement("div");
+  list.className = "size-options-list";
+
+  sizes.forEach(s => {
+    const isCurrent = s["Product_ID"] === item["Product_ID"];
+    const el = document.createElement(isCurrent ? "span" : "a");
+    el.className = "size-option" + (isCurrent ? " active" : "");
+    el.textContent = s["Size"];
+    if (isCurrent) {
+      el.setAttribute("aria-current", "true");
+    } else {
+      el.href = `/product?id=${encodeURIComponent(s["Product_ID"])}`;
+    }
+    list.appendChild(el);
+  });
+
+  container.appendChild(list);
+  container.style.display = "block";
+}
 
 
 

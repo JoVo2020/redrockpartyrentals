@@ -152,3 +152,43 @@
 	  border-color: #8b0000;
 	}
 
+	.size-options {
+	  margin-bottom: 20px;
+	}
+
+	.size-options-label {
+	  font-size: 14px;
+	  color: #777;
+	  margin-bottom: 6px;
+	}
+
+	.size-options-list {
+	  display: flex;
+	  gap: 8px;
+	  flex-wrap: wrap;
+	}
+
+	.size-option {
+	  display: inline-block;
+	  padding: 8px 14px;
+	  border: 2px solid #ddd;
+	  border-radius: 3px;
+	  font-family: 'Lora', serif;
+	  font-size: 16px;
+	  color: #505050;
+	  text-decoration: none;
+	  cursor: pointer;
+	  transition: border-color 0.15s;
+	}
+
+	.size-option:hover {
+	  border-color: #aaa;
+	}
+
+	.size-option.active,
+	.size-option.active:hover {
+	  border-color: #8b0000;
+	  color: #8b0000;
+	  cursor: default;
+	}
+

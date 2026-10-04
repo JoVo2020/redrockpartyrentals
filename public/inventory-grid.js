@@ -129,9 +129,18 @@ function renderInventory(items) {
   document.querySelectorAll('.accordion-item .rr-inventory-grid')
     .forEach(grid => grid.innerHTML = '');
 
+  // Products flagged HideFromListings in product_data.js (e.g. alternate sizes)
+  const hiddenIds = new Set(
+    (window.PRODUCT_DATA || [])
+      .filter(p => p.HideFromListings)
+      .map(p => String(p.Product_ID))
+  );
+
   items.forEach(item => {
 
 	console.log("Looking for category:", item.category);
+
+    if (hiddenIds.has(String(item.product_id))) return;
 
     // If category filter exists, enforce it
     if (window.categoryParam &&

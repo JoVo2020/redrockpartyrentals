@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryName = grid.getAttribute("data-category");
 
     // Filter products by category
-    const items = window.PRODUCT_DATA.filter(p => p["Category"] === categoryName);
+    const items = window.PRODUCT_DATA.filter(p => p["Category"] === categoryName && !p.HideFromListings);
 
     items.forEach(item => {
       const card = document.createElement("div");
