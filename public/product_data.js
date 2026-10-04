@@ -184,7 +184,7 @@ window.PRODUCT_DATA = [
       "Images": ["https://redrockpartyrentals.com/images/tablecloth-regular.jpg"],
       "Sizes": [
         { "Size": "70x120", "Product_ID": "7069036000001145033" },
-        { "Size": "96x156", "Product_ID": "7069036000001199999" }
+        { "Size": "96x156", "Product_ID": "7069036000003851009" }
       ]
     },
 
@@ -203,7 +203,7 @@ window.PRODUCT_DATA = [
       "Images": ["https://redrockpartyrentals.com/images/white-xl-table-cloth-1.png"],
       "Sizes": [
         { "Size": "70x120", "Product_ID": "7069036000001145033" },
-        { "Size": "96x156", "Product_ID": "7069036000001199999" }
+        { "Size": "96x156", "Product_ID": "7069036000003851009" }
       ]
     },
 
