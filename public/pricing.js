@@ -1,5 +1,5 @@
 const DELIVERY_FEE = 25.00;      // keep aligned with Zoho Books
-const SALES_TAX_RATE = 0.08375;
+const SALES_TAX_RATE = 0;          // was 0.08375 -- set back to re-enable tax
 
 function roundCents(n) {
   return Math.round((n + Number.EPSILON) * 100) / 100;
