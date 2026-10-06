@@ -134,11 +134,8 @@ function commitQty(id, value) {
 function renderCart() {
   const cart = getCart();
   const container = document.getElementById("cartItems");
-  const subtotalEl = document.getElementById("cartSubtotal");
-  const totalEl = document.getElementById("cartTotal");
 
   container.innerHTML = "";
-  let subtotal = 0;
 
   if (cart.length === 0) {
     container.innerHTML =
@@ -150,7 +147,6 @@ function renderCart() {
 
   cart.forEach(item => {
     const itemTotal = item.price * item.qty;
-    subtotal += itemTotal;
 
     const row = document.createElement("div");
     row.className = "cart-item";
@@ -210,9 +206,7 @@ function renderCart() {
   });
   if (earliestRefreshMs !== null) setTimeout(renderCart, earliestRefreshMs);
 
-  //subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-  const grandtotal = subtotal + 25;
-  totalEl.textContent = `$${grandtotal.toFixed(2)}`;
+  renderCartTotals(cart);
   
   
   //disable checkout button if cart is empty
@@ -234,6 +228,23 @@ function renderCart() {
   
   
   
+}
+
+function renderCartTotals(cart) {
+  const { subtotal, tax, total } = calculateOrderTotals(cart);
+  const isEmpty = cart.length === 0;
+
+  const values = {
+    cartSubtotal: subtotal,
+    cartDelivery: DELIVERY_FEE,
+    cartTax: isEmpty ? 0 : tax,
+    cartTotal: isEmpty ? 0 : total
+  };
+
+  Object.keys(values).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = formatMoney(values[id]);
+  });
 }
 
 /* --------------------

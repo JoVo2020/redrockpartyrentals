@@ -40,12 +40,10 @@ function renderCheckoutCart() {
   const cart = getCart();
   const container = document.getElementById('checkoutCartItems');
 
-  let subtotal = 0;
   container.innerHTML = '';
 
   cart.forEach(item => {
     const lineTotal = item.price * item.qty;
-    subtotal += lineTotal;
 
     const row = document.createElement('div');
     row.className = 'cart-row';
@@ -56,8 +54,18 @@ function renderCheckoutCart() {
     container.appendChild(row);
   });
 
-  document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById('total').textContent = `$${(subtotal + 25).toFixed(2)}`;
+  const { subtotal, tax, total } = calculateOrderTotals(cart);
+  const values = {
+    subtotal: subtotal,
+    delivery: DELIVERY_FEE,
+    tax: tax,
+    total: total
+  };
+
+  Object.keys(values).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = formatMoney(values[id]);
+  });
 }
 
 
@@ -332,23 +340,7 @@ function getOrderTotal() {
     return;
   }
 
-  const items = cart.map(item => ({
-    item_name: item.name,
-    product_id: item.product_id,   // must already exist on cart items
-    quantity: item.qty,
-    unit_price: item.price
-  }));
-
-  const subtotal = items.reduce(
-    (sum, i) => sum + (i.quantity * i.unit_price),
-    0
-  );
-
-  const delivery_fee = 25.00; // keep aligned with Zoho Books
-  const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
-  const total = +(subtotal + delivery_fee + tax).toFixed(2);
-
-  return total;
+  return calculateOrderTotals(cart).total;
 }
 
 async function payNow() {
@@ -434,14 +426,7 @@ async function placeOrderToN8N() {
     unit_price: item.price
   }));
 
-  const subtotal = items.reduce(
-    (sum, i) => sum + (i.quantity * i.unit_price),
-    0
-  );
-
-  const delivery_fee = 25; // keep aligned with Zoho Books
-  const tax = +(subtotal * 0.0).toFixed(2); // adjust if needed
-  const total = +(subtotal + delivery_fee + tax).toFixed(2);
+  const { subtotal, tax, total } = calculateOrderTotals(cart);
 
   const street_unit = `${address.street} ${address.unit}`;
 
@@ -465,7 +450,7 @@ async function placeOrderToN8N() {
 
     items,
     subtotal,
-    delivery_fee,
+    delivery_fee: DELIVERY_FEE,
     tax,
     total,
     notes,

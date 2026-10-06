@@ -139,12 +139,25 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
+  .order-summary__totals {
+    margin-top: 0.9rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .order-summary__line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
   .order-summary__total {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 0.9rem;
-    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
     border-top: 1px solid var(--border);
     font-size: 0.85rem;
     color: #333;
@@ -441,9 +454,11 @@
     <div class="order-summary__body" id="orderSummaryBody">
       <p class="order-summary__hint">Confirm your order, then set your dates below.</p>
       <div class="order-summary__items" id="orderSummaryItems"></div>
-      <div class="order-summary__total">
-        <span>Subtotal</span>
-        <strong id="orderSummarySubtotal">$0.00</strong>
+      <div class="order-summary__totals">
+        <div class="order-summary__line"><span>Subtotal</span><span id="orderSummarySubtotal">$0.00</span></div>
+        <div class="order-summary__line"><span>Delivery</span><span id="orderSummaryDelivery">$25.00</span></div>
+        <div class="order-summary__line"><span>Sales tax (8.375%)</span><span id="orderSummaryTax">$0.00</span></div>
+        <div class="order-summary__total"><span>Total</span><strong id="orderSummaryTotal">$0.00</strong></div>
       </div>
     </div>
   </div>
@@ -573,14 +588,10 @@
 
       <footer class="cart-footer">
         <div class="cart-summary">
-          <div class="cart-line">
-            <span>Delivery</span>
-            <strong id="cartSubtotal">$25.00</strong>
-          </div>
-          <div class="cart-line total">
-            <span>Total</span>
-            <strong id="cartTotal">$0.00</strong>
-          </div>
+          <div class="cart-line"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+          <div class="cart-line"><span>Delivery</span><strong id="cartDelivery">$25.00</strong></div>
+          <div class="cart-line"><span>Sales tax (8.375%)</span><strong id="cartTax">$0.00</strong></div>
+          <div class="cart-line total"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
         </div>
         <div class="button-row" style="display:flex;gap:10px;">
           <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
@@ -595,6 +606,7 @@
   <script src="navbar-scroll.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="availabilityService.js"></script>
+  <script src="pricing.js"></script>
   <script src="cart.js"></script>
   <script src="book-now-component.js"></script>
   <script src="dropoff_pickup_rules.js"></script>
@@ -614,14 +626,11 @@
     }
 
     var itemsEl = document.getElementById('orderSummaryItems');
-    var subtotalEl = document.getElementById('orderSummarySubtotal');
     var compactLineEl = document.getElementById('orderSummaryCompactLine');
     var qty = 0;
-    var subtotal = 0;
 
     itemsEl.innerHTML = cart.map(function (item) {
       var lineTotal = item.price * item.qty;
-      subtotal += lineTotal;
       qty += item.qty;
       return '<div class="order-summary__row">' +
         '<img class="order-summary__img" src="' + item.image + '" alt="">' +
@@ -633,9 +642,13 @@
       '</div>';
     }).join('');
 
-    subtotalEl.textContent = '$' + subtotal.toFixed(2);
+    var totals = calculateOrderTotals(cart);
+    document.getElementById('orderSummarySubtotal').textContent = formatMoney(totals.subtotal);
+    document.getElementById('orderSummaryDelivery').textContent = formatMoney(DELIVERY_FEE);
+    document.getElementById('orderSummaryTax').textContent = formatMoney(totals.tax);
+    document.getElementById('orderSummaryTotal').textContent = formatMoney(totals.total);
     if (compactLineEl) {
-      compactLineEl.textContent = qty + (qty === 1 ? ' item' : ' items') + ' · $' + subtotal.toFixed(2);
+      compactLineEl.textContent = qty + (qty === 1 ? ' item' : ' items') + ' · ' + formatMoney(totals.total);
     }
     card.style.display = 'block';
   }

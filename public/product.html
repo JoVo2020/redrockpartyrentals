@@ -203,14 +203,10 @@
 
 		<footer class="cart-footer">
 		  <div class="cart-summary">
-			<div class="cart-line">
-			  <span>Delivery</span>
-			  <strong id="cartSubtotal">$25.00</strong>
-			</div>
-			<div class="cart-line total">
-			  <span>Total</span>
-			  <strong id="cartTotal">$0.00</strong>
-			</div>
+		  	<div class="cart-line"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+		  	<div class="cart-line"><span>Delivery</span><strong id="cartDelivery">$25.00</strong></div>
+		  	<div class="cart-line"><span>Sales tax (8.375%)</span><strong id="cartTax">$0.00</strong></div>
+		  	<div class="cart-line total"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
 		  </div>
 
 			<div class="button-row" style="display:flex;gap:10px;">
@@ -229,6 +225,7 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="product_data.js"></script>
 <script src="availabilityService.js"></script>
+<script src="pricing.js"></script>
 <script src="cart.js"></script>
 <script src="book-now-component.js"></script>
 <script src="dropoff_pickup_rules.js"></script>
