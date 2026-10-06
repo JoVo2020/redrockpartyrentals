@@ -16,18 +16,18 @@ window.CLOSED_DAYS_OVERRIDES = [
   },
 
   {
-    label: "Sep 27",
-    event_date_start: "2026-09-27",
-    event_date_end:   "2026-09-27",
+    label: "Oct 10",
+    event_date_start: "2026-10-10",
+    event_date_end:   "2026-10-10",
     dropoff: [
-      { date: "2026-09-25", time: "4:00 PM – 8:00 PM", default: false },
-      { date: "2026-09-26", time: "4:00 PM – 8:00 PM", default: false },
-      { date: "2026-09-27", time: "7:00 AM – 12:00 PM", default: true  }
+      { date: "2026-10-08", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-10-09", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-10-10", time: "7:00 AM – 11:00 AM", default: true  }
     ],
     pickup: [
-      { date: "2026-09-27", time: "4:00 PM – 8:00 PM", default: true  },
-      { date: "2026-09-28", time: "4:00 PM – 8:00 PM", default: false },
-      { date: "2026-09-29", time: "4:00 PM – 8:00 PM", default: false }
+      { date: "2026-10-10", time: "4:00 PM – 8:00 PM", default: false  },
+      { date: "2026-10-11", time: "7:00 AM – 11:00 AM", default: false },
+      { date: "2026-10-11", time: "4:00 PM – 8:00 PM", default: true }
     ]
   },
   
