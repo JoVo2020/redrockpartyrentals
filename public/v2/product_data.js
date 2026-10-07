@@ -1,0 +1,776 @@
+
+window.PRODUCT_DATA = [
+
+	{
+      "Item_ID": "Table",
+      "Product_ID": "7069036000000622084",
+      "Item Name": "6ft Tables",
+      "Item Description": "White plastic 6ft table. Seats up to 8 people (3 on each side, 1 one on each end)",
+      "Quantity Available": 40,
+      "Rental Price": 10,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
+      "Image": "https://redrockpartyrentals.com/images/6ft-table-0.png",
+      "Images": [
+        "https://redrockpartyrentals.com/images/6ft-table-0.png",
+		"https://redrockpartyrentals.com/images/table.jpg",
+        "https://redrockpartyrentals.com/images/6ft-table-2.png",
+		"https://redrockpartyrentals.com/images/6ft-table-1.png"
+      ]
+    },
+
+	{
+      "Item_ID": "8ft_Table",
+      "Product_ID": "7069036000003301002",
+      "Item Name": "8ft Tables",
+      "Item Description": "White plastic 8ft table. Seats up to 10 people (4 on each side, 1 one on each end)",
+      "Quantity Available": 20,
+      "Rental Price": 14,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
+      "Image": "https://redrockpartyrentals.com/images/8ft-rectangular-table-1.png",
+      "Images": [
+        "https://redrockpartyrentals.com/images/8ft-rectangular-table-1.png",
+        "https://redrockpartyrentals.com/images/8ft-rectangular-table-2.png",
+		"https://redrockpartyrentals.com/images/8ft-rectangular-table-3.png"
+		]
+    },
+	
+	{
+      "Item_ID": "60in_Round_Table",
+      "Product_ID": "7069036000002302022",
+      "Item Name": "60in Round Tables",
+      "Item Description": "White plastic 60inch round table. Seats up to 8 people.",
+      "Quantity Available": 20,
+      "Rental Price": 12,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-round", "tac-cat-tables"],
+      "Image": "https://redrockpartyrentals.com/images/6ft-round-table.png",
+      "Images": ["https://redrockpartyrentals.com/images/6ft-round-table.png"]
+    },
+
+
+
+    {
+      "Item_ID": "Chair",
+      "Product_ID": "7069036000000633191",
+      "Item Name": "White Folding Chairs",
+      "Item Description": "White plastic folding chair",
+      "Quantity Available": 300,
+      "Rental Price": 1.50,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+      "Image": "https://redrockpartyrentals.com/images/white-folding-chair-0.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/chair3.jpg",
+				"https://redrockpartyrentals.com/images/white-folding-chair-0.png"
+				]
+    },
+
+    {
+      "Item_ID": "White_Garden_Chair",
+      "Product_ID": "7069036000002646007",
+      "Item Name": "White Garden Chairs",
+      "Item Description": "White resin folding chair with cushion.",
+      "Quantity Available": 160,
+      "Rental Price": 3.50,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+      "Image": "https://redrockpartyrentals.com/images/garden-chair-0.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/garden-chair-main.png",
+				"https://redrockpartyrentals.com/images/garden-chair-0.png"
+				]
+    },
+	
+    {
+      "Item_ID": "Cocktail_Table",
+      "Product_ID": "7069036000001145028",
+      "Item Name": "Cocktail Tables",
+      "Item Description": "Black bar height cocktail table",
+      "Quantity Available": 6,
+      "Rental Price": 15,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cocktail", "tac-cat-tables"],
+      "Image": "https://redrockpartyrentals.com/images/cocktail-table-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/cocktail-table-0.png"]
+    },	
+	
+    {
+      "Item_ID": "Black_Bar_Stool",
+      "Product_ID": "7069036000002423005",
+      "Item Name": "Black Bar Stool",
+      "Item Description": "Black bar stool",
+      "Quantity Available": 12,
+      "Rental Price": 8,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+      "Image": "https://redrockpartyrentals.com/images/bar-stool-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/bar-stool-0.png"]
+    },
+    {
+      "Item_ID": "Black_Bar_Stool_with_Back",
+      "Product_ID": "7069036000002423007",
+      "Item Name": "Black Bar Stool with Back",
+      "Item Description": "Black bar stool with Back",
+      "Quantity Available": 12,
+      "Rental Price": 10,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+      "Image": "https://redrockpartyrentals.com/images/bar-stool-with-back-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/bar-stool-with-back-0.png"]
+    },	
+	
+	{
+      "Item_ID": "6ft_Wooden_Farm_Table",
+      "Product_ID": "7069036000003415005",
+      "Item Name": "6ft Wooden Farm Table",
+      "Item Description": "6ft wooden farm table with Chestnut finish. Seats up to 8 people (3 on each side, 1 one on each end)",
+      "Quantity Available": 10,
+      "Rental Price": 50,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
+      "Image": "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
+      "Images": [
+        "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
+        "https://redrockpartyrentals.com/images/6ft-chestnut-table-2.png",
+		"https://redrockpartyrentals.com/images/6ft-chestnut-table-4.png"
+		]
+    },
+
+
+
+	
+    {
+      "Item_ID": "Chestnut_Resin_Chair",
+      "Product_ID": "7069036000003415009",
+      "Item Name": "Chestnut Resin Chairs",
+      "Item Description": "Chestnut resin folding chair with ivory cushion.",
+      "Quantity Available": 80,
+      "Rental Price": 4.50,
+      "Category": "Tables And Chairs",
+	  "CategoryPath": "tables-chairs",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+      "Image": "https://redrockpartyrentals.com/images/chestnut-chair-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/chestnut-chair-3.png",
+				"https://redrockpartyrentals.com/images/chestnut-chair-1.png",
+				"https://redrockpartyrentals.com/images/chestnut-chair2.png"
+				]
+    },
+
+
+
+    {
+      "Item_ID": "White_Table_Cover",
+      "Product_ID": "7069036000001145033",
+      "Item Name": "White Table Cloth",
+      "Item Description": "Regular white rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 8,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/tablecloth-regular.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/tablecloth-regular.jpg"],
+      "Sizes": [
+        { "Size": "70x120", "Product_ID": "7069036000001145033" },
+        { "Size": "96x156", "Product_ID": "7069036000003851009" }
+      ]
+    },
+
+    {
+      "Item_ID": "White_Table_Cover_XL",
+      "Product_ID": "7069036000003851009",
+      "Item Name": "XL White Table Cloth",
+      "Item Description": "Extra large white rectangular table cloth, 96 inches x 156 inches.",
+      "Quantity Available": 10,
+      "Rental Price": 12,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": [],
+	  "HideFromListings": true,
+      "Image": "https://redrockpartyrentals.com/images/white-xl-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/white-xl-table-cloth-1.png"],
+      "Sizes": [
+        { "Size": "70x120", "Product_ID": "7069036000001145033" },
+        { "Size": "96x156", "Product_ID": "7069036000003851009" }
+      ]
+    },
+
+    {
+      "Item_ID": "Beige_Table_Cloth",
+      "Product_ID": "7069036000001905019",
+      "Item Name": "Beige Table Cloth",
+      "Item Description": "Regular beige rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 8,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/table-cloth-beige.png",
+      "Images": ["https://redrockpartyrentals.com/images/table-cloth-beige.png"]
+    },
+    {
+      "Item_ID": "Cream_Table_Cloth",
+      "Product_ID": "7069036000001905024",
+      "Item Name": "Ivory Table Cloth",
+      "Item Description": "Regular ivory-colored rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 8,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/table-cloth-cream.png",
+      "Images": ["https://redrockpartyrentals.com/images/table-cloth-cream.png"]
+    },
+    {
+      "Item_ID": "Sage_Green_Table_Cloth",
+      "Product_ID": "7069036000002302007",
+      "Item Name": "Sage Green Table Cloth",
+      "Item Description": "Regular sage green rectangular table cloth, 70 inches x 120 inches.",
+      "Quantity Available": 5,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/sage-green-table-cloth.png",
+      "Images": ["https://redrockpartyrentals.com/images/sage-green-table-cloth.png"]
+    },
+    {
+      "Item_ID": "Fitted_Table_Cover",
+      "Product_ID": "7069036000001145038",
+      "Item Name": "White Fitted Table Cloth",
+      "Item Description": "White, fitted table cloth for 6ft table.",
+      "Quantity Available": 4,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/tablecloth-fitted.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/tablecloth-fitted.jpg"]
+    },
+	
+    {
+      "Item_ID": "White_Round_Table_Cloths",
+      "Product_ID": "7069036000002795004",
+      "Item Name": "White Round Table Cloth",
+      "Item Description": "White Round Table Cloth, 120 inches. Fits 60in Round Tables.",
+      "Quantity Available": 20,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-round", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/white-round-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/white-round-table-cloth-1.png"]
+    },
+	
+    {
+      "Item_ID": "Navy_Round_Table_Cloths",
+      "Product_ID": "7069036000002795006",
+      "Item Name": "Navy Round Table Cloth",
+      "Item Description": "Navy Round Table Cloth, 120 inches. Fits 60in Round Tables.",
+      "Quantity Available": 20,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-round", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/navy-round-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/navy-round-table-cloth-1.png"]
+    },
+	
+    {
+      "Item_ID": "Black_Round_Table_Cloths",
+      "Product_ID": "7069036000002795008",
+      "Item Name": "Black Round Table Cloth",
+      "Item Description": "Black Round Table Cloth, 120 inches. Fits 60in Round Tables.",
+      "Quantity Available": 20,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-round", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/black-round-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/black-round-table-cloth-1.png"]
+    },
+	
+    {
+      "Item_ID": "Ivory_Round_Table_Cloths",
+      "Product_ID": "7069036000002795010",
+      "Item Name": "Ivory Round Table Cloth",
+      "Item Description": "Ivory Round Table Cloth, 120 inches. Fits 60in Round Tables.",
+      "Quantity Available": 20,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-round", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/ivory-round-table-cloth-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/ivory-round-table-cloth-1.png"]
+    },
+	
+    {
+      "Item_ID": "Fitted_Cocktail_Table_Cover_White",
+      "Product_ID": "7069036000001145043",
+      "Item Name": "White Fitted Cocktail Table Cover",
+      "Item Description": "White, fitted, cocktail table cover",
+      "Quantity Available": 2,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg"]
+    },
+    {
+      "Item_ID": "Fitted_Cocktail_Table_Cover_Black",
+      "Product_ID": "7069036000001467015",
+      "Item Name": "Black Fitted Cocktail Table Cover",
+      "Item Description": "Black, fitted, cocktail table cover",
+      "Quantity Available": 2,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg"]
+    },
+    {
+      "Item_ID": "Fitted_Cocktail_Table_Cover_Pink",
+      "Product_ID": "7069036000002417001",
+      "Item Name": "Pink Fitted Cocktail Table Cover",
+      "Item Description": "Pink, fitted, cocktail table cover",
+      "Quantity Available": 6,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png",
+      "Images": ["https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png"]
+    },
+    {
+      "Item_ID": "White_Draped_Cocktail_Table_Cover",
+      "Product_ID": "7069036000002417003",
+      "Item Name": "White Draped Cocktail Table Cover",
+      "Item Description": "White, draped, cocktail table cover",
+      "Quantity Available": 6,
+      "Rental Price": 8,
+      "Category": "Table Covers",
+	  "CategoryPath": "table-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens"],
+      "Image": "https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png",
+      "Images": ["https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png"]
+    },
+    {
+      "Item_ID": "Blue_Table_Runner",
+      "Product_ID": "7069036000001145048",
+      "Item Name": "Blue Table Runner",
+      "Item Description": "Light Blue table runner",
+      "Quantity Available": 8,
+      "Rental Price": 3,
+      "Category": "Table Runners",
+	  "CategoryPath": "table-runners",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/tablerunner-dustyblue.jpg"]
+    },
+    {
+      "Item_ID": "Green_Table_Runner",
+      "Product_ID": "7069036000001145053",
+      "Item Name": "Green Table Runner",
+      "Item Description": "Sage Green table runner",
+      "Quantity Available": 8,
+      "Rental Price": 3,
+      "Category": "Table Runners",
+	  "CategoryPath": "table-runners",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-sagegreen.png",
+      "Images": ["https://redrockpartyrentals.com/images/tablerunner-sagegreen.png"]
+    },
+
+    {
+      "Item_ID": "White_Chair_Cover",
+      "Product_ID": "7069036000002423001",
+      "Item Name": "White Chair Cover",
+      "Item Description": "White, fitted chair cover",
+      "Quantity Available": 30,
+      "Rental Price": 3,
+      "Category": "Chair Covers",
+	  "CategoryPath": "chair-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs", "tac-chair-linens"],
+      "Image": "https://redrockpartyrentals.com/images/white-chair-cover.png",
+      "Images": ["https://redrockpartyrentals.com/images/white-chair-cover.png"]
+    },
+
+    {
+      "Item_ID": "Purple_Chair_Sash",
+      "Product_ID": "7069036000002423003",
+      "Item Name": "Purple Chair Sash",
+      "Item Description": "Purple Chair Sash",
+      "Quantity Available": 100,
+      "Rental Price": 2,
+      "Category": "Chair Covers",
+	  "CategoryPath": "chair-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs", "tac-chair-linens"],
+      "Image": "https://redrockpartyrentals.com/images/purple-chair-sash.png",
+      "Images": ["https://redrockpartyrentals.com/images/purple-chair-sash.png"]
+    },
+	
+    {
+      "Item_ID": "Gold_Chair_Sash",
+      "Product_ID": "7069036000002795012",
+      "Item Name": "Gold Chair Sash",
+      "Item Description": "Gold Chair Sash",
+      "Quantity Available": 100,
+      "Rental Price": 2,
+      "Category": "Chair Covers",
+	  "CategoryPath": "chair-covers",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cat-chairs", "tac-chair-linens"],
+      "Image": "https://redrockpartyrentals.com/images/gold-chair-sash-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/gold-chair-sash-1.png",
+				"https://redrockpartyrentals.com/images/gold-chair-sash-2.png",
+				"https://redrockpartyrentals.com/images/gold-chair-sash-3.png",
+				"https://redrockpartyrentals.com/images/gold-chair-sash-4.png"
+				]
+    },
+
+    {
+      "Item_ID": "Giant_Connect_4_Game",
+      "Product_ID": "7069036000000633662",
+      "Item Name": "Giant Connect 4",
+      "Item Description": "Giant Connect 4 game (4ft tall)",
+      "Quantity Available": 3,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["party-games", "tables-and-chairs-for-any-occasion-extras", "tac-cat-games"],
+      "Image": "https://redrockpartyrentals.com/images/GiantConnect4.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/GiantConnect4.jpg"]
+    },
+    {
+      "Item_ID": "Corn_Hole_Game",
+      "Product_ID": "7069036000001145063",
+      "Item Name": "Corn Hole",
+      "Item Description": "Corn Hole",
+      "Quantity Available": 2,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["beat-the-heat-extras", "party-games", "tables-and-chairs-for-any-occasion-extras", "tac-cat-games"],
+      "Image": "https://redrockpartyrentals.com/images/Cornhole.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/Cornhole.jpg"]
+    },
+	
+    {
+      "Item_ID": "Beer_Pong",
+      "Product_ID": "7069036000003140003",
+      "Item Name": "Beer Pong",
+      "Item Description": "Beer Pong Table",
+      "Quantity Available": 1,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["beat-the-heat-extras", "party-games", "tables-and-chairs-for-any-occasion-extras", "tac-cat-games"],
+      "Image": "https://redrockpartyrentals.com/images/beer-pong-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/beer-pong-0.png"]
+    },
+
+    {
+      "Item_ID": "Giant_Guess_Who",
+      "Product_ID": "7069036000003140005",
+      "Item Name": "Giant Guess Who",
+      "Item Description": "Giant Guess Who",
+      "Quantity Available": 1,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["party-games", "tables-and-chairs-for-any-occasion-extras", "tac-cat-games"],
+      "Image": "https://redrockpartyrentals.com/images/guess-who-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/guess-who-1.png",
+				"https://redrockpartyrentals.com/images/guess-who-0.png"]
+    },
+	
+    {
+      "Item_ID": "Giant_Lego_Set",
+      "Product_ID": "7069036000003140007",
+      "Item Name": "Giant Lego Set",
+      "Item Description": "96pc Giant Lego Set",
+      "Quantity Available": 1,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["party-games", "tables-and-chairs-for-any-occasion-extras", "tac-cat-games"],
+      "Image": "https://redrockpartyrentals.com/images/legos-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/legos-1.png"]
+    },
+	
+    {
+      "Item_ID": "Giant_Jenga_Game",
+      "Product_ID": "7069036000001145068",
+      "Item Name": "Giant Jenga",
+      "Item Description": "Giant Jenga game, stacks over 5 feet high.",
+      "Quantity Available": 2,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["beat-the-heat-extras", "party-games", "tables-and-chairs-for-any-occasion-extras", "tac-cat-games"],
+      "Image": "https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+      "Images": ["https://i5.walmartimages.com/seo/Trimate-Tumbling-Tower-Large-21-25-Double-Sanded-Smooth-Natural-Wood-54-Blocks-Durable-Portable-Carry-Bag-Indoor-Outdoor-Family-Party-Game-Age-8_9274de07-c8fd-4d0b-8249-1e555fbbdce5.54354e63fb4e82599fefa86bdcea4a1f.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF"]
+    },
+    {
+      "Item_ID": "Popcorn_Machine",
+      "Product_ID": "7069036000001340001",
+      "Item Name": "Popcorn Machine",
+      "Item Description": "Standing Popcorn Machine with supplies included. We'll follow up after your booking to ask about your expected guest count so we can include the right amount of supplies and serving cups for your event.",
+      "Quantity Available": 1,
+      "Rental Price": 75,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/popcorn-machine-1.png",
+      "Images": ["https://redrockpartyrentals.com/images/popcorn-machine-1.png"]
+    },
+
+    {
+      "Item_ID": "Mist_Fan",
+      "Product_ID": "7069036000002646003",
+      "Item Name": "Mist Fan",
+      "Item Description": "Beat the heat! Battery-powered mobile cooling station with a high-velocity fan and adjustable misting system. Essential for outdoor events.",
+      "Quantity Available": 4,
+      "Rental Price": 35,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["Other", "beat-the-heat", "party-games-extras"],
+      "Image": "https://redrockpartyrentals.com/images/mist-fan-4.png",
+      "Images": [
+		"https://redrockpartyrentals.com/images/mist-fan-4.png",
+		"https://redrockpartyrentals.com/images/mist-fan-main.png",
+		"https://redrockpartyrentals.com/images/mist-fan-2.png"
+		]
+    },
+
+    {
+      "Item_ID": "Fan",
+      "Product_ID": "7069036000002646005",
+      "Item Name": "Fan",
+      "Item Description": "High-powered fan. Great for outdoor events.",
+      "Quantity Available": 3,
+      "Rental Price": 25,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["Other", "beat-the-heat"],
+      "Image": "https://redrockpartyrentals.com/images/fan-main.png",
+      "Images": ["https://redrockpartyrentals.com/images/fan-main.png"]
+    },
+	
+    {
+      "Item_ID": "Standing_Cooler",
+      "Product_ID": "7069036000001145058",
+      "Item Name": "Standing Cooler",
+      "Item Description": "Standing, Coca-cola branded cooler",
+      "Quantity Available": 1,
+      "Rental Price": 30,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["beat-the-heat", "party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/StandingCooler.jpg",
+      "Images": ["https://redrockpartyrentals.com/images/StandingCooler.jpg"]
+    },
+	
+    {
+      "Item_ID": "700W_Party_Speaker",
+      "Product_ID": "7069036000003140001",
+      "Item Name": "700W Party Speaker",
+      "Item Description": "700 Watt Party Speaker. Comes with Wireless Mic and Speaker Tripod Stand. Must be plugged in for power.",
+      "Quantity Available": 1,
+      "Rental Price": 45,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/speaker-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/speaker-1.png",
+				"https://redrockpartyrentals.com/images/speaker-0.png",
+				"https://redrockpartyrentals.com/images/speaker-2.png",
+				"https://redrockpartyrentals.com/images/speaker-3.png",
+				"https://redrockpartyrentals.com/images/speaker-4.png",
+				"https://redrockpartyrentals.com/images/speaker-5.png",
+				"https://redrockpartyrentals.com/images/speaker-6.png",
+				"https://redrockpartyrentals.com/images/speaker-7.png",
+				"https://redrockpartyrentals.com/images/speaker-8.png"
+				]
+    },	
+	
+    {
+      "Item_ID": "2000W_Party_Speaker",
+      "Product_ID": "7069036000003415003",
+      "Item Name": "2000W Party Speaker",
+      "Item Description": "2,000 Watt Party Speaker. Comes with Wireless Mic. Must be plugged in for power.",
+      "Quantity Available": 2,
+      "Rental Price": 65,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/monster-speaker-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/monster-speaker-3.png",
+				"https://redrockpartyrentals.com/images/monster-speaker-1.png",
+				"https://redrockpartyrentals.com/images/monster-speaker-2.png"
+				]
+    },	
+	
+    {
+      "Item_ID": "Patio_Heater",
+      "Product_ID": "7069036000003400028",
+      "Item Name": "Patio Heater",
+      "Item Description": "The modern and stylish pyramid design is a great option to elevate any outdoor entertainment space, and the 48,000 BTU heat output offers up to 20ft of heat range.",
+      "Quantity Available": 6,
+      "Rental Price": 85,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/heater-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/heater-2.png",
+				"https://redrockpartyrentals.com/images/heater-1.png",
+				"https://redrockpartyrentals.com/images/heater-3.png"
+				]
+    },	
+
+	
+    {
+      "Item_ID": "Pink_Table_Runner",
+      "Product_ID": "7069036000001467020",
+      "Item Name": "Pink Table Runner",
+      "Item Description": "Light pink table runner",
+      "Quantity Available": 8,
+      "Rental Price": 3,
+      "Category": "Table Runners",
+	  "CategoryPath": "table-runners",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-lightpink.png",
+      "Images": ["https://redrockpartyrentals.com/images/tablerunner-lightpink.png"]
+    },
+    {
+      "Item_ID": "Beige_Table_Runner",
+      "Product_ID": "7069036000001467025",
+      "Item Name": "Beige Table Runner",
+      "Item Description": "Beige table runner",
+      "Quantity Available": 8,
+      "Rental Price": 3,
+      "Category": "Table Runners",
+	  "CategoryPath": "table-runners",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-beige.png",
+      "Images": ["https://redrockpartyrentals.com/images/tablerunner-beige.png"]
+    },
+    {
+      "Item_ID": "Orange_Table_Runner",
+      "Product_ID": "7069036000001467030",
+      "Item Name": "Burnt Orange Table Runner",
+      "Item Description": "Burnt Orange table runner",
+      "Quantity Available": 8,
+      "Rental Price": 3,
+      "Category": "Table Runners",
+	  "CategoryPath": "table-runners",
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-rectangular", "tac-round", "tac-cat-linens", "tac-table-runner"],
+      "Image": "https://redrockpartyrentals.com/images/tablerunner-dustyorange.png",
+      "Images": ["https://redrockpartyrentals.com/images/tablerunner-dustyorange.png"]
+    },
+    {
+      "Item_ID": "Tetris_Game",
+      "Product_ID": "7069036000001905034",
+      "Item Name": "Tetris Tumble",
+      "Item Description": "Tetris Tumble game",
+      "Quantity Available": 1,
+      "Rental Price": 25,
+      "Category": "Games",
+	  "CategoryPath": "games",
+	  "category_tags": ["party-games", "tables-and-chairs-for-any-occasion-extras", "tac-cat-games"],
+      "Image": "https://redrockpartyrentals.com/images/tetris-0.png",
+      "Images": ["https://redrockpartyrentals.com/images/tetris-0.png",
+				"https://redrockpartyrentals.com/images/tetris-1.png",
+				"https://redrockpartyrentals.com/images/tetris-2.png",
+				"https://redrockpartyrentals.com/images/tetris-3.png"]
+    },
+    {
+      "Item_ID": "Marquee_BABY",
+      "Product_ID": "7069036000001905029",
+      "Item Name": "4ft Marquee Letters - BABY",
+      "Item Description": "4ft Marquee Light-up Letters BABY",
+      "Quantity Available": 1,
+      "Rental Price": 150,
+      "Category": "Marquee Letters",
+	  "CategoryPath": "marquee-letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-BABY.png",
+      "Images": ["https://redrockpartyrentals.com/images/marquee-BABY.png"]
+    },
+    {
+      "Item_ID": "Marquee_GIRL",
+      "Product_ID": "7069036000001905039",
+      "Item Name": "4ft Marquee Letters - GIRL",
+      "Item Description": "4ft Marquee Light-up Letters GIRL",
+      "Quantity Available": 1,
+      "Rental Price": 150,
+      "Category": "Marquee Letters",
+	  "CategoryPath": "marquee-letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-GIRL.png",
+      "Images": ["https://redrockpartyrentals.com/images/marquee-GIRL.png"]
+    },
+    {
+      "Item_ID": "Marquee_BOY",
+      "Product_ID": "7069036000001905044",
+      "Item Name": "4ft Marquee Letters - BOY",
+      "Item Description": "4ft Marquee Light-up Letters BOY",
+      "Quantity Available": 1,
+      "Rental Price": 125,
+      "Category": "Marquee Letters",
+	  "CategoryPath": "marquee-letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-BOY.png",
+      "Images": ["https://redrockpartyrentals.com/images/marquee-BOY.png"]
+    },
+    {
+      "Item_ID": "Marquee_GRAD",
+      "Product_ID": "7069036000001905049",
+      "Item Name": "4ft Marquee Letters - GRAD",
+      "Item Description": "4ft Marquee Light-up Letters GRAD",
+      "Quantity Available": 1,
+      "Rental Price": 150,
+      "Category": "Marquee Letters",
+	  "CategoryPath": "marquee-letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-GRAD.png",
+      "Images": ["https://redrockpartyrentals.com/images/marquee-GRAD.png"]
+    },
+    {
+      "Item_ID": "Marquee_LOVE",
+      "Product_ID": "7069036000001905054",
+      "Item Name": "4ft Marquee Letters - LOVE",
+      "Item Description": "4ft Marquee Light-up Letters LOVE",
+      "Quantity Available": 1,
+      "Rental Price": 150,
+      "Category": "Marquee Letters",
+	  "CategoryPath": "marquee-letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-LOVE.png",
+      "Images": ["https://redrockpartyrentals.com/images/marquee-LOVE.png"]
+    },
+    {
+      "Item_ID": "Marquee_XV",
+      "Product_ID": "7069036000001905059",
+      "Item Name": "4ft Marquee Letters - XV",
+      "Item Description": "4ft Marquee Light-up Letters XV",
+      "Quantity Available": 1,
+      "Rental Price": 100,
+      "Category": "Marquee Letters",
+	  "CategoryPath": "marquee-letters",
+      "Image": "https://redrockpartyrentals.com/images/marquee-XV.png",
+      "Images": ["https://redrockpartyrentals.com/images/marquee-XV.png"]
+    }
+];
