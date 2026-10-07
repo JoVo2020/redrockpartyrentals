@@ -511,20 +511,24 @@ function showCartChangesBanner(changes) {
     'box-shadow:0 4px 16px rgba(0,0,0,0.15); padding:14px 40px 14px 16px; font-size:15px; line-height:1.4;';
 
   const message = document.createElement('div');
-  message.appendChild(document.createTextNode('We re-checked availability for your dates: '));
+  message.textContent = 'Some items in your cart are no longer available for the selected dates:';
+  banner.appendChild(message);
 
-  const parts = [];
-  changes.unavailable.forEach(name => parts.push([name, ' is no longer available.']));
-  changes.reduced.forEach(r => parts.push([r.name, ` reduced to ${r.qty}.`]));
+  const lines = [];
+  changes.unavailable.forEach(name => lines.push([name, ' - no longer available']));
+  changes.reduced.forEach(r => lines.push([r.name, ` - only ${r.qty} available`]));
 
-  parts.forEach(([name, text], i) => {
-    if (i > 0) message.appendChild(document.createTextNode(' '));
+  const list = document.createElement('div');
+  list.style.cssText = 'margin-top:6px;';
+  lines.forEach(([name, text]) => {
+    const line = document.createElement('div');
     const strong = document.createElement('strong');
     strong.textContent = name;
-    message.appendChild(strong);
-    message.appendChild(document.createTextNode(text));
+    line.appendChild(strong);
+    line.appendChild(document.createTextNode(text));
+    list.appendChild(line);
   });
-  banner.appendChild(message);
+  banner.appendChild(list);
 
   if (document.getElementById('cartOverlay')) {
     const viewBtn = document.createElement('button');
