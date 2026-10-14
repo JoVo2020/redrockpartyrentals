@@ -631,7 +631,7 @@ window.PRODUCT_DATA = [
       "Item_ID": "Patio_Heater",
       "Product_ID": "7069036000003400028",
       "Item Name": "Patio Heater",
-      "Item Description": "The modern and stylish pyramid design is a great option to elevate any outdoor entertainment space, and the 48,000 BTU heat output offers up to 20ft of heat range.",
+      "Item Description": "The modern and stylish pyramid design is a great option to elevate any outdoor space, and the 44,000 BTU heat output offers up to 15ft of heat range.",
       "Quantity Available": 6,
       "Rental Price": 85,
       "Category": "Other",
