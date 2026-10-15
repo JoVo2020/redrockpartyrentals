@@ -1,5 +1,53 @@
 window.CLOSED_DAYS_OVERRIDES = [
+ 
 
+  {
+    label: "Dec 28-29",
+    event_date_start: "2026-12-28",
+    event_date_end:   "2026-12-29",
+    dropoff: [
+      { date: "2026-12-26", time: "7:00 AM – 11:00 AM", default: false },
+      { date: "2026-12-26", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-12-28", time: "4:00 PM – 8:00 PM", default: true  }
+    ],
+    pickup: [
+      { date: "2026-12-29", time: "4:00 PM – 8:00 PM", default: true  },
+      { date: "2026-12-30", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-12-31", time: "4:00 PM – 8:00 PM", default: false }
+    ]
+  },
+
+  {
+    label: "Dec 27",
+    event_date_start: "2026-12-27",
+    event_date_end:   "2026-12-27",
+    dropoff: [
+      { date: "2026-12-23", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-12-26", time: "7:00 AM – 11:00 AM", default: false },
+      { date: "2026-12-26", time: "4:00 PM – 8:00 PM", default: true  }
+    ],
+    pickup: [
+      { date: "2026-12-28", time: "4:00 PM – 8:00 PM", default: true  },
+      { date: "2026-12-29", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-12-30", time: "4:00 PM – 8:00 PM", default: false }
+    ]
+  },
+  
+  {
+    label: "Dec 26",
+    event_date_start: "2026-12-26",
+    event_date_end:   "2026-12-26",
+    dropoff: [
+      { date: "2026-12-22", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-12-23", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-12-26", time: "7:00 AM – 11:00 AM", default: true  }
+    ],
+    pickup: [
+      { date: "2026-12-26", time: "4:00 PM – 8:00 PM", default: false  },
+      { date: "2026-12-28", time: "4:00 PM – 8:00 PM", default: true },
+      { date: "2026-12-29", time: "4:00 PM – 8:00 PM", default: false }
+    ]
+  },
   
   {
     label: "Dec 23-25",
