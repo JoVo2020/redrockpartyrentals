@@ -1,5 +1,71 @@
 window.CLOSED_DAYS_OVERRIDES = [
 
+  
+  {
+    label: "Nov 28",
+    event_date_start: "2026-11-28",
+    event_date_end:   "2026-11-28",
+    dropoff: [
+      { date: "2026-11-25", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-27", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-28", time: "7:00 AM – 11:00 AM", default: true  }
+    ],
+    pickup: [
+      { date: "2026-11-28", time: "4:00 PM – 8:00 PM", default: false  },
+      { date: "2026-11-29", time: "7:00 AM – 11:00 AM", default: true },
+      { date: "2026-11-29", time: "4:00 PM – 8:00 PM", default: false }
+    ]
+  },
+
+  {
+    label: "Nov 27",
+    event_date_start: "2026-11-27",
+    event_date_end:   "2026-11-27",
+    dropoff: [
+      { date: "2026-11-24", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-25", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-27", time: "5:00 PM – 8:00 PM", default: true  }
+    ],
+    pickup: [
+      { date: "2026-11-28", time: "7:00 AM – 11:00 AM", default: true  },
+      { date: "2026-11-28", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-29", time: "7:00 AM – 11:00 AM", default: false }
+    ]
+  },
+  
+  {
+    label: "Nov 25-26",
+    event_date_start: "2026-11-25",
+    event_date_end:   "2026-11-26",
+    dropoff: [
+      { date: "2026-11-23", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-24", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-25", time: "5:00 PM – 8:00 PM", default: true  }
+    ],
+    pickup: [
+      { date: "2026-11-27", time: "5:00 PM – 8:00 PM", default: true  },
+      { date: "2026-11-28", time: "7:00 AM – 11:00 AM", default: false },
+      { date: "2026-11-28", time: "4:00 PM – 8:00 PM", default: false }
+    ]
+  },
+  
+  {
+    label: "Nov 23-24",
+    event_date_start: "2026-11-23",
+    event_date_end:   "2026-11-24",
+    dropoff: [
+      { date: "2026-11-22", time: "7:00 AM – 11:00 AM", default: false },
+      { date: "2026-11-22", time: "4:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-23", time: "5:00 PM – 8:00 PM", default: true  }
+    ],
+    pickup: [
+      { date: "2026-11-25", time: "5:00 PM – 8:00 PM", default: true  },
+      { date: "2026-11-27", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-28", time: "7:00 AM – 11:00 AM", default: false }
+    ]
+  },
+  
+
   {
     label: "Nov 1",
     event_date_start: "2026-11-01",
