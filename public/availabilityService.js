@@ -16,6 +16,7 @@ window.AvailabilityService = (function () {
 
 
   let inflightPromise = null;
+  let inflightKey = null;
 
   /* -------------------------
      Utilities
@@ -180,12 +181,15 @@ window.AvailabilityService = (function () {
 
   async function fetchAvailability(start, end) {
 
-    if (inflightPromise) return inflightPromise;
+    // Only share an in-flight request when it's for the same dates
+    const key = `${start}|${end}`;
+    if (inflightPromise && inflightKey === key) return inflightPromise;
 
     const url =
       `${AVAILABILITY_ENDPOINT}&start_date=${start}&end_date=${end}`;
 
-    inflightPromise = fetch(url)
+    inflightKey = key;
+    const promise = fetch(url)
       .then(res => {
         if (!res.ok) {
           throw new Error('Availability request failed');
@@ -193,10 +197,11 @@ window.AvailabilityService = (function () {
         return res.json();
       })
       .finally(() => {
-        inflightPromise = null;
+        if (inflightPromise === promise) inflightPromise = null;
       });
 
-    return inflightPromise;
+    inflightPromise = promise;
+    return promise;
   }
 
   /* -------------------------
@@ -237,6 +242,12 @@ window.AvailabilityService = (function () {
     });
 
     const prevState = readState() || {};
+
+    // The rental dates changed while this request was out — don't overwrite the newer range
+    if (prevState.start_date && (prevState.start_date !== start || prevState.end_date !== end)) {
+      return availabilityByProductId;
+    }
+
     writeState({
       start_date: response.start_date,
       end_date: response.end_date,
