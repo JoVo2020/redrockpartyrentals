@@ -646,6 +646,39 @@ window.PRODUCT_DATA = [
 				]
     },	
 
+    {
+      "Item_ID": "Square_Fire_Pit",
+      "Product_ID": "7069036000004065002",
+      "Item Name": "Square Fire Pit",
+      "Item Description": "Square fire pit. Propane tank included.",
+      "Quantity Available": 2,
+      "Rental Price": 75,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/small-fire-pit-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/small-fire-pit-1.png",
+				]
+    },	
+
+    {
+      "Item_ID": "Oval_Fire_Pit",
+      "Product_ID": "7069036000004065004",
+      "Item Name": "Oval Fire Pit",
+      "Item Description": "Oval fire pit. Propane tank included.",
+      "Quantity Available": 2,
+      "Rental Price": 100,
+      "Category": "Other",
+	  "CategoryPath": "party-essentials",
+	  "category_tags": ["party-games-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+      "Image": "https://redrockpartyrentals.com/images/oval-fire-pit-1.png",
+      "Images": [
+				"https://redrockpartyrentals.com/images/oval-fire-pit-1.png",
+				]
+    },	
+
+
 	
     {
       "Item_ID": "Pink_Table_Runner",
