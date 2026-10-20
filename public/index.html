@@ -1110,13 +1110,11 @@
   <script>
   (function () {
     // ── DATE PICKERS ──
-    var tomorrowDate = new Date();
-    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
-
+    // minEventDate comes from book-now-component.js (set MIN_EVENT_DATE there)
     var heroCfg = {
       disableMobile: true,
       dateFormat: 'm/d/Y',
-      minDate: tomorrowDate
+      minDate: minEventDate
     };
 
     flatpickr('#heroDate', heroCfg);

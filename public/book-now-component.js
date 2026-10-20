@@ -1,4 +1,7 @@
-  
+// Earliest event date customers can pick (YYYY-MM-DD).
+// The picker uses whichever is later: this date or tomorrow.
+const MIN_EVENT_DATE = '2026-10-27';
+
 document.addEventListener('DOMContentLoaded', () => {
 	const btn = document.getElementById('findRentalsBtn');
 	if (!btn) return; // fail quietly if button isn't on this page
@@ -28,10 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
+// Build as a local date; new Date('YYYY-MM-DD') would parse as UTC and land a day early in Vegas
+const [minYear, minMonth, minDay] = MIN_EVENT_DATE.split('-').map(Number);
+const minEventDate = new Date(Math.max(new Date(minYear, minMonth - 1, minDay), tomorrow));
   flatpickr("#dateStart", {
 	disableMobile: true,
     dateFormat: "m/d/Y",
-    minDate: tomorrow,
+    minDate: minEventDate,
     onChange: function(selectedDates, dateStr) {
       if (!dateStr) return;
       const [month, day, year] = dateStr.split('/');
@@ -101,7 +107,7 @@ flatpickr("#dateStart2", {
 	appendTo: document.getElementById("cart-panel-booking-form"),
 	disableMobile: true,
 	dateFormat: "m/d/Y",
-	minDate: tomorrow,
+	minDate: minEventDate,
 	position: "top left",
   
 	onChange: function(selectedDates, dateStr) {
