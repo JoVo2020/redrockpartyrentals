@@ -1,6 +1,6 @@
 // Earliest event date customers can pick (YYYY-MM-DD).
 // The picker uses whichever is later: this date or tomorrow.
-const MIN_EVENT_DATE = '2026-10-27';
+const MIN_EVENT_DATE = '2026-10-01';
 
 document.addEventListener('DOMContentLoaded', () => {
 	const btn = document.getElementById('findRentalsBtn');
