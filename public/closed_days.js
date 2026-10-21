@@ -212,19 +212,6 @@ window.CLOSED_DAYS_OVERRIDES = [
   },
   
   {
-    label: "Michigan Trip Oct 2026",
-    event_date_start: "2026-10-23",
-    event_date_end:   "2026-10-27",
-    dropoff: [
-      { date: "2026-10-20", time: "5:00 PM – 8:00 PM", default: false },
-      { date: "2026-10-21", time: "5:00 PM – 8:00 PM", default: true }
-    ],
-    pickup: [
-      { date: "2026-10-27", time: "5:00 PM – 8:00 PM", default: true },
-      { date: "2026-10-28", time: "5:00 PM – 8:00 PM", default: false }
-    ]
-  },
-  {
     label: "Seattle Trip 2026",
     event_date_start: "2026-07-09",
     event_date_end:   "2026-07-15",
