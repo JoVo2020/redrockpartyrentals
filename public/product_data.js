@@ -10,7 +10,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/6ft-table-0.png",
       "Images": [
         "https://redrockpartyrentals.com/images/6ft-table-0.png",
@@ -29,7 +29,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 14,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/8ft-rectangular-table-1.png",
       "Images": [
         "https://redrockpartyrentals.com/images/8ft-rectangular-table-1.png",
@@ -47,7 +47,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 12,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-round", "tac-cat-tables"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-round", "tac-cat-tables", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/6ft-round-table.png",
       "Images": ["https://redrockpartyrentals.com/images/6ft-round-table.png"]
     },
@@ -63,7 +63,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 1.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/white-folding-chair-0.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/chair3.jpg",
@@ -80,7 +80,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 3.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/garden-chair-0.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/garden-chair-main.png",
@@ -97,7 +97,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 15,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-cocktail", "tac-cat-tables"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-cocktail", "tac-cat-tables", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-table-0.png",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-table-0.png"]
     },	
@@ -111,7 +111,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 8,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/bar-stool-0.png",
       "Images": ["https://redrockpartyrentals.com/images/bar-stool-0.png"]
     },
@@ -124,7 +124,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 10,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion", "tac-cat-chairs", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/bar-stool-with-back-0.png",
       "Images": ["https://redrockpartyrentals.com/images/bar-stool-with-back-0.png"]
     },	
@@ -138,7 +138,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-rectangular", "tac-cat-tables", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
       "Images": [
         "https://redrockpartyrentals.com/images/6ft-chestnut-table-1.png",
@@ -159,7 +159,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 4.50,
       "Category": "Tables And Chairs",
 	  "CategoryPath": "tables-chairs",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion", "tac-cat-chairs", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/chestnut-chair-1.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/chestnut-chair-3.png",
@@ -325,7 +325,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 8,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-tablecover-white.jpg"]
     },
@@ -338,7 +338,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 8,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg",
       "Images": ["https://redrockpartyrentals.com/images/cocktail-tablecover-black.jpg"]
     },
@@ -351,7 +351,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 8,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png",
       "Images": ["https://redrockpartyrentals.com/images/pink-fitted-cocktail-table-cover.png"]
     },
@@ -364,7 +364,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 8,
       "Category": "Table Covers",
 	  "CategoryPath": "table-covers",
-	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens"],
+	  "category_tags": ["tables-and-chairs-for-any-occasion-linens", "tac-cocktail", "tac-cat-linens", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png",
       "Images": ["https://redrockpartyrentals.com/images/draped-white-cocktail-table-cover.png"]
     },
@@ -534,7 +534,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 75,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+	  "category_tags": ["party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/popcorn-machine-1.png",
       "Images": ["https://redrockpartyrentals.com/images/popcorn-machine-1.png"]
     },
@@ -580,7 +580,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 30,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["beat-the-heat", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+	  "category_tags": ["beat-the-heat", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/StandingCooler.jpg",
       "Images": ["https://redrockpartyrentals.com/images/StandingCooler.jpg"]
     },
@@ -594,7 +594,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 45,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/speaker-1.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/speaker-1.png",
@@ -618,7 +618,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 65,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+	  "category_tags": ["beat-the-heat-extras", "party-games-extras", "outdoor-heaters-extras", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras", "cocktail-party-extras"],
       "Image": "https://redrockpartyrentals.com/images/monster-speaker-1.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/monster-speaker-3.png",
@@ -636,7 +636,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 85,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["party-games-extras", "outdoor-heaters", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+	  "category_tags": ["party-games-extras", "outdoor-heaters", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/heater-1.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/heater-2.png",
@@ -655,7 +655,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 75,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["party-games-extras", "outdoor-heaters", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+	  "category_tags": ["party-games-extras", "outdoor-heaters", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/small-fire-pit-1.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/small-fire-pit-1.png",
@@ -671,7 +671,7 @@ window.PRODUCT_DATA = [
       "Rental Price": 100,
       "Category": "Other",
 	  "CategoryPath": "party-essentials",
-	  "category_tags": ["party-games-extras", "outdoor-heaters", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras"],
+	  "category_tags": ["party-games-extras", "outdoor-heaters", "tables-and-chairs-for-any-occasion-extras", "tac-cat-extras", "cocktail-party"],
       "Image": "https://redrockpartyrentals.com/images/oval-fire-pit-1.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/oval-fire-pit-1.png",
