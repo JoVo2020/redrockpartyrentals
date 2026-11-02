@@ -148,8 +148,8 @@ window.CLOSED_DAYS_OVERRIDES = [
  
   {
     label: "Nov 8",
-    event_date_start: "2026-11-07",
-    event_date_end:   "2026-11-07",
+    event_date_start: "2026-11-08",
+    event_date_end:   "2026-11-08",
     dropoff: [
       { date: "2026-11-06", time: "5:00 PM – 8:00 PM", default: false },
       { date: "2026-11-07", time: "4:00 PM – 8:00 PM", default: true },
