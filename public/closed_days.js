@@ -174,7 +174,7 @@ window.CLOSED_DAYS_OVERRIDES = [
     pickup: [
       { date: "2026-11-07", time: "4:00 PM – 8:00 PM", default: false  },
       { date: "2026-11-08", time: "1:00 PM – 4:00 PM", default: true },
-      { date: "2026-11-03", time: "4:00 PM – 8:00 PM", default: false }
+      { date: "2026-11-08", time: "4:00 PM – 8:00 PM", default: false }
     ]
   },
 
