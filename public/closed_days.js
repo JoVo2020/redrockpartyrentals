@@ -145,7 +145,38 @@ window.CLOSED_DAYS_OVERRIDES = [
       { date: "2026-11-28", time: "7:00 AM – 11:00 AM", default: false }
     ]
   },
-  
+ 
+  {
+    label: "Nov 8",
+    event_date_start: "2026-11-07",
+    event_date_end:   "2026-11-07",
+    dropoff: [
+      { date: "2026-11-06", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-07", time: "4:00 PM – 8:00 PM", default: true },
+      { date: "2026-11-08", time: "1:00 PM – 4:00 PM", default: false  }
+    ],
+    pickup: [
+      { date: "2026-11-08", time: "4:00 PM – 8:00 PM", default: false  },
+      { date: "2026-11-09", time: "5:00 PM – 8:00 PM", default: true },
+      { date: "2026-11-10", time: "5:00 PM – 8:00 PM", default: false }
+    ]
+  },
+ 
+  {
+    label: "Nov 7",
+    event_date_start: "2026-11-07",
+    event_date_end:   "2026-11-07",
+    dropoff: [
+      { date: "2026-11-05", time: "5:00 PM – 8:00 PM", default: false },
+      { date: "2026-11-06", time: "5:00 PM – 8:00 PM", default: true },
+      { date: "2026-11-07", time: "10:00 AM – 1:00 PM", default: false  }
+    ],
+    pickup: [
+      { date: "2026-11-07", time: "4:00 PM – 8:00 PM", default: false  },
+      { date: "2026-11-08", time: "1:00 PM – 4:00 PM", default: true },
+      { date: "2026-11-03", time: "4:00 PM – 8:00 PM", default: false }
+    ]
+  },
 
   {
     label: "Nov 1",
