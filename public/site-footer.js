@@ -55,7 +55,6 @@
           <a href="/contact.html">Contact Us</a>
           ${contactLinks}
           <a href="https://www.facebook.com/profile.php?id=61574684115231">Facebook</a>
-          <a href="/review">Leave a Google Review</a>
         </nav>
       </div>
       ${copyright}

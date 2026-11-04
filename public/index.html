@@ -496,7 +496,6 @@
 
     /* Override style.css's global section { margin-bottom: 1rem } */
     section { margin-top: 0 !important; margin-bottom: 0 !important; }
-    .footer { border: none !important; margin: 0 !important; padding-top: 28px !important; }
     .cta-section { margin-bottom: 0 !important; padding-bottom: 100px !important; border-bottom: none !important; }
 
     /* CTA date input: keep text white on the dark background */
@@ -594,27 +593,13 @@
     .contact-alt i { color: var(--gold); }
     .contact-alt:hover { color: rgba(255,255,255,0.8); }
 
-    /* ─── FOOTER ─── */
-    .footer {
-      background: var(--ink);
-      padding: 28px 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.5);
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
+    /* ─── FOOTER (match the homepage section width) ─── */
+    .site-footer { padding: 0 80px 28px; }
+    .site-footer__grid,
+    .site-footer__copy { max-width: none; }
+    .site-footer__grid {
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
 
     /* ─── ANIMATIONS ─── */
@@ -692,7 +677,7 @@
         gap: 48px;
       }
 
-      .footer { padding: 24px 28px; flex-direction: column; text-align: center; }
+      .site-footer { padding: 0 24px 24px; }
     }
 
     /* Flatpickr overrides */
@@ -798,7 +783,7 @@
   <div class="trust-bar">
     <div class="trust-item">
       <i class="fa-solid fa-truck"></i>
-      Delivery &amp; Pickup Included
+      Delivery &amp; Pickup — Flat $25
     </div>
     <div class="trust-item">
       <i class="fa-solid fa-star"></i>
@@ -995,13 +980,6 @@
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="footer-logo">Red Rock Party Rentals</div>
-    <div class="footer-copy">© 2026 Red Rock Party Rentals · Las Vegas, NV</div>
-  </footer>
-
-
   <!-- CART OVERLAY -->
   <div id="cartOverlay" class="cart-overlay">
     <div class="cart-panel cart-panel--fullscreen">
@@ -1158,5 +1136,6 @@
     reveals.forEach(function (el) { observer.observe(el); });
   })();
   </script>
+<script src="/site-footer.js"></script>
 </body>
 </html>
