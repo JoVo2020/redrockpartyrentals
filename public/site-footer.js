@@ -24,7 +24,8 @@
   if (isSlim) {
     footer.className = 'site-footer site-footer--slim';
     footer.innerHTML = `
-      <nav class="site-footer__links" aria-label="Legal and contact">
+      <nav class="site-footer__links" aria-label="Help, legal, and contact">
+        <a href="/faq.html">FAQ</a>
         ${legalLinks}
         ${contactLinks}
       </nav>
