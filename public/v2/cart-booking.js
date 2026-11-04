@@ -244,30 +244,37 @@
     var dropoffDate = toLocalISO(dropoffPayload.dropoffDate);
     var pickupDate  = toLocalISO(pickupPayload.pickupDate);
 
-    if (!timesUnchanged) {
+    // Times may have been saved earlier (radio change handlers) without updating
+    // the rental range, so also reset when the stored range doesn't match
+    var dates = AvailabilityService.getRentalDates();
+    var rangeChanged = !dates || dates.start !== dropoffDate || dates.end !== pickupDate;
+    if (!timesUnchanged || rangeChanged) {
       AvailabilityService.setRentalDateRange(dropoffDate, pickupDate, eventIso);
     }
 
     cartCloseTimesEdit();
     refreshCartBookingInfo();
 
-    // Stepper hook — only present on book2.html
-    if (typeof window.stepperOnTimesConfirmed === 'function') {
-      window.stepperOnTimesConfirmed();
-    }
+    // Async availability → re-render cart (uses the cache when it's still valid)
+    var note = document.getElementById('CheckingAvailabilityNote');
+    if (note) note.style.display = 'block';
+    var check = AvailabilityService.ensureAvailability()
+      .then(function () {
+        var changes = (typeof refreshCartAvailability === 'function') ? refreshCartAvailability() : null;
+        if (typeof renderCart === 'function') renderCart();
+        return changes;
+      })
+      .finally(function () {
+        if (note) note.style.display = 'none';
+      });
 
-    if (!timesUnchanged) {
-      // Async availability → re-render cart
-      var note = document.getElementById('CheckingAvailabilityNote');
-      if (note) note.style.display = 'block';
-      AvailabilityService.ensureAvailability()
-        .then(function () {
-          if (typeof refreshCartAvailability === 'function') refreshCartAvailability();
-          if (typeof renderCart              === 'function') renderCart();
-        })
-        .finally(function () {
-          if (note) note.style.display = 'none';
-        });
+    // Stepper hook — receives the availability check so it can wait on it
+    if (typeof window.stepperOnTimesConfirmed === 'function') {
+      window.stepperOnTimesConfirmed(check);
+    } else {
+      check.catch(function (err) {
+        console.warn('Availability check failed after confirming times.', err);
+      });
     }
   };
 

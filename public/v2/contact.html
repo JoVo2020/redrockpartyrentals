@@ -9,78 +9,269 @@
 	})(window,document,'script','dataLayer','GTM-N67L88MK');</script>
 	<script src="/source-tracking.js"></script>
 	<!-- End Google Tag Manager -->
-
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Red Rock Party Rentals</title>
+	<title>Contact Us | Red Rock Party Rentals</title>
+	<meta name="description" content="Call, text, or email Red Rock Party Rentals. Open 8 AM to 8 PM, serving Las Vegas, Henderson, and nearby areas." />
+
 	<link rel="stylesheet" href="style.css" />
-	<!-- Lora font for all text -->
-	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
-	
+	<link rel="stylesheet" href="cart.css" />
+	<link rel="stylesheet" href="book-now-component.css" />
+	<link rel="stylesheet" href="info-page.css" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
 	<link rel="icon" href="/images/other-assets/favicon.ico" sizes="any">
 	<link rel="icon" type="image/png" href="/images/other-assets/favicon.png">
 	<link rel="icon" type="image/svg+xml" href="/images/other-assets/favicon.svg">
 	<link rel="apple-touch-icon" href="/images/other-assets/apple-touch-icon.png">
-	
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-	
-	
 </head>
-<body>
+<body class="info-page">
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N67L88MK"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 
+
+
 <header>
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" style="position:static;">
     <div class="logo">
 		<a href="index.html" >
 			<img src="images/logo.png" alt="Red Rock Logo" />
-			<span style="Color:#000;">Red Rock Party Rentals</span>
+			<span style="Color:rgba(0,0,0,.8);">Red Rock Party Rentals</span>
 		</a>
     </div>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">&#9776;</button>
+	<div style="display:flex;">
+		<button class="cart-toggle-mobile" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+		</button>
+		<button class="menu-toggle" id="menu-toggle" aria-label="Open Menu" style="color:#ccc;">&#9776;</button>
+	</div>
     <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="rentals.html">Rentals</a></li>
-      <li><a href="book.html">Book</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" style="color: rgba(0,0,0,.8);">Home</a></li>
+      <li><a href="rentals.html" style="color: rgba(0,0,0,.8);">Rentals</a></li>
+      <li><a href="book.html" style="color: rgba(0,0,0,.8);">Book</a></li>
+      <li><a href="contact.html" style="color: rgba(0,0,0,.8);">Contact</a></li>
+	  <button class="cart-toggle" aria-label="Open cart" onclick="openCart()">
+		  <i class="fa-solid fa-cart-shopping" style="line-height:1.6;"></i>
+	  </button>
     </ul>
   </nav>
 </header>
 
-  <section class="hero" style="background: url('images/partypeople.jpg');background-repeat: no-repeat; background-size: cover;">
-    <div class="overlay">
-      <div class="hero-text">
-        <h1>Contact Us</h1>
-      </div>
-    </div>
-  </section>
+<section class="info-hero">
+  <p class="info-eyebrow">Contact</p>
+  <h1>Contact Us</h1>
+  <p class="info-lead">We're looking forward to hearing from you.</p>
+</section>
 
-  <section class="booking" style="padding-bottom:0px;">
-    <h3>Where can you find us?</h3>
-    <p><b>Email us</b></p>
-	<p style="margin-bottom:1rem;">booking@redrockpartyrentals.com</p>
+<main class="info-main info-main--wide">
+<div class="contact-grid">
+  <div>
+    <h2>Get in touch</h2>
+    <p><strong>Call or text</strong><br>
+    <a href="tel:+17027062455">Call 702-706-2455</a><br>
+    <a href="sms:+17027062455">Text 702-706-2455</a></p>
 
-	<p><b>Text us</b></p>
-	<p style="margin-bottom:1rem;">702-706-2455</p>
+    <p><strong>Email</strong><br>
+    <a href="mailto:booking@redrockpartyrentals.com">booking@redrockpartyrentals.com</a></p>
 
-	<p><b>Follow us on Facebook</b></p>
-	<p><a href="https://www.facebook.com/profile.php?id=61574684115231">Red Rock Party Rentals</a></p>
-  </section>
-  
-  <section style="padding:2rem;">
-	<h4>We're looking forward to hearing from you!</h4>
-  
-    <div class="photo-row">
-      <img src="images/partytable1.jpg" alt="Day Setup" class="photo-img">
-      <img src="images/partytable2.jpg" alt="Night Setup" class="photo-img">
+    <!-- EDIT: "Daily" is an assumption. Change it if you aren't open every day. -->
+    <p><strong>Contact hours</strong><br>
+    8 AM &ndash; 8 PM daily</p>
+
+    <p><strong>Delivery windows</strong><br>
+    You'll see the windows available for your date when you <a href="/book.html">book</a>. They may fall outside our contact hours.</p>
+
+    <p><strong>Service area</strong><br>
+    Las Vegas, North Las Vegas, Henderson, Summerlin, Spring Valley, and Enterprise. Delivery only.</p>
+
+    <p><strong>Follow us</strong><br>
+    <a href="https://www.facebook.com/profile.php?id=61574684115231">Red Rock Party Rentals on Facebook</a></p>
+  </div>
+
+  <div>
+    <h2>Send us a message</h2>
+    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+
+      <label for="contactName">Name</label>
+      <input type="text" id="contactName" name="name" autocomplete="name" required />
+
+      <label for="contactEmail">Email</label>
+      <input type="email" id="contactEmail" name="email" autocomplete="email" required />
+
+      <label for="contactPhone">Phone (optional)</label>
+      <input type="tel" id="contactPhone" name="phone" autocomplete="tel" />
+
+      <label for="contactDate">Event date (optional)</label>
+      <input type="date" id="contactDate" name="event_date" />
+
+      <label for="contactMessage">Message</label>
+      <textarea id="contactMessage" name="message" rows="5" required></textarea>
+
+      <button class="info-btn" type="submit" id="contactSubmit">Send Message</button>
+      <p class="contact-status" id="contactStatus" role="status"></p>
+    </form>
+  </div>
+</div>
+
+<div class="contact-photos">
+  <img src="images/partytable1.jpg" alt="Party table set up outdoors during the day" loading="lazy" />
+  <img src="images/partytable2.jpg" alt="Party table set up outdoors at night" loading="lazy" />
+</div>
+</main>
+
+	<!-- CART OVERLAY -->
+	<div id="cartOverlay" class="cart-overlay">
+	  <div class="cart-panel cart-panel--fullscreen">
+
+		<header class="cart-header">
+		  <button class="cart-back" style="font-size:30px;" onclick="closeCart()">←</button>
+		  <h2 style="margin-bottom:0;font-size:30px;">Cart</h2>
+		  <button class="cart-close" onclick="closeCart()">✕</button>
+		</header>
+
+
+		<div class="cart-scroll-area">
+		  <div id="cart-booking-info" style="background:#eee; padding:14px 16px; border-bottom:1px solid #ddd;">
+
+		    <div class="cart-info-row" id="cartDateRow">
+		      <div>
+		        <div class="cart-info-label">Event Date</div>
+		        <div class="cart-info-value" id="cartDateValue">Not selected</div>
+		      </div>
+		      <button class="cart-info-edit" id="cartEditDateBtn">Edit</button>
+		    </div>
+
+		    <div id="cartDateEdit" style="display:none; padding-top:8px;">
+		      <div class="cart-info-label" style="margin-bottom:8px;">Select Event Date</div>
+		      <div id="cart-panel-booking-form">
+		        <div class="dropdown-wrapper" style="width:100%;">
+		          <div class="dropdown-icon-calendar"></div>
+		          <div class="dropdown-divider"></div>
+		          <input type="text" id="dateStart2" placeholder="Select a date" required>
+		        </div>
+		      </div>
+		    </div>
+
+		    <div class="cart-info-sep"></div>
+
+		    <div class="cart-info-row" id="cartTimesRow">
+		      <div style="flex:1; min-width:0;">
+		        <div class="cart-info-label">Dropoff &amp; Pickup</div>
+		        <div class="cart-info-value" id="cartTimesValue">Not selected</div>
+		      </div>
+		      <button class="cart-info-edit" id="cartEditTimesBtn">Edit</button>
+		    </div>
+
+		    <div id="cartTimesEdit" style="display:none; padding-top:10px;">
+		      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px;">
+		        <div class="cart-info-label" style="margin-bottom:0;">Select Dropoff &amp; Pickup Times</div>
+		        <button id="cartCancelTimesBtn" type="button" class="cart-info-edit">Cancel</button>
+		      </div>
+		      <div class="schedule-group">
+		        <div class="schedule-group-title">Dropoff</div>
+		        <div id="cartDropoffOptions" class="time-option-grid"></div>
+		      </div>
+		      <div class="schedule-group">
+		        <div class="schedule-group-title">Pickup</div>
+		        <div id="cartPickupOptions" class="time-option-grid"></div>
+		      </div>
+		      <div style="display:none;">
+		        <label style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); display:block; margin-bottom:0.4rem;">Notes (optional)</label>
+		        <textarea id="cartDeliveryNotes" placeholder="Need a specific time or have special instructions? Let us know."
+		                  style="width:100%; box-sizing:border-box; font-family:'Lora',serif; font-size:0.85rem; padding:8px 10px; border:1px solid #ddd; resize:none; height:60px; color:#333;"></textarea>
+		      </div>
+		      <button id="cartConfirmTimesBtn" type="button" class="find-rentals-btn"
+		              style="font-size:0.82rem; padding:0.65rem 1rem; width:100%; margin-top:0.25rem;">
+		        Confirm Times
+		      </button>
+		    </div>
+
+		    <div id="CheckingAvailabilityNote" class="checking-availability-message"
+		         style="display:none; padding:14px 0; font-size:1rem;">
+		      <i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability&hellip;
+		    </div>
+
+		  </div>
+		  <div id="cartItems" class="cart-items"></div>
+		</div><!-- /cart-scroll-area -->
+
+		<footer class="cart-footer">
+		  <div class="cart-summary">
+		  	<div class="cart-line"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+		  	<div class="cart-line"><span>Delivery</span><strong id="cartDelivery">$25.00</strong></div>
+		  	<div class="cart-line" style="display:none;"><span>Sales tax (8.375%)</span><strong id="cartTax">$0.00</strong></div>
+		  	<div class="cart-line total"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
+		  </div>
+
+			<div class="button-row" style="display:flex;gap:10px;">
+			  <button class="back-btn" onclick="closeCart()">Continue Shopping</button>
+			  <button id="checkoutBtn" class="checkout-btn" onclick="goToCheckout()">Checkout →</button>
+			</div>		
+		</footer>
+
+	  </div>
 	</div>
-  </section>
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="product_data.js"></script>
 <script src="navbar-scroll.js"></script>
+<script src="accordion.js"></script>
+<script src="availabilityService.js"></script>
+<script src="pricing.js"></script>
+<script src="cart.js"></script>
+<script src="book-now-component.js"></script>
+<script src="dropoff_pickup_rules.js"></script>
+<script src="closed_days.js"></script>
+<script src="cart-booking.js"></script>
+<script src="checkout.js"></script>
 
+<script src="/site-footer.js"></script>
+<script>
+(function () {
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('contactStatus');
+  const submit = document.getElementById('contactSubmit');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    submit.disabled = true;
+    status.className = 'contact-status';
+    status.textContent = 'Sending...';
+
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+
+      if (!res.ok) throw new Error(`Form failed: ${res.status}`);
+
+      form.reset();
+      status.className = 'contact-status contact-status--success';
+      status.textContent = "Thanks! We got your message and we'll be in touch soon.";
+    } catch (err) {
+      console.error(err);
+      status.className = 'contact-status contact-status--error';
+      status.textContent = "Sorry, your message didn't send. Please call or text 702-706-2455.";
+    }
+
+    submit.disabled = false;
+  });
+})();
+</script>
 </body>
 </html>

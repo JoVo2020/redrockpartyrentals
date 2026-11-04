@@ -259,8 +259,48 @@
     }
   }
 
-  window.stepperOnTimesConfirmed = function () {
-    window.location.href = '/checkout';
+  // ── Availability gate before checkout ─────────────────────────────────────
+  var checkingAvailability = false;
+  var CONTINUE_LABEL = 'Continue to Checkout &rarr;';
+
+  function setContinueBusy(busy) {
+    checkingAvailability = busy;
+    var btn = document.getElementById('continueToCheckoutBtn');
+    if (!btn) return;
+    // Not using `disabled` — .sl-next-btn:disabled is display:none
+    btn.innerHTML = busy
+      ? '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>Checking availability&hellip;'
+      : CONTINUE_LABEL;
+    btn.setAttribute('aria-busy', busy ? 'true' : 'false');
+  }
+
+  window.stepperOnTimesConfirmed = function (check) {
+    if (checkingAvailability) return;
+    setContinueBusy(true);
+
+    Promise.resolve(check)
+      .then(function (changes) {
+        var unavailable = getCart().filter(isItemUnavailable);
+        var reduced = (changes && changes.reduced) || [];
+
+        if (unavailable.length || reduced.length) {
+          // The banner only lists newly changed items, so include everything unavailable
+          var names = (changes && changes.unavailable) || [];
+          unavailable.forEach(function (item) {
+            if (names.indexOf(item.name) === -1) names.push(item.name);
+          });
+          showCartChangesBanner({ unavailable: names, reduced: reduced });
+          setContinueBusy(false);
+          return;
+        }
+
+        window.location.href = '/checkout';
+      })
+      .catch(function (err) {
+        console.warn('Availability check failed.', err);
+        setContinueBusy(false);
+        alert('We couldn\'t check availability right now. Please try again.');
+      });
   };
 
   // ── DOMContentLoaded ──────────────────────────────────────────────────────
@@ -299,6 +339,7 @@
 
     // Continue to Checkout button
     document.getElementById('continueToCheckoutBtn').addEventListener('click', function () {
+      if (checkingAvailability) return;
       var dropoffInput = document.querySelector('input[name="dropoffOption"]:checked');
       var pickupInput  = document.querySelector('input[name="pickupOption"]:checked');
       if (!dropoffInput) { goToSlide(2); return; }
@@ -349,9 +390,11 @@
       }
 
       if (storedDropoff && storedPickup) {
-        // Dates already fully set — nothing left to collect here
-        window.location.href = '/checkout';
-        return;
+        // Dates already fully set — confirm availability before moving on to checkout
+        jumpToSlide(3);
+        if (typeof window.onTimesConfirmed === 'function') {
+          window.onTimesConfirmed(JSON.parse(storedDropoff), JSON.parse(storedPickup));
+        }
       } else {
         jumpToSlide(2);
       }
