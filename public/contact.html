@@ -71,7 +71,7 @@
 </section>
 
 <main class="info-main info-main--wide">
-<div class="contact-grid">
+<div class="contact-grid" style="grid-template-columns:1fr;">
   <div>
     <h2>Get in touch</h2>
     <p><strong>Call or text</strong><br>
@@ -95,7 +95,8 @@
     <a href="https://www.facebook.com/profile.php?id=61574684115231">Red Rock Party Rentals on Facebook</a></p>
   </div>
 
-  <div>
+  <!-- Contact form hidden until Netlify is set up. To turn it on, remove display:none here and grid-template-columns on .contact-grid above. -->
+  <div style="display:none;">
     <h2>Send us a message</h2>
     <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
