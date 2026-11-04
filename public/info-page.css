@@ -15,6 +15,9 @@
   font-family: var(--font-body);
   background: var(--warm-white);
   color: var(--ink);
+  /* style.css sets body to height:100%, which stops this background at the first screen */
+  height: auto;
+  min-height: 100%;
 }
 
 .info-hero {
