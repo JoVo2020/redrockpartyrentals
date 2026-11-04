@@ -1,0 +1,162 @@
+/* Shared styles for the About, FAQ, Contact, and policy pages.
+   Colors and fonts match the homepage (index.html). */
+.info-page {
+  --crimson: #8b0000;
+  --crimson-pale: #f9f0f0;
+  --ink: #1a1210;
+  --muted: #6b6460;
+  --border: #e8e0da;
+  --warm-white: #fdfaf8;
+  --gold: #c9a96e;
+  --gold-text: #8a6a2f;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  font-family: var(--font-body);
+  background: var(--warm-white);
+  color: var(--ink);
+}
+
+.info-hero {
+  background: var(--crimson-pale);
+  padding: 64px 24px;
+  text-align: center;
+}
+.info-eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 12px;
+}
+.info-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0;
+  color: var(--ink);
+  text-shadow: none;
+  margin-bottom: 12px;
+}
+.info-hero p.info-lead {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+.info-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.info-main--wide { max-width: 1040px; }
+.info-main h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: left;
+  color: var(--ink);
+  margin: 40px 0 12px;
+}
+.info-main h2:first-child { margin-top: 0; }
+.info-main h3 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 24px 0 6px;
+}
+.info-main p { margin-bottom: 14px; }
+.info-main ul { margin: 0 0 14px 22px; }
+.info-main li { margin-bottom: 6px; }
+.info-main a { color: var(--crimson); text-decoration: underline; }
+.info-date { font-size: 14px; color: var(--muted); }
+
+/* Policy table */
+.info-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 16px; }
+.info-table th,
+.info-table td { text-align: left; vertical-align: top; padding: 12px; border: 1px solid var(--border); }
+.info-table th { background: var(--crimson-pale); font-weight: 500; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item summary {
+  cursor: pointer;
+  padding: 16px 0;
+  font-weight: 500;
+  font-size: 18px;
+}
+.faq-item p { color: var(--muted); }
+
+/* About */
+.about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+.about-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-reviews { display: grid; gap: 16px; margin-bottom: 20px; }
+.about-review { background: #fff; border: 1px solid var(--border); padding: 24px; }
+.about-review p { font-family: var(--font-display); font-size: 20px; font-style: italic; margin-bottom: 8px; }
+.about-review cite { font-size: 14px; font-style: normal; color: var(--muted); }
+
+/* Buttons */
+.info-btn {
+  display: inline-block;
+  background: var(--crimson);
+  color: #fff;
+  border: none;
+  padding: 16px 28px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.info-main a.info-btn { color: #fff; text-decoration: none; }
+.info-btn:hover { background: #a01010; }
+.info-btn:disabled { opacity: 0.6; cursor: default; }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; }
+/* book-now-component.css sets white label text for its dark booking form */
+.contact-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--ink);
+  -webkit-text-fill-color: var(--ink);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+}
+.contact-form input:focus,
+.contact-form textarea:focus { outline: 2px solid var(--crimson); outline-offset: -1px; }
+.contact-status { margin-top: 16px; }
+.contact-status--success { color: #1f6b34; }
+.contact-status--error { color: var(--crimson); }
+.contact-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; }
+.contact-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 760px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .info-main { padding: 40px 16px 56px; }
+  .info-hero { padding: 44px 16px; }
+}
+@media (max-width: 480px) {
+  .about-photos,
+  .contact-photos { grid-template-columns: 1fr; }
+}
