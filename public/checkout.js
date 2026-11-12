@@ -513,7 +513,7 @@ function firePurchaseEvent() {
     0
   );
 
-  const delivery = 25.00;
+  const delivery = DELIVERY_FEE;
   const total = subtotal + delivery;
 
   // Generate a simple transaction ID
