@@ -586,10 +586,10 @@ window.PRODUCT_DATA = [
     },
 	
     {
-      "Item_ID": "700W_Party_Speaker",
+      "Item_ID": "1100W_Party_Speaker",
       "Product_ID": "7069036000003140001",
-      "Item Name": "700W Party Speaker",
-      "Item Description": "700 Watt Party Speaker. Comes with Wireless Mic and Speaker Tripod Stand. Must be plugged in for power.",
+      "Item Name": "1100W Party Speaker",
+      "Item Description": "1100 Watt Party Speaker. Comes with Wireless Mic. Rechargeable battery provides up to twelve hours of playtime on a single charge.",
       "Quantity Available": 1,
       "Rental Price": 45,
       "Category": "Other",
@@ -598,14 +598,8 @@ window.PRODUCT_DATA = [
       "Image": "https://redrockpartyrentals.com/images/speaker-1.png",
       "Images": [
 				"https://redrockpartyrentals.com/images/speaker-1.png",
-				"https://redrockpartyrentals.com/images/speaker-0.png",
 				"https://redrockpartyrentals.com/images/speaker-2.png",
-				"https://redrockpartyrentals.com/images/speaker-3.png",
-				"https://redrockpartyrentals.com/images/speaker-4.png",
-				"https://redrockpartyrentals.com/images/speaker-5.png",
-				"https://redrockpartyrentals.com/images/speaker-6.png",
-				"https://redrockpartyrentals.com/images/speaker-7.png",
-				"https://redrockpartyrentals.com/images/speaker-8.png"
+				"https://redrockpartyrentals.com/images/speaker-3.png"
 				]
     },	
 	
