@@ -588,7 +588,7 @@ window.PRODUCT_DATA = [
     {
       "Item_ID": "1100W_Party_Speaker",
       "Product_ID": "7069036000003140001",
-      "Item Name": "1100W Party Speaker",
+      "Item Name": "1100W Bluetooth Party Speaker",
       "Item Description": "1100 Watt Party Speaker. Comes with Wireless Mic. Rechargeable battery provides up to twelve hours of playtime on a single charge.",
       "Quantity Available": 1,
       "Rental Price": 45,
